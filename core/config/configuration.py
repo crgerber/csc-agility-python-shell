@@ -186,8 +186,7 @@ class AgilityShellConfig(ConfigINIFile):
         self.mandatoryOptions('main', ['host', 'password'])
         self.default('servicemesh', 'main', 'client')
         self.default('environment', 'main', 'environment')
-        self.default('current', 'main', 'apiVersion')
-        self.default(8443, 'main', 'port' )
+        self.default(8443, 'main', 'port')
         self.default('admin', 'main', 'username')
         self.default('latest', 'main', 'systemversion')
         self.default(True, 'main', 'prefetch')
@@ -199,6 +198,9 @@ class AgilityShellConfig(ConfigINIFile):
         self.formatter(to_bool, 'main', 'connect')
         self.default(False, 'main', 'reauthenticate')
         self.formatter(to_bool, 'main', 'reauthenticate')
+        self.default('v2.0', 'apiversion', 'version')
+        self.default('True', 'apiversion', 'compatibility')
+        self.formatter(to_bool, 'apiversion', 'compatibility')
         mainSectionNames = filter(lambda sectionName: sectionName.startswith('main'), self.sections())
         if not mainSectionNames:
             raise RuntimeError('Failed to load configuration file, No [main] section')
@@ -207,6 +209,8 @@ class AgilityShellConfig(ConfigINIFile):
         self.validateSection(self.mainSectionName)
         self.mainSection = self.section(self.mainSectionName)
         
-    def getConfig(self, sectionName=None):
-        config = Enum(**self.section(sectionName or self.mainSectionName))
+    def getConfig(self, sectionNames=None):
+        sectionNames = sectionNames or [self.mainSectionName]
+        configDict = {'%s_%s'%(sectionName, k) : v for sectionName in sectionNames for k, v in self.section(sectionName).items()}
+        config = Enum(**configDict)
         return config

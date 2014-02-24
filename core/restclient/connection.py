@@ -161,7 +161,7 @@ class RESTConnection(object):
         self._connected = True#optimistic assumption that the token is valid, otherwise server would return an error anyways
         return self
         
-    def invoke_method(self, method, path, path_params=None, query_params=None, form_params=None,  data=None, version='current', custom_headers=None, files=None):
+    def invoke_method(self, method, path, path_params=None, query_params=None, form_params=None,  data=None, version=None, custom_headers=None, files=None):
         """
         Invoke a web service GET, POST, PUT or DELETE method.
         
@@ -184,7 +184,8 @@ class RESTConnection(object):
         query_params = self._params_to_strings(query_params)
         
         self.conn_params['resource'] = path
-        self.conn_params['version'] = version
+        if version:
+            self.conn_params['version'] = version
         self.url_base = 'https://%(host)s:%(port)s/agility/api/%(version)s/'%self.conn_params
         #log(url)
         url = self._build_url(path, path_params, query_params)

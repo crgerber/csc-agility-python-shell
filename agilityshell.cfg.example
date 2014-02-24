@@ -1,12 +1,10 @@
 [main]
-client = <Client Name>
-environment = <Installation Name per Client>
-#current or v2.0
-apiversion = current
+client = <client_name>
+environment = <environment_name e.g. PROD>
 password = <password>
-#host = <ip address>
+host = <ipv4>
 username = <username>
-systemversion = <agility version>
+systemversion = <agility_version>
 prefetch = True
 #oauth or basic
 auth = oauth
@@ -17,3 +15,6 @@ use_cookies = False
 #re-authenticate if session token expires
 reauthenticate = True
 
+[apiversion]
+#current or v2.0
+version = current

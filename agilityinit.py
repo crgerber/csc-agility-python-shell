@@ -31,7 +31,7 @@ from core import universal
 import inspect
 def getConfig(path=None):
     path = path or os.path.join(SHELL_ROOT_DIR, 'agilityshell.cfg')
-    config = AgilityShellConfig(path=path).getConfig()
+    config = AgilityShellConfig(path=path).getConfig(['main', 'apiversion'])
     return config
 
 def configure(config=None):
@@ -39,9 +39,9 @@ def configure(config=None):
     return config
 
 def getConnection(config):
-    conn = RESTConnection(auth=config.auth, host=config.host, username=config.username, password=config.password, 
-                          stemversion=config.systemversion, version=config.apiversion, use_cookies=config.use_cookies, 
-                          reauthenticate=config.reauthenticate)
+    conn = RESTConnection(auth=config.main_auth, host=config.main_host, username=config.main_username, password=config.main_password,
+                          stemversion=config.main_systemversion, version=config.apiversion_version, use_cookies=config.main_use_cookies,
+                          reauthenticate=config.main_reauthenticate)
     return conn
 
 
@@ -234,13 +234,13 @@ def init(config=None, conn=None, agility=None):
         config = getConfig()
     if not conn:
         conn = getConnection(config)
-        if config.connect:
+        if config.main_connect:
             conn.connect()
     if agility is None:
-        agility = Agility(conn, prefetch=config.prefetch)
+        agility = Agility(conn, prefetch=config.main_prefetch)
     else:
         agility.cfg.conn = conn
-        agility._prefetch = config.prefetch
+        agility._prefetch = config.main_prefetch
     
     agility.cfg.configuration = config
     universal.agility = universal.a = agility
