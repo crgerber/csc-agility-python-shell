@@ -1,0 +1,20 @@
+[main]
+client = <client_name>
+environment = <environment_name e.g. PROD>
+password = <password>
+host = <ipv4>
+username = <username>
+systemversion = <agility_version>
+prefetch = True
+#oauth or basic
+auth = oauth
+#connect on startup
+connect = True
+#save session tokens into a cookie file
+use_cookies = False
+#re-authenticate if session token expires
+reauthenticate = True
+
+[apiversion]
+#current or v2.0
+version = current
