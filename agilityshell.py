@@ -19,8 +19,8 @@ def main():
     parser.add_option("-p", "--config", dest="config", help="Use configuration file specified by path")
     options, args = parser.parse_args()
     if options.config:
-        config = getConfig(options.config)
-        init(config, conn=None)
+        configuration = getConfiguration(options.config)
+        init(configuration, conn=None)
     else:
         init()
     agility = a = universal.agility

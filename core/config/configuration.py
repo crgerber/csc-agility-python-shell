@@ -201,6 +201,7 @@ class AgilityShellConfig(ConfigINIFile):
         self.default('v2.0', 'apiversion', 'version')
         self.default('True', 'apiversion', 'compatibility')
         self.formatter(to_bool, 'apiversion', 'compatibility')
+        self.default('INFO', 'log', 'level')
         mainSectionNames = filter(lambda sectionName: sectionName.startswith('main'), self.sections())
         if not mainSectionNames:
             raise RuntimeError('Failed to load configuration file, No [main] section')

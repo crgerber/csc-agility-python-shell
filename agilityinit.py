@@ -29,13 +29,13 @@ from core.restclient.search.query import AgilityQuery
 from core import universal
 
 import inspect
-def getConfig(path=None):
+def getConfiguration(path=None):
     path = path or os.path.join(SHELL_ROOT_DIR, 'agilityshell.cfg')
-    config = AgilityShellConfig(path=path).getConfig(['main', 'apiversion'])
-    return config
+    configuration = AgilityShellConfig(path=path)
+    return configuration
 
 def configure(config=None):
-    config = config or getConfig()
+    config = config or getConfiguration()
     return config
 
 def getConnection(config):
@@ -49,9 +49,10 @@ def query(**kwargs):
     return AgilityQuery(**kwargs)
 
 class Agility(object):
-    def __init__(self, conn, assetName='ROOT', prefetch=True):
+    def __init__(self, conn, configuration, assetName='ROOT'):
         self.cfg = Hook()
         self.cfg.conn = conn
+        prefetch = configuration.get('main', 'prefetch')
         self._services = ['address',
  'addressrange',
  'alias',
@@ -143,7 +144,7 @@ class Agility(object):
  'volumestoragesnapshot']
         self._assetNames = [assetName.title() for assetName in self._services]
         [object.__setattr__(self, serviceName, ServiceProxy(conn, serviceName.title(), prefetch)) for serviceName in self._services]
-        self._initLogger()
+        self._initLogger(configuration)
         self._initDirs()
         self.tools = Tools()
         
@@ -164,7 +165,7 @@ class Agility(object):
         '''
         self.cfg.conn.http_exception_hooks[int(HTTPResponseCode)] = (exceptionClass, message)
     
-    def _initLogger(self):
+    def _initLogger(self, configuration):
         self.cfg.logger = logger
         level = Enum(**dict(CRITICAL = logging.CRITICAL,
                     FATAL = logging.CRITICAL,
@@ -175,7 +176,7 @@ class Agility(object):
                     DEBUG = logging.DEBUG,
                     NOTSET = logging.NOTSET))
         self.cfg.LOG_LEVEL = level
-        self.cfg.logger.setLevel(logging.INFO)
+        self.cfg.logger.setLevel(getattr(level, configuration.get('log', 'level')))
         
     def _initPlugins(self, rootpath=''):  
         if hasattr(self.cfg, 'plugins'):
@@ -229,20 +230,21 @@ class Agility(object):
                     matches.append('a.%s.%s'%(attrName, attrName_))
         return matches
         
-def init(config=None, conn=None, agility=None):
-    if not config:
-        config = getConfig()
+def init(configuration=None, conn=None, agility=None):
+    if not configuration:
+        configuration = getConfiguration()
+        config = configuration.getConfig(['main', 'apiversion'])
     if not conn:
         conn = getConnection(config)
         if config.main_connect:
             conn.connect()
     if agility is None:
-        agility = Agility(conn, prefetch=config.main_prefetch)
+        agility = Agility(conn, configuration)
     else:
         agility.cfg.conn = conn
         agility._prefetch = config.main_prefetch
     
-    agility.cfg.configuration = config
+    agility.cfg.configuration = configuration
     universal.agility = universal.a = agility
     return agility
 

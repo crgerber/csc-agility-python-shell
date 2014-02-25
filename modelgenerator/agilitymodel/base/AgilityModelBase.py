@@ -8,13 +8,17 @@ from core.restclient.responseparser.LxmlTools import d2xml, assetToXMLTemplate
 import re
 import time
 from core.restclient.responseparser.common import persistXML, AbstractProxy
+from logger import logger
 
 class AgilityModelBase(object):
     def __init__(self, *args, **kwrags):
         self.typeName = self.__class__.__name__
         self._topLevel = True
+        #importing agility at the top of the module will not have access to the agility object yet
+        from agilityshell import agility
+        self._apiversion_compatibility = agility.cfg.configuration.get('apiversion', 'compatibility')  #@todo pass configuration in a more consistent way through out the library
     
-    def _loadAttrs(self, attrs, classFactory, guessUnknownTypes=False, topLevel=True, wrapComposites=True):
+    def _loadAttrs(self, attrs, classFactory, topLevel=True, wrapComposites=True):
         assert isinstance(attrs, dict)
         self._topLevel = topLevel
         self.typeName = self._extractTypeName(attrs) or self.typeName
@@ -31,17 +35,11 @@ class AgilityModelBase(object):
                                 'native' : True,
                                 'name' : attrName}
                 else:#dict
-                    if guessUnknownTypes:
-                        guessedType = AgilityModelBase._extractTypeName(attrVal)
+                    if self._apiversion_compatibility:
+                        logger.warn('Skipping unexpected composite attribute [%s] : [%s]'%(attrName, attrVal))
+                        continue
                     else:
-                        guessedType = 'Link'
-                    if not guessedType:
                         raise RuntimeError('Unexpected composite attribute [%s] : [%s]'%(attrName, attrVal))
-                    #construct specs
-                    attrSpec = {'type' : guessedType,
-                                'native' : False,
-                                'name' : attrName}
-                    #fall through
             if attrSpec['native']:
                 setattr(self, attrSpec['name'], attrVal)
             else:
