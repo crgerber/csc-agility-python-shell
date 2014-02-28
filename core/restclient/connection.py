@@ -132,7 +132,13 @@ class RESTConnection(object):
         
         token_string = response.headers.get('set-cookie', None)
         if not token_string:
-            raise RuntimeError('Error: failed to retrieve authentication token. Response code: [%s], response headers: %s'%(response.code, dict(response.headers.items())))
+            exc = RuntimeError('Error: failed to retrieve authentication token. Response code: [%s], response headers: %s'%(response.code, dict(response.headers.items())))
+            if 401 in self.http_exception_hooks:
+                logger.error(exc)
+                exception_class, message = self.http_exception_hooks[401]
+                raise exception_class('Failed to retrieve authentication token.')
+            else:
+                raise exc
         
         if self._parse_token:
             tuplize = lambda split_result: (split_result[0].strip(), split_result[1].strip() if len(split_result) == 2 else '')
@@ -243,7 +249,7 @@ class RESTConnection(object):
             request.add_header('Content-Length', len(formtext))
             request.add_header('Content-Type', form.get_content_type())
         
-        logger.debug('REST [%s]: [%s] headers: [%s] data: [%s] form: [%s]', method, url, request.headers, data, formtext)
+        #logger.debug('REST [%s]: [%s] headers: [%s] data: [%s] form: [%s]', method, url, request.headers, data, formtext)
         #urllib2.Request would use POST if request has data, otherwise would do a GET, check if this complies with expectations
         response = None
         try:
