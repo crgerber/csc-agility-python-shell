@@ -1,5 +1,5 @@
 from agilityshell import agility
-import core.restclient.gen.methods as client
+import core.restclient.v2_0.methods as client
 from core.restclient.responseparser.common import AbstractProxy
 from core.restclient.agility.assettype import ASSET_TYPES
 from functools import partial

@@ -5,7 +5,7 @@ Created on Apr 23, 2013
 '''
 __all__ = ['new', 'asSubType']
 
-from modelgenerator import agilitymodel as new
+from core.restclient.v2_0 import agilitymodel as new
 
 def asSubType(modelInstance, subType=None, nested=True, namespace=''):
     sep = ':' if namespace else ''

@@ -81,7 +81,7 @@ def getParentProject(computeInstance, details=False):
     
     @param details: if True, a Project Asset would be returned, else a Project Link is returned
     '''
-    from modelgenerator.agilitymodel.Link import Link
+    from core.restclient.v2_0.agilitymodel.Link import Link
     parentLink = computeInstance.template.load().parent if isinstance(computeInstance.template, Link) else computeInstance.template.parent
     while(parentLink.typeName != 'Project'):
         parent = parentLink.load()

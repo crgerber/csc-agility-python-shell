@@ -1,0 +1,13 @@
+from core.restclient.v2_0.agilitymodel.base.FieldValidator import FieldValidatorBase
+from core.restclient.v2_0.agilitymodel.actions.FieldValidator import FieldValidatorActions
+
+class FieldValidator(FieldValidatorBase, FieldValidatorActions):
+    '''
+    classdocs
+    '''
+    def __init__(self):
+        '''
+        Constructor
+        
+        '''
+        FieldValidatorBase.__init__(self)

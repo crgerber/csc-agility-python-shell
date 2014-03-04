@@ -13,8 +13,8 @@ from LxmlTools import etree, d2xml, xml2d
 from itertools import groupby
 import re
 import copy
-from modelgenerator import agilitymodel
-from modelgenerator.agilitymodel import Assetlist, Linklist, Tasklist
+from core.restclient.v2_0 import agilitymodel
+from core.restclient.v2_0.agilitymodel import Assetlist, Linklist, Tasklist
 
 modelClassFactory = lambda name: getattr(agilitymodel, name)
 #from ParserLxml import xml2d, d2xml, modifyMap
