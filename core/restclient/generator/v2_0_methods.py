@@ -12,15 +12,14 @@
   CSC IS PROHIBITED.
 ----------------------------------------------------------------
 """
-import os
 from core.restclient.responseparser.common import COMPONENT_NAME
 from core.restclient.responseparser.common import AbstractProxy
-import logging
+
 COMPONENT_NAME = 'agility-client'
 from logger import getLogger
 logger = getLogger(COMPONENT_NAME)
 from ..connection import RESTException
-from ..responseparser.decorators import download
+from ..core.http.decorators import download
 
 class assettype:
     """

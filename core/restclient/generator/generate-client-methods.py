@@ -118,14 +118,11 @@ def warning(msg, context=None):
 # Code to read and parse the WADL file.
 # ==========================================================================
 
-class Param:
+class Param(object):
     """
-    A class representing a method parameter. The java_type is a custom field
-    added to the WADL file, reflecting the parameter's datatype on the server.
-    The datatype on the client may be different (e.g., the client uses String
-    instead of List<String>).
+    A class representing a method parameter.
     """
-    def __init__(self, node=None, kind='', name='', java_type='', path=None, cleanupName=True, doc=''):
+    def __init__(self, node=None, kind='', name='', path=None, cleanupName=True, doc=''):
         """
         Create a Param instance from a <param> node in the WADL file. This may
         be a path parameter, a query parameter or a form parameter.
@@ -134,7 +131,6 @@ class Param:
         self.name = node.getAttribute("name") if node else name
         if cleanupName:
             self.name = re.sub('\W', '_', self.name)
-        self.java_type = node.getAttribute("javaType") if node else self.kind
         self.required = False
         self.defaultValue = None
         self.path = path
@@ -145,6 +141,8 @@ class Param:
         for k, v in self.__dict__.items():
             if isinstance(v, (unicode)):
                 setattr(self, k, str(v))
+
+        self._id_attrs = ('kind', 'name', 'alias', 'required', 'defaultValue')
         
     def getDocs(self, doc_indent=''):
         return doc_indent + (self.doc or '''@param %(alias)s: %(alias)s\n%(indent)s@type %(alias)s: str'''%{'alias' : self.alias, 'indent' : doc_indent})
@@ -156,53 +154,18 @@ class Param:
                          '=' if not self.required else '', 
                          str(self.defaultValue) if not self.required else '')
     def __str__(self):
-        return str({'kind' : str(self.kind),
-                    'name' : str(self.name),
-                    'alias' : str(self.alias),
-                    'required' : self.required,
-                    'defaultValue' : self.defaultValue
-                    })
+        return str({idattr : getattr(self, idattr) for idattr in self._id_attrs})
         
     def __eq__(self, other):
         return eval(repr(self)) == eval(repr(other))
         
-        
+    def __hash__(self):
+        id_string = ''.join([str(getattr(self, id_attr)) for id_attr in self._id_attrs])
+        return hash(id_string)
+
     __repr__ = __str__
 
-def rename_params(method):
-    def findbackwards(text, sub, start):
-        idx = start if start <= len(text) else len(text)
-        while idx > 0:
-            if text[idx] == '/':
-                return idx + 1
-            idx -= 1
-        return idx
-            
-    path_params = method.path_params
-    path = method.path
-    pattern = '/\{%s:*\s*[^\}]*\}'
-    newnames = set()
-    for param in path_params:
-        alias = param.name
-        match = re.search(pattern%param.name, path)
-        if match:
-            start_index = match.start()
-            end_index = match.end()
-            node_start = findbackwards(path, '/', start_index - 1)
-            alias = path[node_start:start_index]#parent service endpoint name
-            generic_param_pattern = '\{\w+:*\s*[^\}]*\}'
-            consecutiveParams = re.search(generic_param_pattern, alias)
-            if consecutiveParams:#path = /xyz{param1}/{param2}
-                pass
-            else:
-                if str(param.name).startswith(alias):
-                    pass
-                else:
-                    newname = '%s_%s'%(alias, param.name)
-                    param.alias = '%s%s'%(newname, '2' if newname in newnames else '') 
-        newnames.add(param.alias)
-    return
-     
+
 class Method(object):
     """
     A class representing an API method contained in a second-level resource
@@ -326,7 +289,7 @@ class Method(object):
                 if singleparam.path_end_index < len(singleparam.path):
                     singleparam.required = True
         
-        rename_params(self)    
+        self.rename_params()
         self.all_params = self.path_params +\
                           self.query_params + self.form_params#, Param(name='custom_headers', kind='str')]
         
@@ -344,6 +307,41 @@ class Method(object):
             
         
         self.custom_headers = {'Content-Type' : request_mediaType} if request_mediaType else {}
+
+    def rename_params(self):
+        def findbackwards(text, sub, start):
+            idx = start if start <= len(text) else len(text)
+            while idx > 0:
+                if text[idx] == '/':
+                    return idx + 1
+                idx -= 1
+            return idx
+
+        path_params = self.path_params
+        path = self.path
+        pattern = '/\{%s:*\s*[^\}]*\}'
+        newnames = set()
+        for param in path_params:
+            alias = param.name
+            match = re.search(pattern%param.name, path)
+            if match:
+                start_index = match.start()
+                end_index = match.end()
+                node_start = findbackwards(path, '/', start_index - 1)
+                alias = path[node_start:start_index]#parent service endpoint name
+                generic_param_pattern = '\{\w+:*\s*[^\}]*\}'
+                consecutiveParams = re.search(generic_param_pattern, alias)
+                if consecutiveParams:#path = /xyz{param1}/{param2}
+                    pass
+                else:
+                    if str(param.name).startswith(alias):
+                        pass
+                    else:
+                        newname = '%s_%s'%(alias, param.name)
+                        param.alias = '%s%s'%(newname, '2' if newname in newnames else '')
+            newnames.add(param.alias)
+        return
+
         
 
     def get_docs(self):
@@ -392,19 +390,20 @@ class Method(object):
             return false
         return self.name == other.name
     
-class MethodClass:
+class MethodClass(object):
     """
     A class representing a top-level resource from the WADL file.
-
-    This corresponds to a /grails-app/resources/<Xxx>Resource.groovy class
-    on the server, and a matching <Xxx>Methods class on the client.
     """
     def __init__(self, node, className, path):
         """
         Create a method class instance from a top-level <resource> node in
         the WADL file.
         """
-        self.name = re.sub("Resource$", "Methods", className)
+        cleanedup_classname = re.sub("Resource$", "Methods", className)
+        pattern = '/*\{:*\s*[^\}]*\}/*' #cleanup resource names of the format: blueprint/{bp_id}/workload
+        cleanedup_classname = re.sub(pattern, '_', className)
+        cleanedup_classname = re.sub('\W', '_', cleanedup_classname) #remove any '/' or illegal characters
+        self.name = cleanedup_classname
         self.path = str(path)
 
         # Find the class docs, if any
@@ -450,8 +449,8 @@ def persistDedupLog(dirpath='.', filename='dedup_map.py'):
         dedup_log.write('duplicateMethods = %s'%str(duplicateMethods))
 
 def updateMethodName(cls, method, othermethod, methodsMap):
-    if api_version == 'v2_0':
-        return updatedMethodName_v2_0(cls, method, othermethod, methodsMap)
+    # if api_version == 'v2_0':
+    #     return updatedMethodName_v2_0(cls, method, othermethod, methodsMap)
     return resolveMethodNameConflict(cls, method, othermethod, methodsMap)
 
 def resolveMethodNameConflict(cls, method, othermethod, methodsMap):
@@ -501,9 +500,9 @@ def promptResolveMethodNameConflict(methodentry, othermethodentry):
     #@todo convert Method/Param classes to hashable object, suggest smarter renaming using info about path params
     while True:
         method_alias = raw_input('Enter an alias for method (1): [%s] '%methodentry['name'])
-        method_alias = method_alias or methodentry['name']
+        method_alias = '%s%s'%(methodentry['name'], method_alias[1:]) if method_alias.startswith('*') else method_alias if method_alias else methodentry['name']
         other_method_alias = raw_input('Enter an alias for method (2): [%s] '%othermethodentry['name'])
-        other_method_alias = other_method_alias or othermethodentry['name']
+        other_method_alias = '%s%s'%(othermethodentry['name'], other_method_alias[1:]) if other_method_alias.startswith('*') else other_method_alias if other_method_alias else othermethodentry['name']
         if method_alias == methodentry['name'] \
                 and other_method_alias == othermethodentry['name'] \
                 or method_alias == other_method_alias:
@@ -543,7 +542,7 @@ def updatedMethodName_v2_0(cls, method, othermethod, methodsMap):
     
     return 
 
-class Application:
+class Application(object):
     """
     A class representing the entire web service API.
 
@@ -574,7 +573,12 @@ class Application:
                child.tagName == "resource":
                 path = child.getAttribute("path")
                 className = child.getAttribute("className")
-                if not className: className = path[1:]
+                if not className:
+                    if path[0] != '/':
+                        warning('Top level resource [%s] should be named [/%s]'%(path, path))
+                        className = path
+                    else:
+                        className = path[1:]
                 if path != None and className != None:
                     if className in classes_found:
                         error("Found 2 copies of class '%s'" % className)
@@ -585,20 +589,6 @@ class Application:
 # Common code to help generate client code.
 # ==========================================================================
 
-LICENCE = """
-----------------------------------------------------------------
-          ***********************************************
-          ***  THIS IS GENERATED CODE: DO NOT MODIFY  ***
-          ***********************************************
-
-            Copyright (c) 2009-2014 CSC, Incorporated
-                     All Rights Reserved
-  THIS WORK CONTAINS CONFIDENTIAL PROPPRIETARY INFORMATION AND
-  TRADE SECRETS WHICH ARE THE PROPERTY OF CSC.  ALL USE,
-  DISCLOSURE AND/OR REPRODUCTION NOT EXPRESSLY AUTHORIZED BY
-  CSC IS PROHIBITED.
-----------------------------------------------------------------
-"""
 
 def aligned_output(cols, indent, tab_size=4):
     """
@@ -710,48 +700,6 @@ def update_file_if_changed(filename, contents):
 # Code to generate the Python methods module.
 # ==========================================================================
 
-PYTHON_METHOD_TEMPLATE = '''    @download    
-    def %(method_name)s(%(method_params)s):
-        """
-%(method_docs)s
-
-%(param_docs)s
-        """
-        path = "%(method_path)s"
-        path_params = {%(path_params)s}
-        
-        #convenience parameter conversion logic
-        for k, v in path_params.items():
-            if v is None: continue
-            if isinstance(v, AbstractProxy):
-                path_params[k] = v.id
-            elif not isinstance(v, str):
-                path_params[k] = str(v)
-
-        %(process_data_objects)s
-        
-        query_params = kwargs
-        wadl_query_params = {%(query_params)s}
-        
-        query_params.update(wadl_query_params)
-        form_params = {%(form_params)s}
-        wadl_custom_headers = %(custom_headers)s
-        custom_headers = {}
-        custom_headers.update(wadl_custom_headers)
-        
-                
-        logger.debug('Invoking path: %%s, path_params: %%s, query_params: %%s, form_params: %%s, data: %%s', path, path_params, query_params, form_params, %(data)s)
-        response = self._conn.invoke_method("%(method_kind)s", path, path_params,
-                                         query_params, form_params, data=%(data)s, custom_headers=custom_headers, files=%(files)s)
-        if not str(response.getcode()).startswith('2'): #OK 200, CREATED 201, Accepted 202, Partial Information 203, No Response 204 
-            raise RESTException(response)
-        
-        result = response
-        
-        return %(result)s
-    %(method_name)s.context = %(method_context)s
-'''
-
 def generate_python_method(method):
     """
     Generate the Python code for a single web service API method, using the
@@ -792,8 +740,8 @@ def generate_python_method(method):
             result = "result.%s" % method.result_field
     else:
         result = 'result'
-    process_data_objects_code = '''if data is not None and isinstance(data, AbstractProxy):
-            data = str(data) #AbstractProxy.__str__ should return the proper xml for the POST/PUT requests
+    process_data_objects_code = '''if data is not None:
+            data = str(data)
 '''
     method_context = { "method_name": method.name,
                                       "method_params": method_params,
@@ -826,16 +774,9 @@ def generate_python_method(method):
                     }
     meta_context = dict([(k, str(v).strip() if isinstance(v, (str, unicode)) else v)for k, v in meta_context.items()])
     method_context['method_context'] = meta_context
+    PYTHON_METHOD_TEMPLATE = open(os.path.join('templates', 'python', 'method.txt')).read()
     return PYTHON_METHOD_TEMPLATE % method_context
 
-PYTHON_CLASS_TEMPLATE = '''class %(class_name)s:
-    """
-%(class_docs)s
-    """
-    def __init__(self, conn):
-        self._conn = conn
-
-%(methods)s'''
 
 def generate_python_class(cls):
     """
@@ -844,37 +785,10 @@ def generate_python_class(cls):
     """
     docs = javadocs_to_text(cls.docs, "    ")
     methods = "\n".join(generate_python_method(x) for x in cls.methods.values())
-    
-    pattern = '/*\{:*\s*[^\}]*\}/*' #cleanup resource names of the format: blueprint/{bp_id}/workload
-    cleanedup_classname = re.sub(pattern, '_', cls.name)
-    cleanedup_classname = re.sub('\W', '_', cleanedup_classname) #remove any '/' or illegal characters
-    
-    return PYTHON_CLASS_TEMPLATE % { "class_name": cleanedup_classname,
+    PYTHON_CLASS_TEMPLATE = open(os.path.join('templates', 'python', 'class.txt')).read()
+    return PYTHON_CLASS_TEMPLATE % { "class_name": cls.name,
                                      "class_docs": docs,
                                      "methods": methods }
-
-PYTHON_MODULE_TEMPLATE = '''# === AUTO-GENERATED - DO NOT EDIT ===
-
-# --------------------------------------------------------------------------
-%(licence)s
-# --------------------------------------------------------------------------
-
-"""
-Web service API methods. This module is fully auto-generated, and contains
-the Python equivalent of the XxxMethods Java classes for executing all API
-methods.
-"""
-import os
-from core.restclient.responseparser.common import COMPONENT_NAME
-from core.restclient.responseparser.common import AbstractProxy
-import logging
-COMPONENT_NAME = 'agility-client'
-from logger import getLogger
-logger = getLogger(COMPONENT_NAME)
-from ..connection import RESTException
-from ..responseparser.decorators import download
-
-%(classes)s'''
 
 def generate_python_module(app):
     """
@@ -882,8 +796,9 @@ def generate_python_module(app):
     the XxxMethods classes, using the PYTHON_MODULE_TEMPLATE.
     """
     classes = "\n".join(generate_python_class(x) for x in app.classes)
-
-    return PYTHON_MODULE_TEMPLATE % { "licence": comment_out(LICENCE),
+    LICENSE = open(os.path.join('templates', 'license.txt')).read()
+    PYTHON_MODULE_TEMPLATE = open(os.path.join('templates', 'python', 'module.txt')).read()
+    return PYTHON_MODULE_TEMPLATE % { "licence": comment_out(LICENSE),
                                       "classes": classes }
 
 

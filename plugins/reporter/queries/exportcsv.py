@@ -6,7 +6,7 @@ Created on Oct 29, 2012
 from agilityshell import agility
 import reporting
 from reporting.csvwriter import writeCSVFile
-from core.restclient.agility.servicelookup import lookup
+from core.agility.common.servicelookup import lookup
 COMPONENT_NAME = reporting.LOGGER_NAME
 import logger
 logger = logger.getLogger(COMPONENT_NAME)

@@ -9,18 +9,21 @@ from itertools import chain
 import re
 
 from lxml import etree
+import sys
+sys.path.append('/Users/dawood/Documents/workspace/agilitypythonshell/lib/beautifulsoup4-4.1.3/')
 from bs4 import BeautifulSoup
 from core.restclient.responseparser.ParserLxml import xml2d
 from core.pyworx.text import isValidPythonSymbol, validPythonSymbol
-from core.restclient.v2_0 import agilitymodel
+from core.agility import getModel
+agilitymodel = getModel()
 
 
 CDATA_KEY = '__CDATA__'
-HOST = '54.252.95.45'
+HOST = '54.206.19.70'
 PYTHON = 'python'
 RUBY = 'ruby'
 
-LANG = RUBY
+LANG = PYTHON
 
 CODE_FILE_EXTENSION = '.py' if LANG == PYTHON else '.rb'
 

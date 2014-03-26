@@ -1,9 +1,11 @@
-from agilityshell import agility
-import core.restclient.v2_0.methods as client
-from core.restclient.responseparser.common import AbstractProxy
-from core.restclient.agility.assettype import ASSET_TYPES
 from functools import partial
-from core.proxy.serviceproxy import ParseDecorator
+
+from agilityshell import agility
+from core.agility import getClient
+client = getClient()
+from core.restclient.responseparser.common import AbstractProxy
+from core.agility.common.assettype import ASSET_TYPES
+
 
 DISPLAY_NAME_ASSET_TYPE_MAP = agility.tools.scripting.idmap(ASSET_TYPES, 'displayName')
 
