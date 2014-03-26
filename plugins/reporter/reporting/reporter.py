@@ -4,18 +4,14 @@ Created on Oct 24, 2012
 @author: dawood
 '''
 
-from core.restclient import client
-from core.restclient import responseparser
-from core.restclient.responseparser.common import AbstractProxy
-import logging
 import csv
-import re
 import os
-from functools import partial
 
-from core.base.enum import Enum
+from core.agility import getClient
+from core.restclient import responseparser
 import reporting
-from core.restclient.agility.servicelookup import lookup
+from core.agility.common.servicelookup import lookup
+
 COMPONENT_NAME = reporting.LOGGER_NAME
 import logger
 logger = logger.getLogger(COMPONENT_NAME)
@@ -46,7 +42,7 @@ def applyFilters(sequence, **functions):
 
 def getAssetList(conn, assetName, getDetails=True, persist=True, persistRootDir='', persistFilePrefix=''):    
     
-    serviceProxy = getattr(client, assetName.lower())(conn)
+    serviceProxy = getattr(getClient(), assetName.lower())(conn)
     serviceName = lookup(assetName, lookup.ACTION.GET)
     service = getattr(serviceProxy, serviceName)
     summaryPersistDir = os.path.join(persistRootDir, conn.conn_params['host'], conn.conn_params['systemversion'], assetName, 'summary')

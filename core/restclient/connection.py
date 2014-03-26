@@ -3,13 +3,15 @@ Created on Oct 8, 2012
 
 @author: dawood
 '''
-import urllib2, base64, urllib
-from core.restclient.put.multipartform import MultiPartForm
+import urllib2
+import base64
+import urllib
 import os
-from logger import logger
-from responseparser import parser as parse
 import cookielib
 from functools import update_wrapper
+
+from core.http.put.multipartform import MultiPartForm
+from logger import logger
 
 
 CONTENT_TYPE_APLICATION_XML = 'application/xml'
