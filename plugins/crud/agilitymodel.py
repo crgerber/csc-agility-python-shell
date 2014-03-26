@@ -4,8 +4,11 @@ Created on Apr 23, 2013
 @author: dawood
 '''
 __all__ = ['new', 'asSubType']
-
-from modelgenerator import agilitymodel as new
+from core import agility
+new = agility.getModel()
+# NOTE: in case the api version is changed dynamically after the shell has loaded, user must call:
+# a.cfg.plugins.reload('a.tools.model')
+# to reload the new model into the plugin mount point
 
 def asSubType(modelInstance, subType=None, nested=True, namespace=''):
     sep = ':' if namespace else ''

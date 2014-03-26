@@ -19,8 +19,9 @@ def modelObjectTypes():
     A trick to defer importing the model modules to break the cyclic import
     '''
     from core.restclient.responseparser.common import AbstractProxy
-    from modelgenerator.agilitymodel.base.AgilityModelBase import AgilityModelBase
-    return (AbstractProxy, AgilityModelBase)
+    from core.agility.common.AgilityModelBase import AgilityModelBase
+    from core import agility
+    return AbstractProxy, AgilityModelBase
 
 ############# type agnostic property access funcs ############# 
 

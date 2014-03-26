@@ -24,11 +24,14 @@ from core.proxy.hook import Hook
 
 from core.plugin import loadPlugins, reloadPluginFeature
 from shellutils.utils import Tools
-from core.restclient.connection import RESTConnection
+#from core.restclient.connection import RESTConnection
 from core.restclient.search.query import AgilityQuery
 from core import universal
+from core import agility as client
+from core.agility.common.service import Endpoint
 
 import inspect
+
 def getConfiguration(path=None):
     path = path or os.path.join(SHELL_ROOT_DIR, 'agilityshell.cfg')
     configuration = AgilityShellConfig(path=path)
@@ -39,6 +42,7 @@ def configure(config=None):
     return config
 
 def getConnection(config):
+    from core.restclient.connection import RESTConnection
     conn = RESTConnection(auth=config.main_auth, host=config.main_host, username=config.main_username, password=config.main_password,
                           stemversion=config.main_systemversion, version=config.apiversion_version, use_cookies=config.main_use_cookies,
                           reauthenticate=config.main_reauthenticate)
@@ -52,102 +56,22 @@ class Agility(object):
     def __init__(self, conn, configuration, assetName='ROOT'):
         self.cfg = Hook()
         self.cfg.conn = conn
-        prefetch = configuration.get('main', 'prefetch')
-        self._services = ['address',
- 'addressrange',
- 'alias',
- 'artifact',
- 'artifactattachment',
- 'artifacttype',
- 'assettype',
- 'attachment',
- 'auth',
- 'authtype',
- 'blueprint',
- 'blueprint_designcontainer',
- 'blueprint_workload',
- 'cloud',
- 'cloudtype',
- 'compute',
- 'configuration_artifact',
- 'configuration_artifacttype',
- 'configuration_policy',
- 'configuration_repository',
- 'configuration_resource',
- 'connection',
- 'container',
- 'credential',
- 'custom',
- 'customcontainer',
- 'deployer',
- 'designdeployer',
- 'dhcpoptions',
- 'domain',
- 'environment',
- 'environmenttype',
- 'resources',
- 'eula',
- 'globals',
- 'image',
- 'launchitem',
- 'launchitemdeployment',
- 'ldapgroup',
- 'location',
- 'model',
- 'network',
- 'networkinterface',
- 'networkservice',
- 'networkservicetype',
- 'onboard',
- 'os',
- 'paas',
- 'paastype',
- 'package',
- 'permissiontype',
- 'policy',
- 'project',
- 'projectrole',
- 'propertygroup',
- 'propertytype',
- 'reports',
- 'repository',
- 'runtime',
- 'script',
- 'scriptclasspath',
- 'scriptlanguage',
- 'search',
- 'security',
- 'servicebindingtype',
- 'setup',
- 'solution',
- 'solutiondeployment',
- 'stack',
- 'storage',
- 'storecatalog',
- 'storecategory',
- 'storeedition',
- 'storeproduct',
- 'storeproductadapter',
- 'storeproducttype',
- 'storerelease',
- 'targetcloud',
- 'task',
- 'template',
- 'theme',
- 'topology',
- 'tree',
- 'user',
- 'usergroup',
- 'variable',
- 'volume',
- 'volumestorage',
- 'volumestoragesnapshot']
-        self._assetNames = [assetName.title() for assetName in self._services]
-        [object.__setattr__(self, serviceName, ServiceProxy(conn, serviceName.title(), prefetch)) for serviceName in self._services]
+        import pdb
+        pdb.set_trace()
+        self._loadServices(configuration)
         self._initLogger(configuration)
         self._initDirs()
         self.tools = Tools()
-        
+
+    def _loadServices(self, configuration):
+        #Note: In a shell context, apiversion is set globally before instantiating the Agility object
+        _client = client.getClient()
+        attrnames = dir(_client)
+        self._services = [attrname for attrname in attrnames if isinstance(getattr(_client, attrname), type) and issubclass(getattr(_client, attrname), Endpoint)]
+        self._services.remove('Endpoint') #@todo: use decorators and tag services with a marker attribute to avoid using dir(module) and receiving the Base Class as an attribute that meets the criteria: isinstance(Base Class)
+        self._assetNames = [assetName.title() for assetName in self._services]
+        prefetch = configuration.get('main', 'prefetch')
+        [object.__setattr__(self, serviceName, ServiceProxy(self.cfg.conn, serviceName.title(), prefetch)) for serviceName in self._services]
     
     def _addServiceMethod(self, func, alias=None):
         '''
@@ -234,6 +158,7 @@ def init(configuration=None, conn=None, agility=None):
     if not configuration:
         configuration = getConfiguration()
         config = configuration.getConfig(['main', 'apiversion'])
+    client.setAPIVersion(config.apiversion_version)
     if not conn:
         conn = getConnection(config)
         if config.main_connect:
