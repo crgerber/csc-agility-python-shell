@@ -3,10 +3,11 @@ Created on Dec 14, 2012
 
 @author: dawood
 '''
-from agilityshell import agility
 import re
-from core.base.enum import Enum
-from core.restclient.put.localarchive import LocalArchive as archive
+
+from agilityshell import agility
+from core.http.put.localarchive import LocalArchive as archive
+
 __all__ = ['archive']
 
 

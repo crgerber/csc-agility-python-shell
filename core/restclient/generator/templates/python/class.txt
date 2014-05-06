@@ -1,0 +1,8 @@
+class %(class_name)s:
+    """
+%(class_docs)s
+    """
+    def __init__(self, conn):
+        self._conn = conn
+
+%(methods)s

@@ -11,7 +11,7 @@ from core.restclient.responseparser.ParserLxml import AssetEntryLxml,\
     AssetAttributeLxml
 __all__ = ['container', 'proxy']
 
-from core.restclient.agility.servicelookup import lookup
+from core.agility.common.servicelookup import lookup
 from agilityshell import agility as a, agility
 from logger import logger
 import re

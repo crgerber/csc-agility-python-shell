@@ -1,0 +1,40 @@
+    @download
+    def %(method_name)s(%(method_params)s):
+        """
+%(method_docs)s
+
+%(param_docs)s
+        """
+        path = "%(method_path)s"
+        path_params = {%(path_params)s}
+
+        #convenience parameter conversion logic
+        for k, v in path_params.items():
+            if v is None: continue
+            if hasattr(v, 'id'):
+                path_params[k] = v.id
+            elif not isinstance(v, str):
+                path_params[k] = str(v)
+
+        %(process_data_objects)s
+
+        query_params = kwargs
+        wadl_query_params = {%(query_params)s}
+
+        query_params.update(wadl_query_params)
+        form_params = {%(form_params)s}
+        wadl_custom_headers = %(custom_headers)s
+        custom_headers = {}
+        custom_headers.update(wadl_custom_headers)
+
+
+        logger.debug('Invoking path: %%s, path_params: %%s, query_params: %%s, form_params: %%s, data: %%s', path, path_params, query_params, form_params, %(data)s)
+        response = self._conn.invoke_method("%(method_kind)s", path, path_params,
+                                         query_params, form_params, data=%(data)s, custom_headers=custom_headers, files=%(files)s)
+        if not str(response.getcode()).startswith('2'): #OK 200, CREATED 201, Accepted 202, Partial Information 203, No Response 204
+            raise RESTException(response)
+
+        result = response
+
+        return %(result)s
+    %(method_name)s.context = %(method_context)s
