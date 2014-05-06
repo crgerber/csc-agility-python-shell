@@ -1,0 +1,18 @@
+# === AUTO-GENERATED - DO NOT EDIT ===
+
+# --------------------------------------------------------------------------
+%(licence)s
+# --------------------------------------------------------------------------
+
+"""
+Web service API methods. This module is fully auto-generated
+"""
+import os
+import logging
+COMPONENT_NAME = 'agility-client'
+from logger import getLogger
+logger = getLogger(COMPONENT_NAME)
+from ..connection import RESTException
+from ..responseparser.decorators import download
+
+%(classes)s

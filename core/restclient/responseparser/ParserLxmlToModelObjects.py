@@ -13,10 +13,7 @@ from LxmlTools import etree, d2xml, xml2d
 from itertools import groupby
 import re
 import copy
-from modelgenerator import agilitymodel
-from modelgenerator.agilitymodel import Assetlist, Linklist, Tasklist
 
-modelClassFactory = lambda name: getattr(agilitymodel, name)
 #from ParserLxml import xml2d, d2xml, modifyMap
 
 COMPONENT_NAME = 'XML_PARSER_Lxml_To_Model_Objects'
@@ -37,6 +34,16 @@ def parse(xmlText, assetType=None, removeNSPrefix=True):
     '''
     if not xmlText:
         return xmlText
+
+    #lazy imports, to break cyclic dependency between model & response parser
+    from core import agility
+    agilitymodel = agility.getModel()
+    Assetlist = agilitymodel.Assetlist
+    Linklist = agilitymodel.Linklist
+    Tasklist = agilitymodel.Tasklist
+
+    modelClassFactory = lambda name: getattr(agilitymodel, name)
+
     e = etree.XML(xmlText)
     dct = xml2d(e, removeNSPrefix, loadAttrs=True)
     k, v = dct.items().pop()

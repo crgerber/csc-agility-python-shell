@@ -3,13 +3,14 @@ Created on Oct 22, 2012
 
 @author: dawood
 '''
-from core.restclient import client
-from core.restclient import responseparser 
-from core.restclient.responseparser.common import AbstractProxy
-import re
 import os
-from core.restclient.agility.servicelookup import lookup
 from functools import update_wrapper
+
+from core.agility import getClient
+from core.restclient import responseparser
+from core.restclient.responseparser.common import AbstractProxy
+from core.agility.common.servicelookup import lookup
+
 responseparser.register_parser(responseparser.PARSER.LXML_MODEL)
 parse = responseparser.parser()
 
@@ -92,8 +93,8 @@ class ServiceProxy(AbstractProxy):
         self._conn = conn
         self._prefetch = prefetch
         self._autoParse = autoParse
-        self._client = client
-        service = getattr(client, assetName.lower(), None)
+        self._client = getClient()
+        service = getattr(self._client, assetName.lower(), None)
         if service:
             self._service = service(conn)
         else:
@@ -145,7 +146,7 @@ class ServiceProxy(AbstractProxy):
         '''
         almost duplicates getAssetList from the reporter module, copied here to break the dependency
         '''    
-        serviceProxy = getattr(client, assetName.lower())(conn)
+        serviceProxy = getattr(self._client, assetName.lower())(conn)
         serviceName = lookup(assetName.lower(), action=lookup.ACTION.GET)
         service = getattr(serviceProxy, serviceName)
         summaryPersistDir = os.path.join(persistRootDir, conn.conn_params['host'], conn.conn_params['systemversion'], assetName, 'summary')
