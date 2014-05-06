@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='AgilityPythonShell',
-    version='1.1.3',
+    version='1.1.4',
     author='Shaady Dawood',
     author_email='shady.dawood@servicemesh.com',
     scripts=[],
@@ -13,7 +13,7 @@ setup(
     description='Agility Python REST Client',
     long_description=open('README.txt').read(),
     install_requires=[
-	"ipython",
+	    "ipython",
         "python-dateutil >= 1.5",
         "beautifulsoup4 >= 4.0.0",
         "lxml >= 3.0.0",

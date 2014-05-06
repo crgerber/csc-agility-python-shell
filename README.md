@@ -1,13 +1,14 @@
 ## Synopsis
 
-The Agility Shell is a CLI for Agility in the form of an interactive shell
+AgilityShell is a Python REST API client. The REST method stubs are generated from the WADL file, but why stop there, the Python classes mapping the Agility Object Model are also generated using the html javadoc at https://<HOST>:8443/javadoc/scripting/allclasses-frame.html.
 
-It provides a scripting interface that feels natural for developers and system administrators
+Used in a standalone application, AgilityShell is an interactive shell, built on top of IPython, leveraging IPython's autocomplete, interactive debugger, and interactive development features. Webservice endpoints are pre-loaded in memory as an object graph, with the agility (also aliased 'a') object as the root of the graph. Under each endpoint, all methods are listed with comprehensive documentation about the HTTP method (GET, POST, etc.), parameter names, and parameter types where applicable. The more documentation and metadata included in the WADL, the better AgilityShell method documentation gets.
+
+Alternatively, AgilityShell can be imported by Python scripts and 3rd party applications as a python library, featuring a full REST client for Agility Platform. Including method stubs, object model and XML parser that unmarshals XML response into Python objects, and vice versa.
 
 
 ## Code Example
 
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
 
 ## Motivation
 
@@ -23,9 +24,20 @@ Last but not least, the shell is an interactive tool to learn the Agility REST A
 
 ## Installation
 
-Configure your agility instance in the agilityshell.cfg file and drop it on the shell root dir
+AgilityShell depends on a couple of python libraries for XML parsing and handling iso-formatted dates in REST responses. Also one of the core dependencies of the interactive shell is IPython.
 
-Dependencies are: Python2.7, python-lxml, and python-dateutil which you can install using python pip.
+For convenience, a setup.py file is included in the root folder of the git repo. The setup.py files uses python setuptools to download dependencies via PyPi (Python Packaging Index). Don’t worry if you don’t have setuptools installed on your system, since the helper file ez_setup.py (also included in the repo) will install it for your platform.
+
+That said, the only prerequisite is Python2.7 or later.
+
+Clone the repo from github:
+
+git clone https://github.com/ServiceMesh/agility-python-shell.git
+sudo python setup.py install
+After successful installation of all dependencies, from the agility-python-shell root directory run:
+
+python agilityshell.py [-p path_to_configuration_file]
+If you don’t specify an alternative configuration file using the –p flag, the shell will look for the default configuration file with the name agilityshell.cfg in the current directory and use it to connect to the Agility Platform.Dependencies are: Python2.7, python-lxml, and python-dateutil which you can install using python pip.
 
 ## API Reference
 
