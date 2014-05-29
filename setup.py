@@ -11,7 +11,7 @@ setup(
     url='https://github.com/ServiceMesh/agility-python-shell',
     license='LICENSE.txt',
     description='Agility Python REST Client',
-    long_description=open('README.txt').read(),
+    long_description=open('README.md').read(),
     install_requires=[
 	    "ipython",
         "python-dateutil >= 1.5",
