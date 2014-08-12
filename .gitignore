@@ -1,2 +1,7 @@
 .idea
 transform_result.xml
+*.cfg
+agility_api_v3_0_application_better.wadl
+agility_reconstructed.xsd
+agility_types.xml
+wadl_to_intermediate_model.xsl
