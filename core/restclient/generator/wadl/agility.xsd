@@ -1,0 +1,2984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     COPYRIGHT (C) 2008-2012 SERVICEMESH, INC.  ALL RIGHTS RESERVED.  CONFIDENTIAL AND PROPRIETARY. 
+     
+     ALL SOFTWARE, INFORMATION AND ANY OTHER RELATED COMMUNICATIONS (COLLECTIVELY, "WORKS") ARE CONFIDENTIAL AND PROPRIETARY INFORMATION THAT ARE THE EXCLUSIVE PROPERTY OF SERVICEMESH.     ALL WORKS ARE PROVIDED UNDER THE APPLICABLE AGREEMENT OR END USER LICENSE AGREEMENT IN EFFECT BETWEEN YOU AND SERVICEMESH.  UNLESS OTHERWISE SPECIFIED IN THE APPLICABLE AGREEMENT, ALL WORKS ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.  ALL USE, DISCLOSURE AND/OR REPRODUCTION OF WORKS NOT EXPRESSLY AUTHORIZED BY SERVICEMESH IS STRICTLY PROHIBITED.
+     -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:agility="http://servicemesh.com/agility/api" targetNamespace="http://servicemesh.com/agility/api" elementFormDefault="qualified" attributeFormDefault="qualified" jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.0">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<jaxb:globalBindings>
+				<xjc:simple/>
+			</jaxb:globalBindings>
+			<jaxb:schemaBindings>
+				<jaxb:package name="com.servicemesh.agility.api"/>
+			</jaxb:schemaBindings>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<!-- enumerated types used throughout the schema -->
+	<xsd:simpleType name="Architecture">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Any"/>
+			<xsd:enumeration value="i386"/>
+			<xsd:enumeration value="x86_64"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="Product">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="None"/>
+			<xsd:enumeration value="Planner"/>
+			<xsd:enumeration value="Factory"/>
+			<xsd:enumeration value="CenterPoint"/>
+			<xsd:enumeration value="Manager"/>
+			<xsd:enumeration value="Platform"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="State">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Unknown"/>
+			<xsd:enumeration value="Starting"/>
+			<xsd:enumeration value="Running"/>
+			<xsd:enumeration value="Paused"/>
+			<xsd:enumeration value="Stopping"/>
+			<xsd:enumeration value="Stopped"/>
+			<xsd:enumeration value="Destroyed"/>
+			<xsd:enumeration value="Failed"/>
+			<xsd:enumeration value="Degraded"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DeploymentState">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Unknown"/>
+			<xsd:enumeration value="Starting"/>
+			<xsd:enumeration value="Running"/>
+			<xsd:enumeration value="Deployed"/>
+			<xsd:enumeration value="Stopping"/>
+			<xsd:enumeration value="Stopped"/>
+			<xsd:enumeration value="Released"/>
+			<xsd:enumeration value="Failed"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LaunchItemState">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Unknown"/>
+			<xsd:enumeration value="OrderPending"/>
+			<xsd:enumeration value="Ordered"/>
+			<xsd:enumeration value="Starting"/>
+			<xsd:enumeration value="Running"/>
+			<xsd:enumeration value="Stopping"/>
+			<xsd:enumeration value="Stopped"/>
+			<xsd:enumeration value="Paused"/>
+			<xsd:enumeration value="Degraded"/>
+			<xsd:enumeration value="Released"/>
+			<xsd:enumeration value="DeployPending"/>
+			<xsd:enumeration value="Deployed"/>
+			<xsd:enumeration value="Deploying"/>
+			<xsd:enumeration value="Failed"/>
+			<xsd:enumeration value="Rejected"/>
+			<xsd:enumeration value="OrderFailed"/>
+			<xsd:enumeration value="DeployFailed"/>
+			<xsd:enumeration value="OrderProvisioning"/>
+			<xsd:enumeration value="Deleting"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ScriptState">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Unknown"/>
+			<xsd:enumeration value="Running"/>
+			<xsd:enumeration value="Success"/>
+			<xsd:enumeration value="Failed"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ScriptErrorAction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Continue"/>
+			<xsd:enumeration value="SkipPackage"/>
+			<xsd:enumeration value="Abort"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RaidLevel">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="linear"/>
+			<xsd:enumeration value="striped"/>
+			<xsd:enumeration value="mirrored"/>
+			<xsd:enumeration value="raid5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PrimitiveType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="string"/>
+			<xsd:enumeration value="integer"/>
+			<xsd:enumeration value="numeric"/>
+			<xsd:enumeration value="bool"/>
+			<xsd:enumeration value="date"/>
+			<xsd:enumeration value="binary"/>
+			<xsd:enumeration value="encrypted"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ValueConstraintType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="none"/>
+			<xsd:enumeration value="list"/>
+			<xsd:enumeration value="tree"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ImportMode">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Lookup"/>
+			<xsd:enumeration value="CreateOrUpdate"/>
+			<xsd:enumeration value="Create"/>
+			<xsd:enumeration value="Update"/>
+			<xsd:enumeration value="Delete"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LookupFailCode">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Fail"/>
+			<xsd:enumeration value="Continue"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ErrorLevel">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="none"/>
+			<xsd:enumeration value="info"/>
+			<xsd:enumeration value="warning"/>
+			<xsd:enumeration value="error"/>
+			<xsd:enumeration value="fatal"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ResourceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="None"/>
+			<xsd:enumeration value="Other"/>
+			<xsd:enumeration value="Computer"/>
+			<xsd:enumeration value="Processor"/>
+			<xsd:enumeration value="Memory"/>
+			<xsd:enumeration value="IDE Controller"/>
+			<xsd:enumeration value="Parallel SCSI HBA"/>
+			<xsd:enumeration value="FC HBA"/>
+			<xsd:enumeration value="iSCSI HBA"/>
+			<xsd:enumeration value="IB HCA"/>
+			<xsd:enumeration value="Ethernet Adapter"/>
+			<xsd:enumeration value="Other Network Adapter"/>
+			<xsd:enumeration value="I/O Slot"/>
+			<xsd:enumeration value="I/O Device"/>
+			<xsd:enumeration value="Floppy Drive"/>
+			<xsd:enumeration value="CD Drive"/>
+			<xsd:enumeration value="DVD Drive"/>
+			<xsd:enumeration value="Disk Drive"/>
+			<xsd:enumeration value="Tape Drive"/>
+			<xsd:enumeration value="Storage Extent"/>
+			<xsd:enumeration value="Other Storage"/>
+			<xsd:enumeration value="Serial Port"/>
+			<xsd:enumeration value="Parallel Port"/>
+			<xsd:enumeration value="USB Controller"/>
+			<xsd:enumeration value="Graphics Controller"/>
+			<xsd:enumeration value="IEEE 1394 Controller"/>
+			<xsd:enumeration value="Partitionable Unit"/>
+			<xsd:enumeration value="Base Partitionable Unit"/>
+			<xsd:enumeration value="Power Supply"/>
+			<xsd:enumeration value="Cooling Device"/>
+			<xsd:enumeration value="PCI Controller"/>
+			<xsd:enumeration value="PS2 Controller"/>
+			<xsd:enumeration value="SIO Controller"/>
+			<xsd:enumeration value="Keyboard"/>
+			<xsd:enumeration value="Pointing Device"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ResourceAffinity">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="None"/>
+			<xsd:enumeration value="Network"/>
+			<xsd:enumeration value="Host"/>
+			<xsd:enumeration value="Location"/>
+			<xsd:enumeration value="Cloud"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ScriptType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Guest"/>
+			<xsd:enumeration value="Platform"/>
+			<xsd:enumeration value="Provider"/>
+			<xsd:enumeration value="Configuration"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AccessListDirection">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Input"/>
+			<xsd:enumeration value="Output"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="ErrorMessage" type="agility:ErrorMessage"/>
+	<xsd:complexType name="ErrorMessage">
+		<xsd:sequence>
+			<xsd:element name="message" type="xsd:string"/>
+			<xsd:element name="code" type="xsd:string"/>
+			<xsd:element name="detail" type="xsd:string"/>
+			<xsd:element name="isError" type="xsd:boolean" default="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AgilityVersion" type="agility:AgilityVersion"/>
+	<xsd:complexType name="AgilityVersion">
+		<xsd:sequence>
+			<xsd:element name="version" type="xsd:string"/>
+			<xsd:element name="url" type="xsd:string"/>
+			<xsd:element name="build" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="VersionList" type="agility:VersionList"/>
+	<xsd:complexType name="VersionList">
+		<xsd:sequence>
+			<xsd:element name="versions" type="agility:AgilityVersion" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ScriptClasspath" type="agility:ScriptClasspath"/>
+	<xsd:complexType name="ScriptClasspath">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="path" type="xsd:string"/>
+					<xsd:element name="unerasable" type="xsd:boolean"/>
+					<xsd:element name="domain" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- special directives for import -->
+	<xsd:element name="ImportDirectives" type="agility:ImportDirectives"/>
+	<xsd:complexType name="ImportDirectives">
+		<xsd:sequence>
+			<xsd:element name="onNotFound" type="agility:LookupFailCode"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- base type and meta-data for all assets/resources -->
+	<xsd:element name="Property" type="agility:Property"/>
+	<xsd:complexType name="Property">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="value" type="xsd:string"/>
+					<xsd:element name="data" type="xsd:hexBinary" minOccurs="0"/>
+					<xsd:element name="overridable" type="xsd:boolean" default="true"/>
+					<xsd:element name="encrypted" type="xsd:boolean" default="false"/>
+					<xsd:element name="dataEncrypted" type="xsd:boolean" default="false"/>
+					<xsd:element name="availableOptions" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- This mainly follows the Agility vm.model hierarchy.  As of 7.1 we have:
+	     
+	     VMTopology -> VMContainer -> VMVersionedItem -> VMItem -> Asset 
+	     ^
+	     |
+	     Resource
+	     
+	     and resources were based on one of these base classes.
+	     -->
+	<xsd:element name="Asset" type="agility:Asset"/>
+	<xsd:complexType name="Asset">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tags" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="uuid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="assetType" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="assetProperties" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="importMode" type="agility:ImportMode" default="CreateOrUpdate" minOccurs="0"/>
+			<xsd:element name="importDirectives" type="agility:ImportDirectives" minOccurs="0"/>
+			<xsd:element name="top" type="xsd:boolean" default="false"/>
+			<xsd:element name="Asset" type="agility:Asset" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Assetlist" type="agility:Assetlist" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="assetPath" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="detailedAssetPath" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="usedByAssets" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="applicationType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lifecycleState" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lifecycleVersion" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="removable" type="xsd:boolean" minOccurs="0" default="true"/>
+			<xsd:element name="lifecycleLastComment" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PolicyType" type="agility:PolicyType"/>
+	<xsd:complexType name="PolicyType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="bundleVersion" type="xsd:string"/>
+					<xsd:element name="symbolicName" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Policy" type="agility:Policy"/>
+	<xsd:complexType name="Policy">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="filter" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="definition" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="type" type="agility:PolicyType" minOccurs="0"/>
+					<xsd:element name="apiVersion" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PolicyAssignment" type="agility:PolicyAssignment"/>
+	<xsd:complexType name="PolicyAssignment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="applyToSelf" type="xsd:boolean" default="true"/>
+					<xsd:element name="applyChildrenDepth" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="allowChildrenOverride" type="xsd:boolean" default="true"/>
+					<xsd:element name="policy" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="policyTypeName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="itemClass" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="itemId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="itemName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="filterMatch" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="permissioned" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="inherited" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Item" type="agility:Item"/>
+	<xsd:complexType name="Item">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="domain" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="creator" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="created" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="lockType" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="lastModified" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="policyAssignment" type="agility:PolicyAssignment" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="parent" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CustomItem" type="agility:CustomItem"/>
+	<xsd:complexType name="CustomItem" abstract="false">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence> 
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CustomItemList" type="agility:CustomItemList"/>
+	<xsd:complexType name="CustomItemList">
+		<xsd:sequence>
+			<xsd:element name="customItem" type="agility:CustomItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="VersionedItem" type="agility:VersionedItem"/>
+	<xsd:complexType name="VersionedItem">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="slot" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="version" type="xsd:int" default="-1" minOccurs="0"/>
+					<xsd:element name="latest" type="xsd:boolean" default="false" minOccurs="0"/>
+					<xsd:element name="publishComment" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="slotId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="publisher" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="imagePath" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="versionStatus" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="checkoutAllowed" type="xsd:boolean" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Rating" type="agility:Rating"/>
+	<xsd:complexType name="Rating">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="rating" type="xsd:int" default="1"/>
+					<xsd:element name="user" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="createdOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="updatedOn" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Comment" type="agility:Comment"/>
+	<xsd:complexType name="Comment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="comment" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="user" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="createdOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="updatedOn" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AssetProperty" type="agility:AssetProperty"/>
+	<xsd:complexType name="AssetProperty">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="description" type="xsd:string"/>
+			<xsd:element name="encrypted" type="xsd:boolean"/>
+			<xsd:element name="overridable" type="xsd:boolean"/>
+			<xsd:element name="propertyType" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="propertyDefinition" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="stringValue" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateValue" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="floatValue" type="xsd:decimal" minOccurs="0"/>
+			<xsd:element name="intValue" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="booleanValue" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="byteValue" type="xsd:hexBinary" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AssetType" type="agility:AssetType"/>
+	<xsd:complexType name="AssetType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="custom" type="xsd:boolean" default="false"/>
+					<xsd:element name="global" type="xsd:boolean" default="false"/>
+					<xsd:element name="entityClassName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="entityTableName" type="xsd:string" minOccurs="1"/>
+					<xsd:element name="propertyDefinition" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="propertyDefinitionGroup" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="propertyDefinitionReference" type="agility:PropertyDefinitionReference" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="objectReference" type="agility:ObjectReference" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="useDtype" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AssetTypeList" type="agility:AssetTypeList"/>
+	<xsd:complexType name="AssetTypeList">
+		<xsd:sequence>
+			<xsd:element name="assetType" type="agility:AssetType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PropertyDefinition" type="agility:PropertyDefinition"/>
+	<xsd:complexType name="PropertyDefinition">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="readable" type="xsd:boolean" default="true"/>
+					<xsd:element name="writable" type="xsd:boolean" default="true"/>
+					<xsd:element name="minRequired" type="xsd:int" default="0"/>
+					<xsd:element name="maxAllowed" type="xsd:int" default="0"/>
+					<xsd:element name="validator" type="agility:FieldValidators" minOccurs="0"/>
+					<xsd:element name="defaultValue" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="propertyType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="propertyTypeValue" type="agility:PropertyType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PropertyDefinitionList" type="agility:PropertyDefinitionList"/>
+	<xsd:complexType name="PropertyDefinitionList">
+		<xsd:sequence>
+			<xsd:element name="definition" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PropertyDefinitionReference" type="agility:PropertyDefinitionReference"/>
+	<xsd:complexType name="PropertyDefinitionReference">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="path" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="propertyDefinition" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ObjectReference" type="agility:ObjectReference"/>
+	<xsd:complexType name="ObjectReference">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="fieldName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="fieldAssetTypeName" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PropertyDefinitionGroup" type="agility:PropertyDefinitionGroup"/>
+	<xsd:complexType name="PropertyDefinitionGroup">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="propertyDefinition" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="parent" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="derivedGroup" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PropertyType" type="agility:PropertyType"/>
+	<xsd:complexType name="PropertyType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="type" type="agility:PrimitiveType" minOccurs="0"/>
+					<xsd:element name="open" type="xsd:boolean" default="false"/>
+					<xsd:element name="valueProvider" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="valueConstraint" type="agility:ValueConstraintType" minOccurs="0" nillable="false"/>
+					<xsd:element name="rootValue" type="agility:PropertyTypeValue" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="owned" type="xsd:boolean" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PropertyTypeValue" type="agility:PropertyTypeValue"/>
+	<xsd:complexType name="PropertyTypeValue">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="value" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="parent" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="child" type="agility:PropertyTypeValue" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ValueProvider" type="agility:ValueProvider"/>
+	<xsd:complexType name="ValueProvider">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="classname" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PermissionType" type="agility:PermissionType"/>
+	<xsd:complexType name="PermissionType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="global" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- -->
+	<xsd:element name="Protocol" type="agility:Protocol"/>
+	<xsd:complexType name="Protocol">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="minPort" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="maxPort" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="protocol" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="prefixes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="allowed" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EffectiveProtocol" type="agility:EffectiveProtocol"/>
+	<xsd:complexType name="EffectiveProtocol">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Protocol">
+				<xsd:sequence>
+					<xsd:element name="policyName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="direction" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EffectiveProtocolRequest" type="agility:EffectiveProtocolRequest"/>
+	<xsd:complexType name="EffectiveProtocolRequest">
+		<xsd:sequence>
+			<xsd:element name="item" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="policyId" type="xsd:int" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AccessList" type="agility:AccessList"/>
+	<xsd:complexType name="AccessList">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="direction" type="agility:AccessListDirection" minOccurs="0"/>
+					<xsd:element name="protocols" type="agility:Protocol" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Host" type="agility:Host"/>
+	<xsd:complexType name="Host">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="address" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="credential" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Location" type="agility:Location"/>
+	<xsd:complexType name="Location">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="storageRoot" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="visible" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="sublocations" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="networks" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="repositories" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="hosts" type="agility:Host" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ProjectRole" type="agility:ProjectRole"/>
+	<xsd:complexType name="ProjectRole">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="domain" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Domain" type="agility:Domain"/>
+	<xsd:complexType name="Domain">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="users" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="roles" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="User" type="agility:User"/>
+	<xsd:complexType name="User">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="digest" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="password" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="groups" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="sshKey" type="agility:Credential" minOccurs="0"/>
+					<xsd:element name="enabled" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="accessRights" type="agility:AccessRight" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="UserGroup" type="agility:UserGroup"/>
+	<xsd:complexType name="UserGroup">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="domain" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="users" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="enabled" type="xsd:boolean" default="true"/>
+					<xsd:element name="accessRights" type="agility:AccessRight" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="securityRoles" type="agility:SecurityRole" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="groups" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AccessRight" type="agility:AccessRight"/>
+	<xsd:complexType name="AccessRight">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="granted" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="defaultGranted" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="source" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AccessRightSet" type="agility:AccessRightSet"/>
+	<!--  Corresponds to VMAccessRightSet -->
+	<xsd:complexType name="AccessRightSet">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="filter" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accessRight" type="agility:AccessRight" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ContainerRights" type="agility:ContainerRights"/>
+	<!--  corresponds to VMContainerRights -->
+	<xsd:complexType name="ContainerRights">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="projectRole" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="user" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="usergroup" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="rights" type="agility:AccessRightSet" minOccurs="0" maxOccurs="unbounded"/>
+					<!--
+					     <xsd:element name="defaultRightsXML" type="xsd:string" minOccurs="0" maxOccurs="1" />
+					     <xsd:element name="filteredRightsXML" type="xsd:string" minOccurs="0" maxOccurs="1" />
+					     <xsd:element name="inheritedUser" type="agility:Link" minOccurs="0" maxOccurs="unbounded" />
+					     <xsd:element name="inheritedUsergroup" type="agility:Link" minOccurs="0" maxOccurs="unbounded" />
+					     <xsd:element name="defaulted" type="xsd:boolean" minOccurs="0"/ maxOccurs="1" />
+					     -->
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="SecurityRole" type="agility:SecurityRole"/>
+	<xsd:complexType name="SecurityRole">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="product" type="agility:Product" minOccurs="0"/>
+					<xsd:element name="securityRoleName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="enabled" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="visible" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Variable" type="agility:Variable"/>
+	<xsd:complexType name="Variable">
+		<xsd:complexContent>
+			<xsd:extension base="agility:AssetProperty">
+				<xsd:sequence>
+					<xsd:element name="value" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="VariableList" type="agility:VariableList"/>
+	<xsd:complexType name="VariableList">
+		<xsd:sequence>
+			<xsd:element name="variable" type="agility:Variable" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CredentialType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Username/Password"/>
+			<xsd:enumeration value="SSH"/>
+			<xsd:enumeration value="Certificate/PK"/>
+			<xsd:enumeration value="Encrypt/Decrypt"/>
+			<xsd:enumeration value="Certificate with Private Key"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Credential" type="agility:Credential"/>
+	<xsd:complexType name="Credential">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="credentialType" type="agility:CredentialType" minOccurs="0"/>
+					<xsd:element name="credentialId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="publicKey" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="privateKey" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="secretKey" type="xsd:hexBinary" minOccurs="0"/>
+					<xsd:element name="certificate" type="xsd:hexBinary" minOccurs="0"/>
+					<xsd:element name="certificateName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="externallyManaged" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="managerCloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="cloud" type="agility:Cloud" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Address" type="agility:Address"/>
+	<xsd:complexType name="Address">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="address" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="inetAddr" type="xsd:string" minOccurs="0"/>
+					<!-- What type should this be? -->
+					<xsd:element name="instance" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AddressList" type="agility:AddressList"/>
+	<xsd:complexType name="AddressList">
+		<xsd:sequence>
+			<xsd:element name="Address" type="agility:Address" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NetworkAddressList" type="agility:NetworkAddressList"/>
+	<xsd:complexType name="NetworkAddressList">
+		<xsd:sequence>
+			<xsd:element name="network" type="agility:Link" minOccurs="1"/>
+			<xsd:element name="address" type="agility:Address" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Alias" type="agility:Alias"/>
+	<xsd:complexType name="Alias">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="link" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AliasList" type="agility:AliasList"/>
+	<xsd:complexType name="AliasList">
+		<xsd:sequence>
+			<xsd:element name="alias" type="agility:Alias" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AccessUri" type="agility:AccessUri"/>
+	<xsd:complexType name="AccessUri">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="type" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="label" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="accessUri" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="accessUriExpanded" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AccessUriList" type="agility:AccessUriList"/>
+	<xsd:complexType name="AccessUriList">
+		<xsd:sequence>
+			<xsd:element name="AccessUri" type="agility:AccessUri" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NetworkInterface" type="agility:NetworkInterface"/>
+	<xsd:complexType name="NetworkInterface">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Resource">
+				<xsd:sequence>
+					<xsd:element name="physicalAddress" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="address" type="agility:Address" minOccurs="0"/>
+					<xsd:element name="network" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="NetworkInterfaceList" type="agility:NetworkInterfaceList"/>
+	<xsd:complexType name="NetworkInterfaceList">
+		<xsd:sequence>
+			<xsd:element name="NetworkInterface" type="agility:NetworkInterface" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AddressRange" type="agility:AddressRange"/>
+	<xsd:complexType name="AddressRange">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="network" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="rangeMin" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="rangeMax" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="availableAddresses" type="agility:Address" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="rangeType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="inetMin" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="inetMax" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AddressRangeList" type="agility:AddressRangeList"/>
+	<xsd:complexType name="AddressRangeList">
+		<xsd:sequence>
+			<xsd:element name="AddressRange" type="agility:AddressRange" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NetworkServiceType" type="agility:NetworkServiceType"/>
+	<xsd:complexType name="NetworkServiceType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="properties" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="services" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="NetworkService" type="agility:NetworkService"/>
+	<xsd:complexType name="NetworkService">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="hostname" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="credentials" type="agility:Credential" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="networks" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="type" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DhcpOptions" type="agility:DhcpOptions"/>
+	<xsd:complexType name="DhcpOptions">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="optionsId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="domainName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="dsnServers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="ntpServers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="netbiosServers" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="nodeType" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Network" type="agility:Network"/>
+	<xsd:complexType name="Network">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="networkId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="networkAddress" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="networkMask" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="networkGateway" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="dnsDomain" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="dnsServers" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="dsnSearch" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="locations" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="addressRange" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="ProxyType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PROXY_SOCKS5"/>
+			<xsd:enumeration value="PROXY_HTTP"/>
+			<xsd:enumeration value="PROXY_HTTPS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ProxyUsage">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PROXY_ALL"/>
+			<xsd:enumeration value="PROXY_CLIENTS_INSTANCE"/>
+			<xsd:enumeration value="PROXY_MANAGER_INSTANCE"/>
+			<xsd:enumeration value="PROXY_MANAGER_CLOUD"/>
+			<xsd:enumeration value="PROXY_INSTANCE_PROVIDER"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AuthType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AUTH_NONE"/>
+			<xsd:enumeration value="AUTH_CONFIGURED"/>
+			<xsd:enumeration value="AUTH_SESSION"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Proxy" type="agility:Proxy"/>
+	<xsd:complexType name="Proxy">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="hostname" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="port" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="credentials" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="proxyUsage" type="agility:ProxyUsage" minOccurs="0"/>
+					<xsd:element name="proxyType" type="agility:ProxyType" minOccurs="0"/>
+					<xsd:element name="authType" type="agility:AuthType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PriceEngine" type="agility:PriceEngine"/>
+	<xsd:complexType name="PriceEngine">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="RepositoryUsage">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VM_NONE"/>
+			<xsd:enumeration value="VM_TEMPLATES"/>
+			<xsd:enumeration value="VM_INSTANCES"/>
+			<xsd:enumeration value="VM_STORAGE"/>
+			<xsd:enumeration value="VM_ATTACHMENTS"/>
+			<xsd:enumeration value="VM_BACKUPS"/>
+			<xsd:enumeration value="VM_ARTIFACTS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Repository" type="agility:Repository"/>
+	<xsd:complexType name="Repository">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="locations" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="repositoryType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="path" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="size" type="xsd:long" minOccurs="0"/>
+					<xsd:element name="usage" type="agility:RepositoryUsage" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Cloud" type="agility:Cloud"/>
+	<xsd:complexType name="Cloud">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="cloudType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="locations" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="hostname" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="credentials" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="networks" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="networkServices" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="dhcpOptions" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="cloudLogin" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="cloudCertificate" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="cloudCredentials" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="enabled" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="proxies" type="agility:Proxy" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="cloudId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="priceEngine" type="agility:PriceEngine" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="repositories" type="agility:Repository" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="vmmServer" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="vmmPort" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="subscription" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="preBootScripts" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="postBootScripts" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="postReleaseScripts" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="models" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TargetCloud" type="agility:TargetCloud"/>
+	<xsd:complexType name="TargetCloud">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="stack" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="template" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="models" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="maxInstances" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CloudType" type="agility:CloudType"/>
+	<xsd:complexType name="CloudType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="models" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Resource" type="agility:Resource"/>
+	<xsd:complexType name="Resource">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="resourceType" type="agility:ResourceType" minOccurs="0"/>
+					<xsd:element name="units" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="quantity" type="xsd:float" default="1.0"/>
+					<xsd:element name="hostResource" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="editable" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="subType" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ResourceMetric" type="agility:ResourceMetric"/>
+	<xsd:complexType name="ResourceMetric">
+		<xsd:sequence>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="quantity" type="xsd:double"/>
+			<xsd:element name="capacity" type="xsd:double"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ResourceMetrics" type="agility:ResourceMetrics"/>
+	<xsd:complexType name="ResourceMetrics">
+		<xsd:sequence>
+			<xsd:element name="metric" type="agility:ResourceMetric" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ResourceMetricType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="cost"/>
+			<xsd:enumeration value="vcpu"/>
+			<xsd:enumeration value="memory"/>
+			<xsd:enumeration value="disk"/>
+			<xsd:enumeration value="inetaddr"/>
+			<xsd:enumeration value="workload"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Model" type="agility:Model"/>
+	<xsd:complexType name="Model">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="architecture" type="agility:Architecture" minOccurs="0"/>
+					<xsd:element name="resources" type="agility:Resource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="price" type="xsd:double" minOccurs="0"/>
+					<xsd:element name="buildModel" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="modelId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Image" type="agility:Image"/>
+	<xsd:complexType name="Image">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="architecture" type="agility:Architecture" minOccurs="0"/>
+					<xsd:element name="imageId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="cloudType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="location" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="credentials" type="agility:Credential" minOccurs="0"/>
+					<xsd:element name="resources" type="agility:Resource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="locations" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="memoryAddSupported" type="xsd:boolean" default="false"/>
+					<xsd:element name="memoryRemoveSupported" type="xsd:boolean" default="false"/>
+					<xsd:element name="cpuAddSupported" type="xsd:boolean" default="false"/>
+					<xsd:element name="cpuRemoveSupported" type="xsd:boolean" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Stack" type="agility:Stack"/>
+	<xsd:complexType name="Stack">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="operatingSystem" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="targets" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="images" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="template" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="baseStack" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AttachmentLocation" type="agility:AttachmentLocation"/>
+	<xsd:complexType name="AttachmentLocation">
+		<xsd:sequence>
+			<xsd:element name="path" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="repository" type="agility:Link" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Attachment" type="agility:Attachment"/>
+	<xsd:complexType name="Attachment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="size" type="xsd:long" minOccurs="0"/>
+					<xsd:element name="content" type="xsd:base64Binary" minOccurs="0"/>
+					<xsd:element name="attachmentLocation" type="agility:AttachmentLocation" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Script" type="agility:Script"/>
+	<xsd:complexType name="Script">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="operatingSystem" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="enableExtensions" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="body" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="attachments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="type" type="agility:ScriptType" minOccurs="0"/>
+					<xsd:element name="language" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="runAsAdmin" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="timeout" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="retries" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="delay" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="errorAction" type="agility:ScriptErrorAction" minOccurs="0"/>
+					<xsd:element name="rebootRequired" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="variable" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="metaVariable" type="agility:ScriptPropertyReference" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="runOnProvisionOnly" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ScriptLanguage" type="agility:ScriptLanguage"/>
+	<xsd:complexType name="ScriptLanguage">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="domain" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="interpreter" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="editorMode" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="variableRegex" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="type" type="agility:ScriptType" minOccurs="0"/>
+					<xsd:element name="operatingSystem" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ScriptPropertyReference" type="agility:ScriptPropertyReference"/>
+	<xsd:complexType name="ScriptPropertyReference">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="type" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="propertyDefinition" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="VolumeStorageSnapshot" type="agility:VolumeStorageSnapshot"/>
+	<xsd:complexType name="VolumeStorageSnapshot">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="volume" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="storage" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="snapshotId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="progress" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="storeageSnapshots" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StorageSnapshot" type="agility:StorageSnapshot"/>
+	<xsd:complexType name="StorageSnapshot">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="storage" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="snapshotId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="progress" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Storage" type="agility:Storage"/>
+	<xsd:complexType name="Storage">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="volume" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="instance" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="storageId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="location" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="size" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="unit" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="device" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="snapshotId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="snapshots" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--   About volume storage: these can be pointed to by either a volume or both a volume and an instance.
+	     -->
+	<xsd:element name="VolumeStorage" type="agility:VolumeStorage"/>
+	<xsd:complexType name="VolumeStorage">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="volume" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="instance" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="storageId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="location" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="size" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="unit" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="device" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="snapshotId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="storage" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="hasFileSystem" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="volumeSnapshots" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Volume" type="agility:Volume"/>
+	<xsd:complexType name="Volume">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="fileSystem" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="volumeSize" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="diskSize" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="numDisks" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="encrypted" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="raidLevel" type="agility:RaidLevel" minOccurs="0"/>
+					<xsd:element name="volumeStorage" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="privateKey" type="xsd:hexBinary" minOccurs="0"/>
+					<xsd:element name="credential" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<!--   Only used with  credential -->
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Package" type="agility:Package"/>
+	<xsd:complexType name="Package">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="operatingSystem" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="install" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="startup" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="operational" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="shutdown" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="reconfigure" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="variable" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="metaVariable" type="agility:ScriptPropertyReference" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="dependency" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EnvironmentType" type="agility:EnvironmentType"/>
+	<xsd:complexType name="EnvironmentType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Container" type="agility:Container"/>
+	<xsd:complexType name="Container">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="containerRight" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="blueprint" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="script" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="stack" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="package" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="project" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="application" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="policy" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="credential" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="container" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="customItem" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="customContainer" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CustomContainer" type="agility:CustomContainer"/>
+	<xsd:complexType name="CustomContainer" abstract="false">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Container">
+				<xsd:sequence> 
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="CustomContainerList" type="agility:CustomContainerList"/>
+	<xsd:complexType name="CustomContainerList">
+		<xsd:sequence>
+			<xsd:element name="customContainer" type="agility:CustomContainer" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Environment" type="agility:Environment"/>
+	<xsd:complexType name="Environment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Topology">
+				<xsd:sequence>
+					<xsd:element name="type" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="private" type="xsd:boolean" default="false"/>
+					<xsd:element name="deployments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="runtimes" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Topology" type="agility:Topology"/>
+	<xsd:complexType name="Topology">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Container">
+				<xsd:sequence>
+					<xsd:element name="fixedOrder" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="anyOrder" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="manualStartup" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="aliases" type="agility:Alias" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="accessUri" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="accessUriExpanded" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="launcherAccessUri" type="agility:AccessUri" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="deployer" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="sourceBlueprint" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="blueprintSubcontainer" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="resourceAffinity" type="agility:ResourceAffinity"/>
+					<xsd:element name="mandatoryAffinity" type="xsd:boolean" minOccurs="0" default="false"/>
+					<xsd:element name="antiAffinity" type="xsd:boolean" minOccurs="0" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DesignAlias" type="agility:DesignAlias"/>
+	<xsd:complexType name="DesignAlias">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="workloadId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="workloadLogicalId" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DesignDeployer" type="agility:DesignDeployer"/>
+	<xsd:complexType name="DesignDeployer">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="designContainer" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="artifactType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="deployScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="undeployScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="startScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="stopScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="workloads" type="agility:LogicalLink" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="urlPrefix" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ErrorInfo" type="agility:ErrorInfo"/>
+	<xsd:complexType name="ErrorInfo">
+		<xsd:sequence>
+			<xsd:element name="level" type="agility:ErrorLevel" minOccurs="0"/>
+			<xsd:element name="message" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NameValuePair" type="agility:NameValuePair"/>
+	<xsd:complexType name="NameValuePair">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="value" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DesignItem" type="agility:DesignItem"/>
+	<xsd:complexType name="DesignItem">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="anyOrderCont" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="anyOrderPosition" type="xsd:integer" minOccurs="0"/>
+					<xsd:element name="fixedOrderCont" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="fixedOrderPosition" type="xsd:integer" minOccurs="0"/>
+					<xsd:element name="manualOrderCont" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="manualOrderPosition" type="xsd:integer" minOccurs="0"/>
+					<xsd:element name="variable" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="path" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="dirty" type="xsd:boolean" default="false"/>
+					<xsd:element name="layout" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="layoutInfo" type="agility:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="logicalId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="errorInfo" type="agility:ErrorInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DesignContainer" type="agility:DesignContainer"/>
+	<xsd:complexType name="DesignContainer">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DesignItem">
+				<xsd:sequence>
+					<xsd:element name="resourceAffinity" type="agility:ResourceAffinity"/>
+					<xsd:element name="mandatoryAffinity" type="xsd:boolean" minOccurs="0" default="false"/>
+					<xsd:element name="antiAffinity" type="xsd:boolean" minOccurs="0" default="false"/>
+					<xsd:element name="aliases" type="agility:DesignAlias" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="anyOrderItem" type="agility:DesignItem" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="fixedOrderItem" type="agility:DesignItem" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="manualOrderItem" type="agility:DesignItem" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="deep" type="xsd:boolean" default="true"/>
+					<xsd:element name="launcherAccessUri" type="agility:AccessUri" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="deployers" type="agility:DesignDeployer" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Blueprint" type="agility:Blueprint"/>
+	<xsd:complexType name="Blueprint">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DesignContainer">
+				<xsd:sequence>
+					<xsd:element name="connection" type="agility:DesignConnection" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="topology" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="errorLevel" type="agility:ErrorLevel"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="BlueprintRef" type="agility:BlueprintRef"/>
+	<xsd:complexType name="BlueprintRef">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DesignItem">
+				<xsd:sequence>
+					<xsd:element name="blueprint" type="agility:Link" minOccurs="1" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DesignConnection" type="agility:DesignConnection"/>
+	<xsd:complexType name="DesignConnection">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DesignItem">
+				<xsd:sequence>
+					<xsd:element name="srcId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="srcLogicalId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="destId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="destLogicalId" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Workload" type="agility:Workload"/>
+	<xsd:complexType name="Workload">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DesignItem">
+				<xsd:sequence>
+					<xsd:element name="numInstances" type="xsd:int" default="0"/>
+					<xsd:element name="hostnamePrefix" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="packages" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="configurations" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="resources" type="agility:Resource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="volumes" type="agility:Volume" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="baseStack" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="operatingSystem" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="srcConnections" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="destConnections" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="scaleUpPolicy" type="agility:Policy" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="scaleDownPolicy" type="agility:Policy" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="releaseDisks" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Connection" type="agility:Connection"/>
+	<xsd:complexType name="Connection">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="source" type="agility:Link"/>
+					<xsd:element name="destination" type="agility:Link"/>
+					<xsd:element name="variable" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="TopologyStats" type="agility:TopologyStats"/>
+	<xsd:complexType name="TopologyStats">
+		<xsd:sequence>
+			<xsd:element name="topologyId" type="xsd:int" default="0"/>
+			<xsd:element name="numUnknown" type="xsd:int" default="0"/>
+			<xsd:element name="numStarting" type="xsd:int" default="0"/>
+			<xsd:element name="numRunning" type="xsd:int" default="0"/>
+			<xsd:element name="numPaused" type="xsd:int" default="0"/>
+			<xsd:element name="numStopping" type="xsd:int" default="0"/>
+			<xsd:element name="numStopped" type="xsd:int" default="0"/>
+			<xsd:element name="numDestroyed" type="xsd:int" default="0"/>
+			<xsd:element name="numFailed" type="xsd:int" default="0"/>
+			<xsd:element name="numDegraded" type="xsd:int" default="0"/>
+			<xsd:element name="numInstances" type="xsd:int" default="0"/>
+			<xsd:element name="numTemplates" type="xsd:int" default="0"/>
+			<xsd:element name="minCount" type="xsd:int" default="0"/>
+			<xsd:element name="maxCount" type="xsd:int" default="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="HotswapList" type="agility:HotswapList"/>
+	<xsd:complexType name="HotswapList">
+		<xsd:sequence>
+			<xsd:element name="hotswapInstances" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="restartInstances" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Template" type="agility:Template"/>
+	<xsd:complexType name="Template">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="numInstances" type="xsd:int" default="0"/>
+					<xsd:element name="topology" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="factory" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="stack" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="image" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="model" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="location" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="packages" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="accessLists" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<!-- deprecated -->
+					<xsd:element name="volumes" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="instances" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="credential" type="agility:Credential" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="resources" type="agility:Resource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="hostnamePrefix" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="accessUri" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="onboarded" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="srcConnections" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="destConnections" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="configurationResources" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="environment" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="project" type="agility:Link" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="releaseDisks" type="xsd:boolean" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Snapshot" type="agility:Snapshot"/>
+	<xsd:complexType name="Snapshot">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="snapshotId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="current" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="state" type="agility:State" minOccurs="0"/>
+					<xsd:element name="instance" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Instance" type="agility:Instance"/>
+	<xsd:complexType name="Instance">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="stack" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="template" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="state" type="agility:State" minOccurs="0"/>
+					<xsd:element name="instanceId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="publicAddress" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="privateAddress" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="credential" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="hostname" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="canonicalName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="volumeStorage" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="environment" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="resources" type="agility:Resource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="addresses" type="agility:Address" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="snapshots" type="agility:Snapshot" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="scriptstatus" type="agility:ScriptStatus" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="onboarded" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="startTime" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="stopTime" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="createdOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="lastUpdate" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="location" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="model" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="image" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Project" type="agility:Project"/>
+	<xsd:complexType name="Project">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Topology">
+				<xsd:sequence>
+					<xsd:element name="environments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="solution" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Link" type="agility:Link"/>
+	<xsd:complexType name="Link">
+		<xsd:sequence>
+			<xsd:element name="rel" type="xsd:string"/>
+			<xsd:element name="href" type="xsd:string"/>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="position" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="linkProperty" type="agility:NameValuePair" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="LogicalLink" type="agility:LogicalLink"/>
+	<xsd:complexType name="LogicalLink">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Link">
+				<xsd:sequence>
+					<xsd:element name="logicalId" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="VersionedItemLink" type="agility:VersionedItemLink"/>
+	<xsd:complexType name="VersionedItemLink">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Link">
+				<xsd:sequence>
+					<xsd:element name="slot" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="version" type="xsd:int" default="-1" minOccurs="0"/>
+					<xsd:element name="latest" type="xsd:boolean" default="false" minOccurs="0"/>
+					<xsd:element name="slotId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="versionStatus" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="lockType" type="xsd:int" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DescriptiveLink" type="agility:DescriptiveLink"/>
+	<xsd:complexType name="DescriptiveLink">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Link">
+				<xsd:sequence>
+					<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ItemLink" type="agility:ItemLink"/>
+	<xsd:complexType name="ItemLink">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Link">
+				<xsd:sequence>
+					<xsd:element name="parent" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Linklist" type="agility:Linklist"/>
+	<xsd:complexType name="Linklist">
+		<xsd:sequence>
+			<xsd:element name="link" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Task" type="agility:Task"/>
+	<xsd:complexType name="Task">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="startedTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="completedTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="user" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="proxyUser" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="completed" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="cancelled" type="xsd:boolean" default="false"/>
+			<xsd:element name="result" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="parentTask" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="progress" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="hasDependency" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Configuration" type="agility:ConfigSettings"/>
+	<xsd:complexType name="ConfigSettings">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="property" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfigProperty" type="agility:ConfigProperty"/>
+	<xsd:complexType name="ConfigProperty">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="value" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Envelope" type="agility:Envelope"/>
+	<xsd:complexType name="Envelope">
+		<xsd:sequence>
+			<xsd:element name="pendingAsset" type="agility:Asset" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Asset" type="agility:Asset" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string"/>
+		<xsd:attribute name="productVersion" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="Parameter">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="Command">
+		<xsd:sequence>
+			<xsd:element name="parameter" type="agility:Parameter" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="classname" type="xsd:string" use="required"/>
+		<xsd:attribute name="ignoreError" type="xsd:boolean" default="false"/>
+	</xsd:complexType>
+	<xsd:element name="commands" type="agility:Commands"/>
+	<xsd:complexType name="Commands">
+		<xsd:sequence>
+			<xsd:element name="command" type="agility:Command" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="xsd:string"/>
+		<xsd:attribute name="productVersion" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:element name="Assetlist" type="agility:Assetlist"/>
+	<xsd:complexType name="Assetlist">
+		<xsd:sequence>
+			<xsd:element name="Asset" type="agility:Asset" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="optional"/>
+		<xsd:attribute name="offset" type="xsd:int" use="optional"/>
+		<xsd:attribute name="limit" type="xsd:int" use="optional"/>
+		<xsd:attribute name="totalCount" type="xsd:int" use="optional"/>
+	</xsd:complexType>
+	<xsd:element name="SearchTree" type="agility:SearchTree"/>
+	<xsd:complexType name="SearchTree">
+		<xsd:sequence>
+			<xsd:element name="Assetlist" type="agility:Assetlist" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Tasklist" type="agility:Tasklist"/>
+	<xsd:complexType name="Tasklist">
+		<xsd:sequence>
+			<xsd:element name="Task" type="agility:Task" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="optional"/>
+		<xsd:attribute name="offset" type="xsd:int" use="optional"/>
+		<xsd:attribute name="limit" type="xsd:int" use="optional"/>
+		<xsd:attribute name="totalCount" type="xsd:int" use="optional"/>
+		<xsd:attribute name="parentId" type="xsd:int" use="optional"/>
+	</xsd:complexType>
+	<xsd:element name="LdapGroupList" type="agility:LdapGroupList"/>
+	<xsd:complexType name="LdapGroupList">
+		<xsd:sequence>
+			<xsd:element name="mappings" type="agility:LdapGroup" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="LdapGroup" type="agility:LdapGroup"/>
+	<xsd:complexType name="LdapGroup">
+		<xsd:sequence>
+			<xsd:element name="ldapGroupName" type="xsd:string"/>
+			<xsd:element name="agilityGroupName" type="xsd:string"/>
+			<xsd:element name="mapId" type="xsd:int" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Taxonomy" type="agility:Taxonomy"/>
+	<xsd:complexType name="Taxonomy">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="children" type="agility:Taxonomy" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OperatingSystem" type="agility:OperatingSystem"/>
+	<xsd:complexType name="OperatingSystem">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="fileSystems" type="agility:FileSystem" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="effectiveFileSystems" type="agility:FileSystem" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="FileSystem" type="agility:FileSystem"/>
+	<xsd:complexType name="FileSystem">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="encryptionSupported" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="storageDevices" type="agility:FileSystemDevice" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="raidLevels" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FileSystemDevice" type="agility:FileSystemDevice"/>
+	<xsd:complexType name="FileSystemDevice">
+		<xsd:sequence>
+			<xsd:element name="cloudType" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="device" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ScriptStatus" type="agility:ScriptStatus"/>
+	<xsd:complexType name="ScriptStatus">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="scriptId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="timestamp" type="xsd:long" minOccurs="0"/>
+			<xsd:element name="completed" type="xsd:long" minOccurs="0"/>
+			<xsd:element name="stdout" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="stderr" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="runStatus" type="agility:ScriptState" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OnboardRequest" type="agility:OnboardRequest"/>
+	<xsd:complexType name="OnboardRequest">
+		<xsd:sequence>
+			<xsd:element name="targetLocation" type="agility:Link" minOccurs="1"/>
+			<xsd:element name="credential" type="agility:Credential" minOccurs="1"/>
+			<xsd:element name="packages" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="assetProperties" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="operatingSystem" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="cloud" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="instance" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="networkPolicy" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="reboot" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FieldValidator" type="agility:FieldValidator"/>
+	<xsd:complexType name="FieldValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="IntegerRange" type="agility:IntegerRange"/>
+	<xsd:complexType name="IntegerRange">
+		<xsd:sequence>
+			<xsd:element name="min" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="max" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="IntegerRangeValidator" type="agility:IntegerRangeValidator"/>
+	<xsd:complexType name="IntegerRangeValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="range" type="agility:IntegerRange" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="IntegerScaleValidator" type="agility:IntegerScaleValidator"/>
+	<xsd:complexType name="IntegerScaleValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="maxDigits" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="NumericRange" type="agility:NumericRange"/>
+	<xsd:complexType name="NumericRange">
+		<xsd:sequence>
+			<xsd:element name="min" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="max" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="NumericRangeValidator" type="agility:NumericRangeValidator"/>
+	<xsd:complexType name="NumericRangeValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="range" type="agility:NumericRange" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="NumericScaleValidator" type="agility:NumericScaleValidator"/>
+	<xsd:complexType name="NumericScaleValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="maxDigits" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="maxFractions" type="xsd:int" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:simpleType name="DateDirection">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Past"/>
+			<xsd:enumeration value="Future"/>
+			<xsd:enumeration value="Current"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="DateValidator" type="agility:DateValidator"/>
+	<xsd:complexType name="DateValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="direction" type="agility:DateDirection" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StringLengthValidator" type="agility:StringLengthValidator"/>
+	<xsd:complexType name="StringLengthValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="minLength" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="maxLength" type="xsd:int" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EmailValidator" type="agility:EmailValidator"/>
+	<xsd:complexType name="EmailValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="RegexValidator" type="agility:RegexValidator"/>
+	<xsd:complexType name="RegexValidator">
+		<xsd:complexContent>
+			<xsd:extension base="agility:FieldValidator">
+				<xsd:sequence>
+					<xsd:element name="expression" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="FieldValidators" type="agility:FieldValidators"/>
+	<xsd:complexType name="FieldValidators">
+		<xsd:sequence>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="agility:RegexValidator"/>
+				<xsd:element ref="agility:EmailValidator"/>
+				<xsd:element ref="agility:StringLengthValidator"/>
+				<xsd:element ref="agility:DateValidator"/>
+				<xsd:element ref="agility:NumericScaleValidator"/>
+				<xsd:element ref="agility:NumericRangeValidator"/>
+				<xsd:element ref="agility:IntegerScaleValidator"/>
+				<xsd:element ref="agility:IntegerRangeValidator"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FieldMeta" type="agility:FieldMeta"/>
+	<xsd:complexType name="FieldMeta">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="OnboardMeta" type="agility:OnboardMeta"/>
+	<xsd:complexType name="OnboardMeta">
+		<xsd:sequence>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="supportedInstanceField" type="agility:FieldMeta" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CloudMetaModel" type="agility:CloudMetaModel"/>
+	<xsd:complexType name="CloudMetaModel">
+		<xsd:sequence>
+			<xsd:element name="onboardMeta" type="agility:OnboardMeta" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="TreeNode" type="agility:TreeNode"/>
+	<xsd:complexType name="TreeNode">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="label" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="parentId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="assetType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="versionStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="imagePath" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="attributes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="loaded" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="parentPath" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="category" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="children" type="agility:TreeNode" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="parentType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="folderAssetType" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ScriptVariableRequest" type="agility:ScriptVariableRequest"/>
+	<xsd:complexType name="ScriptVariableRequest">
+		<xsd:sequence>
+			<xsd:element name="topologyId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="templateId" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="cloudId" type="xsd:int" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="packageId" type="xsd:int" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ScriptVariable" type="agility:ScriptVariable"/>
+	<xsd:complexType name="ScriptVariable">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Variable">
+				<xsd:sequence>
+					<xsd:element name="package" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="script" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="variableSource" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="providerValue" type="agility:Variable" minOccurs="0"/>
+					<xsd:element name="providerSource" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="providerImagePath" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="projectValue" type="agility:Variable" minOccurs="0"/>
+					<xsd:element name="projectSource" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="environmentValue" type="agility:Variable" minOccurs="0"/>
+					<xsd:element name="environmentSource" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="topologyValue" type="agility:Variable" minOccurs="0"/>
+					<xsd:element name="topologySource" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="overrideValue" type="agility:Variable" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ScriptVariableList" type="agility:ScriptVariableList"/>
+	<xsd:complexType name="ScriptVariableList">
+		<xsd:sequence>
+			<xsd:element name="scriptVariable" type="agility:ScriptVariable" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="InputVariableRequest" type="agility:InputVariableRequest"/>
+	<xsd:complexType name="InputVariableRequest">
+		<xsd:sequence>
+			<xsd:element name="valueSource" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="variableSource" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="InputVariable" type="agility:InputVariable"/>
+	<xsd:complexType name="InputVariable">
+		<xsd:sequence>
+			<xsd:element name="variableSource" type="agility:Asset" minOccurs="0"/>
+			<xsd:element name="variable" type="agility:PropertyDefinition"/>
+			<xsd:element name="valueSet" type="agility:VariableValueSet" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="VariableValueSet" type="agility:VariableValueSet"/>
+	<xsd:complexType name="VariableValueSet">
+		<xsd:sequence>
+			<xsd:element name="valueSource" type="agility:Asset" minOccurs="0"/>
+			<xsd:element name="value" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="InputVariableList" type="agility:InputVariableList"/>
+	<xsd:complexType name="InputVariableList">
+		<xsd:sequence>
+			<xsd:element name="inputVariable" type="agility:InputVariable" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PolicyMeta" type="agility:PolicyMeta"/>
+	<xsd:complexType name="PolicyMeta">
+		<xsd:sequence>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="availableScopes" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PolicyMetaModel" type="agility:PolicyMetaModel"/>
+	<xsd:complexType name="PolicyMetaModel">
+		<xsd:sequence>
+			<xsd:element name="policyMeta" type="agility:PolicyMeta" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="LifecyclePolicyMeta" type="agility:LifecyclePolicyMeta"/>
+	<xsd:complexType name="LifecyclePolicyMeta">
+		<xsd:complexContent>
+			<xsd:extension base="agility:PolicyMeta">
+				<xsd:sequence>
+					<xsd:element name="supportedAssetType" type="agility:AssetTypeMeta" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="WorkflowPolicyMeta" type="agility:WorkflowPolicyMeta"/>
+	<xsd:complexType name="WorkflowPolicyMeta">
+		<xsd:complexContent>
+			<xsd:extension base="agility:PolicyMeta"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AssetTypeBrief" type="agility:AssetTypeBrief"/>
+	<xsd:complexType name="AssetTypeBrief">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+			<xsd:element name="jaxbType" type="xsd:string"/>
+			<xsd:element name="entityType" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ConfigurationPolicyMeta" type="agility:ConfigurationPolicyMeta"/>
+	<xsd:complexType name="ConfigurationPolicyMeta">
+		<xsd:complexContent>
+			<xsd:extension base="agility:PolicyMeta">
+				<xsd:sequence>
+					<xsd:element name="designType" type="agility:AssetTypeBrief" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="resourceType" type="agility:AssetTypeBrief" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DeploymentPolicyMeta" type="agility:DeploymentPolicyMeta"/>
+	<xsd:complexType name="DeploymentPolicyMeta">
+		<xsd:complexContent>
+			<xsd:extension base="agility:PolicyMeta">
+				<xsd:sequence>
+					<xsd:element name="designType" type="agility:AssetTypeBrief" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="resourceType" type="agility:AssetTypeBrief" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AssetTypeMeta" type="agility:AssetTypeMeta"/>
+	<xsd:complexType name="AssetTypeMeta">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+			<xsd:element name="supportedEventType" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="applicableAssignmentType" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ResourcePolicy" type="agility:ResourcePolicy"/>
+	<xsd:complexType name="ResourcePolicy">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="apiVersion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mapping" type="agility:ResourceMapping" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="trace" type="xsd:int"/>
+	</xsd:complexType>
+	<xsd:element name="ResourceMapping" type="agility:ResourceMapping"/>
+	<xsd:complexType name="ResourceMapping">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="condition" type="agility:AssetFilter" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="inclusion" type="agility:AssetFilter" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="exclusion" type="agility:AssetFilter" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="rank" type="agility:ResourceRank" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AssetFilter" type="agility:AssetFilter"/>
+	<xsd:complexType name="AssetFilter">
+		<xsd:sequence>
+			<xsd:element name="item" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="match" type="agility:AssetMatch" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="eval" type="agility:Script" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="AssetMatch" type="agility:AssetMatch"/>
+	<xsd:complexType name="AssetMatch">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="property" type="agility:PropertyMatch" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PropertyMatch" type="agility:PropertyMatch"/>
+	<xsd:complexType name="PropertyMatch">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="value" type="xsd:string"/>
+		<xsd:attribute name="matches" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:element name="ResourceMatch" type="agility:ResourceMatch"/>
+	<xsd:complexType name="ResourceMatch">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DescriptiveLink">
+				<xsd:sequence>
+					<xsd:element name="rank" type="xsd:double"/>
+					<xsd:element name="metric" type="agility:ResourceMetric" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+				<xsd:attribute name="stackDefault" type="xsd:boolean"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ResourceRank" type="agility:ResourceRank"/>
+	<xsd:complexType name="ResourceRank">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="weight" type="agility:ResourceWeight" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ResourceWeight" type="agility:ResourceWeight"/>
+	<xsd:complexType name="ResourceWeight">
+		<xsd:attribute name="metric" type="xsd:string" use="required"/>
+		<xsd:attribute name="value" type="xsd:double" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="ResourceWeightMetaList" type="agility:ResourceWeightMetaList"/>
+	<xsd:complexType name="ResourceWeightMetaList">
+		<xsd:sequence>
+			<xsd:element name="resourceWeightMeta" type="agility:ResourceWeightMeta" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ResourceWeightMeta" type="agility:ResourceWeightMeta"/>
+	<xsd:complexType name="ResourceWeightMeta">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+			<xsd:element name="jaxbType" type="xsd:string"/>
+			<xsd:element name="resourceWeightInfo" type="agility:ResourceWeightInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ResourceWeightInfo" type="agility:ResourceWeightInfo"/>
+	<xsd:complexType name="ResourceWeightInfo">
+		<xsd:sequence>
+			<xsd:element name="metricName" type="xsd:string"/>
+			<xsd:element name="metricDisplayName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PlanEvalRequest" type="agility:PlanEvalRequest"/>
+	<xsd:complexType name="PlanEvalRequest">
+		<xsd:sequence>
+			<xsd:element name="additionalPolicyId" type="xsd:int" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="logLevel" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="ignoreRequiredProperties" type="xsd:boolean" default="false"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DeploymentRequest" type="agility:DeploymentRequest"/>
+	<xsd:complexType name="DeploymentRequest">
+		<xsd:sequence>
+			<xsd:element name="variable" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="plan" type="agility:DeploymentPlan"/>
+			<xsd:element name="checkUse" type="xsd:boolean" default="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DeploymentPlan" type="agility:DeploymentPlan"/>
+	<xsd:complexType name="DeploymentPlan">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="item" type="agility:Link"/>
+			<xsd:element name="rank" type="xsd:double"/>
+			<xsd:element name="error" type="xsd:boolean"/>
+			<xsd:element name="message" type="xsd:string"/>
+			<xsd:element name="resourceAffinity" type="agility:ResourceAffinity"/>
+			<xsd:element name="resource" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="child" type="agility:DeploymentPlan" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="option" type="agility:DeploymentPlan" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="stackDefault" type="xsd:boolean"/>
+	</xsd:complexType>
+	<!-- Release Manager -->
+	<xsd:element name="ArtifactType" type="agility:ArtifactType"/>
+	<xsd:complexType name="ArtifactType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="platformServiceType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Artifact" type="agility:Artifact"/>
+	<xsd:complexType name="Artifact">
+		<xsd:complexContent>
+			<xsd:extension base="agility:VersionedItem">
+				<xsd:sequence>
+					<xsd:element name="buildId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="builtOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="solution" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="attachments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="configuration" type="agility:ArtifactConfiguration" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Deployment" type="agility:Deployment"/>
+	<xsd:complexType name="Deployment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="state" type="agility:DeploymentState" minOccurs="0"/>
+					<xsd:element name="sourceDeployment" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="readyForPromotion" type="xsd:boolean" minOccurs="0"/>
+					<xsd:element name="environment" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="deploymentBindings" type="agility:DeploymentBinding" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="configuration" type="agility:DeploymentConfiguration" minOccurs="0"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="submitter" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="submitComment" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="releaseId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="releaseLabel" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DeploymentArtifactConfig" type="agility:DeploymentArtifactConfig"/>
+	<xsd:complexType name="DeploymentArtifactConfig">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="artifact" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="artifactType" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="services" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DeploymentConfiguration" type="agility:DeploymentConfiguration"/>
+	<xsd:complexType name="DeploymentConfiguration">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SolutionDeploymentConfig" type="agility:SolutionDeploymentConfig"/>
+	<xsd:complexType name="SolutionDeploymentConfig">
+		<xsd:complexContent>
+			<xsd:extension base="agility:DeploymentConfiguration">
+				<xsd:sequence>
+					<xsd:element name="artifactConfigurations" type="agility:DeploymentArtifactConfig" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="SolutionDeployment" type="agility:SolutionDeployment"/>
+	<xsd:complexType name="SolutionDeployment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Deployment">
+				<xsd:sequence>
+					<xsd:element name="solution" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="artifacts" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="artifactVersions" type="agility:Artifact" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DeploymentBinding" type="agility:DeploymentBinding"/>
+	<xsd:complexType name="DeploymentBinding">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="deploymentId" type="xsd:string"/>
+			<xsd:element name="platformService" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="deployer" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="artifact" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="artifactUrl" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="WorkflowRequest" type="agility:WorkflowRequest"/>
+	<xsd:complexType name="WorkflowRequest">
+		<xsd:sequence>
+			<xsd:element name="comment" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PublishRequest" type="agility:PublishRequest"/>
+	<xsd:complexType name="PublishRequest">
+		<xsd:sequence>
+			<xsd:element name="keepSubAssetsLocation" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="comment" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ArtifactRuntimeBinding" type="agility:ArtifactRuntimeBinding"/>
+	<xsd:complexType name="ArtifactRuntimeBinding">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="runtime" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="type" type="agility:Link" minOccurs="0"/>
+			<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="services" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ArtifactConfiguration" type="agility:ArtifactConfiguration"/>
+	<xsd:complexType name="ArtifactConfiguration">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="runtimeBindings" type="agility:ArtifactRuntimeBinding" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PlatformServiceType" type="agility:PlatformServiceType"/>
+	<xsd:complexType name="PlatformServiceType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="type" type="xsd:string"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="runtimeProperties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="artifactTypes" type="agility:ArtifactType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="serviceTypes" type="agility:ServiceBindingType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PlatformService" type="agility:PlatformService"/>
+	<xsd:complexType name="PlatformService">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="type" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="topology" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="login" type="agility:Credential" minOccurs="0"/>
+					<xsd:element name="blueprint" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ServiceBinding" type="agility:ServiceBinding"/>
+	<xsd:complexType name="ServiceBinding">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="serviceId" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="type" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ServiceBindingType" type="agility:ServiceBindingType"/>
+	<xsd:complexType name="ServiceBindingType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="platformServiceType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Runtime" type="agility:Runtime"/>
+	<xsd:complexType name="Runtime">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="environment" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="platformService" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Solution" type="agility:Solution"/>
+	<xsd:complexType name="Solution">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="artifacts" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="fixedOrder" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="anyOrder" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="deployments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="variables" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="environments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Deployer" type="agility:Deployer"/>
+	<xsd:complexType name="Deployer">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="artifactType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="deployScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="undeployScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="startScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="stopScript" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="templates" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="urlPrefix" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ArtifactAttachment" type="agility:ArtifactAttachment"/>
+	<xsd:complexType name="ArtifactAttachment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="size" type="xsd:long" minOccurs="0"/>
+					<xsd:element name="content" type="xsd:base64Binary" minOccurs="0"/>
+					<xsd:element name="artifact" type="agility:Link" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfigurationRepository" type="agility:ConfigurationRepository"/>
+	<xsd:complexType name="ConfigurationRepository">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="repositoryType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="repositoryPath" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="repositoryProperty" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="artifactType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="artifactPath" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="artifact" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="readOnly" type="xsd:boolean" default="false"/>
+					<xsd:element name="syncIntervalSeconds" type="xsd:int" minOccurs="0" default="3600"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfigurationArtifact" type="agility:ConfigurationArtifact"/>
+	<xsd:complexType name="ConfigurationArtifact">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="repository" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="documentation" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="resource" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="property" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfigurationArtifactType" type="agility:ConfigurationArtifactType"/>
+	<xsd:complexType name="ConfigurationArtifactType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ConfigurationResource" type="agility:ConfigurationResource"/>
+	<xsd:complexType name="ConfigurationResource">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="artifact" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="variable" type="agility:PropertyDefinition" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="property" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- end of Release Manager -->
+	<!-- Agility Store -->
+	<xsd:element name="StoreCategory" type="agility:StoreCategory"/>
+	<xsd:complexType name="StoreCategory">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreCatalog" type="agility:StoreCatalog"/>
+	<xsd:complexType name="StoreCatalog">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Container">
+				<xsd:sequence>
+					<xsd:element name="products" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreEditionType" type="agility:StoreEditionType"/>
+	<xsd:complexType name="StoreEditionType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreEdition" type="agility:StoreEdition"/>
+	<xsd:complexType name="StoreEdition">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="version" type="xsd:string"/>
+					<xsd:element name="build" type="xsd:string"/>
+					<xsd:element name="release" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="itemId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="itemType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="itemName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="prices" type="agility:StorePrice" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="resources" type="agility:StoreResource" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StorePrice" type="agility:StorePrice"/>
+	<xsd:complexType name="StorePrice">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="currency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="currencyLabel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="label" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="labelAfter" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="price" type="xsd:double" minOccurs="0"/>
+			<xsd:element name="digits" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="duration" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="period" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="recurs" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="threshold" type="xsd:double" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="StoreProduct" type="agility:StoreProduct"/>
+	<xsd:complexType name="StoreProduct">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="shortDescription" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="productType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="publisher" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="build" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="category" type="agility:StoreCategory" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="itemId" type="xsd:int" minOccurs="1"/>
+					<xsd:element name="itemType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="itemName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="itemDetailedPath" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="numReviews" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="averageRating" type="xsd:decimal"/>
+					<xsd:element name="resources" type="agility:StoreResource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="releases" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StorePublisher" type="agility:StorePublisher"/>
+	<xsd:complexType name="StorePublisher">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="url" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreReleaseType" type="agility:StoreReleaseType"/>
+	<xsd:complexType name="StoreReleaseType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreRelease" type="agility:StoreRelease"/>
+	<xsd:complexType name="StoreRelease">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="version" type="xsd:string"/>
+					<xsd:element name="build" type="xsd:string"/>
+					<xsd:element name="resources" type="agility:StoreResource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="product" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="editions" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreResource" type="agility:StoreResource"/>
+	<xsd:complexType name="StoreResource">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="value" type="xsd:string"/>
+			<xsd:element name="type" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="StoreReview" type="agility:StoreReview"/>
+	<xsd:complexType name="StoreReview">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="productId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="userId" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="userName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="rating" type="xsd:int" minOccurs="0"/>
+					<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="comment" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="createdOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="updatedOn" type="xsd:date" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreProductAdapter" type="agility:StoreProductAdapter"/>
+	<xsd:complexType name="StoreProductAdapter">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="productType" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="url" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="className" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="resource" type="agility:StoreResource" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StoreProductAdapterItem" type="agility:StoreProductAdapterItem"/>
+	<xsd:complexType name="StoreProductAdapterItem">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="description" type="xsd:string"/>
+			<xsd:element name="type" type="xsd:string"/>
+			<xsd:element name="resource" type="agility:StoreResource" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="link" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="StoreProductAdapterItemList" type="agility:StoreProductAdapterItemList"/>
+	<xsd:complexType name="StoreProductAdapterItemList">
+		<xsd:sequence>
+			<xsd:element name="item" type="agility:StoreProductAdapterItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="StoreProductType" type="agility:StoreProductType"/>
+	<xsd:complexType name="StoreProductType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="LaunchItem" type="agility:LaunchItem"/>
+	<xsd:complexType name="LaunchItem">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="type" type="xsd:string"/>
+					<xsd:element name="resources" type="agility:StoreResource" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="itemId" type="xsd:int" minOccurs="1"/>
+					<xsd:element name="itemType" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="itemName" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="product" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="edition" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="state" type="agility:LaunchItemState" minOccurs="0"/>
+					<xsd:element name="accessUriList" type="agility:AccessUriList" minOccurs="0"/>
+					<xsd:element name="path" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="purchasedBy" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="purchasedOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="deployments" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="prices" type="agility:StorePrice" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="LaunchItemDeployment" type="agility:LaunchItemDeployment"/>
+	<xsd:complexType name="LaunchItemDeployment">
+		<xsd:complexContent>
+			<xsd:extension base="agility:LaunchItem">
+				<xsd:sequence>
+					<xsd:element name="deploymentPlan" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="launchItem" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="deployedBy" type="agility:Link" minOccurs="0"/>
+					<xsd:element name="deployedOn" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="variable" type="agility:AssetProperty" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- end of Agility Store -->
+	<xsd:element name="AuthenticationType" type="agility:AuthenticationType"/>
+	<xsd:complexType name="AuthenticationType">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="type" type="xsd:string"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Authentication" type="agility:Authentication"/>
+	<xsd:complexType name="Authentication">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Item">
+				<xsd:sequence>
+					<xsd:element name="type" type="agility:Link"/>
+					<xsd:element name="properties" type="agility:Property" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="orderPosition" type="xsd:int" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="EULA" type="agility:EULA"/>
+	<xsd:complexType name="EULA">
+		<xsd:complexContent>
+			<xsd:extension base="agility:Asset">
+				<xsd:sequence>
+					<xsd:element name="eula" type="xsd:string"/>
+					<xsd:element name="signature" type="xsd:string"/>
+					<xsd:element name="title" type="xsd:string"/>
+					<xsd:element name="company" type="xsd:string"/>
+					<xsd:element name="timestamp" type="xsd:date" minOccurs="0"/>
+					<xsd:element name="agreedTo" type="xsd:boolean" default="false"/>
+					<xsd:element name="adminUser" type="xsd:boolean" default="false"/>
+					<xsd:element name="readOnly" type="xsd:boolean" default="false"/>
+					<xsd:element name="valid" type="xsd:boolean" default="false"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- Inbox -->
+	<xsd:element name="WorkflowMeta" type="agility:WorkflowMeta"/>
+	<xsd:complexType name="WorkflowMeta">
+		<xsd:sequence>
+			<xsd:element name="workflowEventId" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="workflowVersion" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="assetTypeId" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="expectedExecutionPath" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="publishStates" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="stateMeta" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="taskMeta" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="WorkflowTask" type="agility:WorkflowTask"/>
+	<xsd:complexType name="WorkflowTask">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="description" type="xsd:string"/>
+			<xsd:element name="assignee" type="xsd:string"/>
+			<xsd:element name="asset" type="agility:Link" minOccurs="1"/>
+			<xsd:element name="displayName" type="xsd:string"/>
+			<xsd:element name="sourceLocation" type="xsd:string"/>
+			<xsd:element name="destinationLocation" type="xsd:string"/>
+			<xsd:element name="formName" type="xsd:string"/>
+			<xsd:element name="workflowEventId" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="workflowVersionId" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="actions" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="variables" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="comments" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="candidateUserIds" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="candidateGroupIds" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="WorkflowTaskList" type="agility:WorkflowTaskList"/>
+	<xsd:complexType name="WorkflowTaskList">
+		<xsd:sequence>
+			<xsd:element name="totalCount" type="xsd:int" minOccurs="1"/>
+			<xsd:element name="tasks" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="WorkflowTaskMeta" type="agility:WorkflowTaskMeta"/>
+	<xsd:complexType name="WorkflowTaskMeta">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="description" type="xsd:string"/>
+			<xsd:element name="icon" type="xsd:string"/>
+			<xsd:element name="pathIcon" type="xsd:string"/>
+			<xsd:element name="transitions" type="agility:Link" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="WorkflowTransitionMeta" type="agility:WorkflowTransitionMeta"/>
+	<xsd:complexType name="WorkflowTransitionMeta">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="skipValidation" type="xsd:boolean" default="false"/>
+			<xsd:element name="formName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- End of Inbox -->
+</xsd:schema>
