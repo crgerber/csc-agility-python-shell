@@ -16,7 +16,7 @@ from core.pyworx import pythonpath
 from core.pyworx.partialfunc import partially
 from core.config.configuration import AgilityShellConfig
 
-srcfolders = ['.', SHELL_ROOT_DIR, 'lib/beautifulsoup4-4.1.3', 'lib/ipython-0.13.1']
+srcfolders = ['.', SHELL_ROOT_DIR]
 pythonpath.addPaths(srcfolders, basedir=SHELL_ROOT_DIR)
 from core.base.enum import Enum
 from core.proxy.serviceproxy import ServiceProxy
@@ -155,7 +155,8 @@ class Agility(object):
 def init(configuration=None, conn=None, agility=None):
     if not configuration:
         configuration = getConfiguration()
-        config = configuration.getConfig(['main', 'apiversion'])
+
+    config = configuration.getConfig(['main', 'apiversion'])
     client.setAPIVersion(config.apiversion_version)
     if not conn:
         conn = getConnection(config)
