@@ -1573,6 +1573,56 @@ class launchitem:
         return result
     deploy.context = {'query_params': [], 'hasFiles': False, 'path_params': [{'defaultValue': None, 'alias': 'launchitem_id', 'kind': 'xs:int', 'required': True, 'name': 'id'}], 'method_path': 'launchitem/%(id)s/deploy', 'form_params': [], 'method_name': 'deploy', 'custom_headers': {'Content-Type': 'application/xml'}, 'result': 'result', 'hasData': True, 'method_kind': 'POST', 'method_docs': '[ HTTP: POST /launchitem/{id}/deploy ]', 'method_params': [{'defaultValue': None, 'alias': 'launchitem_id', 'kind': 'xs:int', 'required': True, 'name': 'id'}, {'defaultValue': None, 'alias': 'data', 'kind': 'str', 'required': False, 'name': 'data'}, {'defaultValue': None, 'alias': '**kwargs', 'kind': 'str', 'required': False, 'name': '**kwargs'}]}
 
+
+    @download
+    def deploySimple(self,
+               launchitem_id,
+               data=None,
+               **kwargs):
+        """
+        [ HTTP: GET /launchitem/{id}/deploy ]
+
+        @param launchitem_id: launchitem_id
+        @type launchitem_id: str
+        @param **kwargs: keyword arguments param1=value1, param2=value2, will be used as the URL parameters: https://url?param1=value1&param2=value2
+        @type **kwargs: keyword argument list or expanded dict, e.g. **dct
+        """
+        path = "launchitem/%(id)s/deploy"
+        path_params = {"id": launchitem_id}
+
+        #convenience parameter conversion logic
+        for k, v in path_params.items():
+            if v is None: continue
+            if hasattr(v, 'id'):
+                path_params[k] = v.id
+            elif not isinstance(v, str):
+                path_params[k] = str(v)
+
+        if data is not None:
+            data = str(data)
+
+
+        query_params = kwargs
+        wadl_query_params = {}
+
+        query_params.update(wadl_query_params)
+        form_params = {}
+        wadl_custom_headers = {'Content-Type': 'application/xml'}
+        custom_headers = {}
+        custom_headers.update(wadl_custom_headers)
+
+
+        logger.debug('Invoking path: %s, path_params: %s, query_params: %s, form_params: %s, data: %s', path, path_params, query_params, form_params, data)
+        response = self._conn.invoke_method("GET", path, path_params,
+                                         query_params, form_params, data=data, custom_headers=custom_headers, files=None)
+        if not str(response.getcode()).startswith('2'): #OK 200, CREATED 201, Accepted 202, Partial Information 203, No Response 204
+            raise RESTException(response)
+
+        result = response
+
+        return result
+    deploy.context = {'query_params': [], 'hasFiles': False, 'path_params': [{'defaultValue': None, 'alias': 'launchitem_id', 'kind': 'xs:int', 'required': True, 'name': 'id'}], 'method_path': 'launchitem/%(id)s/deploy', 'form_params': [], 'method_name': 'deploy', 'custom_headers': {'Content-Type': 'application/xml'}, 'result': 'result', 'hasData': True, 'method_kind': 'GET', 'method_docs': '[ HTTP: GET /launchitem/{id}/deploy ]', 'method_params': [{'defaultValue': None, 'alias': 'launchitem_id', 'kind': 'xs:int', 'required': True, 'name': 'id'}, {'defaultValue': None, 'alias': 'data', 'kind': 'str', 'required': False, 'name': 'data'}, {'defaultValue': None, 'alias': '**kwargs', 'kind': 'str', 'required': False, 'name': '**kwargs'}]}
+
     @download
     def searchLaunchItems(self,
                           forLaunchpad=None,
