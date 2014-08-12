@@ -46,20 +46,20 @@ def getClassDocUrl(host, className):
     urlTemplate = "https://%(host)s:8443/javadoc/scripting/com/servicemesh/agility/api/%(className)s.html"
     return urlTemplate%{'host' : host, 'className' : className}
     
-def extractClassSpec(classDocUrl, className=None):
+def extractClassSpec(classDocUrl, className=None, asText=False):
     classDoc = urllib2.urlopen(url=classDocUrl).read()
     classDocSoup = BeautifulSoup(classDoc, 'html')
     print 'Downloading spec: %s'%classDocUrl
-    dct = extractComplexTypeFromHTML(classDocSoup) or extractSimpleTypeEnumFromHTML(classDocSoup)
+    dct = extractComplexTypeFromHTML(classDocSoup, asText) or extractSimpleTypeEnumFromHTML(classDocSoup, asText)
     if dct is None:
         REJECTED_SPECS.add(classDocUrl)
     return dct
 
-def extractComplexTypeFromHTML(classDocSoup):
+def extractComplexTypeFromHTML(classDocSoup, asText=False):
     complexType = classDocSoup.find_all('pre', text=re.compile('complexType'))#list of soup objects
     if len(complexType) != 1:
-        return {}
-    return processComplexType(complexType)
+        return '' if asText else {}
+    return complexType[0].text if asText else processComplexType(complexType)
     
 def processComplexType(complexTypeSoup):    
     complexType = complexTypeSoup[0].text
@@ -67,12 +67,12 @@ def processComplexType(complexTypeSoup):
     dct = xml2d(node, loadAttrs=True)
     return dct
 
-def extractSimpleTypeEnumFromHTML(classDocSoup):
+def extractSimpleTypeEnumFromHTML(classDocSoup, asText=False):
     simpleType = classDocSoup.find_all('pre', text=re.compile('simpleType'))#list of soup objects
     if len(simpleType) != 1:
         print 'Warning: could not parse file'
         return None
-    return processSimpleType(simpleType)
+    return simpleType[0].text if asText else processSimpleType(simpleType)
 
 def processSimpleType(simpleTypeSoup):
     simpleType = simpleTypeSoup[0].text
@@ -128,6 +128,7 @@ end
 def processClassSpec(specDict):
     if not specDict:
         return
+    asText = False
     className = specDict['complexType']['name']
     MODULES_QUEUE.add(className)
     print 'Queued for writing: %s'%list(MODULES_QUEUE)
@@ -139,7 +140,7 @@ def processClassSpec(specDict):
         native, classBase = extractType(baseTypeNode['base'])
     if not native:
         if not classBase in ALL_MODULES:
-            processClassSpec(extractClassSpec(getClassDocUrl(HOST, classBase),  classBase))
+            processClassSpec(extractClassSpec(getClassDocUrl(HOST, classBase),  classBase), asText)
     typeClass = AgilityType(className, classBase if not native else None)
     sequence = baseTypeNode.get('sequence', None)
     if sequence is None or not sequence:
@@ -159,7 +160,7 @@ def processClassSpec(specDict):
         nativeAttr, attrType = extractType(attr['type'])
         if not nativeAttr:
             if not attrType in ALL_MODULES and attrType != className and attrType not in MODULES_QUEUE:#break recursive loop for composites containing children of the same type
-                processClassSpec(extractClassSpec(getClassDocUrl(HOST, attrType), attrType))
+                processClassSpec(extractClassSpec(getClassDocUrl(HOST, attrType), attrType, asText))
         attr['native'] = nativeAttr
         attr['type'] = attrType
         typeClass.addAttribute(**attr)
@@ -441,8 +442,9 @@ def parseHTMLSpecs():
     actionsdir = os.path.join(dirname, 'actions')
     if not os.path.exists(actionsdir):
         os.makedirs(actionsdir)
+
     for classDocUrl in getAllClassesDocsUrls(host=HOST):
-        specDict = extractClassSpec(classDocUrl)
+        specDict = extractClassSpec(classDocUrl, asText=False)
         processClassSpec(specDict)
     dirname = rootDirName()
     with open(os.path.join(dirname, 'Enums' + CODE_FILE_EXTENSION), 'w') as enumsModule:
@@ -456,6 +458,20 @@ def parseHTMLSpecs():
             
     print 'Rejected spec URLs: %s'%list(REJECTED_SPECS)
     print 'Queue final status: %s'%list(MODULES_QUEUE)
-    
+
+
+def generateSchema():
+    schemaContent = ""
+    for classDocUrl in getAllClassesDocsUrls(host=HOST):
+        classSpec = extractClassSpec(classDocUrl, asText=True) or ''
+        SEP = '\n' if classSpec else ''
+        schemaContent += (SEP + classSpec)
+
+    print schemaContent
+
 if __name__ == '__main__':
-    parseHTMLSpecs()
+    schemaMode = True
+    if schemaMode:
+        generateSchema()
+    else:
+        parseHTMLSpecs()
