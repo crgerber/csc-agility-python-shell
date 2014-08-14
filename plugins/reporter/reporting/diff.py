@@ -134,8 +134,8 @@ def diffReport(master, slave, fields, reportFileName, reportDir=None, include=(D
         
 diffReport.INCLUDE = DIFF_REPORT_INCLUDE
 
-def _compareidmaps(master, slave, fields, detailed=True, flatten=False, assertCommonFields=False):
-    if not all((master, slave, fields)):
+def _compareidmaps(master, slave, fields=None, detailed=True, flatten=False, assertCommonFields=False):
+    if not all((master, slave)):
         raise ValueError('must provide value for arguments (master -> idmap, slave -> idmap, fields -> list of field names')
     
     compareCompositeStrategy = compareMapValues if assertCommonFields else aggregatedCompareComposites

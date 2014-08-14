@@ -17,5 +17,6 @@ setup(
         "python-dateutil >= 1.5",
         "beautifulsoup4 >= 4.0.0",
         "lxml >= 3.0.0",
+        "docopt >= 0.6"
     ],
 )
