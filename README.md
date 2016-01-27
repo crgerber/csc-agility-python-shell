@@ -32,12 +32,15 @@ That said, the only prerequisite is Python2.7 or later.
 
 Clone the repo from github:
 
-git clone https://github.com/ServiceMesh/agility-python-shell.git
-sudo python setup.py install
+git clone https://github.com/csc/agility-python-shell.git
+
+```sudo python setup.py install```
 After successful installation of all dependencies, from the agility-python-shell root directory run:
 
-python agilityshell.py [-p path_to_configuration_file]
-If you don’t specify an alternative configuration file using the –p flag, the shell will look for the default configuration file with the name agilityshell.cfg in the current directory and use it to connect to the Agility Platform.Dependencies are: Python2.7, python-lxml, and python-dateutil which you can install using python pip.
+```python agilityshell.py [-p path_to_configuration_file]```
+If you don’t specify an alternative configuration file using the –p flag, the shell will look for the default configuration file with the name agilityshell.cfg in the current directory and use it to connect to the Agility Platform.
+
+Dependencies are: Python2.7, python-lxml, and python-dateutil which you can install using python pip.
 
 ## API Reference
 
