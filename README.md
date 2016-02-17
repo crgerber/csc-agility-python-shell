@@ -1,6 +1,6 @@
 ## Synopsis
 
-AgilityShell is a Python REST API client. The REST method stubs are generated from the WADL file, but why stop there, the Python classes mapping the Agility Object Model are also generated using the html javadoc at https://<HOST>:8443/javadoc/scripting/allclasses-frame.html.
+CSC-AgilityShell is a Python REST API client. The REST method stubs are generated from the WADL file, but why stop there, the Python classes mapping the Agility Object Model are also generated using the html javadoc at https://<HOST>:8443/javadoc/scripting/allclasses-frame.html.
 
 Used in a standalone application, AgilityShell is an interactive shell, built on top of IPython, leveraging IPython's autocomplete, interactive debugger, and interactive development features. Webservice endpoints are pre-loaded in memory as an object graph, with the agility (also aliased 'a') object as the root of the graph. Under each endpoint, all methods are listed with comprehensive documentation about the HTTP method (GET, POST, etc.), parameter names, and parameter types where applicable. The more documentation and metadata included in the WADL, the better AgilityShell method documentation gets.
 
