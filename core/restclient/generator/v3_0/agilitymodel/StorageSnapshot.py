@@ -1,5 +1,5 @@
-from base.StorageSnapshot import StorageSnapshotBase
-from actions.StorageSnapshot import StorageSnapshotActions
+from .base.StorageSnapshot import StorageSnapshotBase
+from .actions.StorageSnapshot import StorageSnapshotActions
 
 class StorageSnapshot(StorageSnapshotBase, StorageSnapshotActions):
     '''

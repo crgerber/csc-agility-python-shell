@@ -8,10 +8,10 @@ class Enum(object):
         self.__dict__.update(kwargs)
         
     def keys(self):
-        return self.__dict__.keys()
+        return list(self.__dict__.keys())
 
     def values(self):
-        return self.__dict__.values()
+        return list(self.__dict__.values())
     
     def __repr__(self):
         return str(self.__dict__)

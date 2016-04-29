@@ -1,5 +1,5 @@
-from base.Attachment import AttachmentBase
-from actions.Attachment import AttachmentActions
+from .base.Attachment import AttachmentBase
+from .actions.Attachment import AttachmentActions
 
 class Attachment(AttachmentBase, AttachmentActions):
     '''

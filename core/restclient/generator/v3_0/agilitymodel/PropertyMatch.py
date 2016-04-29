@@ -1,5 +1,5 @@
-from base.PropertyMatch import PropertyMatchBase
-from actions.PropertyMatch import PropertyMatchActions
+from .base.PropertyMatch import PropertyMatchBase
+from .actions.PropertyMatch import PropertyMatchActions
 
 class PropertyMatch(PropertyMatchBase, PropertyMatchActions):
     '''

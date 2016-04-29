@@ -32,7 +32,7 @@ def assignedResources(computeList, resourceType=RESOURCE_TYPES.DISK_DRIVE, remov
     compute_disks = {}
     [compute_disks.update([(compute.id, resourcesOf(compute, resourceType))]) for compute in computeList]
     if removeEmpty:
-        compute_disks = dict(filter(lambda item: item[1], compute_disks.items()))
+        compute_disks = dict([item for item in list(compute_disks.items()) if item[1]])
     return compute_disks
 
 assignedResources.TYPES = RESOURCE_TYPES
@@ -44,7 +44,7 @@ def diffAssignedResources(computeMaster, computeSlave, resourceType=RESOURCE_TYP
     if not fields:
         filedSet = set([])
         [filedSet.add(f) 
-         for resourceList in master_compute_resources.values() 
+         for resourceList in list(master_compute_resources.values()) 
             for r in resourceList 
                 for f in selectFields(r) 
                     if r.get('resourceType', None)==resourceType]

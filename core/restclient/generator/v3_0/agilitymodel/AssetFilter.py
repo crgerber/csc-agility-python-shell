@@ -1,5 +1,5 @@
-from base.AssetFilter import AssetFilterBase
-from actions.AssetFilter import AssetFilterActions
+from .base.AssetFilter import AssetFilterBase
+from .actions.AssetFilter import AssetFilterActions
 
 class AssetFilter(AssetFilterBase, AssetFilterActions):
     '''

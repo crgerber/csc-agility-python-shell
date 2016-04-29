@@ -5,7 +5,7 @@ Created on Dec 5, 2012
 '''
 import re
 import string
-import __builtin__ as builtin
+import builtins as builtin
 
 printable = set(string.printable)
 letters = set(string.ascii_letters)
@@ -31,7 +31,7 @@ python_keywords = set(['and', 'del', 'from','not', 'while',
 
 privateFilter = lambda name: not name.startswith('_')
 callableFilter = lambda attr: not hasattr(attr, '__call__')
-python_builtin = set(filter(callableFilter, filter(privateFilter, dir(builtin))))
+python_builtin = set(filter(callableFilter, list(filter(privateFilter, dir(builtin)))))
 
 isValidPythonSymbol = lambda txt, execludeBuiltin=True: isValidSymbol(txt) and txt not in (python_keywords.union(python_builtin if execludeBuiltin else set()))
 validPythonSymbol = lambda txt, execludeBuiltin=True: txt if isValidPythonSymbol(txt, execludeBuiltin) else validSymbol(txt) if isValidPythonSymbol(validSymbol(txt), execludeBuiltin) else  validSymbol(txt) + '_'

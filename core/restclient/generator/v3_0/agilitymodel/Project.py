@@ -1,5 +1,5 @@
-from base.Project import ProjectBase
-from actions.Project import ProjectActions
+from .base.Project import ProjectBase
+from .actions.Project import ProjectActions
 
 class Project(ProjectBase, ProjectActions):
     '''

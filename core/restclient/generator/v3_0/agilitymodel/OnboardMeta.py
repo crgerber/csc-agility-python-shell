@@ -1,5 +1,5 @@
-from base.OnboardMeta import OnboardMetaBase
-from actions.OnboardMeta import OnboardMetaActions
+from .base.OnboardMeta import OnboardMetaBase
+from .actions.OnboardMeta import OnboardMetaActions
 
 class OnboardMeta(OnboardMetaBase, OnboardMetaActions):
     '''

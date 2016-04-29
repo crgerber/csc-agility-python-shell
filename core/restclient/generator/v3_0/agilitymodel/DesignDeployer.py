@@ -1,5 +1,5 @@
-from base.DesignDeployer import DesignDeployerBase
-from actions.DesignDeployer import DesignDeployerActions
+from .base.DesignDeployer import DesignDeployerBase
+from .actions.DesignDeployer import DesignDeployerActions
 
 class DesignDeployer(DesignDeployerBase, DesignDeployerActions):
     '''

@@ -1,5 +1,5 @@
-from base.ScriptStatus import ScriptStatusBase
-from actions.ScriptStatus import ScriptStatusActions
+from .base.ScriptStatus import ScriptStatusBase
+from .actions.ScriptStatus import ScriptStatusActions
 
 class ScriptStatus(ScriptStatusBase, ScriptStatusActions):
     '''

@@ -1,5 +1,5 @@
-from base.StoreResource import StoreResourceBase
-from actions.StoreResource import StoreResourceActions
+from .base.StoreResource import StoreResourceBase
+from .actions.StoreResource import StoreResourceActions
 
 class StoreResource(StoreResourceBase, StoreResourceActions):
     '''

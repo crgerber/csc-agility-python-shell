@@ -1,5 +1,5 @@
-from base.Container import ContainerBase
-from actions.Container import ContainerActions
+from .base.Container import ContainerBase
+from .actions.Container import ContainerActions
 
 class Container(ContainerBase, ContainerActions):
     '''

@@ -1,5 +1,5 @@
-from base.SecurityRole import SecurityRoleBase
-from actions.SecurityRole import SecurityRoleActions
+from .base.SecurityRole import SecurityRoleBase
+from .actions.SecurityRole import SecurityRoleActions
 
 class SecurityRole(SecurityRoleBase, SecurityRoleActions):
     '''

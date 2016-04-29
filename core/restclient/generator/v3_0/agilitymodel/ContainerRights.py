@@ -1,5 +1,5 @@
-from base.ContainerRights import ContainerRightsBase
-from actions.ContainerRights import ContainerRightsActions
+from .base.ContainerRights import ContainerRightsBase
+from .actions.ContainerRights import ContainerRightsActions
 
 class ContainerRights(ContainerRightsBase, ContainerRightsActions):
     '''

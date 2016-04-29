@@ -1,5 +1,5 @@
-from base.Rating import RatingBase
-from actions.Rating import RatingActions
+from .base.Rating import RatingBase
+from .actions.Rating import RatingActions
 
 class Rating(RatingBase, RatingActions):
     '''

@@ -1,5 +1,5 @@
-from base.VolumeStorage import VolumeStorageBase
-from actions.VolumeStorage import VolumeStorageActions
+from .base.VolumeStorage import VolumeStorageBase
+from .actions.VolumeStorage import VolumeStorageActions
 
 class VolumeStorage(VolumeStorageBase, VolumeStorageActions):
     '''

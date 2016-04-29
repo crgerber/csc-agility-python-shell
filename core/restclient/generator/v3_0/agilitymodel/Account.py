@@ -1,5 +1,5 @@
-from base.Account import AccountBase
-from actions.Account import AccountActions
+from .base.Account import AccountBase
+from .actions.Account import AccountActions
 
 class Account(AccountBase, AccountActions):
     '''

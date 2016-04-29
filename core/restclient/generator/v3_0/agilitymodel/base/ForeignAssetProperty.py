@@ -1,4 +1,4 @@
-from AssetProperty import AssetPropertyBase
+from .AssetProperty import AssetPropertyBase
 
 class ForeignAssetPropertyBase(AssetPropertyBase):
     '''

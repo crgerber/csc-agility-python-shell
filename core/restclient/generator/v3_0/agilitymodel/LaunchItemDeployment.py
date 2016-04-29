@@ -1,5 +1,5 @@
-from base.LaunchItemDeployment import LaunchItemDeploymentBase
-from actions.LaunchItemDeployment import LaunchItemDeploymentActions
+from .base.LaunchItemDeployment import LaunchItemDeploymentBase
+from .actions.LaunchItemDeployment import LaunchItemDeploymentActions
 
 class LaunchItemDeployment(LaunchItemDeploymentBase, LaunchItemDeploymentActions):
     '''

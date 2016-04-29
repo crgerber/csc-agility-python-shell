@@ -12,7 +12,6 @@ from optparse import OptionParser
 ipshell = embed_short.ipshell
 from core.universal import agility, a
 
-
 def main():
     # parse commandline options
     parser = OptionParser()
@@ -45,11 +44,11 @@ def main():
             'agility': agility,
             'argv': options.fileargs.split() if options.fileargs else []
         }
-        execfile(filename, exec_ns)
+        exec(compile(open(filename).read(), filename, 'exec'), exec_ns)
         sys.exit(0)
     #start logserver
     elif options.command:
-        exec options.command
+        exec(options.command)
         sys.exit(0)
 
     ipshell()

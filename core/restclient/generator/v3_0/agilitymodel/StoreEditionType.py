@@ -1,5 +1,5 @@
-from base.StoreEditionType import StoreEditionTypeBase
-from actions.StoreEditionType import StoreEditionTypeActions
+from .base.StoreEditionType import StoreEditionTypeBase
+from .actions.StoreEditionType import StoreEditionTypeActions
 
 class StoreEditionType(StoreEditionTypeBase, StoreEditionTypeActions):
     '''

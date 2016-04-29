@@ -41,7 +41,7 @@ def exportSearchResultsCSV(agility, assetName, query, reportDir='reports', repor
     reportParams['ext'] = 'csv'
     reportFileName = reportFileName or '%(host)s_%(assetName)s_%(version)s.%(ext)s'%reportParams
     colNamesSet = set()
-    [colNamesSet.add(key) for asset in result for key in asset._attrs.keys()]
+    [colNamesSet.add(key) for asset in result for key in list(asset._attrs.keys())]
     cols = query.params.fields or colNamesSet
     data = [asset._attrs for asset in result]
     writeCSVFile(data, reportFileName, reportDir, cols)

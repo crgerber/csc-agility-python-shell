@@ -1,5 +1,5 @@
-from base.Blueprint import BlueprintBase
-from actions.Blueprint import BlueprintActions
+from .base.Blueprint import BlueprintBase
+from .actions.Blueprint import BlueprintActions
 
 class Blueprint(BlueprintBase, BlueprintActions):
     '''

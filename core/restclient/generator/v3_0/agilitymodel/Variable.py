@@ -1,5 +1,5 @@
-from base.Variable import VariableBase
-from actions.Variable import VariableActions
+from .base.Variable import VariableBase
+from .actions.Variable import VariableActions
 
 class Variable(VariableBase, VariableActions):
     '''

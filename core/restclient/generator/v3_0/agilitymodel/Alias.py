@@ -1,5 +1,5 @@
-from base.Alias import AliasBase
-from actions.Alias import AliasActions
+from .base.Alias import AliasBase
+from .actions.Alias import AliasActions
 
 class Alias(AliasBase, AliasActions):
     '''

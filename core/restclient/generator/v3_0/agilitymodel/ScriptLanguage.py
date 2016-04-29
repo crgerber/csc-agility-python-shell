@@ -1,5 +1,5 @@
-from base.ScriptLanguage import ScriptLanguageBase
-from actions.ScriptLanguage import ScriptLanguageActions
+from .base.ScriptLanguage import ScriptLanguageBase
+from .actions.ScriptLanguage import ScriptLanguageActions
 
 class ScriptLanguage(ScriptLanguageBase, ScriptLanguageActions):
     '''

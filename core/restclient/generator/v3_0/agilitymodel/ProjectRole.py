@@ -1,5 +1,5 @@
-from base.ProjectRole import ProjectRoleBase
-from actions.ProjectRole import ProjectRoleActions
+from .base.ProjectRole import ProjectRoleBase
+from .actions.ProjectRole import ProjectRoleActions
 
 class ProjectRole(ProjectRoleBase, ProjectRoleActions):
     '''

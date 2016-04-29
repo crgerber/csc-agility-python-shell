@@ -20,7 +20,7 @@ logger = logger.getLogger(COMPONENT_NAME)
 
 
 def decode(data):
-    if not isinstance(data, unicode):
+    if not isinstance(data, str):
         return str(data)
     else:
         return unicodedata.normalize('NFKD', data).encode('ascii','ignore')
@@ -29,7 +29,7 @@ class AbstractProxy(object):
     
     def __init__(self, attrs=None, typeName=''):
         '''        
-        example input param = {'Script': {'creator': [{'name': ['admin'], 'href': ['https://204.236.196.14:8443/agility/api/current/user/1'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.User+xml'], 'id': ['1']}], 'runAsAdmin': ['false'], 'id': ['104'], 'assetType': [{'name': ['script'], 'href': ['https://204.236.196.14:8443/agility/api/current/assettype/2'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.AssetType+xml'], 'id': ['2']}], 'assetPath': ['/Root/SHADOW/Project101'], 'uuid': ['ba93106a-da1f-4c26-8a46-940556842bb7'], 'top': ['false'], 'version': ['-1'], 'removable': ['true'], 'type': ['Guest'], 'description': ['Test Script for Test Bench Development'], 'parent': [{'name': ['Project101'], 'href': ['https://204.236.196.14:8443/agility/api/current/project/29'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.Project+xml'], 'id': ['29']}], 'enableExtensions': ['false'], 'lockType': ['0'], 'publisher': [{'name': ['admin'], 'href': ['https://204.236.196.14:8443/agility/api/current/user/1'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.User+xml'], 'id': ['1']}], 'name': ['TEST SCRIPT 102'], 'created': ['2012-10-15T00:46:52-04:00'], 'lastModified': ['2012-10-15T00:46:52-04:00'], 'lifecycleVersion': ['-1'], 'timeout': ['3600'], 'operatingSystem': ['Unknown'], 'latest': ['false']}}
+        example input param = {'Script': {'creator': [{'name': ['admin'], 'href': ['https://localhost:8443/agility/api/current/user/1'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.User+xml'], 'id': ['1']}], 'runAsAdmin': ['false'], 'id': ['104'], 'assetType': [{'name': ['script'], 'href': ['https://localhost:8443/agility/api/current/assettype/2'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.AssetType+xml'], 'id': ['2']}], 'assetPath': ['/Root/SHADOW/Project101'], 'uuid': ['ba93106a-da1f-4c26-8a46-940556842bb7'], 'top': ['false'], 'version': ['-1'], 'removable': ['true'], 'type': ['Guest'], 'description': ['Test Script for Test Bench Development'], 'parent': [{'name': ['Project101'], 'href': ['https://localhost:8443/agility/api/current/project/29'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.Project+xml'], 'id': ['29']}], 'enableExtensions': ['false'], 'lockType': ['0'], 'publisher': [{'name': ['admin'], 'href': ['https://localhost:8443/agility/api/current/user/1'], 'rel': ['up'], 'position': ['0'], 'type': ['application/com.servicemesh.agility.api.User+xml'], 'id': ['1']}], 'name': ['TEST SCRIPT 102'], 'created': ['2012-10-15T00:46:52-04:00'], 'lastModified': ['2012-10-15T00:46:52-04:00'], 'lifecycleVersion': ['-1'], 'timeout': ['3600'], 'operatingSystem': ['Unknown'], 'latest': ['false']}}
         '''
         object.__setattr__(self, '_autoattrs', ['_autoattrs', 'typeName', '_attrs', '_initialized', '_topLevel'])
         object.__setattr__(self, 'typeName', typeName if typeName else AbstractProxy._extractTypeName(attrs))
@@ -54,13 +54,13 @@ class AbstractProxy(object):
 #        return len(self._attrs)
     
     def __dir__(self):
-        return self.__dict__.keys() + self._attrs.keys()
+        return list(self.__dict__.keys()) + list(self._attrs.keys())
     
     def __getattr__(self, name):
         if name in object.__getattribute__(self, '_autoattrs'):
             return object.__getattribute__(self, name)
         if name not in object.__getattribute__(self, '_attrs'):
-            raise AttributeError, name
+            raise AttributeError(name)
         return self.__getitem__(name)
     
     def __setattr__(self, name, value):
@@ -170,7 +170,9 @@ class persist(object):
             persistDir = kwargs.pop('persistDir', '')
             persistFile = kwargs.pop('persistFile', '')
             xmlText = args[0]
+            
             if all([persistDir, persistFile]):
                 persistXML(xmlText, persistDir, persistFile)
+         
         return self.f(*args, **kwargs)
         

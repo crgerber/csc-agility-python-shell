@@ -6,7 +6,7 @@ Created on Apr 30, 2013
 import time
 import os
 import mimetypes
-from StringIO import StringIO
+from io import StringIO
 
 COMPONENT_NAME = __name__
 from logger import getLogger

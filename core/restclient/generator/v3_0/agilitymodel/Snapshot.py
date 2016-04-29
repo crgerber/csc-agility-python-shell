@@ -1,5 +1,5 @@
-from base.Snapshot import SnapshotBase
-from actions.Snapshot import SnapshotActions
+from .base.Snapshot import SnapshotBase
+from .actions.Snapshot import SnapshotActions
 
 class Snapshot(SnapshotBase, SnapshotActions):
     '''

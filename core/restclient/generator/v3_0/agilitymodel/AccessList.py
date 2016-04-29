@@ -1,5 +1,5 @@
-from base.AccessList import AccessListBase
-from actions.AccessList import AccessListActions
+from .base.AccessList import AccessListBase
+from .actions.AccessList import AccessListActions
 
 class AccessList(AccessListBase, AccessListActions):
     '''

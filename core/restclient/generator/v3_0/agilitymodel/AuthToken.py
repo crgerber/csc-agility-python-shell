@@ -1,5 +1,5 @@
-from base.AuthToken import AuthTokenBase
-from actions.AuthToken import AuthTokenActions
+from .base.AuthToken import AuthTokenBase
+from .actions.AuthToken import AuthTokenActions
 
 class AuthToken(AuthTokenBase, AuthTokenActions):
     '''

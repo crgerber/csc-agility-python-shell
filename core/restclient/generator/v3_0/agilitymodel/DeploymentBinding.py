@@ -1,5 +1,5 @@
-from base.DeploymentBinding import DeploymentBindingBase
-from actions.DeploymentBinding import DeploymentBindingActions
+from .base.DeploymentBinding import DeploymentBindingBase
+from .actions.DeploymentBinding import DeploymentBindingActions
 
 class DeploymentBinding(DeploymentBindingBase, DeploymentBindingActions):
     '''

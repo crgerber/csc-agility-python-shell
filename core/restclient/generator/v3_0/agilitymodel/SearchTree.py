@@ -1,5 +1,5 @@
-from base.SearchTree import SearchTreeBase
-from actions.SearchTree import SearchTreeActions
+from .base.SearchTree import SearchTreeBase
+from .actions.SearchTree import SearchTreeActions
 
 class SearchTree(SearchTreeBase, SearchTreeActions):
     '''

@@ -17,8 +17,8 @@ class ClientTest(unittest.TestCase):
     def testName(self):
         network_bs = self.parse_bs(open(self.xmlFile).read(), 'Network')
         network_lxml = self.parse_lxml(open(self.xmlFile).read(), 'Network')
-        print network_bs
-        print network_lxml
+        print(network_bs)
+        print(network_lxml)
         self.assertEqual(network_bs, network_lxml, 'mismatched objects for asset [%s]'%network_bs.typeName)
     def tearDown(self):
         unittest.TestCase.tearDown(self)

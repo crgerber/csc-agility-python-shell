@@ -21,7 +21,7 @@ Some unit tests for public/private key objects.
 """
 
 from binascii import hexlify, unhexlify
-import StringIO
+import io
 import unittest
 from paramiko import RSAKey, DSSKey, Message, util
 from paramiko.common import rng
@@ -79,112 +79,112 @@ class KeyTest (unittest.TestCase):
         from Crypto.Hash import MD5
         key = util.generate_key_bytes(MD5, '\x01\x02\x03\x04', 'happy birthday', 30)
         exp = unhexlify('61E1F272F4C1C4561586BD322498C0E924672780F47BB37DDA7D54019E64')
-        self.assertEquals(exp, key)
+        self.assertEqual(exp, key)
 
     def test_2_load_rsa(self):
         key = RSAKey.from_private_key_file('tests/test_rsa.key')
-        self.assertEquals('ssh-rsa', key.get_name())
+        self.assertEqual('ssh-rsa', key.get_name())
         exp_rsa = FINGER_RSA.split()[1].replace(':', '')
         my_rsa = hexlify(key.get_fingerprint())
-        self.assertEquals(exp_rsa, my_rsa)
-        self.assertEquals(PUB_RSA.split()[1], key.get_base64())
-        self.assertEquals(1024, key.get_bits())
+        self.assertEqual(exp_rsa, my_rsa)
+        self.assertEqual(PUB_RSA.split()[1], key.get_base64())
+        self.assertEqual(1024, key.get_bits())
 
-        s = StringIO.StringIO()
+        s = io.StringIO()
         key.write_private_key(s)
-        self.assertEquals(RSA_PRIVATE_OUT, s.getvalue()) 
+        self.assertEqual(RSA_PRIVATE_OUT, s.getvalue()) 
         s.seek(0)
         key2 = RSAKey.from_private_key(s)
-        self.assertEquals(key, key2)
+        self.assertEqual(key, key2)
 
     def test_3_load_rsa_password(self):
         key = RSAKey.from_private_key_file('tests/test_rsa_password.key', 'television')
-        self.assertEquals('ssh-rsa', key.get_name())
+        self.assertEqual('ssh-rsa', key.get_name())
         exp_rsa = FINGER_RSA.split()[1].replace(':', '')
         my_rsa = hexlify(key.get_fingerprint())
-        self.assertEquals(exp_rsa, my_rsa)
-        self.assertEquals(PUB_RSA.split()[1], key.get_base64())
-        self.assertEquals(1024, key.get_bits())
+        self.assertEqual(exp_rsa, my_rsa)
+        self.assertEqual(PUB_RSA.split()[1], key.get_base64())
+        self.assertEqual(1024, key.get_bits())
         
     def test_4_load_dss(self):
         key = DSSKey.from_private_key_file('tests/test_dss.key')
-        self.assertEquals('ssh-dss', key.get_name())
+        self.assertEqual('ssh-dss', key.get_name())
         exp_dss = FINGER_DSS.split()[1].replace(':', '')
         my_dss = hexlify(key.get_fingerprint())
-        self.assertEquals(exp_dss, my_dss)
-        self.assertEquals(PUB_DSS.split()[1], key.get_base64())
-        self.assertEquals(1024, key.get_bits())
+        self.assertEqual(exp_dss, my_dss)
+        self.assertEqual(PUB_DSS.split()[1], key.get_base64())
+        self.assertEqual(1024, key.get_bits())
 
-        s = StringIO.StringIO()
+        s = io.StringIO()
         key.write_private_key(s)
-        self.assertEquals(DSS_PRIVATE_OUT, s.getvalue())
+        self.assertEqual(DSS_PRIVATE_OUT, s.getvalue())
         s.seek(0)
         key2 = DSSKey.from_private_key(s)
-        self.assertEquals(key, key2)
+        self.assertEqual(key, key2)
 
     def test_5_load_dss_password(self):
         key = DSSKey.from_private_key_file('tests/test_dss_password.key', 'television')
-        self.assertEquals('ssh-dss', key.get_name())
+        self.assertEqual('ssh-dss', key.get_name())
         exp_dss = FINGER_DSS.split()[1].replace(':', '')
         my_dss = hexlify(key.get_fingerprint())
-        self.assertEquals(exp_dss, my_dss)
-        self.assertEquals(PUB_DSS.split()[1], key.get_base64())
-        self.assertEquals(1024, key.get_bits())
+        self.assertEqual(exp_dss, my_dss)
+        self.assertEqual(PUB_DSS.split()[1], key.get_base64())
+        self.assertEqual(1024, key.get_bits())
 
     def test_6_compare_rsa(self):
         # verify that the private & public keys compare equal
         key = RSAKey.from_private_key_file('tests/test_rsa.key')
-        self.assertEquals(key, key)
+        self.assertEqual(key, key)
         pub = RSAKey(data=str(key))
-        self.assert_(key.can_sign())
-        self.assert_(not pub.can_sign())
-        self.assertEquals(key, pub)
+        self.assertTrue(key.can_sign())
+        self.assertTrue(not pub.can_sign())
+        self.assertEqual(key, pub)
 
     def test_7_compare_dss(self):
         # verify that the private & public keys compare equal
         key = DSSKey.from_private_key_file('tests/test_dss.key')
-        self.assertEquals(key, key)
+        self.assertEqual(key, key)
         pub = DSSKey(data=str(key))
-        self.assert_(key.can_sign())
-        self.assert_(not pub.can_sign())
-        self.assertEquals(key, pub)
+        self.assertTrue(key.can_sign())
+        self.assertTrue(not pub.can_sign())
+        self.assertEqual(key, pub)
 
     def test_8_sign_rsa(self):
         # verify that the rsa private key can sign and verify
         key = RSAKey.from_private_key_file('tests/test_rsa.key')
         msg = key.sign_ssh_data(rng, 'ice weasels')
-        self.assert_(type(msg) is Message)
+        self.assertTrue(type(msg) is Message)
         msg.rewind()
-        self.assertEquals('ssh-rsa', msg.get_string())
+        self.assertEqual('ssh-rsa', msg.get_string())
         sig = ''.join([chr(int(x, 16)) for x in SIGNED_RSA.split(':')])
-        self.assertEquals(sig, msg.get_string())
+        self.assertEqual(sig, msg.get_string())
         msg.rewind()
         pub = RSAKey(data=str(key))
-        self.assert_(pub.verify_ssh_sig('ice weasels', msg))
+        self.assertTrue(pub.verify_ssh_sig('ice weasels', msg))
 
     def test_9_sign_dss(self):
         # verify that the dss private key can sign and verify
         key = DSSKey.from_private_key_file('tests/test_dss.key')
         msg = key.sign_ssh_data(rng, 'ice weasels')
-        self.assert_(type(msg) is Message)
+        self.assertTrue(type(msg) is Message)
         msg.rewind()
-        self.assertEquals('ssh-dss', msg.get_string())
+        self.assertEqual('ssh-dss', msg.get_string())
         # can't do the same test as we do for RSA, because DSS signatures
         # are usually different each time.  but we can test verification
         # anyway so it's ok.
-        self.assertEquals(40, len(msg.get_string()))
+        self.assertEqual(40, len(msg.get_string()))
         msg.rewind()
         pub = DSSKey(data=str(key))
-        self.assert_(pub.verify_ssh_sig('ice weasels', msg))
+        self.assertTrue(pub.verify_ssh_sig('ice weasels', msg))
     
     def test_A_generate_rsa(self):
         key = RSAKey.generate(1024)
         msg = key.sign_ssh_data(rng, 'jerri blank')
         msg.rewind()
-        self.assert_(key.verify_ssh_sig('jerri blank', msg))
+        self.assertTrue(key.verify_ssh_sig('jerri blank', msg))
 
     def test_B_generate_dss(self):
         key = DSSKey.generate(1024)
         msg = key.sign_ssh_data(rng, 'jerri blank')
         msg.rewind()
-        self.assert_(key.verify_ssh_sig('jerri blank', msg))
+        self.assertTrue(key.verify_ssh_sig('jerri blank', msg))

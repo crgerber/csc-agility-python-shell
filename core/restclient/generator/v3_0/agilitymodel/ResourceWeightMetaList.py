@@ -1,5 +1,5 @@
-from base.ResourceWeightMetaList import ResourceWeightMetaListBase
-from actions.ResourceWeightMetaList import ResourceWeightMetaListActions
+from .base.ResourceWeightMetaList import ResourceWeightMetaListBase
+from .actions.ResourceWeightMetaList import ResourceWeightMetaListActions
 
 class ResourceWeightMetaList(ResourceWeightMetaListBase, ResourceWeightMetaListActions):
     '''

@@ -1,5 +1,5 @@
-from base.NumericRangeValidator import NumericRangeValidatorBase
-from actions.NumericRangeValidator import NumericRangeValidatorActions
+from .base.NumericRangeValidator import NumericRangeValidatorBase
+from .actions.NumericRangeValidator import NumericRangeValidatorActions
 
 class NumericRangeValidator(NumericRangeValidatorBase, NumericRangeValidatorActions):
     '''

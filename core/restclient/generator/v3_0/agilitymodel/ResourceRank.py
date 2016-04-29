@@ -1,5 +1,5 @@
-from base.ResourceRank import ResourceRankBase
-from actions.ResourceRank import ResourceRankActions
+from .base.ResourceRank import ResourceRankBase
+from .actions.ResourceRank import ResourceRankActions
 
 class ResourceRank(ResourceRankBase, ResourceRankActions):
     '''

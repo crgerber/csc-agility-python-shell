@@ -1,4 +1,4 @@
-from DesignContainer import DesignContainerBase
+from .DesignContainer import DesignContainerBase
 
 class BlueprintBase(DesignContainerBase):
     '''

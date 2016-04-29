@@ -1,5 +1,5 @@
-from base.ValueProvider import ValueProviderBase
-from actions.ValueProvider import ValueProviderActions
+from .base.ValueProvider import ValueProviderBase
+from .actions.ValueProvider import ValueProviderActions
 
 class ValueProvider(ValueProviderBase, ValueProviderActions):
     '''

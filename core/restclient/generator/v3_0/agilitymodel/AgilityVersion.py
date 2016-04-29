@@ -1,5 +1,5 @@
-from base.AgilityVersion import AgilityVersionBase
-from actions.AgilityVersion import AgilityVersionActions
+from .base.AgilityVersion import AgilityVersionBase
+from .actions.AgilityVersion import AgilityVersionActions
 
 class AgilityVersion(AgilityVersionBase, AgilityVersionActions):
     '''

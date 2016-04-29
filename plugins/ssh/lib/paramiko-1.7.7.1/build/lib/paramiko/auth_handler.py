@@ -198,7 +198,7 @@ class AuthHandler (object):
             if self.auth_method == 'password':
                 m.add_boolean(False)
                 password = self.password
-                if isinstance(password, unicode):
+                if isinstance(password, str):
                     password = password.encode('UTF-8')
                 m.add_string(password)
             elif self.auth_method == 'publickey':
@@ -308,7 +308,7 @@ class AuthHandler (object):
             keyblob = m.get_string()
             try:
                 key = self.transport._key_info[keytype](Message(keyblob))
-            except SSHException, e:
+            except SSHException as e:
                 self.transport._log(INFO, 'Auth rejected: public key: %s' % str(e))
                 key = None
             except:

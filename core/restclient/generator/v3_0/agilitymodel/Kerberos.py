@@ -1,5 +1,5 @@
-from base.Kerberos import KerberosBase
-from actions.Kerberos import KerberosActions
+from .base.Kerberos import KerberosBase
+from .actions.Kerberos import KerberosActions
 
 class Kerberos(KerberosBase, KerberosActions):
     '''

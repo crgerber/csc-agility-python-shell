@@ -1,5 +1,5 @@
-from base.PlanEvalRequest import PlanEvalRequestBase
-from actions.PlanEvalRequest import PlanEvalRequestActions
+from .base.PlanEvalRequest import PlanEvalRequestBase
+from .actions.PlanEvalRequest import PlanEvalRequestActions
 
 class PlanEvalRequest(PlanEvalRequestBase, PlanEvalRequestActions):
     '''

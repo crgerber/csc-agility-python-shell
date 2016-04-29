@@ -1,5 +1,5 @@
-from base.Parameter import ParameterBase
-from actions.Parameter import ParameterActions
+from .base.Parameter import ParameterBase
+from .actions.Parameter import ParameterActions
 
 class Parameter(ParameterBase, ParameterActions):
     '''

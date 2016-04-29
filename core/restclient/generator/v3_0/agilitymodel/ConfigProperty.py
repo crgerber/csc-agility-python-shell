@@ -1,5 +1,5 @@
-from base.ConfigProperty import ConfigPropertyBase
-from actions.ConfigProperty import ConfigPropertyActions
+from .base.ConfigProperty import ConfigPropertyBase
+from .actions.ConfigProperty import ConfigPropertyActions
 
 class ConfigProperty(ConfigPropertyBase, ConfigPropertyActions):
     '''

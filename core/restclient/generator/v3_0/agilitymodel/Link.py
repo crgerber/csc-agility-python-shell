@@ -1,5 +1,5 @@
-from base.Link import LinkBase
-from actions.Link import LinkActions
+from .base.Link import LinkBase
+from .actions.Link import LinkActions
 
 class Link(LinkBase, LinkActions):
     '''

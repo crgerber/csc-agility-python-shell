@@ -1,5 +1,5 @@
-from base.NameValuePair import NameValuePairBase
-from actions.NameValuePair import NameValuePairActions
+from .base.NameValuePair import NameValuePairBase
+from .actions.NameValuePair import NameValuePairActions
 
 class NameValuePair(NameValuePairBase, NameValuePairActions):
     '''

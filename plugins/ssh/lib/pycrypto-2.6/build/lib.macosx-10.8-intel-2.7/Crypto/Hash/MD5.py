@@ -48,7 +48,7 @@ try:
     hashFactory = hashlib.md5
 
 except ImportError:
-    import md5
+    from . import md5
     hashFactory = md5
 
 class MD5Hash(HashAlgo):

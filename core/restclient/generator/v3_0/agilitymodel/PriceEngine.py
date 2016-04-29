@@ -1,5 +1,5 @@
-from base.PriceEngine import PriceEngineBase
-from actions.PriceEngine import PriceEngineActions
+from .base.PriceEngine import PriceEngineBase
+from .actions.PriceEngine import PriceEngineActions
 
 class PriceEngine(PriceEngineBase, PriceEngineActions):
     '''

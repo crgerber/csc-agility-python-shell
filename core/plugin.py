@@ -6,12 +6,12 @@ Created on Nov 15, 2012
 import os
 import sys
 import imp
-from functools import partial
+from functools import partial, cmp_to_key
 from core.base.enum import Enum
 from core.proxy.hook import Hook
 from core.pyworx import pythonpath
 import traceback
-import ConfigParser
+import configparser
 import logger
 from core.config.configuration import ConfigINIFile
 logger = logger.getLogger(__name__)
@@ -35,7 +35,7 @@ class PluginConfigFile(ConfigINIFile):
         ConfigINIFile.__init__(self, path=path, load=True, caseSensitive=True)
         self.load()
         configSectionNames = self.sections()
-        self.featureSectionNames = filter(lambda sectionName: sectionName.startswith('feature'), configSectionNames)
+        self.featureSectionNames = [sectionName for sectionName in configSectionNames if sectionName.startswith('feature')]
         multivalueKeys = [self.CONF_LIB_PATHS, self.CONF_EXTLIB_PATHS, self.CONF_DEPENDENCY]
         for section in self.featureSectionNames:
             self.mandatoryOptions(section, options=self.MANADATORY_CONF)
@@ -80,7 +80,7 @@ class AgilityShellHook(object):
         self._agility = agility    
         
 def validateDependency(pluginpath, pluginlocation, allconfig):
-    allfeatures = set([cfg[PluginConfigFile.CONF_LOCATION] for cfg in allconfig.values()])
+    allfeatures = set([cfg[PluginConfigFile.CONF_LOCATION] for cfg in list(allconfig.values())])
     pluginfeature = (pluginpath, pluginlocation)
     cfg = allconfig[pluginfeature]
     dependencyList = cfg[PluginConfigFile.CONF_DEPENDENCY]
@@ -122,7 +122,13 @@ def loadPlugin(fullpath, config):
                     configfile.setOption(config[configfile.CONF_META_SECTION_NAME], configfile.CONF_SYSTEM_SETUP_DONE, 'True', save=True)
                 
         filehandle, pathname, description = imp.find_module(config[PluginConfigFile.CONF_MAIN_MODULE])
-        if not file:
+        
+        #print("name:=%s" % str(config[PluginConfigFile.CONF_MAIN_MODULE])) 
+        #print("file:=%s" % str(filehandle))
+        #print("filename:=%s" % pathname)
+        #print(("description:=%s" % str(description))) 
+        
+        if not filehandle:
             raise ImportError()
         mainmodule = imp.load_module(config[PluginConfigFile.CONF_MAIN_MODULE], filehandle, pathname, description)
         if PluginConfigFile.CONF_MAIN_CLASS in config:
@@ -134,10 +140,10 @@ def loadPlugin(fullpath, config):
             if not moduleinterface:
                 raise ImportError('Plugin has to declare a main class, or plugin module has to specify a public interface using __all__')
              
-    except ImportError, ex:
+    except ImportError as ex:
         logger.error(traceback.format_exc())
         raise PluginLoadError(fullpath, 'Failed to load plugin feature [%s]', config[PluginConfigFile.CONF_LOCATION])
-    except AttributeError, ex:
+    except AttributeError as ex:
         logger.error(traceback.format_exc())
         raise PluginLoadError(fullpath, 'Failed to load plugin feature [%s]', config[PluginConfigFile.CONF_LOCATION])
     finally:
@@ -189,26 +195,52 @@ def resolveDependency(cfg, othercfg):
     '''
     
     #applying basic dependency sorting, by location, e.g.: [a.tools', 'a.tools.ssh', 'a.tools.ssh.ssh2'] to avoid overwriting hooks while loading plugins
-    locationOrder = cmp(cfg[PluginConfigFile.CONF_LOCATION], othercfg[PluginConfigFile.CONF_LOCATION])
+    
+    locationOrder = 0
+    #print("cfgValues:=%s\n\n" % str(cfg))
+    
+    if  cfg[0][1] < othercfg[0][1] :
+        #print("thisLocation(%s) is less than otherLocation(%s)" % (str(cfg[0][1]), str(othercfg[0][1])))
+        locationOrder = -1
+    elif cfg[0][1] == othercfg[0][1] :
+        #print("thisLocation(%s) is equal to otherLocation(%s)" % (str(cfg[0][1]), str(othercfg[0][1])))
+        locationOrder = 0
+    elif cfg[0][1] > othercfg[0][1] :
+        #print("thisLocation(%s) is greater than otherLocation(%s)" % (str(cfg[0][1]), str(othercfg[0][1])))
+        locationOrder = 1 
+    
     if locationOrder == 0:
-        raise ValueError('location conflict [%s]'%cfg[PluginConfigFile.CONF_LOCATION])
-    
-    thisDependency = cfg.get(PluginConfigFile.CONF_DEPENDENCY) or []
-    otherDependency = othercfg.get(PluginConfigFile.CONF_DEPENDENCY) or []
-    
-    dependencyOrder = 1 if othercfg[PluginConfigFile.CONF_LOCATION] in thisDependency else -1 if cfg[PluginConfigFile.CONF_LOCATION] in otherDependency else 0
+        raise ValueError('location conflict [%s]' % cfg[0][1])
+
+    thisDependency = []
+    if PluginConfigFile.CONF_DEPENDENCY in cfg[1] and cfg[1][PluginConfigFile.CONF_DEPENDENCY] :
+        thisDependency = cfg[1][PluginConfigFile.CONF_DEPENDENCY]
+        #print("cfgDependency:=%s" % str(thisDependency))
+        
+    otherDependency = []
+    if PluginConfigFile.CONF_DEPENDENCY in othercfg[1] and othercfg[1][PluginConfigFile.CONF_DEPENDENCY] :
+        otherDependency = othercfg[1][PluginConfigFile.CONF_DEPENDENCY]
+        #print("oCfgDependency:=%s" % str(otherDependency))
+
+    dependencyOrder = 0;
+    if othercfg[0][1] in thisDependency :   
+        dependencyOrder = 1 
+    elif cfg[0][1] in otherDependency :
+        dependencyOrder = -1 
+        
     combinedOrder = locationOrder + (2*dependencyOrder)#multiplying by 2 simplifies logic, refer to truth table above
+    #print("\n\nCombinedOrder:=%s\n\n" % str(combinedOrder))
     
-    parent = '.'.join(cfg[PluginConfigFile.CONF_LOCATION].split('.')[:-1])
-    otherparent = '.'.join(othercfg[PluginConfigFile.CONF_LOCATION].split('.')[:-1])
+    parent = '.'.join(cfg[0][1].split('.')[:-1])
+    otherparent = '.'.join(othercfg[0][1].split('.')[:-1])
     
-    if combinedOrder == 1 and otherparent.startswith(cfg[PluginConfigFile.CONF_LOCATION]):#parent node can't depend on child node, or else internal nodes might be overwritten by dummy hook links
-        raise ValueError('invalid dependency, plugin [%s] can not depend on plugin [%s], consider configuring a different "location"'%(cfg[PluginConfigFile.CONF_LOCATION], othercfg[PluginConfigFile.CONF_LOCATION]))
+    if combinedOrder == 1 and otherparent.startswith(cfg[0][1]):#parent node can't depend on child node, or else internal nodes might be overwritten by dummy hook links
+        raise ValueError('invalid dependency, plugin [%s] can not depend on plugin [%s], consider configuring a different "location"'%(cfg[0][1], othercfg[0][1]))
     
-    if combinedOrder == -1 and parent.startswith(othercfg[PluginConfigFile.CONF_LOCATION]):#parent node can't depend on child node, or else internal nodes might be overwritten by dummy hook links
-        raise ValueError('invalid dependency, plugin [%s] can not depend on plugin [%s], consider configuring a different "location"'%(othercfg[PluginConfigFile.CONF_LOCATION], cfg[PluginConfigFile.CONF_LOCATION]))
-    
-    return 1 if combinedOrder > 0 else -1 if combinedOrder < 0 else 0#adhere to cmp interface of returning -1 or 0 or 1    
+    if combinedOrder == -1 and parent.startswith(othercfg[0][1]):#parent node can't depend on child node, or else internal nodes might be overwritten by dummy hook links
+        raise ValueError('invalid dependency, plugin [%s] can not depend on plugin [%s], consider configuring a different "location"'%(othercfg[0][1], cfg[0][1]))
+
+    return 1 if combinedOrder > 0 else -1 if combinedOrder < 0 else 0#adhere to cmp interface of returning -1 or 0 or 1
         
 
 def prioritizePlugins(allconfig):
@@ -221,7 +253,9 @@ def prioritizePlugins(allconfig):
     @param allconfig: map of {plugin full path -> config}
     @return: ordered list of pairs (plugin full path, config)
     '''
-    prioritizedPlugins = sorted(allconfig.items(), key=lambda pair: pair[1], cmp=resolveDependency)
+    # prioritizedPlugins = sorted(list(allconfig.items()), key=lambda pair: pair[1], cmp=resolveDependency)
+    prioritizedPlugins = sorted(list(allconfig.items()), key=cmp_to_key(resolveDependency))
+    print("PrioritizedPlugins:=%s" % str(prioritizedPlugins)) 
     return prioritizedPlugins
 
 def loadPlugins(agility, rootpath, plugindir='plugins'):
@@ -233,11 +267,14 @@ def loadPlugins(agility, rootpath, plugindir='plugins'):
     isDir = lambda relpath: isNotHidden(relpath) and os.path.isdir(os.path.join(pluginspath, relpath))
     for plugin in filter(isDir, os.listdir(pluginspath)):
         pluginpath = os.path.join(pluginspath, plugin)
+        
+        print('PluginPath: %s'%pluginpath)
+        
         try:
             configpath = os.path.join(pluginpath, 'plugin.cfg')
             configfile = PluginConfigFile(configpath)
             configSections = configfile.getFeatureSections()
-        except Exception, ex:
+        except Exception as ex:
             logger.error(ex)
             continue
         else:
@@ -245,19 +282,26 @@ def loadPlugins(agility, rootpath, plugindir='plugins'):
                 if config.get(PluginConfigFile.CONF_ENABLED, 'true').lower() != 'true':
                     continue
                 logger.debug('Config: %s'%config)
+                #print('Config: %s'%config)
+                
                 #using tuple (pluginpath, pluginlocation) as key to enable multiple locations per plugin
                 allconfig[(pluginpath, config[PluginConfigFile.CONF_LOCATION])] = config
     
     prioritizedPlugins = prioritizePlugins(allconfig)
     for pluginfeature, cfg in prioritizedPlugins:
         pluginpath, pluginlocation = pluginfeature
+        
+        #print("PluginFeature:=%s" % str(pluginfeature))
+        #print("PluginPath:=%s" % pluginpath)
+        #print("PluginLocation:=%s" % pluginlocation)
+        
         try:
             if PluginConfigFile.CONF_DEPENDENCY in cfg and cfg[PluginConfigFile.CONF_DEPENDENCY]:
                 validateDependency(pluginpath, pluginlocation, allconfig)
             agility.cfg.plugins.all[pluginlocation] = cfg
             pluginmodule, pluginclass, moduleinterface, treelocation = loadPlugin(pluginpath, cfg)
             treelocation, cfg = installPlugin(agility, pluginpath, pluginmodule, pluginclass, moduleinterface, treelocation, cfg)
-        except Exception, ex:
+        except Exception as ex:
             logger.error(traceback.format_exc(ex))
             agility.cfg.plugins.failed.add(pluginlocation)
             continue
@@ -299,7 +343,7 @@ def reloadPluginFeature(agility, treelocation):
     try:
         pluginmodule, pluginclass, moduleinterface, treelocation = loadPlugin(pluginpath, cfg)
         treelocation, cfg = installPlugin(agility, pluginpath, pluginmodule, pluginclass, moduleinterface, treelocation, cfg)
-    except PluginLoadError, ex:
+    except PluginLoadError as ex:
         logger.error(ex)
         agility.cfg.plugins.loaded.discard(treelocation)
         agility.cfg.plugins.failed.add(treelocation)

@@ -1,5 +1,5 @@
-from base.TreeNode import TreeNodeBase
-from actions.TreeNode import TreeNodeActions
+from .base.TreeNode import TreeNodeBase
+from .actions.TreeNode import TreeNodeActions
 
 class TreeNode(TreeNodeBase, TreeNodeActions):
     '''

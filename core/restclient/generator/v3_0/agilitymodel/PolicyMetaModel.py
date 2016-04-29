@@ -1,5 +1,5 @@
-from base.PolicyMetaModel import PolicyMetaModelBase
-from actions.PolicyMetaModel import PolicyMetaModelActions
+from .base.PolicyMetaModel import PolicyMetaModelBase
+from .actions.PolicyMetaModel import PolicyMetaModelActions
 
 class PolicyMetaModel(PolicyMetaModelBase, PolicyMetaModelActions):
     '''

@@ -31,7 +31,7 @@ privateFilter = lambda name: not name.startswith('_')
 callableFilter = lambda obj, attr: not isinstance(getattr(obj, attr), (types.FunctionType, types.MethodType))
 
 ################ type agnostic property access ################
-listFields = lambda item: item.keys() if isinstance(item, dict) else filter(privateFilter, dir(item))#filter(partial(callableFilter, item), filter(privateFilter, dir(item)))
+listFields = lambda item: list(item.keys()) if isinstance(item, dict) else list(filter(privateFilter, dir(item)))#filter(partial(callableFilter, item), filter(privateFilter, dir(item)))
 
 getField = lambda item, field, default=None: item.get(field, default) if isinstance(item, dict) else getattr(item, field, default)
 
@@ -40,39 +40,39 @@ setField = lambda item, field, value: item.update([(field, value)]) if isinstanc
 hasField = lambda item, field: field in item if isinstance(item, dict) else hasattr(item, field)
 
 ################ prefix search, ideally for use with flattened maps to find groups of child attributes ################
-listFieldsWithPrefix = lambda item, prefix, flatten=False: filter(lambda f: f.startswith(prefix), listFields(flattenmap(item) if flatten else item))
+listFieldsWithPrefix = lambda item, prefix, flatten=False: [f for f in listFields(flattenmap(item) if flatten else item) if f.startswith(prefix)]
 
-getFieldsWithPrefix = lambda item, prefix, flatten=False: map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithPrefix(item, prefix, flatten))
+getFieldsWithPrefix = lambda item, prefix, flatten=False: list(map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithPrefix(item, prefix, flatten)))
 
-selectFieldsWithPrefix = lambda item, prefix, flatten=False: dict(zip(listFieldsWithPrefix(item, prefix, flatten), getFieldsWithPrefix(item, prefix, flatten)))
+selectFieldsWithPrefix = lambda item, prefix, flatten=False: dict(list(zip(listFieldsWithPrefix(item, prefix, flatten), getFieldsWithPrefix(item, prefix, flatten))))
 
 ################ suffix search, simply because we can find them ################
-listFieldsWithSuffix = lambda item, suffix, flatten=False: filter(lambda f: f.endswith(suffix), listFields(flattenmap(item) if flatten else item))
+listFieldsWithSuffix = lambda item, suffix, flatten=False: [f for f in listFields(flattenmap(item) if flatten else item) if f.endswith(suffix)]
 
-getFieldsWithSuffix = lambda item, suffix, flatten=False: map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithSuffix(item, suffix, flatten))
+getFieldsWithSuffix = lambda item, suffix, flatten=False: list(map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithSuffix(item, suffix, flatten)))
 
-selectFieldsWithSuffix = lambda item, prefix, flatten=False: dict(zip(listFieldsWithSuffix(item, prefix, flatten), getFieldsWithSuffix(item, prefix, flatten)))
+selectFieldsWithSuffix = lambda item, prefix, flatten=False: dict(list(zip(listFieldsWithSuffix(item, prefix, flatten), getFieldsWithSuffix(item, prefix, flatten))))
 
 ################ regex search within attribute names ################
 listFieldsWithRegex = lambda item, pattern, flatten=False: [k for k in listFields(flattenmap(item) if flatten else item) if re.match(pattern, k)]
 
-getFieldsWithRegex = lambda item, pattern, flatten=False: map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithRegex(item, pattern, flatten))
+getFieldsWithRegex = lambda item, pattern, flatten=False: list(map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithRegex(item, pattern, flatten)))
     
-selectFieldsWithRegex = lambda item, pattern, flatten=False: dict(zip(listFieldsWithRegex(item, pattern, flatten), getFieldsWithRegex(item, pattern, flatten)))
+selectFieldsWithRegex = lambda item, pattern, flatten=False: dict(list(zip(listFieldsWithRegex(item, pattern, flatten), getFieldsWithRegex(item, pattern, flatten))))
 
 ################ regex search within attribute values ################
-listFieldsWithValueRegex = lambda item, pattern, flatten=True: [k for k, v in (flattenmap(item) if flatten else selectFields(item)).items() if re.match(pattern, str(v))] 
+listFieldsWithValueRegex = lambda item, pattern, flatten=True: [k for k, v in list((flattenmap(item) if flatten else selectFields(item)).items()) if re.match(pattern, str(v))] 
 
-getFieldsWithValueRegex = lambda item, pattern, flatten=True:  map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithValueRegex(item, pattern, flatten))
+getFieldsWithValueRegex = lambda item, pattern, flatten=True:  list(map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithValueRegex(item, pattern, flatten)))
 
-selectFieldsWithValueRegex = lambda item, pattern, flatten=True: dict(zip(listFieldsWithValueRegex(item, pattern, flatten), getFieldsWithValueRegex(item, pattern, flatten)))
+selectFieldsWithValueRegex = lambda item, pattern, flatten=True: dict(list(zip(listFieldsWithValueRegex(item, pattern, flatten), getFieldsWithValueRegex(item, pattern, flatten))))
 
 ################ apply filter on attribute values ################
-listFieldsWithValueFilter = lambda item, filterfunc, flatten=True: [k for k, v in (flattenmap(item) if flatten else selectFields(item)).items() if filterfunc(v)] 
+listFieldsWithValueFilter = lambda item, filterfunc, flatten=True: [k for k, v in list((flattenmap(item) if flatten else selectFields(item)).items()) if filterfunc(v)] 
 
-getFieldsWithValueFilter = lambda item, filterfunc, flatten=True:  map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithValueFilter(item, filterfunc, flatten))
+getFieldsWithValueFilter = lambda item, filterfunc, flatten=True:  list(map(partial(getField, flattenmap(item) if flatten else item), listFieldsWithValueFilter(item, filterfunc, flatten)))
 
-selectFieldsWithValueFilter = lambda item, filterfunc, flatten=True: dict(zip(listFieldsWithValueFilter(item, filterfunc, flatten), getFieldsWithValueFilter(item, filterfunc, flatten)))
+selectFieldsWithValueFilter = lambda item, filterfunc, flatten=True: dict(list(zip(listFieldsWithValueFilter(item, filterfunc, flatten), getFieldsWithValueFilter(item, filterfunc, flatten))))
 
     
 ################ regex listing resulted in a field, get its parent sub-object easily using the fully qualified name a.b.c.d ################
@@ -111,7 +111,7 @@ def modField(item, fieldFQN, pop=True, newvalue=None, nestedById=True):
     parent = getParentField(item, fieldFQN, relation=1, useIndex=(not nestedById))
     if parent is None: raise KeyError('No such field [%s]'%fieldFQN)
     if isinstance(parent, (list, tuple)):
-        if nestedById and all(map(lambda item: hasField(item, 'id'), parent)):
+        if nestedById and all([hasField(item, 'id') for item in parent]):
             id = fieldName
             for idx, item in enumerate(parent):
                 if id == getField(item, 'id'):
@@ -143,7 +143,7 @@ def idmap(itemList, keyField='id', defaultToIndex=False, useIndex=False):
     @param defaultToIndex: use a sequential index as key if keyField doesn't exist in ALL items
     '''
     if not useIndex:
-        withids = filter(lambda item: hasField(item, keyField), itemList)
+        withids = [item for item in itemList if hasField(item, keyField)]
         if len(withids) < len(itemList): 
             if not defaultToIndex:
                 logger.warn('idmap() : some items do not have [%s] field', keyField)
@@ -153,7 +153,7 @@ def idmap(itemList, keyField='id', defaultToIndex=False, useIndex=False):
     result = {}
     try:
         [result.update([(getField(asset, keyField) if not useIndex else str(index) , asset)]) for index, asset in enumerate(itemList)]
-    except AttributeError, ex:
+    except AttributeError as ex:
         logger.error('Invalid keyField: %s', ex)
         raise
     return result
@@ -172,7 +172,7 @@ def flattenmap(dct, parentKey='', includeComposites=True):
         dct = selectFields(dct, fields=None)
         
     flatmap = {}
-    for k, v in dct.items():
+    for k, v in list(dct.items()):
         if isinstance(v, (dict, modelObjectTypes())):
             if includeComposites:
                 flatmap['%s%s%s'%(parentKey,'.' if parentKey else '', k)] = v
@@ -182,10 +182,10 @@ def flattenmap(dct, parentKey='', includeComposites=True):
                 flatmap['%s%s%s'%(parentKey,'.' if parentKey else '', k)] = v
             if all([isinstance(item, (dict, modelObjectTypes())) for item in v]):#list of composite types
                 if includeComposites:
-                    [flatmap.update([('%s%s%s.%s'%(parentKey,'.' if parentKey else '', k, item[0]), item[1])]) for item in idmap(v, keyField='id', defaultToIndex=True).items()]#include keys for key.objectID
-                [flatmap.update(flattenmap(item[1], '%s%s%s.%s'%(parentKey,'.' if parentKey else '',k, item[0]))) for item in idmap(v, keyField='id', defaultToIndex=True).items()]#include leafs of ke.objectID
+                    [flatmap.update([('%s%s%s.%s'%(parentKey,'.' if parentKey else '', k, item[0]), item[1])]) for item in list(idmap(v, keyField='id', defaultToIndex=True).items())]#include keys for key.objectID
+                [flatmap.update(flattenmap(item[1], '%s%s%s.%s'%(parentKey,'.' if parentKey else '',k, item[0]))) for item in list(idmap(v, keyField='id', defaultToIndex=True).items())]#include leafs of ke.objectID
             else:
-                [flatmap.update([('%s%s%s.%s'%(parentKey,'.' if parentKey else '', k, item[0]), item[1])]) for item in idmap(v, keyField='id', defaultToIndex=True).items()]
+                [flatmap.update([('%s%s%s.%s'%(parentKey,'.' if parentKey else '', k, item[0]), item[1])]) for item in list(idmap(v, keyField='id', defaultToIndex=True).items())]
         else:
             flatmap['%s%s%s'%(parentKey,'.' if parentKey else '', k)] = v
     return flatmap
@@ -244,9 +244,9 @@ def modifyMap(dct, deleteFields=None, replaceFields=None):
     for fieldToDelete in sorted(deleteFields):
         try:
             popField(dct, fieldToDelete)
-        except KeyError, ex:
+        except KeyError as ex:
             logger.warn(ex)
-    for fieldToReplace, newvalue in replaceFields.items():
+    for fieldToReplace, newvalue in list(replaceFields.items()):
         replaceField(dct, fieldToReplace, newvalue)
     
     return dct

@@ -20,15 +20,15 @@ q.params.fieldName = 'name'
 q.params.searchTerm = 'ScriptTesting-1'
 # <demo> --- stop ---
 #Compile the query if you want to inspect the result query_params
-print q.compile()
+print((q.compile()))
 # <demo> --- stop ---
 #Invoke any search API (compute.searchInstances in our example) passing the query_params
 result = a.compute.searchInstances(**q.compile())
-print 'Result size [%s]'%len(result)
+print(('Result size [%s]'%len(result)))
 instance = result.pop()
 
 # <demo> --- stop ---
-print instance
+print(instance)
 # <demo> --- stop ---
 #Verfiy that the search produced the expected result
-print instance.name
+print((instance.name))

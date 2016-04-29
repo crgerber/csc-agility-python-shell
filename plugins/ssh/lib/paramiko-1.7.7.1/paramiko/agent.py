@@ -31,7 +31,7 @@ from paramiko.pkey import PKey
 
 
 SSH2_AGENTC_REQUEST_IDENTITIES, SSH2_AGENT_IDENTITIES_ANSWER, \
-    SSH2_AGENTC_SIGN_REQUEST, SSH2_AGENT_SIGN_RESPONSE = range(11, 15)
+    SSH2_AGENTC_SIGN_REQUEST, SSH2_AGENT_SIGN_RESPONSE = list(range(11, 15))
 
 
 class Agent:
@@ -66,7 +66,7 @@ class Agent:
                 return
             self.conn = conn
         elif sys.platform == 'win32':
-            import win_pageant
+            from . import win_pageant
             if win_pageant.can_talk_to_agent():
                 self.conn = win_pageant.PageantConnection()
             else:

@@ -1,5 +1,5 @@
-from base.ScriptPropertyReference import ScriptPropertyReferenceBase
-from actions.ScriptPropertyReference import ScriptPropertyReferenceActions
+from .base.ScriptPropertyReference import ScriptPropertyReferenceBase
+from .actions.ScriptPropertyReference import ScriptPropertyReferenceActions
 
 class ScriptPropertyReference(ScriptPropertyReferenceBase, ScriptPropertyReferenceActions):
     '''

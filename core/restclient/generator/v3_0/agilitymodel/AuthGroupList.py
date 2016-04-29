@@ -1,5 +1,5 @@
-from base.AuthGroupList import AuthGroupListBase
-from actions.AuthGroupList import AuthGroupListActions
+from .base.AuthGroupList import AuthGroupListBase
+from .actions.AuthGroupList import AuthGroupListActions
 
 class AuthGroupList(AuthGroupListBase, AuthGroupListActions):
     '''

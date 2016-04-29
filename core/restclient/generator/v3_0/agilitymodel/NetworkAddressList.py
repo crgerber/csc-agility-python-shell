@@ -1,5 +1,5 @@
-from base.NetworkAddressList import NetworkAddressListBase
-from actions.NetworkAddressList import NetworkAddressListActions
+from .base.NetworkAddressList import NetworkAddressListBase
+from .actions.NetworkAddressList import NetworkAddressListActions
 
 class NetworkAddressList(NetworkAddressListBase, NetworkAddressListActions):
     '''

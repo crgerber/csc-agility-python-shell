@@ -1,5 +1,5 @@
-from base.PublishRequest import PublishRequestBase
-from actions.PublishRequest import PublishRequestActions
+from .base.PublishRequest import PublishRequestBase
+from .actions.PublishRequest import PublishRequestActions
 
 class PublishRequest(PublishRequestBase, PublishRequestActions):
     '''

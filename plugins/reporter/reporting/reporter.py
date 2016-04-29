@@ -20,7 +20,7 @@ responseparser.register_parser(responseparser.PARSER.BEAUTIFUL_SOUP)
 parse = responseparser.parser()
 
 filters = {
-           '1_simple_str_only' : lambda k, v=None: (None, None) if not isinstance(k if v is None else v, (str, unicode)) else (k, v),
+           '1_simple_str_only' : lambda k, v=None: (None, None) if not isinstance(k if v is None else v, str) else (k, v),
            '2_to_str' : lambda k, v=None: (str(k), str(v)),
            '3_ignore_private' : lambda k, v=None: (None, None) if k.startswith('_') else (k, v)
            }
@@ -50,7 +50,7 @@ def getAssetList(conn, assetName, getDetails=True, persist=True, persistRootDir=
     assetList = parse(service(''), assetName, persistDir=summaryPersistDir if persist else '', persistFile=persistFile if persist else '')
     logger.info('Loaded [%s] %s summary entries', len(assetList), assetName)
     detailesPersistDir = os.path.join(persistRootDir, conn.conn_params['host'], conn.conn_params['systemversion'], assetName, 'details')
-    detailedAssetList = map(lambda c: parse(service(c.id), assetName, persistDir=detailesPersistDir if persist else '', persistFile='%s_%s'%(c.id, persistFile) if persist else ''), assetList) if getDetails else []
+    detailedAssetList = [parse(service(c.id), assetName, persistDir=detailesPersistDir if persist else '', persistFile='%s_%s'%(c.id, persistFile) if persist else '') for c in assetList] if getDetails else []
     logger.info('Loaded [%s] %s detailed entries', len(detailedAssetList), assetName)
     return assetList, detailedAssetList
 
@@ -71,8 +71,8 @@ def _createAssetReport(envParams, assetList, detailedAssetList, assetName='', re
         #filter out all the private attributes
         #filter out all the complex attributes, retaining only the string ones
         colNamesSet = set()
-        [colNamesSet.add(key) for asset in detailedAssetList for key in asset._attrs.keys() ]
-        logger.info('Applying filters: %s', filters.keys())
+        [colNamesSet.add(key) for asset in detailedAssetList for key in list(asset._attrs.keys()) ]
+        logger.info('Applying filters: %s', list(filters.keys()))
         cols = cols or applyFilters(colNamesSet, **filters)
         data = [applyFilters(asset._attrs, **filters) for asset in detailedAssetList]
         

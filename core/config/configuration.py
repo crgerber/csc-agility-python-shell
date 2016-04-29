@@ -1,5 +1,5 @@
 from collections import defaultdict
-from ConfigParser import RawConfigParser, NoOptionError
+from configparser import RawConfigParser, NoOptionError, NoSectionError
 from logger import logger as logger
 from core.base.enum import Enum
 
@@ -34,10 +34,10 @@ class ConfigINIFile(object):
     
     def section(self, section, get_defaults=True):
         actual_options = self.parser.options(section) #actual options set in the config INI file
-        all_defaults = self._valuehooks['default'][section].keys() #all options with default values
+        all_defaults = list(self._valuehooks['default'][section].keys()) #all options with default values
         options = list(set(actual_options) | set(all_defaults)) #options = union of actual options loaded from file + options with defautls set
         values = [self.get(section, option) for option in options]
-        section = dict(zip(options, values))
+        section = dict(list(zip(options, values)))
         return section
     
     def addSection(self, section, save=False):
@@ -68,7 +68,7 @@ class ConfigINIFile(object):
     def get(self, section, option):
         try:
             value = self.parser.get(section, option)
-        except NoOptionError:
+        except (NoOptionError, NoSectionError) as e:
             value = self.defaultValue(section, option)
             if value is None:
                 raise
@@ -198,11 +198,12 @@ class AgilityShellConfig(ConfigINIFile):
         self.formatter(to_bool, 'main', 'connect')
         self.default(False, 'main', 'reauthenticate')
         self.formatter(to_bool, 'main', 'reauthenticate')
-        self.default('v2.0', 'apiversion', 'version')
+        #self.default('v2.0', 'apiversion', 'version')
+        self.default('v3.3', 'apiversion', 'version')
         self.default('True', 'apiversion', 'compatibility')
         self.formatter(to_bool, 'apiversion', 'compatibility')
         self.default('INFO', 'log', 'level')
-        mainSectionNames = filter(lambda sectionName: sectionName.startswith('main'), self.sections())
+        mainSectionNames = [sectionName for sectionName in self.sections() if sectionName.startswith('main')]
         if not mainSectionNames:
             raise RuntimeError('Failed to load configuration file, No [main] section')
         self.mainSectionName = mainSectionNames.pop()
@@ -212,6 +213,6 @@ class AgilityShellConfig(ConfigINIFile):
         
     def getConfig(self, sectionNames=None):
         sectionNames = sectionNames or [self.mainSectionName]
-        configDict = {'%s_%s'%(sectionName, k) : v for sectionName in sectionNames for k, v in self.section(sectionName).items()}
+        configDict = {'%s_%s'%(sectionName, k) : v for sectionName in sectionNames for k, v in list(self.section(sectionName).items())}
         config = Enum(**configDict)
         return config

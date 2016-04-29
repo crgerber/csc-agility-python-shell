@@ -1,5 +1,5 @@
-from base.DescriptiveLink import DescriptiveLinkBase
-from actions.DescriptiveLink import DescriptiveLinkActions
+from .base.DescriptiveLink import DescriptiveLinkBase
+from .actions.DescriptiveLink import DescriptiveLinkActions
 
 class DescriptiveLink(DescriptiveLinkBase, DescriptiveLinkActions):
     '''

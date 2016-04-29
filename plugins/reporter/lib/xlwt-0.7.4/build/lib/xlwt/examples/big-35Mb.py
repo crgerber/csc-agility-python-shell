@@ -14,17 +14,17 @@ rowcount = 6000 + 1
 
 t0 = time()
 
-for col in xrange(colcount):
-    for row in xrange(rowcount):
+for col in range(colcount):
+    for row in range(rowcount):
         ws0.write(row, col, "BIG(%d, %d)" % (row, col))
 
 t1 = time() - t0
-print "\nsince starting elapsed %.2f s" % (t1)
+print(("\nsince starting elapsed %.2f s" % (t1)))
 
-print "Storing..."
+print("Storing...")
 wb.save('big-35Mb.xls')
 
 t2 = time() - t0
-print "since starting elapsed %.2f s" % (t2)
+print(("since starting elapsed %.2f s" % (t2)))
 
 

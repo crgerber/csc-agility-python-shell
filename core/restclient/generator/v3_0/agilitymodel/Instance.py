@@ -1,5 +1,5 @@
-from base.Instance import InstanceBase
-from actions.Instance import InstanceActions
+from .base.Instance import InstanceBase
+from .actions.Instance import InstanceActions
 
 class Instance(InstanceBase, InstanceActions):
     '''

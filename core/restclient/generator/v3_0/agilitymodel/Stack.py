@@ -1,5 +1,5 @@
-from base.Stack import StackBase
-from actions.Stack import StackActions
+from .base.Stack import StackBase
+from .actions.Stack import StackActions
 
 class Stack(StackBase, StackActions):
     '''

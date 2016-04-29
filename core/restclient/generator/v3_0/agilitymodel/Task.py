@@ -1,5 +1,5 @@
-from base.Task import TaskBase
-from actions.Task import TaskActions
+from .base.Task import TaskBase
+from .actions.Task import TaskActions
 
 class Task(TaskBase, TaskActions):
     '''

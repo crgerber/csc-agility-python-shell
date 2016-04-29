@@ -1,5 +1,5 @@
-from base.ResourceMapping import ResourceMappingBase
-from actions.ResourceMapping import ResourceMappingActions
+from .base.ResourceMapping import ResourceMappingBase
+from .actions.ResourceMapping import ResourceMappingActions
 
 class ResourceMapping(ResourceMappingBase, ResourceMappingActions):
     '''

@@ -1,5 +1,5 @@
-from base.ErrorMessage import ErrorMessageBase
-from actions.ErrorMessage import ErrorMessageActions
+from .base.ErrorMessage import ErrorMessageBase
+from .actions.ErrorMessage import ErrorMessageActions
 
 class ErrorMessage(ErrorMessageBase, ErrorMessageActions):
     '''

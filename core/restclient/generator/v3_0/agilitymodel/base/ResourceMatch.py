@@ -1,4 +1,4 @@
-from DescriptiveLink import DescriptiveLinkBase
+from .DescriptiveLink import DescriptiveLinkBase
 
 class ResourceMatchBase(DescriptiveLinkBase):
     '''

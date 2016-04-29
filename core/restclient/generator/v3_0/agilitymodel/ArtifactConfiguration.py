@@ -1,5 +1,5 @@
-from base.ArtifactConfiguration import ArtifactConfigurationBase
-from actions.ArtifactConfiguration import ArtifactConfigurationActions
+from .base.ArtifactConfiguration import ArtifactConfigurationBase
+from .actions.ArtifactConfiguration import ArtifactConfigurationActions
 
 class ArtifactConfiguration(ArtifactConfigurationBase, ArtifactConfigurationActions):
     '''

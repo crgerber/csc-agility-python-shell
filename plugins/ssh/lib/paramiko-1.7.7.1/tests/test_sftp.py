@@ -140,7 +140,7 @@ class SFTPTest (unittest.TestCase):
 
     def setUp(self):
         global FOLDER
-        for i in xrange(1000):
+        for i in range(1000):
             FOLDER = FOLDER[:-3] + '%03d' % i
             try:
                 sftp.mkdir(FOLDER)
@@ -219,7 +219,7 @@ class SFTPTest (unittest.TestCase):
             sftp.rename(FOLDER + '/first.txt', FOLDER + '/second.txt')
             try:
                 f = sftp.open(FOLDER + '/first.txt', 'r')
-                self.assert_(False, 'no exception on reading nonexistent file')
+                self.assertTrue(False, 'no exception on reading nonexistent file')
             except IOError:
                 pass
             f = sftp.open(FOLDER + '/second.txt', 'r')
@@ -249,7 +249,7 @@ class SFTPTest (unittest.TestCase):
         try:
             f = sftp.open(FOLDER + '/subfolder/test')
             # shouldn't be able to create that file
-            self.assert_(False, 'no exception at dummy file creation')
+            self.assertTrue(False, 'no exception at dummy file creation')
         except IOError:
             pass
 
@@ -270,10 +270,10 @@ class SFTPTest (unittest.TestCase):
 
             x = sftp.listdir(FOLDER)
             self.assertEqual(len(x), 3)
-            self.assert_('duck.txt' in x)
-            self.assert_('fish.txt' in x)
-            self.assert_('tertiary.py' in x)
-            self.assert_('random' not in x)
+            self.assertTrue('duck.txt' in x)
+            self.assertTrue('fish.txt' in x)
+            self.assertTrue('tertiary.py' in x)
+            self.assertTrue('random' not in x)
         finally:
             sftp.remove(FOLDER + '/duck.txt')
             sftp.remove(FOLDER + '/fish.txt')
@@ -289,16 +289,16 @@ class SFTPTest (unittest.TestCase):
             f.close()
 
             stat = sftp.stat(FOLDER + '/special')
-            sftp.chmod(FOLDER + '/special', (stat.st_mode & ~0777) | 0600)
+            sftp.chmod(FOLDER + '/special', (stat.st_mode & ~0o777) | 0o600)
             stat = sftp.stat(FOLDER + '/special')
-            expected_mode = 0600
+            expected_mode = 0o600
             if sys.platform == 'win32':
                 # chmod not really functional on windows
-                expected_mode = 0666
+                expected_mode = 0o666
             if sys.platform == 'cygwin':
                 # even worse.
-                expected_mode = 0644
-            self.assertEqual(stat.st_mode & 0777, expected_mode)
+                expected_mode = 0o644
+            self.assertEqual(stat.st_mode & 0o777, expected_mode)
             self.assertEqual(stat.st_size, 1024)
 
             mtime = stat.st_mtime - 3600
@@ -329,17 +329,17 @@ class SFTPTest (unittest.TestCase):
 
             f = sftp.open(FOLDER + '/special', 'r+')
             stat = f.stat()
-            f.chmod((stat.st_mode & ~0777) | 0600)
+            f.chmod((stat.st_mode & ~0o777) | 0o600)
             stat = f.stat()
 
-            expected_mode = 0600
+            expected_mode = 0o600
             if sys.platform == 'win32':
                 # chmod not really functional on windows
-                expected_mode = 0666
+                expected_mode = 0o666
             if sys.platform == 'cygwin':
                 # even worse.
-                expected_mode = 0644
-            self.assertEqual(stat.st_mode & 0777, expected_mode)
+                expected_mode = 0o644
+            self.assertEqual(stat.st_mode & 0o777, expected_mode)
             self.assertEqual(stat.st_size, 1024)
 
             mtime = stat.st_mtime - 3600
@@ -439,7 +439,7 @@ class SFTPTest (unittest.TestCase):
             self.assertEqual(sftp.stat(FOLDER + '/link.txt').st_size, 9)
             # the sftp server may be hiding extra path members from us, so the
             # length may be longer than we expect:
-            self.assert_(sftp.lstat(FOLDER + '/link2.txt').st_size >= len(abs_path))
+            self.assertTrue(sftp.lstat(FOLDER + '/link2.txt').st_size >= len(abs_path))
             self.assertEqual(sftp.stat(FOLDER + '/link2.txt').st_size, 9)
             self.assertEqual(sftp.stat(FOLDER + '/original.txt').st_size, 9)
         finally:
@@ -484,10 +484,10 @@ class SFTPTest (unittest.TestCase):
         error.
         """
         pwd = sftp.normalize('.')
-        self.assert_(len(pwd) > 0)
+        self.assertTrue(len(pwd) > 0)
         f = sftp.normalize('./' + FOLDER)
-        self.assert_(len(f) > 0)
-        self.assertEquals(os.path.join(pwd, FOLDER), f)
+        self.assertTrue(len(f) > 0)
+        self.assertEqual(os.path.join(pwd, FOLDER), f)
 
     def test_F_mkdir(self):
         """
@@ -496,19 +496,19 @@ class SFTPTest (unittest.TestCase):
         try:
             sftp.mkdir(FOLDER + '/subfolder')
         except:
-            self.assert_(False, 'exception creating subfolder')
+            self.assertTrue(False, 'exception creating subfolder')
         try:
             sftp.mkdir(FOLDER + '/subfolder')
-            self.assert_(False, 'no exception overwriting subfolder')
+            self.assertTrue(False, 'no exception overwriting subfolder')
         except IOError:
             pass
         try:
             sftp.rmdir(FOLDER + '/subfolder')
         except:
-            self.assert_(False, 'exception removing subfolder')
+            self.assertTrue(False, 'exception removing subfolder')
         try:
             sftp.rmdir(FOLDER + '/subfolder')
-            self.assert_(False, 'no exception removing nonexistent subfolder')
+            self.assertTrue(False, 'no exception removing nonexistent subfolder')
         except IOError:
             pass
 
@@ -523,17 +523,17 @@ class SFTPTest (unittest.TestCase):
             sftp.mkdir(FOLDER + '/alpha')
             sftp.chdir(FOLDER + '/alpha')
             sftp.mkdir('beta')
-            self.assertEquals(root + FOLDER + '/alpha', sftp.getcwd())
-            self.assertEquals(['beta'], sftp.listdir('.'))
+            self.assertEqual(root + FOLDER + '/alpha', sftp.getcwd())
+            self.assertEqual(['beta'], sftp.listdir('.'))
 
             sftp.chdir('beta')
             f = sftp.open('fish', 'w')
             f.write('hello\n')
             f.close()
             sftp.chdir('..')
-            self.assertEquals(['fish'], sftp.listdir('beta'))
+            self.assertEqual(['fish'], sftp.listdir('beta'))
             sftp.chdir('..')
-            self.assertEquals(['fish'], sftp.listdir('alpha/beta'))
+            self.assertEqual(['fish'], sftp.listdir('alpha/beta'))
         finally:
             sftp.chdir(root)
             try:
@@ -567,9 +567,9 @@ class SFTPTest (unittest.TestCase):
         sftp.put(localname, FOLDER + '/bunny.txt', progress_callback)
 
         f = sftp.open(FOLDER + '/bunny.txt', 'r')
-        self.assertEquals(text, f.read(128))
+        self.assertEqual(text, f.read(128))
         f.close()
-        self.assertEquals((41, 41), saved_progress[-1])
+        self.assertEqual((41, 41), saved_progress[-1])
 
         os.unlink(localname)
         localname = os.tempnam()
@@ -577,9 +577,9 @@ class SFTPTest (unittest.TestCase):
         sftp.get(FOLDER + '/bunny.txt', localname, progress_callback)
 
         f = open(localname, 'rb')
-        self.assertEquals(text, f.read(128))
+        self.assertEqual(text, f.read(128))
         f.close()
-        self.assertEquals((41, 41), saved_progress[-1])
+        self.assertEqual((41, 41), saved_progress[-1])
 
         os.unlink(localname)
         sftp.unlink(FOLDER + '/bunny.txt')
@@ -597,11 +597,11 @@ class SFTPTest (unittest.TestCase):
         try:
             f = sftp.open(FOLDER + '/kitty.txt', 'r')
             sum = f.check('sha1')
-            self.assertEquals('91059CFC6615941378D413CB5ADAF4C5EB293402', hexlify(sum).upper())
+            self.assertEqual('91059CFC6615941378D413CB5ADAF4C5EB293402', hexlify(sum).upper())
             sum = f.check('md5', 0, 512)
-            self.assertEquals('93DE4788FCA28D471516963A1FE3856A', hexlify(sum).upper())
+            self.assertEqual('93DE4788FCA28D471516963A1FE3856A', hexlify(sum).upper())
             sum = f.check('md5', 0, 0, 510)
-            self.assertEquals('EB3B45B8CD55A0707D99B177544A319F373183D241432BB2157AB9E46358C4AC90370B5CADE5D90336FC1716F90B36D6',
+            self.assertEqual('EB3B45B8CD55A0707D99B177544A319F373183D241432BB2157AB9E46358C4AC90370B5CADE5D90336FC1716F90B36D6',
                               hexlify(sum).upper())
             f.close()
         finally:
@@ -618,7 +618,7 @@ class SFTPTest (unittest.TestCase):
             try:
                 f = sftp.open(FOLDER + '/unusual.txt', 'wx')
                 self.fail('expected exception')
-            except IOError, x:
+            except IOError as x:
                 pass
         finally:
             sftp.unlink(FOLDER + '/unusual.txt')
@@ -632,23 +632,23 @@ class SFTPTest (unittest.TestCase):
         f.close()
 
         try:
-            sftp.rename(FOLDER + '/something', FOLDER + u'/\u00fcnic\u00f8de')
+            sftp.rename(FOLDER + '/something', FOLDER + '/\\u00fcnic\\u00f8de')
             sftp.open(FOLDER + '/\xc3\xbcnic\xc3\xb8\x64\x65', 'r')
-        except Exception, e:
+        except Exception as e:
             self.fail('exception ' + e)
         sftp.unlink(FOLDER + '/\xc3\xbcnic\xc3\xb8\x64\x65')
 
     def test_L_utf8_chdir(self):
-        sftp.mkdir(FOLDER + u'\u00fcnic\u00f8de')
+        sftp.mkdir(FOLDER + '\\u00fcnic\\u00f8de')
         try:
-            sftp.chdir(FOLDER + u'\u00fcnic\u00f8de')
+            sftp.chdir(FOLDER + '\\u00fcnic\\u00f8de')
             f = sftp.open('something', 'w')
             f.write('okay')
             f.close()
             sftp.unlink('something')
         finally:
             sftp.chdir(None)
-            sftp.rmdir(FOLDER + u'\u00fcnic\u00f8de')
+            sftp.rmdir(FOLDER + '\\u00fcnic\\u00f8de')
 
     def test_M_bad_readv(self):
         """
@@ -685,12 +685,12 @@ class SFTPTest (unittest.TestCase):
             saved_progress.append((x, y))
         res = sftp.put(localname, FOLDER + '/bunny.txt', progress_callback, False)
         
-        self.assertEquals(SFTPAttributes().attr, res.attr)
+        self.assertEqual(SFTPAttributes().attr, res.attr)
 
         f = sftp.open(FOLDER + '/bunny.txt', 'r')
-        self.assertEquals(text, f.read(128))
+        self.assertEqual(text, f.read(128))
         f.close()
-        self.assertEquals((41, 41), saved_progress[-1])
+        self.assertEqual((41, 41), saved_progress[-1])
 
         os.unlink(localname)
         sftp.unlink(FOLDER + '/bunny.txt')

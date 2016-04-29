@@ -27,13 +27,13 @@ def cloneTemplate(sourceTemplate, replaceFields=None, parent=None, prefix='Clone
                                   }
     replaceFields = replaceFields or {}
     sourceTemplate._topLevel = True #if template object comes from search results, it won't be topLevel, since it's a child of Assetlist
-    for component, fields in COMPONENT_FIELDS_TO_DELETE.items():
+    for component, fields in list(COMPONENT_FIELDS_TO_DELETE.items()):
         for idx, res in enumerate(sourceTemplate.get(component, [])):
             for field in fields:
                 fieldFQN = '%s.%s.%s'%(component, idx,field)
                 try:
                     scripting.popField(sourceTemplate, fieldFQN, nestedById=False)
-                except KeyError, ex:
+                except KeyError as ex:
                     logger.warn('Field [%s] does not exist'%fieldFQN)
     
     
@@ -52,7 +52,7 @@ def cloneTemplate(sourceTemplate, replaceFields=None, parent=None, prefix='Clone
 
     if 'name' not in replaceFields:
         limit = 10000#a ridiculously large upper bound for the loop searching for a unique name for the teamplate
-        counter = range(1, limit)
+        counter = list(range(1, limit))
         counter.insert(0, '')
         siblings = getSiblings(parent.id)
         sourceTemplateFields = scripting.selectFields(sourceTemplate)
@@ -60,7 +60,7 @@ def cloneTemplate(sourceTemplate, replaceFields=None, parent=None, prefix='Clone
         for idx in counter:
             sourceTemplateFields.update([('idx', str(idx))])
             newname = prefix%sourceTemplateFields
-            if not any(map(lambda s: s.name == newname, siblings)):
+            if not any([s.name == newname for s in siblings]):
                 break
         else:
             raise RuntimeError('Found more than [%s] clones within the parent container'%limit)

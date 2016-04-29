@@ -1,5 +1,5 @@
-from base.Envelope import EnvelopeBase
-from actions.Envelope import EnvelopeActions
+from .base.Envelope import EnvelopeBase
+from .actions.Envelope import EnvelopeActions
 
 class Envelope(EnvelopeBase, EnvelopeActions):
     '''

@@ -1,5 +1,5 @@
-from base.DesignContainer import DesignContainerBase
-from actions.DesignContainer import DesignContainerActions
+from .base.DesignContainer import DesignContainerBase
+from .actions.DesignContainer import DesignContainerActions
 
 class DesignContainer(DesignContainerBase, DesignContainerActions):
     '''

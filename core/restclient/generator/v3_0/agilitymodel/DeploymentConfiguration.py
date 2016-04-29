@@ -1,5 +1,5 @@
-from base.DeploymentConfiguration import DeploymentConfigurationBase
-from actions.DeploymentConfiguration import DeploymentConfigurationActions
+from .base.DeploymentConfiguration import DeploymentConfigurationBase
+from .actions.DeploymentConfiguration import DeploymentConfigurationActions
 
 class DeploymentConfiguration(DeploymentConfigurationBase, DeploymentConfigurationActions):
     '''

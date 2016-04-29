@@ -136,7 +136,7 @@ Content-Disposition: form-data;filename="MySQL-server-advanced-5.5.15-1.rhel5.x8
         
         try:
             self.boundary = (content_type.split(';')[1]).split('=')[1]
-        except IndexError, ex:
+        except IndexError as ex:
             RuntimeError('unable to extract boundary marker for content-type: %s'%content_type)
         
         newline = '\r\n'

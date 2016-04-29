@@ -1,5 +1,5 @@
-from base.Credential import CredentialBase
-from actions.Credential import CredentialActions
+from .base.Credential import CredentialBase
+from .actions.Credential import CredentialActions
 
 class Credential(CredentialBase, CredentialActions):
     '''

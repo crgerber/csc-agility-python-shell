@@ -1,5 +1,5 @@
-from base.StoreEdition import StoreEditionBase
-from actions.StoreEdition import StoreEditionActions
+from .base.StoreEdition import StoreEditionBase
+from .actions.StoreEdition import StoreEditionActions
 
 class StoreEdition(StoreEditionBase, StoreEditionActions):
     '''

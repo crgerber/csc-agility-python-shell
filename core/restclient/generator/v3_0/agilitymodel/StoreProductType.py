@@ -1,5 +1,5 @@
-from base.StoreProductType import StoreProductTypeBase
-from actions.StoreProductType import StoreProductTypeActions
+from .base.StoreProductType import StoreProductTypeBase
+from .actions.StoreProductType import StoreProductTypeActions
 
 class StoreProductType(StoreProductTypeBase, StoreProductTypeActions):
     '''

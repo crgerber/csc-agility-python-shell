@@ -1,5 +1,5 @@
-from base.LaunchItem import LaunchItemBase
-from actions.LaunchItem import LaunchItemActions
+from .base.LaunchItem import LaunchItemBase
+from .actions.LaunchItem import LaunchItemActions
 
 class LaunchItem(LaunchItemBase, LaunchItemActions):
     '''

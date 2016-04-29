@@ -1,5 +1,5 @@
-from base.PolicyMeta import PolicyMetaBase
-from actions.PolicyMeta import PolicyMetaActions
+from .base.PolicyMeta import PolicyMetaBase
+from .actions.PolicyMeta import PolicyMetaActions
 
 class PolicyMeta(PolicyMetaBase, PolicyMetaActions):
     '''

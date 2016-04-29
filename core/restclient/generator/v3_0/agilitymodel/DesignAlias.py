@@ -1,5 +1,5 @@
-from base.DesignAlias import DesignAliasBase
-from actions.DesignAlias import DesignAliasActions
+from .base.DesignAlias import DesignAliasBase
+from .actions.DesignAlias import DesignAliasActions
 
 class DesignAlias(DesignAliasBase, DesignAliasActions):
     '''

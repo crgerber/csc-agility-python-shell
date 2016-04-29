@@ -7,6 +7,8 @@ cut and paste use once you understand how to use the system."""
 # This code loads IPython but modifies a few things if it detects it's running
 # embedded in another IPython session (helps avoid confusion)
 
+import IPython
+
 try:
     get_ipython
 except NameError:

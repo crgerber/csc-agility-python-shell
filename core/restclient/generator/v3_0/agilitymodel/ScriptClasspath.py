@@ -1,5 +1,5 @@
-from base.ScriptClasspath import ScriptClasspathBase
-from actions.ScriptClasspath import ScriptClasspathActions
+from .base.ScriptClasspath import ScriptClasspathBase
+from .actions.ScriptClasspath import ScriptClasspathActions
 
 class ScriptClasspath(ScriptClasspathBase, ScriptClasspathActions):
     '''

@@ -1,5 +1,5 @@
-from base.Workload import WorkloadBase
-from actions.Workload import WorkloadActions
+from .base.Workload import WorkloadBase
+from .actions.Workload import WorkloadActions
 
 class Workload(WorkloadBase, WorkloadActions):
     '''

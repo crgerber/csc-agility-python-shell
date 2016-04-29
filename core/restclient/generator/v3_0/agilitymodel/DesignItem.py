@@ -1,5 +1,5 @@
-from base.DesignItem import DesignItemBase
-from actions.DesignItem import DesignItemActions
+from .base.DesignItem import DesignItemBase
+from .actions.DesignItem import DesignItemActions
 
 class DesignItem(DesignItemBase, DesignItemActions):
     '''

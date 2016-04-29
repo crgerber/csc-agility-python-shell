@@ -1,5 +1,5 @@
-from base.PropertyDefinitionGroup import PropertyDefinitionGroupBase
-from actions.PropertyDefinitionGroup import PropertyDefinitionGroupActions
+from .base.PropertyDefinitionGroup import PropertyDefinitionGroupBase
+from .actions.PropertyDefinitionGroup import PropertyDefinitionGroupActions
 
 class PropertyDefinitionGroup(PropertyDefinitionGroupBase, PropertyDefinitionGroupActions):
     '''

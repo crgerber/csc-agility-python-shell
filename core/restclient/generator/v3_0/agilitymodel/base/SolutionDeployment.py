@@ -1,4 +1,4 @@
-from Deployment import DeploymentBase
+from .Deployment import DeploymentBase
 
 class SolutionDeploymentBase(DeploymentBase):
     '''

@@ -25,7 +25,7 @@ def xml2d(e, removeNSPrefix=True, loadAttrs=False):
             if XSI in nsmap and e.attrib.get('{%s}type'%nsmap.get(XSI, None), None):
                 __xsi_type__ = e.attrib.pop('{%s}type'%nsmap[XSI])
                 __xsi_nsmap__ = {XSI : nsmap[XSI]}
-            kids = {re.sub('\{.*\}', '', attrName) if removeNSPrefix else attrName : attrVal for attrName, attrVal in e.attrib.items()}
+            kids = {re.sub('\{.*\}', '', attrName) if removeNSPrefix else attrName : attrVal for attrName, attrVal in list(e.attrib.items())}
             if __xsi_type__: 
                 kids['__xsi_type__'] = __xsi_type__
                 kids['__xsi_nsmap__'] = __xsi_nsmap__
@@ -46,7 +46,7 @@ def xml2d(e, removeNSPrefix=True, loadAttrs=False):
 #        debug_g = groupby(e, lambda x: x.tag)
 #        debug_g = [(t[0], list(t[1])) for t in debug_g]
         return kids
-    e = etree.XML(e) if isinstance(e, (str, unicode)) else e
+    e = etree.XML(e) if isinstance(e, str) else e
     rootTag = re.sub('\{.*\}', '', e.tag) if removeNSPrefix else e.tag
     return { rootTag : _xml2d(e, loadAttrs=loadAttrs) }    
 
@@ -119,10 +119,10 @@ def d2xml(d, favourAttributes=False, returnNode=False, templatise=False, templat
         if templatise:
 #            _t = lambda k, v: templateVars.update([(k,v)]) or '%%(%s)s'%k
             _t = templatiseTag
-        if isinstance(d, (str, unicode)):
+        if isinstance(d, str):
             parentNode.text = _t(parentNode.tag, d)
             return
-        for k,v in d.items():
+        for k,v in list(d.items()):
             if isinstance(v,dict):
                 xsi_type = v.pop(XSI_TYPE_KEY, None)
                 xsi_nsmap = v.pop(XSI_NSMAP_KEY, None)
@@ -144,7 +144,7 @@ def d2xml(d, favourAttributes=False, returnNode=False, templatise=False, templat
                 node = createNode(parent=parentNode, tag=k)
                 _d2xml(v, node, favourAttributes=favourAttributes, templatise=templatise, templateVars=templateVars) 
 
-    k,v = d.items()[0]
+    k,v = list(d.items())[0]
     xsi_type = v.pop(XSI_TYPE_KEY, None) if isinstance(v, dict) else None
     xsi_nsmap = v.pop(XSI_NSMAP_KEY, None) if isinstance(v, dict) else None
     node = createNode(tag=k, xsi_type=xsi_type, xsi_nsmap=xsi_nsmap)#etree.Element(k)

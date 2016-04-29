@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
                               {'location' : 'a.clients.ssh', 'dependency' : []},
                               {'location' : 'a.clients', 'dependency' : []},
                               ]
-        self.allconfig = dict(zip(range(len(self.pluginConfigs)), self.pluginConfigs))
+        self.allconfig = dict(list(zip(list(range(len(self.pluginConfigs))), self.pluginConfigs)))
 
     def tearDown(self):
         pass

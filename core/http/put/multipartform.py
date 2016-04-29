@@ -4,10 +4,13 @@ Created on Dec 13, 2012
 @author: dawood
 '''
 import itertools
+'''
 import mimetools
+'''
+import email.generator
 import mimetypes
-from cStringIO import StringIO
-import urllib2
+from io import StringIO
+import urllib.request, urllib.error, urllib.parse
 from fileinput import filename
 CONTENT_TYPE_MULTIPART_FORM_DATA = 'multipart/form-data'
 CONTENT_TYPE_MULTIPART_MIXED = 'multipart/mixed'
@@ -19,7 +22,10 @@ class MultiPartForm(object):
     def __init__(self):
         self.form_fields = []
         self.files = []
+        '''
         self.boundary = mimetools.choose_boundary()
+        '''
+        self.boundary = email.generator._make_boundary()
         return
     
     def get_content_type(self):
@@ -99,17 +105,17 @@ if __name__ == '__main__':
                   fileHandle=StringIO('Python developer and blogger.'))
 
     # Build the request
-    request = urllib2.Request('http://localhost:8080/')
+    request = urllib.request.Request('http://localhost:8080/')
     request.add_header('User-agent', 'PyMOTW (http://www.doughellmann.com/PyMOTW/)')
     body = str(form)
     request.add_header('Content-type', form.get_content_type())
     request.add_header('Content-length', len(body))
     request.add_data(body)
 
-    print
-    print 'OUTGOING DATA:'
-    print request.get_data()
+    print()
+    print('OUTGOING DATA:')
+    print((request.get_data()))
 
-    print
-    print 'SERVER RESPONSE:'
-    print urllib2.urlopen(request).read()
+    print()
+    print('SERVER RESPONSE:')
+    print((urllib.request.urlopen(request).read()))

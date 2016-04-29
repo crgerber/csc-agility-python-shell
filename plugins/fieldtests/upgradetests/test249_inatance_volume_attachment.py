@@ -40,7 +40,7 @@ class TestInstanceVolumeAttachment(unittest.TestCase):
             idmap = agility.tools.scripting.idmap
             getField = agility.tools.scripting.getField
             disks = lambda compute: [r for r in getField(compute, 'resources', []) if getField(r, 'resourceType', '')=='Disk Drive'] 
-            [compute_disks.update([(id, disks(compute))]) for id, compute in idmap(computeList).items() if disks(compute)]
+            [compute_disks.update([(id, disks(compute))]) for id, compute in list(idmap(computeList).items()) if disks(compute)]
             return compute_disks
             
         expectedComputeDisks = computeDisks(self.computeFixture.detailedAssetList)

@@ -1,4 +1,4 @@
-from DesignItem import DesignItemBase
+from .DesignItem import DesignItemBase
 
 class WorkloadBase(DesignItemBase):
     '''

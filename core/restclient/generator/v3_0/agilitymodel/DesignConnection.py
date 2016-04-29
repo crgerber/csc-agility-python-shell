@@ -1,5 +1,5 @@
-from base.DesignConnection import DesignConnectionBase
-from actions.DesignConnection import DesignConnectionActions
+from .base.DesignConnection import DesignConnectionBase
+from .actions.DesignConnection import DesignConnectionActions
 
 class DesignConnection(DesignConnectionBase, DesignConnectionActions):
     '''

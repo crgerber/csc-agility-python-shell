@@ -1,5 +1,5 @@
-from base.UserGroup import UserGroupBase
-from actions.UserGroup import UserGroupActions
+from .base.UserGroup import UserGroupBase
+from .actions.UserGroup import UserGroupActions
 
 class UserGroup(UserGroupBase, UserGroupActions):
     '''

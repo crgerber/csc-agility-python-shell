@@ -1,5 +1,5 @@
-from base.ImportDirectives import ImportDirectivesBase
-from actions.ImportDirectives import ImportDirectivesActions
+from .base.ImportDirectives import ImportDirectivesBase
+from .actions.ImportDirectives import ImportDirectivesActions
 
 class ImportDirectives(ImportDirectivesBase, ImportDirectivesActions):
     '''

@@ -1,4 +1,4 @@
-from Asset import AssetBase
+from .Asset import AssetBase
 
 class StorePublisherBase(AssetBase):
     '''

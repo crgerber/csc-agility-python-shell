@@ -51,7 +51,7 @@ def writeData(worksheet, data, fields=None):
         [colNamesSet.add(key) for row in data for key in listFields(row)]
     fields = fields or sorted(colNamesSet)
     data = [selectFields(item, fields=fields, ignore=False, default=default) for item in data]
-    data.insert(0, dict(zip(fields, fields)))#column names
+    data.insert(0, dict(list(zip(fields, fields))))#column names
     for r, row in enumerate(data):
         for c, col in enumerate(fields):
             worksheet.write(r, c, label=row.get(col, default))

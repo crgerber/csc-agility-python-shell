@@ -1,5 +1,5 @@
-from base.EnvironmentType import EnvironmentTypeBase
-from actions.EnvironmentType import EnvironmentTypeActions
+from .base.EnvironmentType import EnvironmentTypeBase
+from .actions.EnvironmentType import EnvironmentTypeActions
 
 class EnvironmentType(EnvironmentTypeBase, EnvironmentTypeActions):
     '''

@@ -1,5 +1,5 @@
-from base.Cloud import CloudBase
-from actions.Cloud import CloudActions
+from .base.Cloud import CloudBase
+from .actions.Cloud import CloudActions
 
 class Cloud(CloudBase, CloudActions):
     '''

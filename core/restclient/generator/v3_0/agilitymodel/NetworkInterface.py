@@ -1,5 +1,5 @@
-from base.NetworkInterface import NetworkInterfaceBase
-from actions.NetworkInterface import NetworkInterfaceActions
+from .base.NetworkInterface import NetworkInterfaceBase
+from .actions.NetworkInterface import NetworkInterfaceActions
 
 class NetworkInterface(NetworkInterfaceBase, NetworkInterfaceActions):
     '''

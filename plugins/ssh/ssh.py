@@ -22,7 +22,7 @@ class SSH(AgilityShellHook):
         #getCredential returns the ssh-keys, while getCredentials2 returns the password
         credentialList = [self._agility.credential.getCredential(credential.id) for credential in credentials]
         credentialPassList = [self._agility.credential.getCredential2(credential.id) for credential in credentialList if (credential.credentialType == TYPE_USERPASS)]
-        selectedCredentialList = filter(lambda cred: cred.credentialType == TYPE_SSH, credentialList) if useSSHKey else credentialPassList
+        selectedCredentialList = [cred for cred in credentialList if cred.credentialType == TYPE_SSH] if useSSHKey else credentialPassList
         
         selectedCredential = selectedCredentialList.pop()
         netAddress = compute.publicAddress if usePublicAddress else compute.privateAddress

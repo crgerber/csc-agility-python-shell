@@ -1,5 +1,5 @@
-from base.ArtifactRuntimeBinding import ArtifactRuntimeBindingBase
-from actions.ArtifactRuntimeBinding import ArtifactRuntimeBindingActions
+from .base.ArtifactRuntimeBinding import ArtifactRuntimeBindingBase
+from .actions.ArtifactRuntimeBinding import ArtifactRuntimeBindingActions
 
 class ArtifactRuntimeBinding(ArtifactRuntimeBindingBase, ArtifactRuntimeBindingActions):
     '''

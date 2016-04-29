@@ -8,7 +8,7 @@ import fixtures
 from core.restclient import responseparser
 from gen import methods as client
 from core.restclient.responseparser.ParserLxml import xml2d
-import xmltemplates
+from . import xmltemplates
 import logger
 COMPONENT_NAME = 'agility-testbench'
 logger = logger.getLogger('%s.%s'%(COMPONENT_NAME, __name__))

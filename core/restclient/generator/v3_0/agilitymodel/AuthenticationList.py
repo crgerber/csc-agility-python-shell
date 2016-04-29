@@ -1,5 +1,5 @@
-from base.AuthenticationList import AuthenticationListBase
-from actions.AuthenticationList import AuthenticationListActions
+from .base.AuthenticationList import AuthenticationListBase
+from .actions.AuthenticationList import AuthenticationListActions
 
 class AuthenticationList(AuthenticationListBase, AuthenticationListActions):
     '''

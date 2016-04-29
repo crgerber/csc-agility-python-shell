@@ -1,5 +1,5 @@
-from base.AssetMatch import AssetMatchBase
-from actions.AssetMatch import AssetMatchActions
+from .base.AssetMatch import AssetMatchBase
+from .actions.AssetMatch import AssetMatchActions
 
 class AssetMatch(AssetMatchBase, AssetMatchActions):
     '''

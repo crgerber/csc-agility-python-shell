@@ -1,5 +1,5 @@
-from base.Host import HostBase
-from actions.Host import HostActions
+from .base.Host import HostBase
+from .actions.Host import HostActions
 
 class Host(HostBase, HostActions):
     '''

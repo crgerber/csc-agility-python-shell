@@ -1,5 +1,5 @@
-from base.User import UserBase
-from actions.User import UserActions
+from .base.User import UserBase
+from .actions.User import UserActions
 
 class User(UserBase, UserActions):
     '''

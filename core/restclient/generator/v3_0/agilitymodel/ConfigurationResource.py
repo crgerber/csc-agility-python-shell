@@ -1,5 +1,5 @@
-from base.ConfigurationResource import ConfigurationResourceBase
-from actions.ConfigurationResource import ConfigurationResourceActions
+from .base.ConfigurationResource import ConfigurationResourceBase
+from .actions.ConfigurationResource import ConfigurationResourceActions
 
 class ConfigurationResource(ConfigurationResourceBase, ConfigurationResourceActions):
     '''

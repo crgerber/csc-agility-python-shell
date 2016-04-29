@@ -1,4 +1,4 @@
-from VersionedItem import VersionedItemBase
+from .VersionedItem import VersionedItemBase
 
 class ContainerBase(VersionedItemBase):
     '''

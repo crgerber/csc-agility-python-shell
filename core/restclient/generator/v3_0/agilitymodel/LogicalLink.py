@@ -1,5 +1,5 @@
-from base.LogicalLink import LogicalLinkBase
-from actions.LogicalLink import LogicalLinkActions
+from .base.LogicalLink import LogicalLinkBase
+from .actions.LogicalLink import LogicalLinkActions
 
 class LogicalLink(LogicalLinkBase, LogicalLinkActions):
     '''

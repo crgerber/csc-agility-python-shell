@@ -1,5 +1,5 @@
-from base.PolicyType import PolicyTypeBase
-from actions.PolicyType import PolicyTypeActions
+from .base.PolicyType import PolicyTypeBase
+from .actions.PolicyType import PolicyTypeActions
 
 class PolicyType(PolicyTypeBase, PolicyTypeActions):
     '''

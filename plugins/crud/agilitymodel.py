@@ -15,6 +15,6 @@ def asSubType(modelInstance, subType=None, nested=True, namespace=''):
     xsi_attrs = {'__xsi_nsmap__' : {'xsi': 'http://www.w3.org/2001/XMLSchema-instance'},
     '__xsi_type__' : '%s%s%s'%(namespace, sep, subType if subType else modelInstance.__class__.__name__)}
     modelInstance._topLevel = not nested
-    for attrName, attrVal in xsi_attrs.items():
+    for attrName, attrVal in list(xsi_attrs.items()):
         setattr(modelInstance, attrName, attrVal)
     return modelInstance 

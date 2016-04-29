@@ -1,5 +1,5 @@
-from base.VariableValueSet import VariableValueSetBase
-from actions.VariableValueSet import VariableValueSetActions
+from .base.VariableValueSet import VariableValueSetBase
+from .actions.VariableValueSet import VariableValueSetActions
 
 class VariableValueSet(VariableValueSetBase, VariableValueSetActions):
     '''

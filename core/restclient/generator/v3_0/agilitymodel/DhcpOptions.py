@@ -1,5 +1,5 @@
-from base.DhcpOptions import DhcpOptionsBase
-from actions.DhcpOptions import DhcpOptionsActions
+from .base.DhcpOptions import DhcpOptionsBase
+from .actions.DhcpOptions import DhcpOptionsActions
 
 class DhcpOptions(DhcpOptionsBase, DhcpOptionsActions):
     '''

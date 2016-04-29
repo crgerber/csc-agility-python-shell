@@ -1,5 +1,5 @@
-from base.Resource import ResourceBase
-from actions.Resource import ResourceActions
+from .base.Resource import ResourceBase
+from .actions.Resource import ResourceActions
 
 class Resource(ResourceBase, ResourceActions):
     '''

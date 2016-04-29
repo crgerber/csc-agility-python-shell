@@ -1,5 +1,5 @@
-from base.ItemLink import ItemLinkBase
-from actions.ItemLink import ItemLinkActions
+from .base.ItemLink import ItemLinkBase
+from .actions.ItemLink import ItemLinkActions
 
 class ItemLink(ItemLinkBase, ItemLinkActions):
     '''

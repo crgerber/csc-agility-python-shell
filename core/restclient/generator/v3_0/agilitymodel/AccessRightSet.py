@@ -1,5 +1,5 @@
-from base.AccessRightSet import AccessRightSetBase
-from actions.AccessRightSet import AccessRightSetActions
+from .base.AccessRightSet import AccessRightSetBase
+from .actions.AccessRightSet import AccessRightSetActions
 
 class AccessRightSet(AccessRightSetBase, AccessRightSetActions):
     '''

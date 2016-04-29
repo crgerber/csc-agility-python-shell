@@ -1,5 +1,5 @@
-from base.ArtifactType import ArtifactTypeBase
-from actions.ArtifactType import ArtifactTypeActions
+from .base.ArtifactType import ArtifactTypeBase
+from .actions.ArtifactType import ArtifactTypeActions
 
 class ArtifactType(ArtifactTypeBase, ArtifactTypeActions):
     '''

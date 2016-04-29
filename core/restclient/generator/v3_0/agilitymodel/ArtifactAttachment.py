@@ -1,5 +1,5 @@
-from base.ArtifactAttachment import ArtifactAttachmentBase
-from actions.ArtifactAttachment import ArtifactAttachmentActions
+from .base.ArtifactAttachment import ArtifactAttachmentBase
+from .actions.ArtifactAttachment import ArtifactAttachmentActions
 
 class ArtifactAttachment(ArtifactAttachmentBase, ArtifactAttachmentActions):
     '''

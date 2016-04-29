@@ -1,5 +1,5 @@
-from base.ResourceWeightInfo import ResourceWeightInfoBase
-from actions.ResourceWeightInfo import ResourceWeightInfoActions
+from .base.ResourceWeightInfo import ResourceWeightInfoBase
+from .actions.ResourceWeightInfo import ResourceWeightInfoActions
 
 class ResourceWeightInfo(ResourceWeightInfoBase, ResourceWeightInfoActions):
     '''

@@ -1,5 +1,5 @@
-from base.VolumeStorageSnapshot import VolumeStorageSnapshotBase
-from actions.VolumeStorageSnapshot import VolumeStorageSnapshotActions
+from .base.VolumeStorageSnapshot import VolumeStorageSnapshotBase
+from .actions.VolumeStorageSnapshot import VolumeStorageSnapshotActions
 
 class VolumeStorageSnapshot(VolumeStorageSnapshotBase, VolumeStorageSnapshotActions):
     '''

@@ -1,5 +1,5 @@
-from base.CustomContainer import CustomContainerBase
-from actions.CustomContainer import CustomContainerActions
+from .base.CustomContainer import CustomContainerBase
+from .actions.CustomContainer import CustomContainerActions
 
 class CustomContainer(CustomContainerBase, CustomContainerActions):
     '''

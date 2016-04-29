@@ -1,5 +1,5 @@
-from base.StoreReview import StoreReviewBase
-from actions.StoreReview import StoreReviewActions
+from .base.StoreReview import StoreReviewBase
+from .actions.StoreReview import StoreReviewActions
 
 class StoreReview(StoreReviewBase, StoreReviewActions):
     '''

@@ -1,5 +1,5 @@
-from base.StoreProductAdapterItem import StoreProductAdapterItemBase
-from actions.StoreProductAdapterItem import StoreProductAdapterItemActions
+from .base.StoreProductAdapterItem import StoreProductAdapterItemBase
+from .actions.StoreProductAdapterItem import StoreProductAdapterItemActions
 
 class StoreProductAdapterItem(StoreProductAdapterItemBase, StoreProductAdapterItemActions):
     '''

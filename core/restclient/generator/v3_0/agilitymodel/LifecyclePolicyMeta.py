@@ -1,5 +1,5 @@
-from base.LifecyclePolicyMeta import LifecyclePolicyMetaBase
-from actions.LifecyclePolicyMeta import LifecyclePolicyMetaActions
+from .base.LifecyclePolicyMeta import LifecyclePolicyMetaBase
+from .actions.LifecyclePolicyMeta import LifecyclePolicyMetaActions
 
 class LifecyclePolicyMeta(LifecyclePolicyMetaBase, LifecyclePolicyMetaActions):
     '''

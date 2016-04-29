@@ -1,4 +1,4 @@
-from Topology import TopologyBase
+from .Topology import TopologyBase
 
 class EnvironmentBase(TopologyBase):
     '''

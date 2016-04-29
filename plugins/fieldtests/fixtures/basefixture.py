@@ -19,7 +19,7 @@ getAssetList = agility.tools.report.getAssetList
 createAssetReport = agility.tools.report._createAssetReport
 
 filters = {
-           '1_simple_str_only' : lambda k, v=None: (None, None) if not isinstance(k if v is None else v, (str, unicode)) else (k, v),
+           '1_simple_str_only' : lambda k, v=None: (None, None) if not isinstance(k if v is None else v, str) else (k, v),
            '2_to_str' : lambda k, v=None: (str(k), str(v)),
            '3_ignore_private' : lambda k, v=None: (None, None) if k.startswith('_') else (k, v)
            }

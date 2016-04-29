@@ -1,5 +1,5 @@
-from base.Property import PropertyBase
-from actions.Property import PropertyActions
+from .base.Property import PropertyBase
+from .actions.Property import PropertyActions
 
 class Property(PropertyBase, PropertyActions):
     '''

@@ -1,5 +1,5 @@
-from base.Storage import StorageBase
-from actions.Storage import StorageActions
+from .base.Storage import StorageBase
+from .actions.Storage import StorageActions
 
 class Storage(StorageBase, StorageActions):
     '''

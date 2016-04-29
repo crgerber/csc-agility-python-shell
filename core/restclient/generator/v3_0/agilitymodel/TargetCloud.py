@@ -1,5 +1,5 @@
-from base.TargetCloud import TargetCloudBase
-from actions.TargetCloud import TargetCloudActions
+from .base.TargetCloud import TargetCloudBase
+from .actions.TargetCloud import TargetCloudActions
 
 class TargetCloud(TargetCloudBase, TargetCloudActions):
     '''

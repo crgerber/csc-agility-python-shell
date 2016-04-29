@@ -1,4 +1,4 @@
-from Resource import ResourceBase
+from .Resource import ResourceBase
 
 class NetworkInterfaceBase(ResourceBase):
     '''

@@ -31,7 +31,7 @@ def loadSnapshot(persistDir, assetName, environment, systemversion=None):
     '''
     result = loadSnapshots(persistDir, assetName, environment, systemversion=systemversion)
     if not systemversion:
-        systemversion = result[environment].keys()[0]  
+        systemversion = list(result[environment].keys())[0]  
     return result[environment][systemversion][assetName][_DETAILS]
 
 
@@ -83,7 +83,7 @@ def loadSnapshots(persistDir, assetName, environments=None, systemversion=None):
                 continue
         result[environment] = {}
         environmentPath = os.path.join(persistDir, environment)
-        environment_versions = filter(isNotHidden, os.listdir(environmentPath))
+        environment_versions = list(filter(isNotHidden, os.listdir(environmentPath)))
         if latestVersion and environment_versions:
             selectedVersion = sorted(environment_versions)[-1]
         for environment_version in environment_versions:

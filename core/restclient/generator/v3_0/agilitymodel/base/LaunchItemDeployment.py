@@ -1,4 +1,4 @@
-from LaunchItem import LaunchItemBase
+from .LaunchItem import LaunchItemBase
 
 class LaunchItemDeploymentBase(LaunchItemBase):
     '''

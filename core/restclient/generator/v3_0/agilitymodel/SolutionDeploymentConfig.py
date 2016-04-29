@@ -1,5 +1,5 @@
-from base.SolutionDeploymentConfig import SolutionDeploymentConfigBase
-from actions.SolutionDeploymentConfig import SolutionDeploymentConfigActions
+from .base.SolutionDeploymentConfig import SolutionDeploymentConfigBase
+from .actions.SolutionDeploymentConfig import SolutionDeploymentConfigActions
 
 class SolutionDeploymentConfig(SolutionDeploymentConfigBase, SolutionDeploymentConfigActions):
     '''

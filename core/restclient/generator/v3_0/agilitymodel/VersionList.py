@@ -1,5 +1,5 @@
-from base.VersionList import VersionListBase
-from actions.VersionList import VersionListActions
+from .base.VersionList import VersionListBase
+from .actions.VersionList import VersionListActions
 
 class VersionList(VersionListBase, VersionListActions):
     '''

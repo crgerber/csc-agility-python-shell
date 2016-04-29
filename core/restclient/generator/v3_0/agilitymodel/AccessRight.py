@@ -1,5 +1,5 @@
-from base.AccessRight import AccessRightBase
-from actions.AccessRight import AccessRightActions
+from .base.AccessRight import AccessRightBase
+from .actions.AccessRight import AccessRightActions
 
 class AccessRight(AccessRightBase, AccessRightActions):
     '''

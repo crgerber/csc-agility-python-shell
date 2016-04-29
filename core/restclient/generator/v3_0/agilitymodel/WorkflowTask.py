@@ -1,5 +1,5 @@
-from base.WorkflowTask import WorkflowTaskBase
-from actions.WorkflowTask import WorkflowTaskActions
+from .base.WorkflowTask import WorkflowTaskBase
+from .actions.WorkflowTask import WorkflowTaskActions
 
 class WorkflowTask(WorkflowTaskBase, WorkflowTaskActions):
     '''

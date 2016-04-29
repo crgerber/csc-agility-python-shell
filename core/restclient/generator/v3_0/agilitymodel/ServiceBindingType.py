@@ -1,5 +1,5 @@
-from base.ServiceBindingType import ServiceBindingTypeBase
-from actions.ServiceBindingType import ServiceBindingTypeActions
+from .base.ServiceBindingType import ServiceBindingTypeBase
+from .actions.ServiceBindingType import ServiceBindingTypeActions
 
 class ServiceBindingType(ServiceBindingTypeBase, ServiceBindingTypeActions):
     '''

@@ -1,5 +1,5 @@
-from base.PropertyDefinitionReference import PropertyDefinitionReferenceBase
-from actions.PropertyDefinitionReference import PropertyDefinitionReferenceActions
+from .base.PropertyDefinitionReference import PropertyDefinitionReferenceBase
+from .actions.PropertyDefinitionReference import PropertyDefinitionReferenceActions
 
 class PropertyDefinitionReference(PropertyDefinitionReferenceBase, PropertyDefinitionReferenceActions):
     '''

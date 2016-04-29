@@ -1,5 +1,5 @@
-from base.WorkflowMeta import WorkflowMetaBase
-from actions.WorkflowMeta import WorkflowMetaActions
+from .base.WorkflowMeta import WorkflowMetaBase
+from .actions.WorkflowMeta import WorkflowMetaActions
 
 class WorkflowMeta(WorkflowMetaBase, WorkflowMetaActions):
     '''

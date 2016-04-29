@@ -1,5 +1,5 @@
-from base.FieldMeta import FieldMetaBase
-from actions.FieldMeta import FieldMetaActions
+from .base.FieldMeta import FieldMetaBase
+from .actions.FieldMeta import FieldMetaActions
 
 class FieldMeta(FieldMetaBase, FieldMetaActions):
     '''

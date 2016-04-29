@@ -1,5 +1,5 @@
-from base.DeploymentArtifactConfig import DeploymentArtifactConfigBase
-from actions.DeploymentArtifactConfig import DeploymentArtifactConfigActions
+from .base.DeploymentArtifactConfig import DeploymentArtifactConfigBase
+from .actions.DeploymentArtifactConfig import DeploymentArtifactConfigActions
 
 class DeploymentArtifactConfig(DeploymentArtifactConfigBase, DeploymentArtifactConfigActions):
     '''

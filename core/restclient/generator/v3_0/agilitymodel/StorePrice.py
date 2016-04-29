@@ -1,5 +1,5 @@
-from base.StorePrice import StorePriceBase
-from actions.StorePrice import StorePriceActions
+from .base.StorePrice import StorePriceBase
+from .actions.StorePrice import StorePriceActions
 
 class StorePrice(StorePriceBase, StorePriceActions):
     '''

@@ -1,5 +1,5 @@
-from base.Commands import CommandsBase
-from actions.Commands import CommandsActions
+from .base.Commands import CommandsBase
+from .actions.Commands import CommandsActions
 
 class Commands(CommandsBase, CommandsActions):
     '''

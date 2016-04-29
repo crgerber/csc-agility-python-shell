@@ -1,5 +1,5 @@
-from base.FileSystemDevice import FileSystemDeviceBase
-from actions.FileSystemDevice import FileSystemDeviceActions
+from .base.FileSystemDevice import FileSystemDeviceBase
+from .actions.FileSystemDevice import FileSystemDeviceActions
 
 class FileSystemDevice(FileSystemDeviceBase, FileSystemDeviceActions):
     '''

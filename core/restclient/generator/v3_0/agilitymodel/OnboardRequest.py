@@ -1,5 +1,5 @@
-from base.OnboardRequest import OnboardRequestBase
-from actions.OnboardRequest import OnboardRequestActions
+from .base.OnboardRequest import OnboardRequestBase
+from .actions.OnboardRequest import OnboardRequestActions
 
 class OnboardRequest(OnboardRequestBase, OnboardRequestActions):
     '''

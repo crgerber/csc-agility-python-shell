@@ -1,5 +1,5 @@
-from base.NetworkServiceType import NetworkServiceTypeBase
-from actions.NetworkServiceType import NetworkServiceTypeActions
+from .base.NetworkServiceType import NetworkServiceTypeBase
+from .actions.NetworkServiceType import NetworkServiceTypeActions
 
 class NetworkServiceType(NetworkServiceTypeBase, NetworkServiceTypeActions):
     '''

@@ -1,4 +1,4 @@
-from Container import ContainerBase
+from .Container import ContainerBase
 
 class CustomContainerBase(ContainerBase):
     '''

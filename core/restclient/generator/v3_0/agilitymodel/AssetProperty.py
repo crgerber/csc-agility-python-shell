@@ -1,5 +1,5 @@
-from base.AssetProperty import AssetPropertyBase
-from actions.AssetProperty import AssetPropertyActions
+from .base.AssetProperty import AssetPropertyBase
+from .actions.AssetProperty import AssetPropertyActions
 
 class AssetProperty(AssetPropertyBase, AssetPropertyActions):
     '''

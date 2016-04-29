@@ -1,5 +1,5 @@
-from base.NumericRange import NumericRangeBase
-from actions.NumericRange import NumericRangeActions
+from .base.NumericRange import NumericRangeBase
+from .actions.NumericRange import NumericRangeActions
 
 class NumericRange(NumericRangeBase, NumericRangeActions):
     '''

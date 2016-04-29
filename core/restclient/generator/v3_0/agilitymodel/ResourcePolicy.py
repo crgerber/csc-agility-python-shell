@@ -1,5 +1,5 @@
-from base.ResourcePolicy import ResourcePolicyBase
-from actions.ResourcePolicy import ResourcePolicyActions
+from .base.ResourcePolicy import ResourcePolicyBase
+from .actions.ResourcePolicy import ResourcePolicyActions
 
 class ResourcePolicy(ResourcePolicyBase, ResourcePolicyActions):
     '''

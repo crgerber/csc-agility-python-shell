@@ -1,5 +1,5 @@
-from base.EULA import EULABase
-from actions.EULA import EULAActions
+from .base.EULA import EULABase
+from .actions.EULA import EULAActions
 
 class EULA(EULABase, EULAActions):
     '''

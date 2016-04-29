@@ -1,5 +1,5 @@
-from base.PolicyAssignment import PolicyAssignmentBase
-from actions.PolicyAssignment import PolicyAssignmentActions
+from .base.PolicyAssignment import PolicyAssignmentBase
+from .actions.PolicyAssignment import PolicyAssignmentActions
 
 class PolicyAssignment(PolicyAssignmentBase, PolicyAssignmentActions):
     '''

@@ -1,5 +1,5 @@
-from base.VersionedItem import VersionedItemBase
-from actions.VersionedItem import VersionedItemActions
+from .base.VersionedItem import VersionedItemBase
+from .actions.VersionedItem import VersionedItemActions
 
 class VersionedItem(VersionedItemBase, VersionedItemActions):
     '''

@@ -1,5 +1,5 @@
-from base.VersionedItemLink import VersionedItemLinkBase
-from actions.VersionedItemLink import VersionedItemLinkActions
+from .base.VersionedItemLink import VersionedItemLinkBase
+from .actions.VersionedItemLink import VersionedItemLinkActions
 
 class VersionedItemLink(VersionedItemLinkBase, VersionedItemLinkActions):
     '''

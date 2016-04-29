@@ -3,12 +3,14 @@ Created on Oct 8, 2012
 
 @author: dawood
 '''
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import base64
-import urllib
 import os
-import cookielib
+import http.cookiejar
+import ssl
+
 from functools import update_wrapper
+from base64 import b64encode
 
 from core.http.put.multipartform import MultiPartForm
 from logger import logger
@@ -21,7 +23,7 @@ class RESTException(RuntimeError):
     def __init__(self, response):
         self.info = {}
         self.info['code'] = response.code
-        self.info['message'] = '%s '%response.message if response.message else ''
+        self.info['message'] = '%s '%response.msg if response.msg else ''
         self.info['url'] = response.geturl()
         self.info['headers'] = str(response.headers).replace('\n', ';')
         self.info['body'] = response.read()
@@ -60,7 +62,7 @@ class reauthenticate(object):
         """
         try:
             response = self.f(self._connection, *args, **kwargs)
-        except RESTException, restEx:
+        except RESTException as restEx:
             if self.retry and 401 == restEx.info.get('code'):
                 logger.info('Authentication Error, invalid or expired token, retrying to re authenticate ...')
                 self._connection._connected = False
@@ -80,24 +82,40 @@ class RESTConnection(object):
                         'password' : '',
                         'host' : '',
                         'port' : '8443',
-                        'version' : 'current',#API Version
-                        'systemversion' : 'latest'
+                        'version' : 'current', #API Version
+                        'systemversion' : 'latest',
+                        'ssl_context_unverified' : True,
+                        'ssl_cacert_location' : 'cacert.pem' 
                         }
         self._auth = auth
         self.conn_params.update(kwargs)
         
-        missing_conn_params = [k for k, v in self.conn_params.items() if (v is None) or (v == '')]
+        missing_conn_params = [k for k, v in list(self.conn_params.items()) if (v is None) or (v == '')]
         if missing_conn_params:
             raise RuntimeError('missing connection params %s'%missing_conn_params)
+          
+        check_hostname = None
+        https_context = None
         
-        handlers = [urllib2.HTTPHandler(), urllib2.HTTPSHandler()]        
+        if self.conn_params['ssl_context_unverified'] == 'True' :
+            https_context = ssl._create_unverified_context()
+            #https_context.verify_mode = ssl.CERT_NONE
+            check_hostname = False
+        else :
+            https_context = ssl._create_default_https_context()
+            #https_context.verify_mode = ssl.CERT_REQUIRED
+            https_context.load_verify_locations(self.conn_params['ssl_cacert_location'])
+            check_hostname = True
+            
+        handlers = [urllib.request.HTTPHandler(), urllib.request.HTTPSHandler(context = https_context, check_hostname = check_hostname)]
+
         if self._auth == 'basic':
-            self._opener = urllib2.build_opener(*handlers)
+            self._opener = urllib.request.build_opener(*handlers)
         elif self._auth == 'oauth':
             self._parse_token = True
-            self._cookies = cookielib.LWPCookieJar()
-            handlers.append(urllib2.HTTPCookieProcessor(self._cookies))
-            self._opener = urllib2.build_opener(*handlers)
+            self._cookies = http.cookiejar.LWPCookieJar()
+            handlers.append(urllib.request.HTTPCookieProcessor(self._cookies))
+            self._opener = urllib.request.build_opener(*handlers)
             
     def connect(self, host=None, port=None, username=None, password=None):
         '''
@@ -110,7 +128,8 @@ class RESTConnection(object):
         
         token = None
         if self._auth == 'basic':
-            self._auth_string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
+            credentials = '%s:%s' % (username, password)
+            self._auth_string = b64encode(credentials.encode(encoding='utf-8')).decode("utf-8") 
         elif self._auth == 'oauth':
             token = self._oauth(self.conn_params)
         
@@ -127,14 +146,15 @@ class RESTConnection(object):
     def _oauth(self, conn_params):
         oauth_url = "https://%(host)s:%(port)s/agility/j_spring_security_check?product=AgilityManager&j_username=%(username)s&j_password=%(password)s"
         url = oauth_url%conn_params
-        request = urllib2.Request(url)
+        
+        request = urllib.request.Request(url)
         response = self._opener.open(request)
         if self.conn_params.get('use_cookies'):
             return#Cookies would be handled automatically by the cookielib handler. just a place holder for further actions
         
         token_string = response.headers.get('set-cookie', None)
         if not token_string:
-            exc = RuntimeError('Error: failed to retrieve authentication token. Response code: [%s], response headers: %s'%(response.code, dict(response.headers.items())))
+            exc = RuntimeError('Error: failed to retrieve authentication token. Response code: [%s], response headers: %s'%(response.code, dict(list(response.headers.items()))))
             if 401 in self.http_exception_hooks:
                 logger.error(exc)
                 exception_class, message = self.http_exception_hooks[401]
@@ -188,8 +208,8 @@ class RESTConnection(object):
             custom_headers = {}
             
             
-        path_params = self._params_to_strings(path_params)
-        query_params = self._params_to_strings(query_params)
+        path_params = self._params_to_string(path_params)
+        query_params = self._params_to_string(query_params)
         
         self.conn_params['resource'] = path
         if version:
@@ -201,7 +221,7 @@ class RESTConnection(object):
         response = None
         try:
             response = self.request(url, method, custom_headers, data, form_params, files=files)
-        except RESTException, ex:
+        except RESTException as ex:
             exc_code = ex.info['code']
             exc_message = ex.info['message']
             exc_body = ex.info['body']
@@ -216,35 +236,37 @@ class RESTConnection(object):
     @reauthenticate
     def request(self, url, method='GET', custom_headers=None, data=None, form_params=None, files=None):
         assert self._connected, 'Not connected, call connection.connect(...)'
-        form_params = form_params or {}
+        _form_params = form_params or {}
         files = files or []
         headers = {"Content-Type" : CONTENT_TYPE_APLICATION_XML}
+        
         if self._auth == 'basic':
             headers["Authorization"] = "Basic %s" % self._auth_string
         elif self._auth == 'oauth' and not self.conn_params['use_cookies']:
             headers["Cookie"] = self.get_token()
-                
+        
         if custom_headers:
             headers.update(custom_headers)
-        request = urllib2.Request(url)
+        request = urllib.request.Request(url)
         formtext = ''
         form = None
-        for k, v in headers.items():
+        for k, v in list(headers.items()):
             request.add_header(k, v)
         request.get_method = lambda: method
+        
         if data is not None:
-            request.add_data(data)
+            request.data = bytes(data, 'utf-8')
             request.add_header('Content-Length', len(data))
         
-        elif form_params:
-    #            form_params = self._params_to_strings(form_params)
+        elif _form_params:
+    #            _form_params = self._params_to_string(_form_params)
             form = MultiPartForm()
-            [form.add_field(k, v) for k, v in form_params.items()]
+            [form.add_field(k, v) for k, v in list(_form_params.items())]
         if files:
             request.add_header('Accept', '*/*')
             form = form or MultiPartForm()
             [form.add_file(os.path.basename(filename), filename, open(os.path.realpath(os.path.expanduser(filename)))) if isinstance(filename, str) else form.add_archive(filename) for filename in files]
-    #            body = urllib.urlencode(form_params)
+    #            body = urllib.urlencode(_form_params)
         if form:
             formtext = str(form)
             request.add_data(formtext)
@@ -256,20 +278,20 @@ class RESTConnection(object):
         response = None
         try:
             response = self._opener.open(request)
-        except urllib2.HTTPError, ex:
+        except urllib.error.HTTPError as ex:
             restEx = RESTException(ex)
             logger.error(restEx)
             raise restEx
         return response
         
 
-    def _params_to_strings(self, params):
+    def _params_to_string(self, params):
         """
         Convert the values in a parameter map into strings suitable for
         sending to the server. Any null values will be omitted.
         """
         new_params = {}
-        for key, value in params.iteritems():
+        for key, value in params.items():
             if value != None:
                 if isinstance(value, bool):
                     if value: new_params[key] = "true"
@@ -301,13 +323,15 @@ class RESTConnection(object):
 
         Note that all parameter values are automatically URL-encoded.
         """
-        for key, value in path_params.iteritems():
-            path_params[key] = urllib.quote_plus(value)
+        for key, value in path_params.items():
+            path_params[key] = urllib.parse.quote_plus(value)
         path = path % path_params
 
 #        if not query_params.has_key("flatten"):
 #            query_params["flatten"] = "true"
-        _query_params = urllib.urlencode(query_params)
+        #_query_params = urllib.parse.urlencode(query_params)
+        _query_params = urllib.parse.urlencode(query_params).encode('utf-8') 
+        
         path += "?%s"%_query_params if _query_params else ''
 
         if path.startswith("/"):

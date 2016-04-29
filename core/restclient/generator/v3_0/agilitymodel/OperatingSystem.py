@@ -1,5 +1,5 @@
-from base.OperatingSystem import OperatingSystemBase
-from actions.OperatingSystem import OperatingSystemActions
+from .base.OperatingSystem import OperatingSystemBase
+from .actions.OperatingSystem import OperatingSystemActions
 
 class OperatingSystem(OperatingSystemBase, OperatingSystemActions):
     '''

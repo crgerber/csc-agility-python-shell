@@ -1,5 +1,5 @@
-from base.AccessUri import AccessUriBase
-from actions.AccessUri import AccessUriActions
+from .base.AccessUri import AccessUriBase
+from .actions.AccessUri import AccessUriActions
 
 class AccessUri(AccessUriBase, AccessUriActions):
     '''

@@ -1,5 +1,5 @@
-from base.CloudType import CloudTypeBase
-from actions.CloudType import CloudTypeActions
+from .base.CloudType import CloudTypeBase
+from .actions.CloudType import CloudTypeActions
 
 class CloudType(CloudTypeBase, CloudTypeActions):
     '''

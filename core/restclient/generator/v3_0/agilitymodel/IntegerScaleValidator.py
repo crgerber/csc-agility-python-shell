@@ -1,5 +1,5 @@
-from base.IntegerScaleValidator import IntegerScaleValidatorBase
-from actions.IntegerScaleValidator import IntegerScaleValidatorActions
+from .base.IntegerScaleValidator import IntegerScaleValidatorBase
+from .actions.IntegerScaleValidator import IntegerScaleValidatorActions
 
 class IntegerScaleValidator(IntegerScaleValidatorBase, IntegerScaleValidatorActions):
     '''

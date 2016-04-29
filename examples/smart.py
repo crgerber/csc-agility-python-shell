@@ -34,13 +34,13 @@ smart.project.autoload = False
 #Let's just keep it on for now
 smart.project.autoload = True
 #Feeling Lucky!
-print smart.project.id15.stack.id34.template.id610.topology.id15
+print((smart.project.id15.stack.id34.template.id610.topology.id15))
 # <demo> --- stop ---
 #That is a topology in a JSON like representation
 t = smart.project.id15.stack.id34.template.id610.topology.id15
 # <demo> --- stop ---
 #Print a component 
-print smart.project.id15
+print((smart.project.id15))
 # <demo> --- stop ---
 #Explore further down the tree
 #smart.project.id15.
@@ -52,7 +52,7 @@ print smart.project.id15
 #smart.project.id15.description   smart.project.id15.lockType      smart.project.id15.script        
 # <demo> --- stop ---
 #and further down
-print smart.project.id15.stack.id34
+print((smart.project.id15.stack.id34))
 # <demo> --- stop ---
 #That is a stack object there
 stack = smart.project.id15.stack.id34
@@ -63,4 +63,4 @@ smart = a.tools.smart.proxy(container, useid=False)[0]
 #smart.project.name
 #smart.project.nameAgility_Factory         smart.project.nameF5_VE                   smart.project.nameUnauthorized_Instances
 #smart.project.nameAgility_Platform        smart.project.nameJBoss                   
-print smart.project.nameAgility_Platform.policy.nameAgilityCollector_In.id
+print((smart.project.nameAgility_Platform.policy.nameAgilityCollector_In.id))

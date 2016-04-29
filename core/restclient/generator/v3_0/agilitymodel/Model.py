@@ -1,5 +1,5 @@
-from base.Model import ModelBase
-from actions.Model import ModelActions
+from .base.Model import ModelBase
+from .actions.Model import ModelActions
 
 class Model(ModelBase, ModelActions):
     '''

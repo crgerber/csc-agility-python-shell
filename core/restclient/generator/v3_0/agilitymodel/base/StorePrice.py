@@ -1,4 +1,4 @@
-from AgilityModelBase import AgilityModelBase
+from .AgilityModelBase import AgilityModelBase
 
 class StorePriceBase(AgilityModelBase):
     '''

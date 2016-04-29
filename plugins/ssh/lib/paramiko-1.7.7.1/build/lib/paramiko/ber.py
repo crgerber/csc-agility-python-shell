@@ -17,7 +17,7 @@
 # 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
 
 
-import util
+from . import util
 
 
 class BERException (Exception):
@@ -112,7 +112,7 @@ class BER(object):
                 self.encode_tlv(1, '\xff')
             else:
                 self.encode_tlv(1, '\x00')
-        elif (type(x) is int) or (type(x) is long):
+        elif (type(x) is int) or (type(x) is int):
             self.encode_tlv(2, util.deflate_long(x))
         elif type(x) is str:
             self.encode_tlv(4, x)

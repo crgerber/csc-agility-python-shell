@@ -1,5 +1,5 @@
-from base.StorePublisher import StorePublisherBase
-from actions.StorePublisher import StorePublisherActions
+from .base.StorePublisher import StorePublisherBase
+from .actions.StorePublisher import StorePublisherActions
 
 class StorePublisher(StorePublisherBase, StorePublisherActions):
     '''

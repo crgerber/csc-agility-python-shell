@@ -1,5 +1,5 @@
-from base.ConfigSettings import ConfigSettingsBase
-from actions.ConfigSettings import ConfigSettingsActions
+from .base.ConfigSettings import ConfigSettingsBase
+from .actions.ConfigSettings import ConfigSettingsActions
 
 class ConfigSettings(ConfigSettingsBase, ConfigSettingsActions):
     '''

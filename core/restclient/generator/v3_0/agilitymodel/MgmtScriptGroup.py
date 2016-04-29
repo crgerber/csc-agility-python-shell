@@ -1,5 +1,5 @@
-from base.MgmtScriptGroup import MgmtScriptGroupBase
-from actions.MgmtScriptGroup import MgmtScriptGroupActions
+from .base.MgmtScriptGroup import MgmtScriptGroupBase
+from .actions.MgmtScriptGroup import MgmtScriptGroupActions
 
 class MgmtScriptGroup(MgmtScriptGroupBase, MgmtScriptGroupActions):
     '''

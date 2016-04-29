@@ -1,5 +1,5 @@
-from base.CustomItemList import CustomItemListBase
-from actions.CustomItemList import CustomItemListActions
+from .base.CustomItemList import CustomItemListBase
+from .actions.CustomItemList import CustomItemListActions
 
 class CustomItemList(CustomItemListBase, CustomItemListActions):
     '''

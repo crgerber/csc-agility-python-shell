@@ -1,5 +1,5 @@
-from base.TopologyStats import TopologyStatsBase
-from actions.TopologyStats import TopologyStatsActions
+from .base.TopologyStats import TopologyStatsBase
+from .actions.TopologyStats import TopologyStatsActions
 
 class TopologyStats(TopologyStatsBase, TopologyStatsActions):
     '''

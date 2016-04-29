@@ -1,5 +1,5 @@
-from base.Connection import ConnectionBase
-from actions.Connection import ConnectionActions
+from .base.Connection import ConnectionBase
+from .actions.Connection import ConnectionActions
 
 class Connection(ConnectionBase, ConnectionActions):
     '''

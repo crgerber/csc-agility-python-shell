@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//plugins/reporter/lib/xlwt-0.7.4/build/lib/xlwt/__init__.py=windows-1252
+encoding//plugins/reporter/lib/xlwt-0.7.4/xlwt/ExcelFormula.py=windows-1252
+encoding//plugins/reporter/lib/xlwt-0.7.4/xlwt/__init__.py=windows-1252
+encoding//plugins/ssh/lib/pycrypto-2.6/lib/Crypto/Util/Counter.py=ascii
+encoding//plugins/ssh/lib/pycrypto-2.6/lib/Crypto/Util/py3compat.py=utf-8
+encoding//plugins/ssh/lib/pycrypto-2.6/lib/Crypto/__init__.py=utf-8

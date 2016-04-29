@@ -1,5 +1,5 @@
-from base.AssetTypeMeta import AssetTypeMetaBase
-from actions.AssetTypeMeta import AssetTypeMetaActions
+from .base.AssetTypeMeta import AssetTypeMetaBase
+from .actions.AssetTypeMeta import AssetTypeMetaActions
 
 class AssetTypeMeta(AssetTypeMetaBase, AssetTypeMetaActions):
     '''

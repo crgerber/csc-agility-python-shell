@@ -1,5 +1,5 @@
-from base.EffectiveProtocolRequest import EffectiveProtocolRequestBase
-from actions.EffectiveProtocolRequest import EffectiveProtocolRequestActions
+from .base.EffectiveProtocolRequest import EffectiveProtocolRequestBase
+from .actions.EffectiveProtocolRequest import EffectiveProtocolRequestActions
 
 class EffectiveProtocolRequest(EffectiveProtocolRequestBase, EffectiveProtocolRequestActions):
     '''

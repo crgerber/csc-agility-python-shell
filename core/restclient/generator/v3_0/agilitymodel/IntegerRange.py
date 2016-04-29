@@ -1,5 +1,5 @@
-from base.IntegerRange import IntegerRangeBase
-from actions.IntegerRange import IntegerRangeActions
+from .base.IntegerRange import IntegerRangeBase
+from .actions.IntegerRange import IntegerRangeActions
 
 class IntegerRange(IntegerRangeBase, IntegerRangeActions):
     '''

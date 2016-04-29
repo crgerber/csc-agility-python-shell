@@ -1,5 +1,5 @@
-from base.ScriptVariableRequest import ScriptVariableRequestBase
-from actions.ScriptVariableRequest import ScriptVariableRequestActions
+from .base.ScriptVariableRequest import ScriptVariableRequestBase
+from .actions.ScriptVariableRequest import ScriptVariableRequestActions
 
 class ScriptVariableRequest(ScriptVariableRequestBase, ScriptVariableRequestActions):
     '''

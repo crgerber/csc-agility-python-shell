@@ -1,5 +1,5 @@
-from base.AuthenticationType import AuthenticationTypeBase
-from actions.AuthenticationType import AuthenticationTypeActions
+from .base.AuthenticationType import AuthenticationTypeBase
+from .actions.AuthenticationType import AuthenticationTypeActions
 
 class AuthenticationType(AuthenticationTypeBase, AuthenticationTypeActions):
     '''

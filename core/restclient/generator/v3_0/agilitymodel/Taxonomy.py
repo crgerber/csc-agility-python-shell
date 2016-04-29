@@ -1,5 +1,5 @@
-from base.Taxonomy import TaxonomyBase
-from actions.Taxonomy import TaxonomyActions
+from .base.Taxonomy import TaxonomyBase
+from .actions.Taxonomy import TaxonomyActions
 
 class Taxonomy(TaxonomyBase, TaxonomyActions):
     '''

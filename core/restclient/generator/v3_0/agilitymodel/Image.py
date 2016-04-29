@@ -1,5 +1,5 @@
-from base.Image import ImageBase
-from actions.Image import ImageActions
+from .base.Image import ImageBase
+from .actions.Image import ImageActions
 
 class Image(ImageBase, ImageActions):
     '''

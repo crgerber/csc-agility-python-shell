@@ -1,5 +1,5 @@
-from base.Domain import DomainBase
-from actions.Domain import DomainActions
+from .base.Domain import DomainBase
+from .actions.Domain import DomainActions
 
 class Domain(DomainBase, DomainActions):
     '''

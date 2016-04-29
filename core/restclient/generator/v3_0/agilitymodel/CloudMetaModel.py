@@ -1,5 +1,5 @@
-from base.CloudMetaModel import CloudMetaModelBase
-from actions.CloudMetaModel import CloudMetaModelActions
+from .base.CloudMetaModel import CloudMetaModelBase
+from .actions.CloudMetaModel import CloudMetaModelActions
 
 class CloudMetaModel(CloudMetaModelBase, CloudMetaModelActions):
     '''

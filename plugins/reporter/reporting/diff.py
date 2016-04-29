@@ -6,11 +6,11 @@ Created on Nov 1, 2012
 from agilityshell import agility
 import logging
 import os
-import reporter
+from . import reporter
 
 from queries.exportcsv import customReport
 from core.base.enum import Enum
-from xlswriter import ExcelReport
+from .xlswriter import ExcelReport
 
 from reporting import LOGGER_NAME
 COMPONENT_NAME = LOGGER_NAME
@@ -103,28 +103,28 @@ def diffReport(master, slave, fields, reportFileName, reportDir=None, include=(D
         
     diffmaster, diffslave, diffcommon, unchanged = compare(master, slave, fields, detailed=True, flatten=hierarchical)
     if DIFF_REPORT_INCLUDE.DELETED in include:
-        diffmasterdata = [selectFields(v, fields, ignore=False, default='') for v in diffmaster.values()]
+        diffmasterdata = [selectFields(v, fields, ignore=False, default='') for v in list(diffmaster.values())]
         subReportFileName = '%s_%s'%(DIFF_REPORT_INCLUDE.DELETED , reportFileName)
         writeReport(diffmasterdata, subReportFileName, reportDir=reportDir, fields=fields, ignore=False, default='', delimiter='|', ext='csv')
     if DIFF_REPORT_INCLUDE.ADDED in include:
-        diffslavedata = [selectFields(v, fields, ignore=False, default='') for v in diffslave.values()]
+        diffslavedata = [selectFields(v, fields, ignore=False, default='') for v in list(diffslave.values())]
         subReportFileName = '%s_%s'%(DIFF_REPORT_INCLUDE.ADDED , reportFileName)
         writeReport(diffslavedata, subReportFileName, reportDir=reportDir, fields=fields, ignore=False, default='', delimiter='|', ext='csv')
     if DIFF_REPORT_INCLUDE.MODIFIED in include:
         if not hierarchical:
-            diffcommondata = [selectFields(v, fields, ignore=False, default='') for v in diffcommon['details'].values()]
+            diffcommondata = [selectFields(v, fields, ignore=False, default='') for v in list(diffcommon['details'].values())]
             subReportFileName = '%s_%s'%(DIFF_REPORT_INCLUDE.MODIFIED , reportFileName)
             writeReport(diffcommondata, subReportFileName, reportDir=reportDir, fields=fields, ignore=False, default='', delimiter='|', ext='csv')
         else:
             #CSV file per Asset, can be potentially loaded as Tabs in an Excel workbook
-            for id, item in diffcommon['details'].items():
+            for id, item in list(diffcommon['details'].items()):
                 data = selectFields(item, fields, ignore=False, default='', match=selectFields.MATCH.PREFIX)
-                cols = data.keys()
+                cols = list(data.keys())
                 #customReport expects data as a sequence of maps
                 subReportFileName = '%s_%s_%s_hierarchical'%(DIFF_REPORT_INCLUDE.MODIFIED , reportFileName, id)
                 writeReport([data], subReportFileName, reportDir=reportDir, fields=cols, ignore=False, default='', delimiter='|', ext='csv')
     if DIFF_REPORT_INCLUDE.EQUAL in include:
-        unchangeddata = [selectFields(v, fields, ignore=False, default='') for v in unchanged.values()]
+        unchangeddata = [selectFields(v, fields, ignore=False, default='') for v in list(unchanged.values())]
         subReportFileName = '%s_%s'%(DIFF_REPORT_INCLUDE.EQUAL , reportFileName)
         writeReport(unchangeddata, subReportFileName, reportDir=reportDir, fields=fields, ignore=False, default='', delimiter='|', ext='csv')
         
@@ -163,7 +163,7 @@ def _compareidmaps(master, slave, fields=None, detailed=True, flatten=False, ass
         if diffMap:
             diffcommonFields[key] = diffMap
     
-    diffcommonKeys = diffcommonFields.keys()
+    diffcommonKeys = list(diffcommonFields.keys())
     unchangedKeys = commonKeys - set(diffcommonKeys)
     diffcommon['summary'] = diffcommonFields
     if detailed:
@@ -176,7 +176,7 @@ def _compareidmaps(master, slave, fields=None, detailed=True, flatten=False, ass
         for key in diffcommonKeys:
             commonMasterItem = commonMaster[key] if not flatten else flattenmap(commonMaster[key])#template
             changeTemplateItem = selectFields(commonMasterItem, fields, ignore=False, default='', match=selectFields.MATCH.PREFIX)#select only desired fields
-            for field in diffcommonFields[key].keys():
+            for field in list(diffcommonFields[key].keys()):
                 setField(changeTemplateItem, field, changeTemplate%(diffcommonFields[key][field]))#overwrite with <field> = 'was <> now <>' for the changed fields
             diffcommonDetails[key] = changeTemplateItem
         
@@ -231,7 +231,7 @@ def compareComposites(master, slave, prettify=True):
         if masterfield != slavefield:
             diffcommonFields[key] = (masterfield, slavefield) if not prettify else changeTemplate%(masterfield, slavefield)
     
-    diffcommonKeys = diffcommonFields.keys()
+    diffcommonKeys = list(diffcommonFields.keys())
     unchangedKeys = commonKeys - set(diffcommonKeys)
     diffmaster = selectFields(master, diffmasterKeys)#deleted details
     diffslave = selectFields(slave, diffslaveKeys)#added details
@@ -244,9 +244,9 @@ def compareMapValues(master, slave):
     compare two map values, assuming key sets are equal. Report the diff in the format: <key> : (<master value>, <modified slave value>)
     '''
     diffMap = {}
-    if master.keys() != slave.keys():
+    if list(master.keys()) != list(slave.keys()):
         raise ValueError('mismatched key sets, possible wrong use of function')
-    for masterPair, slavePair in zip(sorted(master.items(), key=lambda pair: pair[0]), sorted(slave.items(), key=lambda pair: pair[0])):
+    for masterPair, slavePair in zip(sorted(list(master.items()), key=lambda pair: pair[0]), sorted(list(slave.items()), key=lambda pair: pair[0])):
         if masterPair[1] != slavePair[1]: diffMap[masterPair[0]] = (masterPair[1], slavePair[1])#diffMap<key> = (original value, modified value)
     
     return diffMap

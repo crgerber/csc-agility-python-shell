@@ -1,6 +1,6 @@
 # -*- coding: cp1252 -*-
 from struct import pack
-from UnicodeUtils import upack1, upack2, upack2rt
+from .UnicodeUtils import upack1, upack2, upack2rt
 import sys
 
 class SharedStringTable(object):
@@ -21,8 +21,8 @@ class SharedStringTable(object):
         self._current_piece = None
 
     def add_str(self, s):
-        if self.encoding != 'ascii' and not isinstance(s, unicode):
-            s = unicode(s, self.encoding)
+        if self.encoding != 'ascii' and not isinstance(s, str):
+            s = str(s, self.encoding)
         self._add_calls += 1
         if s not in self._str_indexes:
             idx = len(self._str_indexes) + len(self._rt_indexes)
@@ -36,8 +36,8 @@ class SharedStringTable(object):
     def add_rt(self, rt):
         rtList = []
         for s, xf in rt:
-            if self.encoding != 'ascii' and not isinstance(s, unicode):
-                s = unicode(s, self.encoding)
+            if self.encoding != 'ascii' and not isinstance(s, str):
+                s = str(s, self.encoding)
             rtList.append((s, xf))
         rt = tuple(rtList)
         self._add_calls += 1
@@ -67,13 +67,13 @@ class SharedStringTable(object):
         self._sst_record = ''
         self._continues = [None, None]
         self._current_piece = pack('<II', 0, 0)
-        data = [(idx, s) for s, idx in self._str_indexes.iteritems()]
-        data.extend([(idx, s) for s, idx in self._rt_indexes.iteritems()])
+        data = [(idx, s) for s, idx in list(self._str_indexes.items())]
+        data.extend([(idx, s) for s, idx in list(self._rt_indexes.items())])
         data.sort() # in index order
         for idx, s in data:
             if self._tally[idx] == 0:
-                s = u''
-            if isinstance(s, str) or isinstance(s, unicode):
+                s = ''
+            if isinstance(s, str) or isinstance(s, str):
                 self._add_to_sst(s)
             else:
                 self._add_rt_to_sst(s)
@@ -234,8 +234,8 @@ class Biff8BOFRecord(BiffRecord):
         version  = 0x0600
         build    = 0x0DBB
         year     = 0x07CC
-        file_hist_flags = 0x00L
-        ver_can_read    = 0x06L
+        file_hist_flags = 0x00
+        ver_can_read    = 0x06
 
         self._rec_data = pack('<4H2I', version, rec_type, build, year, file_hist_flags, ver_can_read)
 
@@ -1192,7 +1192,7 @@ class ExtSSTRecord(BiffRecord):
         portion_counter = 0
         while str_counter < len(str_placement):
             str_chunk_num, pos_in_chunk = str_placement[str_counter]
-            if str_chunk_num <> portion_counter:
+            if str_chunk_num != portion_counter:
                 portion_counter = str_chunk_num
                 abs_stream_pos += portions_len[portion_counter-1]
                 #print hex(abs_stream_pos)
@@ -1293,7 +1293,7 @@ class Window2Record(BiffRecord):
                                     grid_colour,
                                     0x00,
                                     preview_magn, normal_magn,
-                                    0x00L)
+                                    0x00)
         if scl_magn is not None:
             self._scl_rec = pack('<4H', 0x00A0, 4, scl_magn, 100)
         else:
@@ -2371,7 +2371,7 @@ class ExternSheetRecord(BiffRecord):
     def get(self):
         res = []
         nrefs = len(self.refs)
-        for idx in xrange(0, nrefs, _maxRefPerRecord):
+        for idx in range(0, nrefs, _maxRefPerRecord):
             chunk = self.refs[idx:idx+_maxRefPerRecord]
             krefs = len(chunk)
             if idx: # CONTINUE record

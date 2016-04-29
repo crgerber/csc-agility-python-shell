@@ -1,5 +1,5 @@
-from base.FileSystem import FileSystemBase
-from actions.FileSystem import FileSystemActions
+from .base.FileSystem import FileSystemBase
+from .actions.FileSystem import FileSystemActions
 
 class FileSystem(FileSystemBase, FileSystemActions):
     '''

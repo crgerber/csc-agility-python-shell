@@ -40,8 +40,8 @@ Record Order in BIFF8
       EOF
 '''
 
-import BIFFRecords
-import Style
+from . import BIFFRecords
+from . import Style
 
 class Workbook(object):
 
@@ -321,8 +321,8 @@ class Workbook(object):
         return self.__sst.rt_index(rt)
 
     def add_sheet(self, sheetname, cell_overwrite_ok=False):
-        import Worksheet, Utils
-        if not isinstance(sheetname, unicode):
+        from . import Worksheet, Utils
+        if not isinstance(sheetname, str):
             sheetname = sheetname.decode(self.encoding)
         if not Utils.valid_sheet_name(sheetname):
             raise Exception("invalid worksheet name %r" % sheetname)
@@ -413,7 +413,7 @@ class Workbook(object):
                 self.setup_xcall()
             # print funcname, self._supbook_xref
             patches.append((offset, self._xcall_supbook_ref))
-            if not isinstance(funcname, unicode):
+            if not isinstance(funcname, str):
                 funcname = funcname.decode(self.encoding)
             if funcname in self._xcall_xref:
                 idx = self._xcall_xref[funcname]
@@ -534,7 +534,7 @@ class Workbook(object):
         boundsheets_len = 0
         for sheet in self.__worksheets:
             boundsheets_len += len(BIFFRecords.BoundSheetRecord(
-                0x00L, sheet.visibility, sheet.name, self.encoding
+                0x00, sheet.visibility, sheet.name, self.encoding
                 ).get())
 
         start = data_len_before + boundsheets_len + data_len_after
@@ -549,7 +549,7 @@ class Workbook(object):
 
     def __all_links_rec(self):
         pieces = []
-        temp = [(idx, tag) for tag, idx in self._supbook_xref.items()]
+        temp = [(idx, tag) for tag, idx in list(self._supbook_xref.items())]
         temp.sort()
         for idx, tag in temp:
             stype, snum = tag
@@ -559,7 +559,7 @@ class Workbook(object):
             elif stype == 'xcall':
                 rec = BIFFRecords.XcallSupBookRecord().get()
                 pieces.append(rec)
-                temp = [(idx, name) for name, idx in self._xcall_xref.items()]
+                temp = [(idx, name) for name, idx in list(self._xcall_xref.items())]
                 temp.sort()
                 for idx, name in temp:
                     rec = BIFFRecords.ExternnameRecord(
@@ -569,7 +569,7 @@ class Workbook(object):
                 raise Exception('unknown supbook stype %r' % stype)
         if len(self.__sheet_refs) > 0:
             # get references in index order
-            temp = [(idx, ref) for ref, idx in self.__sheet_refs.items()]
+            temp = [(idx, ref) for ref, idx in list(self.__sheet_refs.items())]
             temp.sort()
             temp = [ref for idx, ref in temp]
             externsheet_record = BIFFRecords.ExternSheetRecord(temp).get()
@@ -637,7 +637,7 @@ class Workbook(object):
         return before + bundlesheets + after + ext_sst + eof + sheets
 
     def save(self, filename):
-        import CompoundDoc
+        from . import CompoundDoc
 
         doc = CompoundDoc.XlsDoc()
         doc.save(filename, self.get_biff_data())

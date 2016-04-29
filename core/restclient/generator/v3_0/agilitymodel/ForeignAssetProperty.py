@@ -1,5 +1,5 @@
-from base.ForeignAssetProperty import ForeignAssetPropertyBase
-from actions.ForeignAssetProperty import ForeignAssetPropertyActions
+from .base.ForeignAssetProperty import ForeignAssetPropertyBase
+from .actions.ForeignAssetProperty import ForeignAssetPropertyActions
 
 class ForeignAssetProperty(ForeignAssetPropertyBase, ForeignAssetPropertyActions):
     '''

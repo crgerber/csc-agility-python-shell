@@ -1,5 +1,5 @@
-from base.ErrorInfo import ErrorInfoBase
-from actions.ErrorInfo import ErrorInfoActions
+from .base.ErrorInfo import ErrorInfoBase
+from .actions.ErrorInfo import ErrorInfoActions
 
 class ErrorInfo(ErrorInfoBase, ErrorInfoActions):
     '''

@@ -1,5 +1,5 @@
-from base.StoreCategory import StoreCategoryBase
-from actions.StoreCategory import StoreCategoryActions
+from .base.StoreCategory import StoreCategoryBase
+from .actions.StoreCategory import StoreCategoryActions
 
 class StoreCategory(StoreCategoryBase, StoreCategoryActions):
     '''

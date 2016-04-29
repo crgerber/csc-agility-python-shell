@@ -34,7 +34,7 @@ __revision__ = "$Id$"
 __all__ = []
 
 import sys
-import __builtin__
+import builtins
 
 # 'True' and 'False' aren't defined in Python 2.1.  Define them.
 try:
@@ -59,25 +59,25 @@ except NameError:
 #   isinstance(x, (int, long))
 # So we hack it for Python 2.1.
 try:
-    isinstance(5, (int, long))
+    isinstance(5, int)
 except TypeError:
     __all__ += ['isinstance']
     _builtin_type_map = {
         tuple: type(()),
         list: type([]),
         str: type(""),
-        unicode: type(u""),
+        str: type(""),
         int: type(0),
-        long: type(0L),
+        int: type(0),
     }
     def isinstance(obj, t):
-        if not __builtin__.isinstance(t, type(())):
+        if not builtins.isinstance(t, type(())):
             # t is not a tuple
-            return __builtin__.isinstance(obj, _builtin_type_map.get(t, t))
+            return builtins.isinstance(obj, _builtin_type_map.get(t, t))
         else:
             # t is a tuple
             for typ in t:
-                if __builtin__.isinstance(obj, _builtin_type_map.get(typ, typ)):
+                if builtins.isinstance(obj, _builtin_type_map.get(typ, typ)):
                     return True
             return False
 

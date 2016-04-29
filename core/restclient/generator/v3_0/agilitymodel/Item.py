@@ -1,5 +1,5 @@
-from base.Item import ItemBase
-from actions.Item import ItemActions
+from .base.Item import ItemBase
+from .actions.Item import ItemActions
 
 class Item(ItemBase, ItemActions):
     '''

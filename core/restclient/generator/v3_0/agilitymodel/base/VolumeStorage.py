@@ -1,4 +1,4 @@
-from Item import ItemBase
+from .Item import ItemBase
 
 class VolumeStorageBase(ItemBase):
     '''

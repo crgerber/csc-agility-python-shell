@@ -9,7 +9,7 @@ from logger import logger
 compute_before = a.tools.snapshot.loadSnapshot('../cba_snapshots/environments/', 'Compute', '10.231.219.132')
 # <demo> --- stop ---
 #All native python operations can be used within the Shell
-print len(compute_before)
+print((len(compute_before)))
 # <demo> --- stop ---
 #Load another copy of the compute list
 compute_after = a.tools.snapshot.loadSnapshot('../cba_snapshots/environments/', 'Compute', '10.231.219.132')
@@ -35,14 +35,14 @@ a.tools.report.diffReport(compute_before, compute_after, fields=['id', 'name'], 
 a.tools.report.diffReport(compute_before, compute_after, fields=['id', 'name'], reportFileName='compute_diff', format='csv')
 # <demo> --- stop ---
 #use Python's functional programming features to filter data offline
-with_resources = filter(lambda c: getattr(c, 'resources', None), compute_before)
+with_resources = [c for c in compute_before if getattr(c, 'resources', None)]
 # <demo> --- stop ---
 #Use a scripted scenario to obtain a list of assigned resources of type <Disk Drive> to compute instances
 disk_assignment_before = a.tools.scripting.scenarios.assignedResources(compute_before, resourceType=a.tools.scripting.scenarios.assignedResources.TYPES.DISK_DRIVE)
-print len(disk_assignment_before)
+print((len(disk_assignment_before)))
 # <demo> --- stop ---
 #The scenario script can extract a list of any assigned resources. Enums are attached to methods that use them for ease of use
-print a.tools.scripting.scenarios.assignedResources.TYPES
+print((a.tools.scripting.scenarios.assignedResources.TYPES))
 # <demo> --- stop ---
 #Extract the same data from the "after" list
 disk_assignment_after = a.tools.scripting.scenarios.assignedResources(compute_after, a.tools.scripting.scenarios.assignedResources.TYPES.DISK_DRIVE)
@@ -63,11 +63,11 @@ computemap = a.tools.scripting.idmap(compute_before)
 # <demo> --- stop ---
 #Flatten an object
 flat = a.tools.scripting.flattenmap(computemap['479'])
-print flat.keys()
+print((list(flat.keys())))
 # <demo> --- stop ---
 #A sample of the scripting plugin to do some data drilling
-print a.tools.scripting.selectFieldsWithValueRegex(flat, 'Unknown', flatten=True)
+print((a.tools.scripting.selectFieldsWithValueRegex(flat, 'Unknown', flatten=True)))
 # <demo> --- stop ---
 #Use the scripting methods to list the available features
-print a.tools.scripting.listFields(a.tools.scripting)
+print((a.tools.scripting.listFields(a.tools.scripting)))
 # <demo> --- stop ---

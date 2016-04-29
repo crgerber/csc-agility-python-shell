@@ -1,5 +1,5 @@
-from base.DateValidator import DateValidatorBase
-from actions.DateValidator import DateValidatorActions
+from .base.DateValidator import DateValidatorBase
+from .actions.DateValidator import DateValidatorActions
 
 class DateValidator(DateValidatorBase, DateValidatorActions):
     '''

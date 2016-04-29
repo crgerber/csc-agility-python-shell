@@ -1,5 +1,5 @@
-from base.ScriptVariableList import ScriptVariableListBase
-from actions.ScriptVariableList import ScriptVariableListActions
+from .base.ScriptVariableList import ScriptVariableListBase
+from .actions.ScriptVariableList import ScriptVariableListActions
 
 class ScriptVariableList(ScriptVariableListBase, ScriptVariableListActions):
     '''

@@ -1,4 +1,4 @@
-from Variable import VariableBase
+from .Variable import VariableBase
 
 class ScriptVariableBase(VariableBase):
     '''

@@ -60,7 +60,7 @@ class AgilityQuery(object):
     
     def _compileTemplates(self):
         templateQueries = []
-        for templateName, templateStr in self.template.__dict__.iteritems():
+        for templateName, templateStr in list(self.template.__dict__.items()):
             templateParams = {}
             fieldNames = templateName.split('_')
             for fieldName in fieldNames:

@@ -1,7 +1,7 @@
 # -*- coding: windows-1252 -*-
 
 from struct import unpack, pack
-import BIFFRecords
+from . import BIFFRecords
 
 class StrCell(object):
     __slots__ = ["rowx", "colx", "xf_idx", "sst_idx"]
@@ -194,7 +194,7 @@ def _get_cells_biff_data_mul(rowx, cell_items):
         lastcolx = icolx
         j = i
         packed_record = ''
-        for j in xrange(i+1, nitems):
+        for j in range(i+1, nitems):
             jcolx, jcell = cell_items[j]
             if jcolx != lastcolx + 1:
                 nexti = j

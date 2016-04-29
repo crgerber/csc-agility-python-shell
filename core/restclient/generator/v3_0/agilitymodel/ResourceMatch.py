@@ -1,5 +1,5 @@
-from base.ResourceMatch import ResourceMatchBase
-from actions.ResourceMatch import ResourceMatchActions
+from .base.ResourceMatch import ResourceMatchBase
+from .actions.ResourceMatch import ResourceMatchActions
 
 class ResourceMatch(ResourceMatchBase, ResourceMatchActions):
     '''

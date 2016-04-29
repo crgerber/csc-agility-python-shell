@@ -1,5 +1,5 @@
-from base.EmailValidator import EmailValidatorBase
-from actions.EmailValidator import EmailValidatorActions
+from .base.EmailValidator import EmailValidatorBase
+from .actions.EmailValidator import EmailValidatorActions
 
 class EmailValidator(EmailValidatorBase, EmailValidatorActions):
     '''

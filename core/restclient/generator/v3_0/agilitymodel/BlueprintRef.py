@@ -1,5 +1,5 @@
-from base.BlueprintRef import BlueprintRefBase
-from actions.BlueprintRef import BlueprintRefActions
+from .base.BlueprintRef import BlueprintRefBase
+from .actions.BlueprintRef import BlueprintRefActions
 
 class BlueprintRef(BlueprintRefBase, BlueprintRefActions):
     '''

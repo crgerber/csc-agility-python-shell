@@ -90,5 +90,3 @@ class WADLParser(object):
         else:
             self._eventHandlers[event] = handler
             return dict(self._eventHandlers) #return a copy
-
-    def

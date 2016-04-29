@@ -1,5 +1,5 @@
-from base.AccessUriList import AccessUriListBase
-from actions.AccessUriList import AccessUriListActions
+from .base.AccessUriList import AccessUriListBase
+from .actions.AccessUriList import AccessUriListActions
 
 class AccessUriList(AccessUriListBase, AccessUriListActions):
     '''

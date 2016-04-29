@@ -1,5 +1,5 @@
-from base.Script import ScriptBase
-from actions.Script import ScriptActions
+from .base.Script import ScriptBase
+from .actions.Script import ScriptActions
 
 class Script(ScriptBase, ScriptActions):
     '''

@@ -1,5 +1,5 @@
-from base.Location import LocationBase
-from actions.Location import LocationActions
+from .base.Location import LocationBase
+from .actions.Location import LocationActions
 
 class Location(LocationBase, LocationActions):
     '''

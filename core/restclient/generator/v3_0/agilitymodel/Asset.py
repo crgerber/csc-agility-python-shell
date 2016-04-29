@@ -1,5 +1,5 @@
-from base.Asset import AssetBase
-from actions.Asset import AssetActions
+from .base.Asset import AssetBase
+from .actions.Asset import AssetActions
 
 class Asset(AssetBase, AssetActions):
     '''

@@ -1,5 +1,5 @@
-from base.Repository import RepositoryBase
-from actions.Repository import RepositoryActions
+from .base.Repository import RepositoryBase
+from .actions.Repository import RepositoryActions
 
 class Repository(RepositoryBase, RepositoryActions):
     '''

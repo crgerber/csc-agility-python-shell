@@ -1,5 +1,5 @@
-from base.ResourceMetric import ResourceMetricBase
-from actions.ResourceMetric import ResourceMetricActions
+from .base.ResourceMetric import ResourceMetricBase
+from .actions.ResourceMetric import ResourceMetricActions
 
 class ResourceMetric(ResourceMetricBase, ResourceMetricActions):
     '''

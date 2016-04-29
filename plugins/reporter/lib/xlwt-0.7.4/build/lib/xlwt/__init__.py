@@ -3,14 +3,17 @@
 __VERSION__ = '0.7.4'
 
 import sys
+
+
+
 if sys.version_info[:2] < (2, 3):
-    print >> sys.stderr, "Sorry, xlwt requires Python 2.3 or later"
+    sys.stderr.write('Sorry, xlwt requires Python 2.3 or later\n')
     sys.exit(1)
 
-from Workbook import Workbook
-from Worksheet import Worksheet
-from Row import Row
-from Column import Column
-from Formatting import Font, Alignment, Borders, Pattern, Protection
-from Style import XFStyle, easyxf, easyfont
-from ExcelFormula import *
+from .Workbook import Workbook
+from .Worksheet import Worksheet
+from .Row import Row
+from .Column import Column
+from .Formatting import Font, Alignment, Borders, Pattern, Protection
+from .Style import XFStyle, easyxf, easyfont
+from .ExcelFormula import *

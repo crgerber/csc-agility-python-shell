@@ -1,5 +1,5 @@
-from base.SolutionDeployment import SolutionDeploymentBase
-from actions.SolutionDeployment import SolutionDeploymentActions
+from .base.SolutionDeployment import SolutionDeploymentBase
+from .actions.SolutionDeployment import SolutionDeploymentActions
 
 class SolutionDeployment(SolutionDeploymentBase, SolutionDeploymentActions):
     '''

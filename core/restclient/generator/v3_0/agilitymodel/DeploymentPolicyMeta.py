@@ -1,5 +1,5 @@
-from base.DeploymentPolicyMeta import DeploymentPolicyMetaBase
-from actions.DeploymentPolicyMeta import DeploymentPolicyMetaActions
+from .base.DeploymentPolicyMeta import DeploymentPolicyMetaBase
+from .actions.DeploymentPolicyMeta import DeploymentPolicyMetaActions
 
 class DeploymentPolicyMeta(DeploymentPolicyMetaBase, DeploymentPolicyMetaActions):
     '''

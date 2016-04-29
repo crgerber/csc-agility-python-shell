@@ -1,5 +1,5 @@
-from base.StringLengthValidator import StringLengthValidatorBase
-from actions.StringLengthValidator import StringLengthValidatorActions
+from .base.StringLengthValidator import StringLengthValidatorBase
+from .actions.StringLengthValidator import StringLengthValidatorActions
 
 class StringLengthValidator(StringLengthValidatorBase, StringLengthValidatorActions):
     '''

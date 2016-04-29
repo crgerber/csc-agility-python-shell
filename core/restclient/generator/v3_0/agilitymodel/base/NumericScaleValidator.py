@@ -1,4 +1,4 @@
-from FieldValidator import FieldValidatorBase
+from .FieldValidator import FieldValidatorBase
 
 class NumericScaleValidatorBase(FieldValidatorBase):
     '''

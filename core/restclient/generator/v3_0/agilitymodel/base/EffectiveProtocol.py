@@ -1,4 +1,4 @@
-from Protocol import ProtocolBase
+from .Protocol import ProtocolBase
 
 class EffectiveProtocolBase(ProtocolBase):
     '''

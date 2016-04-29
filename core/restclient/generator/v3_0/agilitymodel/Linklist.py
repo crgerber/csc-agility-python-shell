@@ -1,5 +1,5 @@
-from base.Linklist import LinklistBase
-from actions.Linklist import LinklistActions
+from .base.Linklist import LinklistBase
+from .actions.Linklist import LinklistActions
 
 class Linklist(LinklistBase, LinklistActions):
     '''

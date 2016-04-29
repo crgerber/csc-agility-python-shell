@@ -1,4 +1,4 @@
-from Link import LinkBase
+from .Link import LinkBase
 
 class ItemLinkBase(LinkBase):
     '''

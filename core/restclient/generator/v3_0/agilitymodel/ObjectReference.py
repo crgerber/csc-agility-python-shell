@@ -1,5 +1,5 @@
-from base.ObjectReference import ObjectReferenceBase
-from actions.ObjectReference import ObjectReferenceActions
+from .base.ObjectReference import ObjectReferenceBase
+from .actions.ObjectReference import ObjectReferenceActions
 
 class ObjectReference(ObjectReferenceBase, ObjectReferenceActions):
     '''

@@ -1,5 +1,5 @@
-from base.Environment import EnvironmentBase
-from actions.Environment import EnvironmentActions
+from .base.Environment import EnvironmentBase
+from .actions.Environment import EnvironmentActions
 
 class Environment(EnvironmentBase, EnvironmentActions):
     '''

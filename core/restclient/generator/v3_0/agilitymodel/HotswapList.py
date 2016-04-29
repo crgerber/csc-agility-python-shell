@@ -1,5 +1,5 @@
-from base.HotswapList import HotswapListBase
-from actions.HotswapList import HotswapListActions
+from .base.HotswapList import HotswapListBase
+from .actions.HotswapList import HotswapListActions
 
 class HotswapList(HotswapListBase, HotswapListActions):
     '''

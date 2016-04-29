@@ -1,5 +1,5 @@
-from base.FieldValidator import FieldValidatorBase
-from actions.FieldValidator import FieldValidatorActions
+from .base.FieldValidator import FieldValidatorBase
+from .actions.FieldValidator import FieldValidatorActions
 
 class FieldValidator(FieldValidatorBase, FieldValidatorActions):
     '''

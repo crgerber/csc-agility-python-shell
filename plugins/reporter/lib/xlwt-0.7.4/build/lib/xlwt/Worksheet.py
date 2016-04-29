@@ -34,14 +34,14 @@
             EOF
 '''
 
-import BIFFRecords
-import Bitmap
-import Formatting
-import Style
+from . import BIFFRecords
+from . import Bitmap
+from . import Formatting
+from . import Style
 import tempfile
 
 class Worksheet(object):
-    from Workbook import Workbook
+    from .Workbook import Workbook
 
     # a safe default value, 3 is always valid!
     active_pane = 3
@@ -50,10 +50,10 @@ class Worksheet(object):
     ## Constructor
     #################################################################
     def __init__(self, sheetname, parent_book, cell_overwrite_ok=False):
-        import Row
+        from . import Row
         self.Row = Row.Row
 
-        import Column
+        from . import Column
         self.Column = Column.Column
 
         self.__name = sheetname
@@ -721,7 +721,7 @@ class Worksheet(object):
 
     def set_header_str(self, value):
         if isinstance(value, str):
-            value = unicode(value, self.__parent.encoding)
+            value = str(value, self.__parent.encoding)
         self.__header_str = value
 
     def get_header_str(self):
@@ -733,7 +733,7 @@ class Worksheet(object):
 
     def set_footer_str(self, value):
         if isinstance(value, str):
-            value = unicode(value, self.__parent.encoding)
+            value = str(value, self.__parent.encoding)
         self.__footer_str = value
 
     def get_footer_str(self):
@@ -1220,19 +1220,19 @@ class Worksheet(object):
                 if self.__vert_split_pos > 0:
                     self.__vert_split_pos = 113.879 * self.__vert_split_pos + 390
 
-        result = BIFFRecords.PanesRecord(*map(int, (
+        result = BIFFRecords.PanesRecord(*list(map(int, (
             self.__vert_split_pos,
             self.__horz_split_pos,
             self.__horz_split_first_visible,
             self.__vert_split_first_visible,
             self.active_pane
-            ))).get()
+            )))).get()
 
         return result
 
     def __row_blocks_rec(self):
         result = []
-        for row in self.__rows.itervalues():
+        for row in list(self.__rows.values()):
             result.append(row.get_row_biff_data())
             result.append(row.get_cells_biff_data())
         return ''.join(result)

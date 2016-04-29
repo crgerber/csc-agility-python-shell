@@ -1,5 +1,5 @@
-from base.EffectiveProtocol import EffectiveProtocolBase
-from actions.EffectiveProtocol import EffectiveProtocolActions
+from .base.EffectiveProtocol import EffectiveProtocolBase
+from .actions.EffectiveProtocol import EffectiveProtocolActions
 
 class EffectiveProtocol(EffectiveProtocolBase, EffectiveProtocolActions):
     '''

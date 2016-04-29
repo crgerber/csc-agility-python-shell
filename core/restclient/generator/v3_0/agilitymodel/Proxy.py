@@ -1,5 +1,5 @@
-from base.Proxy import ProxyBase
-from actions.Proxy import ProxyActions
+from .base.Proxy import ProxyBase
+from .actions.Proxy import ProxyActions
 
 class Proxy(ProxyBase, ProxyActions):
     '''

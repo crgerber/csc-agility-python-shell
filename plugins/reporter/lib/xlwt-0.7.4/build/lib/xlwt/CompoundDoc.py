@@ -170,7 +170,7 @@ class XlsDoc:
         self.packed_SAT = struct.pack('<%dl' % (SAT_sect_count*128), *SAT)
 
         MSAT_1st = [self.SID_FREE_SECTOR]*109
-        for i, SAT_sect_num in zip(range(0, 109), self.SAT_sect):
+        for i, SAT_sect_num in zip(list(range(0, 109)), self.SAT_sect):
             MSAT_1st[i] = SAT_sect_num
         self.packed_MSAT_1st = struct.pack('<109l', *MSAT_1st)
 
@@ -269,11 +269,11 @@ class XlsDoc:
         # The fallback is to write the stream in 4 MB chunks.
         try:
             f.write(stream)
-        except IOError, e:
+        except IOError as e:
             if e.errno != 22: # "Invalid argument" i.e. 'stream' is too big
                 raise # some other problem
             chunk_size = 4 * 1024 * 1024
-            for offset in xrange(0, len(stream), chunk_size):
+            for offset in range(0, len(stream), chunk_size):
                 f.write(buffer(stream, offset, chunk_size))
         f.write(padding)
         f.write(self.packed_MSAT_2nd)

@@ -1,5 +1,5 @@
-from base.DeploymentRequest import DeploymentRequestBase
-from actions.DeploymentRequest import DeploymentRequestActions
+from .base.DeploymentRequest import DeploymentRequestBase
+from .actions.DeploymentRequest import DeploymentRequestActions
 
 class DeploymentRequest(DeploymentRequestBase, DeploymentRequestActions):
     '''

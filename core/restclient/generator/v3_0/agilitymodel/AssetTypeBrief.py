@@ -1,5 +1,5 @@
-from base.AssetTypeBrief import AssetTypeBriefBase
-from actions.AssetTypeBrief import AssetTypeBriefActions
+from .base.AssetTypeBrief import AssetTypeBriefBase
+from .actions.AssetTypeBrief import AssetTypeBriefActions
 
 class AssetTypeBrief(AssetTypeBriefBase, AssetTypeBriefActions):
     '''

@@ -24,7 +24,7 @@ def createTemplate(typeName, **kwargs):
     sep = ''
     attributes = ''
     if kwargs:
-        for key, value in kwargs.iteritems():
+        for key, value in list(kwargs.items()):
             attributes += sep + '<%(key)s>%(value)s</%(key)s>'%{'key' : key, 'value' : value}
             sep = '\n    '
         

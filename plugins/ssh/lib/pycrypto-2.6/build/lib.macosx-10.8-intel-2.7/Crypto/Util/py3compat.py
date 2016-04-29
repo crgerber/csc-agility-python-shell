@@ -79,7 +79,7 @@ if sys.version_info[0] == 2:
                 return ''.join(s)
     else:
         def tobytes(s):
-            if isinstance(s, unicode):
+            if isinstance(s, str):
                 return s.encode("latin-1")
             else:
                 return ''.join(s)

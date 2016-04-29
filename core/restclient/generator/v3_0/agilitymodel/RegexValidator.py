@@ -1,5 +1,5 @@
-from base.RegexValidator import RegexValidatorBase
-from actions.RegexValidator import RegexValidatorActions
+from .base.RegexValidator import RegexValidatorBase
+from .actions.RegexValidator import RegexValidatorActions
 
 class RegexValidator(RegexValidatorBase, RegexValidatorActions):
     '''

@@ -1,5 +1,5 @@
-from base.PlatformServiceType import PlatformServiceTypeBase
-from actions.PlatformServiceType import PlatformServiceTypeActions
+from .base.PlatformServiceType import PlatformServiceTypeBase
+from .actions.PlatformServiceType import PlatformServiceTypeActions
 
 class PlatformServiceType(PlatformServiceTypeBase, PlatformServiceTypeActions):
     '''

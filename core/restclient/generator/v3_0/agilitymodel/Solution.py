@@ -1,5 +1,5 @@
-from base.Solution import SolutionBase
-from actions.Solution import SolutionActions
+from .base.Solution import SolutionBase
+from .actions.Solution import SolutionActions
 
 class Solution(SolutionBase, SolutionActions):
     '''

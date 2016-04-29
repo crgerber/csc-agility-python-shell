@@ -3,7 +3,7 @@ Created on Oct 15, 2012
 
 @author: dawood
 '''
-from common import *
+from .common import *
 from bs4 import BeautifulSoup
 COMPONENT_NAME = 'XML_PARSER_BeautifulSoup'
 from logger import getLogger
@@ -16,7 +16,7 @@ class ProxyBeautifulSoup(AbstractProxy):
         #first load any attributes, decode key and value to ascii and strip white spaces
         attrs = {}
         if loadAttrs:
-            for attrK, attrV in entrySoup.attrs.items():
+            for attrK, attrV in list(entrySoup.attrs.items()):
                 attrK = decode(attrK).strip()
                 if attrK.startswith('xmlns') : continue
                 attrK = attrK[attrK.find(':')+1:]#remove NameSpace prefix
@@ -26,7 +26,7 @@ class ProxyBeautifulSoup(AbstractProxy):
         #NOTE: only exists on first level of the DOM tree, multiline CDATA content are intact as "text" property of an enclosing Tag  element
         #@todo: check if BeautifulSoup API's can filter out new lines automatically
         
-        children = filter(lambda e: decode(e).strip(), entrySoup.children)
+        children = [e for e in entrySoup.children if decode(e).strip()]
         for child in children:
             key = attrNameFilter(child.name)
             if key not in attrs:
@@ -43,7 +43,7 @@ class ProxyBeautifulSoup(AbstractProxy):
         if len(entrySoup.contents) <= 1:#empty tag or a text field
             try:
                 text = decode(entrySoup.text)
-            except UnicodeEncodeError, ex:
+            except UnicodeEncodeError as ex:
                 logger.warn('Failed to convert %s to string, error details: %s', entrySoup.text, ex)
                 text = entrySoup.text
             return text.strip()

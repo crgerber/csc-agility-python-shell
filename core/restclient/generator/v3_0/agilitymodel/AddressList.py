@@ -1,5 +1,5 @@
-from base.AddressList import AddressListBase
-from actions.AddressList import AddressListActions
+from .base.AddressList import AddressListBase
+from .actions.AddressList import AddressListActions
 
 class AddressList(AddressListBase, AddressListActions):
     '''

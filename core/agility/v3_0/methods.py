@@ -46,7 +46,7 @@ class image(Endpoint):
         path_params = {"id": image_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -89,7 +89,7 @@ class image(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -138,7 +138,7 @@ class image(Endpoint):
         path_params = {"id": image_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -187,7 +187,7 @@ class image(Endpoint):
         path_params = {"id": image_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -232,7 +232,7 @@ class image(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -278,7 +278,7 @@ class image(Endpoint):
         path_params = {"id": image_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -321,7 +321,7 @@ class image(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -380,7 +380,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -431,7 +431,7 @@ class artifact(Endpoint):
         path_params = {"slotId": artifact_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -477,7 +477,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -523,7 +523,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -572,7 +572,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -617,7 +617,7 @@ class artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -666,7 +666,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -714,7 +714,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -760,7 +760,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -809,7 +809,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -857,7 +857,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -906,7 +906,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -949,7 +949,7 @@ class artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -992,7 +992,7 @@ class artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1044,7 +1044,7 @@ class artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1092,7 +1092,7 @@ class artifact(Endpoint):
         path_params = {"slotId": artifact_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1142,7 +1142,7 @@ class artifact(Endpoint):
                        "attachment_id": attachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1195,7 +1195,7 @@ class launchitemdeployment(Endpoint):
         path_params = {"id": launchitemdeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1238,7 +1238,7 @@ class launchitemdeployment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1281,7 +1281,7 @@ class launchitemdeployment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1330,7 +1330,7 @@ class launchitemdeployment(Endpoint):
         path_params = {"id": launchitemdeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1381,7 +1381,7 @@ class launchitemdeployment(Endpoint):
         path_params = {"id": launchitemdeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1429,7 +1429,7 @@ class launchitemdeployment(Endpoint):
         path_params = {"id": launchitemdeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1489,7 +1489,7 @@ class launchitem(Endpoint):
                        "locationId": deploy_locationId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1540,7 +1540,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1588,7 +1588,7 @@ class launchitem(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1634,7 +1634,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1683,7 +1683,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1734,7 +1734,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1782,7 +1782,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1828,7 +1828,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1877,7 +1877,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1928,7 +1928,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -1976,7 +1976,7 @@ class launchitem(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2025,7 +2025,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2076,7 +2076,7 @@ class launchitem(Endpoint):
         path_params = {"id": launchitem_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2134,7 +2134,7 @@ class configuration_resource(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2182,7 +2182,7 @@ class configuration_resource(Endpoint):
         path_params = {"id": resource_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2228,7 +2228,7 @@ class configuration_resource(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2279,7 +2279,7 @@ class configuration_resource(Endpoint):
         path_params = {"id": resource_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2330,7 +2330,7 @@ class configuration_resource(Endpoint):
         path_params = {"id": resource_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2373,7 +2373,7 @@ class configuration_resource(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2416,7 +2416,7 @@ class configuration_resource(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2462,7 +2462,7 @@ class configuration_resource(Endpoint):
         path_params = {"id": resource_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2505,7 +2505,7 @@ class configuration_resource(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2558,7 +2558,7 @@ class storecategory(Endpoint):
         path_params = {"id": storecategory_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2604,7 +2604,7 @@ class storecategory(Endpoint):
         path_params = {"id": storecategory_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2647,7 +2647,7 @@ class storecategory(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2696,7 +2696,7 @@ class storecategory(Endpoint):
         path_params = {"id": storecategory_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2741,7 +2741,7 @@ class storecategory(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2790,7 +2790,7 @@ class storecategory(Endpoint):
         path_params = {"id": storecategory_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2836,7 +2836,7 @@ class storecategory(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2881,7 +2881,7 @@ class storecategory(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2934,7 +2934,7 @@ class storeproduct(Endpoint):
         path_params = {"id": storeproduct_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -2980,7 +2980,7 @@ class storeproduct(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3032,7 +3032,7 @@ class storeproduct(Endpoint):
                        "reviewid": reviewid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3078,7 +3078,7 @@ class storeproduct(Endpoint):
         path_params = {"id": storeproduct_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3127,7 +3127,7 @@ class storeproduct(Endpoint):
         path_params = {"id": storeproduct_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3179,7 +3179,7 @@ class storeproduct(Endpoint):
                        "reviewid": reviewid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3232,7 +3232,7 @@ class storeproduct(Endpoint):
                        "reviewid": reviewid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3283,7 +3283,7 @@ class storeproduct(Endpoint):
         path_params = {"id": storeproduct_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3334,7 +3334,7 @@ class storeproduct(Endpoint):
         path_params = {"id": storeproduct_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3380,7 +3380,7 @@ class storeproduct(Endpoint):
         path_params = {"id": storeproduct_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3423,7 +3423,7 @@ class storeproduct(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3466,7 +3466,7 @@ class storeproduct(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3509,7 +3509,7 @@ class storeproduct(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3565,7 +3565,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3616,7 +3616,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3661,7 +3661,7 @@ class script(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3710,7 +3710,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3761,7 +3761,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3815,7 +3815,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3863,7 +3863,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3909,7 +3909,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -3961,7 +3961,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4008,7 +4008,7 @@ class script(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4054,7 +4054,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4103,7 +4103,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4154,7 +4154,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4202,7 +4202,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4251,7 +4251,7 @@ class script(Endpoint):
         path_params = {"slotId": script_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4300,7 +4300,7 @@ class script(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4350,7 +4350,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4401,7 +4401,7 @@ class script(Endpoint):
         path_params = {"id": script_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4453,7 +4453,7 @@ class script(Endpoint):
                        "attachment_id": attachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4509,7 +4509,7 @@ class configuration_repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4554,7 +4554,7 @@ class configuration_repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4603,7 +4603,7 @@ class configuration_repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4651,7 +4651,7 @@ class configuration_repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4697,7 +4697,7 @@ class configuration_repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4743,7 +4743,7 @@ class configuration_repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4792,7 +4792,7 @@ class configuration_repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4838,7 +4838,7 @@ class configuration_repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4886,7 +4886,7 @@ class configuration_repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4931,7 +4931,7 @@ class configuration_repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -4974,7 +4974,7 @@ class configuration_repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5030,7 +5030,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5078,7 +5078,7 @@ class solutiondeployment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5127,7 +5127,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5175,7 +5175,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5224,7 +5224,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5272,7 +5272,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5321,7 +5321,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5372,7 +5372,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5423,7 +5423,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5474,7 +5474,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5525,7 +5525,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5576,7 +5576,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5621,7 +5621,7 @@ class solutiondeployment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5674,7 +5674,7 @@ class solutiondeployment(Endpoint):
                        "locationId": promote_locationId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5725,7 +5725,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5776,7 +5776,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5827,7 +5827,7 @@ class solutiondeployment(Endpoint):
         path_params = {"id": solutiondeployment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5885,7 +5885,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5937,7 +5937,7 @@ class customcontainer(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -5987,7 +5987,7 @@ class customcontainer(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6033,7 +6033,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6082,7 +6082,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6128,7 +6128,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6171,7 +6171,7 @@ class customcontainer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6217,7 +6217,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6271,7 +6271,7 @@ class customcontainer(Endpoint):
                        "usergroup_id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6324,7 +6324,7 @@ class customcontainer(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6375,7 +6375,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6423,7 +6423,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6469,7 +6469,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6523,7 +6523,7 @@ class customcontainer(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6577,7 +6577,7 @@ class customcontainer(Endpoint):
                        "user_id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6627,7 +6627,7 @@ class customcontainer(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6670,7 +6670,7 @@ class customcontainer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6723,7 +6723,7 @@ class customcontainer(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6777,7 +6777,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6836,7 +6836,7 @@ class customcontainer(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6887,7 +6887,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6942,7 +6942,7 @@ class customcontainer(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -6987,7 +6987,7 @@ class customcontainer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7036,7 +7036,7 @@ class customcontainer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7087,7 +7087,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7142,7 +7142,7 @@ class customcontainer(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7190,7 +7190,7 @@ class customcontainer(Endpoint):
         path_params = {"id": customcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7236,7 +7236,7 @@ class customcontainer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7296,7 +7296,7 @@ class customcontainer(Endpoint):
                        "accessright_id": accessright_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7342,7 +7342,7 @@ class customcontainer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7394,7 +7394,7 @@ class ldapgroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7447,7 +7447,7 @@ class ldapgroup(Endpoint):
                        "newAgilityGpName": newAgilityGpName}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7495,7 +7495,7 @@ class ldapgroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7543,7 +7543,7 @@ class ldapgroup(Endpoint):
         path_params = {"id": ldapgroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7589,7 +7589,7 @@ class ldapgroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7637,7 +7637,7 @@ class ldapgroup(Endpoint):
         path_params = {"id": ldapgroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7690,7 +7690,7 @@ class ldapgroup(Endpoint):
                        "agilityGpName": agilityGpName}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7745,7 +7745,7 @@ class credential(Endpoint):
         path_params = {"id": credential_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7791,7 +7791,7 @@ class credential(Endpoint):
         path_params = {"id": credential_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7844,7 +7844,7 @@ class credential(Endpoint):
                        "fieldname": encrypt_fieldname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7896,7 +7896,7 @@ class credential(Endpoint):
                        "field": decrypt_field}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7939,7 +7939,7 @@ class credential(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -7992,7 +7992,7 @@ class paas(Endpoint):
         path_params = {"id": paas_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8041,7 +8041,7 @@ class paas(Endpoint):
         path_params = {"id": id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8089,7 +8089,7 @@ class paas(Endpoint):
         path_params = {"id": id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8135,7 +8135,7 @@ class paas(Endpoint):
         path_params = {"id": paas_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8181,7 +8181,7 @@ class paas(Endpoint):
         path_params = {"id": paas_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8224,7 +8224,7 @@ class paas(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8273,7 +8273,7 @@ class paas(Endpoint):
         path_params = {"id": paas_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8325,7 +8325,7 @@ class authtype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8371,7 +8371,7 @@ class authtype(Endpoint):
         path_params = {"id": authtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8414,7 +8414,7 @@ class authtype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8467,7 +8467,7 @@ class scriptlanguage(Endpoint):
         path_params = {"id": scriptlanguage_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8510,7 +8510,7 @@ class scriptlanguage(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8559,7 +8559,7 @@ class scriptlanguage(Endpoint):
         path_params = {"id": scriptlanguage_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8607,7 +8607,7 @@ class scriptlanguage(Endpoint):
         path_params = {"id": scriptlanguage_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8653,7 +8653,7 @@ class scriptlanguage(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8698,7 +8698,7 @@ class scriptlanguage(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8754,7 +8754,7 @@ class user(Endpoint):
         path_params = {"id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8805,7 +8805,7 @@ class user(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8853,7 +8853,7 @@ class user(Endpoint):
         path_params = {"id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8899,7 +8899,7 @@ class user(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8944,7 +8944,7 @@ class user(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -8987,7 +8987,7 @@ class user(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9033,7 +9033,7 @@ class user(Endpoint):
         path_params = {"id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9079,7 +9079,7 @@ class user(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9130,7 +9130,7 @@ class user(Endpoint):
         path_params = {"id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9173,7 +9173,7 @@ class user(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9229,7 +9229,7 @@ class usergroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9281,7 +9281,7 @@ class usergroup(Endpoint):
                        "userid": userid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9324,7 +9324,7 @@ class usergroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9370,7 +9370,7 @@ class usergroup(Endpoint):
         path_params = {"id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9423,7 +9423,7 @@ class usergroup(Endpoint):
                        "userid": userid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9471,7 +9471,7 @@ class usergroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9523,7 +9523,7 @@ class usergroup(Endpoint):
                        "subid": group_subid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9576,7 +9576,7 @@ class usergroup(Endpoint):
                        "subid": group_subid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9624,7 +9624,7 @@ class usergroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9675,7 +9675,7 @@ class usergroup(Endpoint):
         path_params = {"id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9720,7 +9720,7 @@ class usergroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9769,7 +9769,7 @@ class usergroup(Endpoint):
         path_params = {"id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9812,7 +9812,7 @@ class usergroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9858,7 +9858,7 @@ class usergroup(Endpoint):
         path_params = {"id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9908,7 +9908,7 @@ class compute(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -9960,7 +9960,7 @@ class compute(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10012,7 +10012,7 @@ class compute(Endpoint):
                        "snapshot_id": snapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10061,7 +10061,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10112,7 +10112,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10167,7 +10167,7 @@ class compute(Endpoint):
                        "snapshot_id": snapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10212,7 +10212,7 @@ class compute(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10265,7 +10265,7 @@ class compute(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10320,7 +10320,7 @@ class compute(Endpoint):
                        "name": alias_name}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10375,7 +10375,7 @@ class compute(Endpoint):
                        "scriptid": execute_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10426,7 +10426,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10478,7 +10478,7 @@ class compute(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10524,7 +10524,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10573,7 +10573,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10624,7 +10624,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10675,7 +10675,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10727,7 +10727,7 @@ class compute(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10776,7 +10776,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10827,7 +10827,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10875,7 +10875,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10925,7 +10925,7 @@ class compute(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -10971,7 +10971,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11024,7 +11024,7 @@ class compute(Endpoint):
                        "scriptid": queue_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11076,7 +11076,7 @@ class compute(Endpoint):
                        "snapshot_id": snapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11126,7 +11126,7 @@ class compute(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11179,7 +11179,7 @@ class compute(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11230,7 +11230,7 @@ class compute(Endpoint):
         path_params = {"id": compute_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11285,7 +11285,7 @@ class compute(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11337,7 +11337,7 @@ class compute(Endpoint):
                        "scriptstatusid": scriptstatusid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11387,7 +11387,7 @@ class volume(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11433,7 +11433,7 @@ class volume(Endpoint):
         path_params = {"id": volume_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11479,7 +11479,7 @@ class volume(Endpoint):
         path_params = {"id": volume_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11535,7 +11535,7 @@ class repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11593,7 +11593,7 @@ class repository(Endpoint):
                        "path": path}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11641,7 +11641,7 @@ class repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11689,7 +11689,7 @@ class repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11741,7 +11741,7 @@ class repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11792,7 +11792,7 @@ class repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11840,7 +11840,7 @@ class repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11890,7 +11890,7 @@ class repository(Endpoint):
                        "path": path}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11933,7 +11933,7 @@ class repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -11983,7 +11983,7 @@ class repository(Endpoint):
                        "path": path}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12032,7 +12032,7 @@ class repository(Endpoint):
         path_params = {"id": repository_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12078,7 +12078,7 @@ class repository(Endpoint):
         path_params = {"usage": repository_usage}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12128,7 +12128,7 @@ class repository(Endpoint):
                        "path": path}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12171,7 +12171,7 @@ class repository(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12227,7 +12227,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12278,7 +12278,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12329,7 +12329,7 @@ class stack(Endpoint):
         path_params = {"slotId": stack_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12375,7 +12375,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12430,7 +12430,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12482,7 +12482,7 @@ class stack(Endpoint):
                        "targetcloud_id": targetcloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12531,7 +12531,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12582,7 +12582,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12630,7 +12630,7 @@ class stack(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12673,7 +12673,7 @@ class stack(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12722,7 +12722,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12770,7 +12770,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12819,7 +12819,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12870,7 +12870,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12921,7 +12921,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -12967,7 +12967,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13010,7 +13010,7 @@ class stack(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13053,7 +13053,7 @@ class stack(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13102,7 +13102,7 @@ class stack(Endpoint):
         path_params = {"id": stack_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13150,7 +13150,7 @@ class stack(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13208,7 +13208,7 @@ class location(Endpoint):
         path_params = {"id": location_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13256,7 +13256,7 @@ class location(Endpoint):
         path_params = {"id": location_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13299,7 +13299,7 @@ class location(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13345,7 +13345,7 @@ class location(Endpoint):
         path_params = {"id": location_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13388,7 +13388,7 @@ class location(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13437,7 +13437,7 @@ class location(Endpoint):
         path_params = {"id": location_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13480,7 +13480,7 @@ class location(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13537,7 +13537,7 @@ class security(Endpoint):
                        "id": id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13591,7 +13591,7 @@ class security(Endpoint):
                        "rightid": rightid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13634,7 +13634,7 @@ class security(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13680,7 +13680,7 @@ class security(Endpoint):
         path_params = {"rightid": rightid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13723,7 +13723,7 @@ class security(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13779,7 +13779,7 @@ class security(Endpoint):
                        "action": action}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13837,7 +13837,7 @@ class blueprint_designcontainer(Endpoint):
                        "id": designcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13890,7 +13890,7 @@ class blueprint_designcontainer(Endpoint):
                        "id": designcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13941,7 +13941,7 @@ class blueprint_designcontainer(Endpoint):
         path_params = {"bp_id": blueprint_bp_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -13993,7 +13993,7 @@ class blueprint_designcontainer(Endpoint):
                        "id": designcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14046,7 +14046,7 @@ class connection(Endpoint):
         path_params = {"id": connection_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14089,7 +14089,7 @@ class connection(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14135,7 +14135,7 @@ class connection(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14180,7 +14180,7 @@ class connection(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14226,7 +14226,7 @@ class connection(Endpoint):
         path_params = {"id": connection_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14279,7 +14279,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14328,7 +14328,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14376,7 +14376,7 @@ class storecatalog(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14421,7 +14421,7 @@ class storecatalog(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14464,7 +14464,7 @@ class storecatalog(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14513,7 +14513,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14561,7 +14561,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14610,7 +14610,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14659,7 +14659,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14704,7 +14704,7 @@ class storecatalog(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14750,7 +14750,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14796,7 +14796,7 @@ class storecatalog(Endpoint):
         path_params = {"id": storecatalog_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14849,7 +14849,7 @@ class search(Endpoint):
         path_params = {"type": field_type}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14892,7 +14892,7 @@ class search(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14935,7 +14935,7 @@ class search(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -14992,7 +14992,7 @@ class configuration_policy(Endpoint):
                        "hostname": hostname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15042,7 +15042,7 @@ class attachment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15088,7 +15088,7 @@ class attachment(Endpoint):
         path_params = {"id": attachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15134,7 +15134,7 @@ class attachment(Endpoint):
         path_params = {"id": attachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15183,7 +15183,7 @@ class attachment(Endpoint):
         path_params = {"id": attachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15238,7 +15238,7 @@ class alias(Endpoint):
         path_params = {"id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15281,7 +15281,7 @@ class alias(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15327,7 +15327,7 @@ class alias(Endpoint):
         path_params = {"id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15376,7 +15376,7 @@ class alias(Endpoint):
         path_params = {"id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15431,7 +15431,7 @@ class targetcloud(Endpoint):
         path_params = {"id": targetcloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15474,7 +15474,7 @@ class targetcloud(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15534,7 +15534,7 @@ class storeedition(Endpoint):
                        "locationId": order_locationId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15582,7 +15582,7 @@ class storeedition(Endpoint):
         path_params = {"id": storeedition_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15631,7 +15631,7 @@ class storeedition(Endpoint):
         path_params = {"id": storeedition_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15676,7 +15676,7 @@ class storeedition(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15719,7 +15719,7 @@ class storeedition(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15768,7 +15768,7 @@ class storeedition(Endpoint):
         path_params = {"id": storeedition_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15826,7 +15826,7 @@ class artifacttype(Endpoint):
         path_params = {"id": artifacttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15874,7 +15874,7 @@ class artifacttype(Endpoint):
         path_params = {"id": artifacttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15920,7 +15920,7 @@ class artifacttype(Endpoint):
         path_params = {"id": artifacttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -15963,7 +15963,7 @@ class artifacttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16019,7 +16019,7 @@ class networkservicetype(Endpoint):
         path_params = {"id": networkservicetype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16070,7 +16070,7 @@ class networkservicetype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16118,7 +16118,7 @@ class networkservicetype(Endpoint):
         path_params = {"id": networkservicetype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16164,7 +16164,7 @@ class networkservicetype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16212,7 +16212,7 @@ class networkservicetype(Endpoint):
         path_params = {"id": networkservicetype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16258,7 +16258,7 @@ class networkservicetype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16303,7 +16303,7 @@ class networkservicetype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16352,7 +16352,7 @@ class networkservicetype(Endpoint):
         path_params = {"id": networkservicetype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16395,7 +16395,7 @@ class networkservicetype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16441,7 +16441,7 @@ class networkservicetype(Endpoint):
         path_params = {"type": networkservicetype_type}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16498,7 +16498,7 @@ class package(Endpoint):
                        "scriptid": operational_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16551,7 +16551,7 @@ class package(Endpoint):
                        "scriptid": startup_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16599,7 +16599,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16648,7 +16648,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16699,7 +16699,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16748,7 +16748,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16799,7 +16799,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16850,7 +16850,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16898,7 +16898,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16947,7 +16947,7 @@ class package(Endpoint):
         path_params = {"slotId": package_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -16997,7 +16997,7 @@ class package(Endpoint):
                        "scriptid": shutdown_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17040,7 +17040,7 @@ class package(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17083,7 +17083,7 @@ class package(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17132,7 +17132,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17187,7 +17187,7 @@ class package(Endpoint):
                        "scriptid": install_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17235,7 +17235,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17285,7 +17285,7 @@ class package(Endpoint):
                        "scriptid": install_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17331,7 +17331,7 @@ class package(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17379,7 +17379,7 @@ class package(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17432,7 +17432,7 @@ class package(Endpoint):
                        "scriptid": shutdown_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17484,7 +17484,7 @@ class package(Endpoint):
                        "scriptid": startup_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17537,7 +17537,7 @@ class package(Endpoint):
                        "scriptid": operational_scriptid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17588,7 +17588,7 @@ class package(Endpoint):
         path_params = {"id": package_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17643,7 +17643,7 @@ class reports(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17701,7 +17701,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17752,7 +17752,7 @@ class policy(Endpoint):
         path_params = {"slotId": policy_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17795,7 +17795,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17844,7 +17844,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17895,7 +17895,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17943,7 +17943,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -17988,7 +17988,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18034,7 +18034,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18080,7 +18080,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18126,7 +18126,7 @@ class policy(Endpoint):
         path_params = {"type": meta_type}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18175,7 +18175,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18223,7 +18223,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18274,7 +18274,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18325,7 +18325,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18371,7 +18371,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18414,7 +18414,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18460,7 +18460,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18509,7 +18509,7 @@ class policy(Endpoint):
         path_params = {"id": policy_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18557,7 +18557,7 @@ class policy(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18610,7 +18610,7 @@ class servicebindingtype(Endpoint):
         path_params = {"id": servicebindingtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18666,7 +18666,7 @@ class propertytype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18714,7 +18714,7 @@ class propertytype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18765,7 +18765,7 @@ class propertytype(Endpoint):
         path_params = {"id": propertytype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18811,7 +18811,7 @@ class propertytype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18859,7 +18859,7 @@ class propertytype(Endpoint):
         path_params = {"id": propertytype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18905,7 +18905,7 @@ class propertytype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18951,7 +18951,7 @@ class propertytype(Endpoint):
         path_params = {"id": propertytype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -18994,7 +18994,7 @@ class propertytype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19043,7 +19043,7 @@ class propertytype(Endpoint):
         path_params = {"id": propertytype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19095,7 +19095,7 @@ class designdeployer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19141,7 +19141,7 @@ class designdeployer(Endpoint):
         path_params = {"id": designdeployer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19184,7 +19184,7 @@ class designdeployer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19233,7 +19233,7 @@ class designdeployer(Endpoint):
         path_params = {"id": designdeployer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19281,7 +19281,7 @@ class designdeployer(Endpoint):
         path_params = {"id": designdeployer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19337,7 +19337,7 @@ class networkservice(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19385,7 +19385,7 @@ class networkservice(Endpoint):
         path_params = {"id": networkservice_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19431,7 +19431,7 @@ class networkservice(Endpoint):
         path_params = {"type": networkservice_type}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19480,7 +19480,7 @@ class networkservice(Endpoint):
         path_params = {"id": networkservice_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19526,7 +19526,7 @@ class networkservice(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19577,7 +19577,7 @@ class networkservice(Endpoint):
         path_params = {"id": networkservice_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19625,7 +19625,7 @@ class networkservice(Endpoint):
         path_params = {"id": networkservice_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19668,7 +19668,7 @@ class networkservice(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19711,7 +19711,7 @@ class networkservice(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19767,7 +19767,7 @@ class cloudtype(Endpoint):
         path_params = {"id": cloudtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19815,7 +19815,7 @@ class cloudtype(Endpoint):
         path_params = {"id": cloudtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19865,7 +19865,7 @@ class cloudtype(Endpoint):
                        "model_id": model_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19914,7 +19914,7 @@ class cloudtype(Endpoint):
         path_params = {"id": cloudtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -19966,7 +19966,7 @@ class cloudtype(Endpoint):
                        "model_id": model_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20012,7 +20012,7 @@ class cloudtype(Endpoint):
         path_params = {"id": cloudtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20058,7 +20058,7 @@ class cloudtype(Endpoint):
         path_params = {"id": cloudtype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20101,7 +20101,7 @@ class cloudtype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20157,7 +20157,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20209,7 +20209,7 @@ class environment(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20255,7 +20255,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20305,7 +20305,7 @@ class environment(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20351,7 +20351,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20401,7 +20401,7 @@ class environment(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20450,7 +20450,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20505,7 +20505,7 @@ class environment(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20559,7 +20559,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20609,7 +20609,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20661,7 +20661,7 @@ class environment(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20707,7 +20707,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20756,7 +20756,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20807,7 +20807,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20862,7 +20862,7 @@ class environment(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20907,7 +20907,7 @@ class environment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -20957,7 +20957,7 @@ class environment(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21006,7 +21006,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21057,7 +21057,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21113,7 +21113,7 @@ class environment(Endpoint):
                        "usergroup_id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21166,7 +21166,7 @@ class environment(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21217,7 +21217,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21265,7 +21265,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21314,7 +21314,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21365,7 +21365,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21416,7 +21416,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21472,7 +21472,7 @@ class environment(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21526,7 +21526,7 @@ class environment(Endpoint):
                        "user_id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21572,7 +21572,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21621,7 +21621,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21673,7 +21673,7 @@ class environment(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21726,7 +21726,7 @@ class environment(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21777,7 +21777,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21829,7 +21829,7 @@ class environment(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21872,7 +21872,7 @@ class environment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21921,7 +21921,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -21970,7 +21970,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22022,7 +22022,7 @@ class environment(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22075,7 +22075,7 @@ class environment(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22126,7 +22126,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22180,7 +22180,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22232,7 +22232,7 @@ class environment(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22278,7 +22278,7 @@ class environment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22324,7 +22324,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22373,7 +22373,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22432,7 +22432,7 @@ class environment(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22483,7 +22483,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22534,7 +22534,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22585,7 +22585,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22640,7 +22640,7 @@ class environment(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22691,7 +22691,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22742,7 +22742,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22788,7 +22788,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22837,7 +22837,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22883,7 +22883,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22941,7 +22941,7 @@ class environment(Endpoint):
                        "accessright_id": accessright_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -22994,7 +22994,7 @@ class environment(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23048,7 +23048,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23099,7 +23099,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23147,7 +23147,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23193,7 +23193,7 @@ class environment(Endpoint):
         path_params = {"id": environment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23243,7 +23243,7 @@ class tree(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23293,7 +23293,7 @@ class tree(Endpoint):
                        "id": id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23343,7 +23343,7 @@ class theme(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23396,7 +23396,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23442,7 +23442,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23488,7 +23488,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23537,7 +23537,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23587,7 +23587,7 @@ class cloud(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23640,7 +23640,7 @@ class cloud(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23688,7 +23688,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23738,7 +23738,7 @@ class cloud(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23787,7 +23787,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23838,7 +23838,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23886,7 +23886,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23935,7 +23935,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -23980,7 +23980,7 @@ class cloud(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24030,7 +24030,7 @@ class cloud(Endpoint):
                        "keyid": keyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24076,7 +24076,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24122,7 +24122,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24165,7 +24165,7 @@ class cloud(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24211,7 +24211,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24260,7 +24260,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24308,7 +24308,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24360,7 +24360,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24408,7 +24408,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24458,7 +24458,7 @@ class cloud(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24501,7 +24501,7 @@ class cloud(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24547,7 +24547,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24593,7 +24593,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24642,7 +24642,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24690,7 +24690,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24739,7 +24739,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24787,7 +24787,7 @@ class cloud(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24839,7 +24839,7 @@ class cloud(Endpoint):
                        "locid": location_locid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24889,7 +24889,7 @@ class cloud(Endpoint):
                        "keyid": keyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24935,7 +24935,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -24981,7 +24981,7 @@ class cloud(Endpoint):
         path_params = {"id": cloud_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25034,7 +25034,7 @@ class address(Endpoint):
         path_params = {"id": address_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25084,7 +25084,7 @@ class task(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25127,7 +25127,7 @@ class task(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25173,7 +25173,7 @@ class task(Endpoint):
         path_params = {"id": task_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25219,7 +25219,7 @@ class task(Endpoint):
         path_params = {"id": task_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25279,7 +25279,7 @@ class template(Endpoint):
                        "pkgid": package_pkgid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25331,7 +25331,7 @@ class template(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25377,7 +25377,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25423,7 +25423,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25476,7 +25476,7 @@ class template(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25527,7 +25527,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25575,7 +25575,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25627,7 +25627,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25671,7 +25671,7 @@ class template(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25721,7 +25721,7 @@ class template(Endpoint):
                        "volid": volume_volid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25767,7 +25767,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25820,7 +25820,7 @@ class template(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25875,7 +25875,7 @@ class template(Endpoint):
                        "name": alias_name}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25926,7 +25926,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -25978,7 +25978,7 @@ class template(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26028,7 +26028,7 @@ class template(Endpoint):
                        "packageid": packageid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26077,7 +26077,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26132,7 +26132,7 @@ class template(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26183,7 +26183,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26231,7 +26231,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26280,7 +26280,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26331,7 +26331,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26379,7 +26379,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26429,7 +26429,7 @@ class template(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26475,7 +26475,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26521,7 +26521,7 @@ class template(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26570,7 +26570,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26622,7 +26622,7 @@ class template(Endpoint):
                        "crid": configurationresource_crid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26672,7 +26672,7 @@ class template(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26718,7 +26718,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26767,7 +26767,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26819,7 +26819,7 @@ class template(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26868,7 +26868,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26919,7 +26919,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -26967,7 +26967,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27020,7 +27020,7 @@ class template(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27068,7 +27068,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27114,7 +27114,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27170,7 +27170,7 @@ class template(Endpoint):
                        "containerId": deploymentplan_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27217,7 +27217,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27266,7 +27266,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27328,7 +27328,7 @@ class template(Endpoint):
                        "stackId": stackId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27378,7 +27378,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27426,7 +27426,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27469,7 +27469,7 @@ class template(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27518,7 +27518,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27569,7 +27569,7 @@ class template(Endpoint):
         path_params = {"id": template_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27624,7 +27624,7 @@ class variable(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27679,7 +27679,7 @@ class artifactattachment(Endpoint):
         path_params = {"id": artifactattachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27728,7 +27728,7 @@ class artifactattachment(Endpoint):
         path_params = {"id": artifactattachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27776,7 +27776,7 @@ class artifactattachment(Endpoint):
         path_params = {"id": artifactattachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27819,7 +27819,7 @@ class artifactattachment(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27865,7 +27865,7 @@ class artifactattachment(Endpoint):
         path_params = {"id": artifactattachment_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27915,7 +27915,7 @@ class environmenttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -27961,7 +27961,7 @@ class environmenttype(Endpoint):
         path_params = {"id": environmenttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28007,7 +28007,7 @@ class environmenttype(Endpoint):
         path_params = {"id": environmenttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28053,7 +28053,7 @@ class environmenttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28098,7 +28098,7 @@ class environmenttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28147,7 +28147,7 @@ class environmenttype(Endpoint):
         path_params = {"id": environmenttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28198,7 +28198,7 @@ class environmenttype(Endpoint):
         path_params = {"id": environmenttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28241,7 +28241,7 @@ class environmenttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28291,7 +28291,7 @@ class storage(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28337,7 +28337,7 @@ class storage(Endpoint):
         path_params = {"id": storage_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28390,7 +28390,7 @@ class custom(Endpoint):
         path_params = {"id": custom_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28436,7 +28436,7 @@ class custom(Endpoint):
         path_params = {"id": custom_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28485,7 +28485,7 @@ class custom(Endpoint):
         path_params = {"id": custom_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28533,7 +28533,7 @@ class custom(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28578,7 +28578,7 @@ class custom(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28621,7 +28621,7 @@ class custom(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28670,7 +28670,7 @@ class custom(Endpoint):
         path_params = {"id": custom_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28713,7 +28713,7 @@ class custom(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28766,7 +28766,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28812,7 +28812,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28861,7 +28861,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28913,7 +28913,7 @@ class project(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -28962,7 +28962,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29010,7 +29010,7 @@ class project(Endpoint):
         path_params = {"project_id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29060,7 +29060,7 @@ class project(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29106,7 +29106,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29156,7 +29156,7 @@ class project(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29214,7 +29214,7 @@ class project(Endpoint):
                        "accessright_id": accessright_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29267,7 +29267,7 @@ class project(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29315,7 +29315,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29367,7 +29367,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29411,7 +29411,7 @@ class project(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29460,7 +29460,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29515,7 +29515,7 @@ class project(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29566,7 +29566,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29618,7 +29618,7 @@ class project(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29664,7 +29664,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29718,7 +29718,7 @@ class project(Endpoint):
                        "usergroup_id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29771,7 +29771,7 @@ class project(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29822,7 +29822,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29873,7 +29873,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29924,7 +29924,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -29975,7 +29975,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30027,7 +30027,7 @@ class project(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30073,7 +30073,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30127,7 +30127,7 @@ class project(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30181,7 +30181,7 @@ class project(Endpoint):
                        "user_id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30231,7 +30231,7 @@ class project(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30284,7 +30284,7 @@ class project(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30335,7 +30335,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30383,7 +30383,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30432,7 +30432,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30480,7 +30480,7 @@ class project(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30532,7 +30532,7 @@ class project(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30581,7 +30581,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30629,7 +30629,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30678,7 +30678,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30733,7 +30733,7 @@ class project(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30787,7 +30787,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30839,7 +30839,7 @@ class project(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30885,7 +30885,7 @@ class project(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30935,7 +30935,7 @@ class project(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -30984,7 +30984,7 @@ class project(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31043,7 +31043,7 @@ class project(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31094,7 +31094,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31149,7 +31149,7 @@ class project(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31200,7 +31200,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31249,7 +31249,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31295,7 +31295,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31341,7 +31341,7 @@ class project(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31392,7 +31392,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31443,7 +31443,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31498,7 +31498,7 @@ class project(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31552,7 +31552,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31597,7 +31597,7 @@ class project(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31643,7 +31643,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31692,7 +31692,7 @@ class project(Endpoint):
         path_params = {"id": project_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31751,7 +31751,7 @@ class designcontainer_designcontainer(Endpoint):
                        "id": designcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31797,7 +31797,7 @@ class designcontainer_designcontainer(Endpoint):
         path_params = {"dc_id": designcontainer_dc_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31846,7 +31846,7 @@ class designcontainer_designcontainer(Endpoint):
         path_params = {"dc_id": designcontainer_dc_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31898,7 +31898,7 @@ class designcontainer_designcontainer(Endpoint):
                        "id": designcontainer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -31951,7 +31951,7 @@ class propertygroup(Endpoint):
         path_params = {"id": propertygroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32000,7 +32000,7 @@ class propertygroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32048,7 +32048,7 @@ class propertygroup(Endpoint):
         path_params = {"id": propertygroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32091,7 +32091,7 @@ class propertygroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32140,7 +32140,7 @@ class propertygroup(Endpoint):
         path_params = {"id": propertygroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32186,7 +32186,7 @@ class propertygroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32234,7 +32234,7 @@ class propertygroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32285,7 +32285,7 @@ class propertygroup(Endpoint):
         path_params = {"id": propertygroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32330,7 +32330,7 @@ class propertygroup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32383,7 +32383,7 @@ class paastype(Endpoint):
         path_params = {"id": paastype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32432,7 +32432,7 @@ class paastype(Endpoint):
         path_params = {"id": paastype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32477,7 +32477,7 @@ class paastype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32520,7 +32520,7 @@ class paastype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32573,7 +32573,7 @@ class globals(Endpoint):
         path_params = {"security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32622,7 +32622,7 @@ class globals(Endpoint):
         path_params = {"security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32673,7 +32673,7 @@ class globals(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32721,7 +32721,7 @@ class globals(Endpoint):
         path_params = {"security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32771,7 +32771,7 @@ class globals(Endpoint):
                        "usergroup_id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32820,7 +32820,7 @@ class globals(Endpoint):
         path_params = {"security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32871,7 +32871,7 @@ class globals(Endpoint):
         path_params = {"security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32917,7 +32917,7 @@ class globals(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -32972,7 +32972,7 @@ class globals(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33028,7 +33028,7 @@ class globals(Endpoint):
                        "accessright_id": accessright_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33074,7 +33074,7 @@ class globals(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33125,7 +33125,7 @@ class globals(Endpoint):
         path_params = {"security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33170,7 +33170,7 @@ class globals(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33220,7 +33220,7 @@ class globals(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33270,7 +33270,7 @@ class globals(Endpoint):
                        "user_id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33323,7 +33323,7 @@ class storeproducttype(Endpoint):
         path_params = {"id": storeproducttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33366,7 +33366,7 @@ class storeproducttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33412,7 +33412,7 @@ class storeproducttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33460,7 +33460,7 @@ class storeproducttype(Endpoint):
         path_params = {"ptype": storeproducttype_ptype}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33509,7 +33509,7 @@ class storeproducttype(Endpoint):
         path_params = {"id": storeproducttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33552,7 +33552,7 @@ class storeproducttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33595,7 +33595,7 @@ class storeproducttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33645,7 +33645,7 @@ class storerelease(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33688,7 +33688,7 @@ class storerelease(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33734,7 +33734,7 @@ class storerelease(Endpoint):
         path_params = {"id": storerelease_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33787,7 +33787,7 @@ class networkinterface(Endpoint):
         path_params = {"id": networkinterface_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33843,7 +33843,7 @@ class setup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33895,7 +33895,7 @@ class setup(Endpoint):
                        "propid": property_propid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33948,7 +33948,7 @@ class setup(Endpoint):
                        "propid": property_propid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -33996,7 +33996,7 @@ class setup(Endpoint):
         path_params = {"id": setup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34045,7 +34045,7 @@ class setup(Endpoint):
         path_params = {"id": setup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34091,7 +34091,7 @@ class setup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34136,7 +34136,7 @@ class setup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34182,7 +34182,7 @@ class setup(Endpoint):
         path_params = {"id": setup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34235,7 +34235,7 @@ class setup(Endpoint):
                        "propid": property_propid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34280,7 +34280,7 @@ class setup(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34336,7 +34336,7 @@ class os(Endpoint):
         path_params = {"id": os_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34381,7 +34381,7 @@ class os(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34424,7 +34424,7 @@ class os(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34467,7 +34467,7 @@ class os(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34513,7 +34513,7 @@ class os(Endpoint):
         path_params = {"id": os_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34559,7 +34559,7 @@ class os(Endpoint):
         path_params = {"id": os_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34608,7 +34608,7 @@ class os(Endpoint):
         path_params = {"id": os_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34660,7 +34660,7 @@ class deployer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34703,7 +34703,7 @@ class deployer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34752,7 +34752,7 @@ class deployer(Endpoint):
         path_params = {"id": deployer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34800,7 +34800,7 @@ class deployer(Endpoint):
         path_params = {"id": deployer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34843,7 +34843,7 @@ class deployer(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34889,7 +34889,7 @@ class deployer(Endpoint):
         path_params = {"id": deployer_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34935,7 +34935,7 @@ class deployer(Endpoint):
         path_params = {"locationId": locationId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -34985,7 +34985,7 @@ class eula(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35031,7 +35031,7 @@ class eula(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35090,7 +35090,7 @@ class volumestorage(Endpoint):
                        "snapshot_id": snapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35136,7 +35136,7 @@ class volumestorage(Endpoint):
         path_params = {"id": volumestorage_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35179,7 +35179,7 @@ class volumestorage(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35229,7 +35229,7 @@ class volumestorage(Endpoint):
                        "snapshot_id": snapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35282,7 +35282,7 @@ class volumestorage(Endpoint):
                        "snapshot_id": snapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35333,7 +35333,7 @@ class volumestorage(Endpoint):
         path_params = {"id": volumestorage_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35391,7 +35391,7 @@ class assettype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35442,7 +35442,7 @@ class assettype(Endpoint):
         path_params = {"id": assettype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35496,7 +35496,7 @@ class assettype(Endpoint):
         path_params = {"id": assettype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35543,7 +35543,7 @@ class assettype(Endpoint):
         path_params = {"id": assettype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35589,7 +35589,7 @@ class assettype(Endpoint):
         path_params = {"id": assettype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35638,7 +35638,7 @@ class assettype(Endpoint):
         path_params = {"id": assettype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35686,7 +35686,7 @@ class assettype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35734,7 +35734,7 @@ class assettype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35785,7 +35785,7 @@ class assettype(Endpoint):
         path_params = {"id": assettype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35828,7 +35828,7 @@ class assettype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35871,7 +35871,7 @@ class assettype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35927,7 +35927,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -35986,7 +35986,7 @@ class blueprint(Endpoint):
                        "containerId": deploymentplan_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36042,7 +36042,7 @@ class blueprint(Endpoint):
                        "containerId": deployrequest_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36096,7 +36096,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36144,7 +36144,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36190,7 +36190,7 @@ class blueprint(Endpoint):
         path_params = {"slotId": blueprint_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36239,7 +36239,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36285,7 +36285,7 @@ class blueprint(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36334,7 +36334,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36385,7 +36385,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36436,7 +36436,7 @@ class blueprint(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36487,7 +36487,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36538,7 +36538,7 @@ class blueprint(Endpoint):
         path_params = {"slotId": blueprint_slotId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36587,7 +36587,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36632,7 +36632,7 @@ class blueprint(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36685,7 +36685,7 @@ class blueprint(Endpoint):
                        "locationId": checkin_locationId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36740,7 +36740,7 @@ class blueprint(Endpoint):
                        "containerId": deploy_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36794,7 +36794,7 @@ class blueprint(Endpoint):
                        "containerId": deploy_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36846,7 +36846,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36897,7 +36897,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36955,7 +36955,7 @@ class blueprint(Endpoint):
                        "containerId": deploy_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -36999,7 +36999,7 @@ class blueprint(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37055,7 +37055,7 @@ class blueprint(Endpoint):
                        "containerId": deploymentplan_containerId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37105,7 +37105,7 @@ class blueprint(Endpoint):
         path_params = {"id": blueprint_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37160,7 +37160,7 @@ class auth(Endpoint):
         path_params = {"id": auth_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37203,7 +37203,7 @@ class auth(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37249,7 +37249,7 @@ class auth(Endpoint):
         path_params = {"id": auth_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37298,7 +37298,7 @@ class auth(Endpoint):
         path_params = {"id": auth_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37349,7 +37349,7 @@ class auth(Endpoint):
         path_params = {"id": id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37397,7 +37397,7 @@ class auth(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37445,7 +37445,7 @@ class auth(Endpoint):
         path_params = {"id": id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37488,7 +37488,7 @@ class auth(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37531,7 +37531,7 @@ class auth(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37584,7 +37584,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37633,7 +37633,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37681,7 +37681,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37730,7 +37730,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37775,7 +37775,7 @@ class domain(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37821,7 +37821,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37870,7 +37870,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37916,7 +37916,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -37959,7 +37959,7 @@ class domain(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38005,7 +38005,7 @@ class domain(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38056,7 +38056,7 @@ class domain(Endpoint):
         path_params = {"id": domain_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38111,7 +38111,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38154,7 +38154,7 @@ class network(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38200,7 +38200,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38246,7 +38246,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38295,7 +38295,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38343,7 +38343,7 @@ class network(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38391,7 +38391,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38440,7 +38440,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38491,7 +38491,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38540,7 +38540,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38583,7 +38583,7 @@ class network(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38629,7 +38629,7 @@ class network(Endpoint):
         path_params = {"id": network_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38672,7 +38672,7 @@ class network(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38728,7 +38728,7 @@ class blueprint_workload(Endpoint):
         path_params = {"bp_id": blueprint_bp_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38780,7 +38780,7 @@ class blueprint_workload(Endpoint):
                        "id": workload_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38833,7 +38833,7 @@ class blueprint_workload(Endpoint):
                        "id": workload_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38885,7 +38885,7 @@ class blueprint_workload(Endpoint):
                        "id": workload_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38938,7 +38938,7 @@ class scriptclasspath(Endpoint):
         path_params = {"id": scriptclasspath_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -38984,7 +38984,7 @@ class scriptclasspath(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39032,7 +39032,7 @@ class scriptclasspath(Endpoint):
         path_params = {"id": scriptclasspath_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39075,7 +39075,7 @@ class scriptclasspath(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39118,7 +39118,7 @@ class scriptclasspath(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39168,7 +39168,7 @@ class storeproductadapter(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39211,7 +39211,7 @@ class storeproductadapter(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39257,7 +39257,7 @@ class storeproductadapter(Endpoint):
         path_params = {"id": storeproductadapter_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39310,7 +39310,7 @@ class configuration_artifacttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39361,7 +39361,7 @@ class configuration_artifacttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39406,7 +39406,7 @@ class configuration_artifacttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39455,7 +39455,7 @@ class configuration_artifacttype(Endpoint):
         path_params = {"id": artifacttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39501,7 +39501,7 @@ class configuration_artifacttype(Endpoint):
         path_params = {"id": artifacttype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39544,7 +39544,7 @@ class configuration_artifacttype(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39597,7 +39597,7 @@ class topology(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39646,7 +39646,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39697,7 +39697,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39742,7 +39742,7 @@ class topology(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39792,7 +39792,7 @@ class topology(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39845,7 +39845,7 @@ class topology(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39893,7 +39893,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39942,7 +39942,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -39991,7 +39991,7 @@ class topology(Endpoint):
         path_params = {"topology_id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40042,7 +40042,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40093,7 +40093,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40148,7 +40148,7 @@ class topology(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40199,7 +40199,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40247,7 +40247,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40293,7 +40293,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40343,7 +40343,7 @@ class topology(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40395,7 +40395,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40446,7 +40446,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40497,7 +40497,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40548,7 +40548,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40600,7 +40600,7 @@ class topology(Endpoint):
                        "accessuri_id": accessuri_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40650,7 +40650,7 @@ class topology(Endpoint):
                        "variable_id": variable_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40699,7 +40699,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40750,7 +40750,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40801,7 +40801,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40852,7 +40852,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40904,7 +40904,7 @@ class topology(Endpoint):
                        "vname": variable_vname}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -40950,7 +40950,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41003,7 +41003,7 @@ class topology(Endpoint):
                        "accessuri_id": accessuri_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41054,7 +41054,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41105,7 +41105,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41153,7 +41153,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41199,7 +41199,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41249,7 +41249,7 @@ class topology(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41295,7 +41295,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41338,7 +41338,7 @@ class topology(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41384,7 +41384,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41433,7 +41433,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41484,7 +41484,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41539,7 +41539,7 @@ class topology(Endpoint):
                        "alias_id": alias_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41587,7 +41587,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41636,7 +41636,7 @@ class topology(Endpoint):
         path_params = {"topology_id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41687,7 +41687,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41738,7 +41738,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41789,7 +41789,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41840,7 +41840,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41891,7 +41891,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41943,7 +41943,7 @@ class topology(Endpoint):
                        "accessuri_id": accessuri_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -41992,7 +41992,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42040,7 +42040,7 @@ class topology(Endpoint):
         path_params = {"id": topology_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42083,7 +42083,7 @@ class topology(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42133,7 +42133,7 @@ class runtime(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42182,7 +42182,7 @@ class runtime(Endpoint):
         path_params = {"id": runtime_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42230,7 +42230,7 @@ class runtime(Endpoint):
         path_params = {"id": runtime_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42276,7 +42276,7 @@ class runtime(Endpoint):
         path_params = {"id": runtime_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42319,7 +42319,7 @@ class runtime(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42375,7 +42375,7 @@ class configuration_artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42423,7 +42423,7 @@ class configuration_artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42471,7 +42471,7 @@ class configuration_artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42520,7 +42520,7 @@ class configuration_artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42571,7 +42571,7 @@ class configuration_artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42622,7 +42622,7 @@ class configuration_artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42665,7 +42665,7 @@ class configuration_artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42708,7 +42708,7 @@ class configuration_artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42757,7 +42757,7 @@ class configuration_artifact(Endpoint):
         path_params = {"id": artifact_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42802,7 +42802,7 @@ class configuration_artifact(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42855,7 +42855,7 @@ class permissiontype(Endpoint):
         path_params = {"id": permissiontype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42901,7 +42901,7 @@ class permissiontype(Endpoint):
         path_params = {"id": permissiontype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -42950,7 +42950,7 @@ class permissiontype(Endpoint):
         path_params = {"id": permissiontype_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43008,7 +43008,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43060,7 +43060,7 @@ class container(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43110,7 +43110,7 @@ class container(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43159,7 +43159,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43210,7 +43210,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43258,7 +43258,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43310,7 +43310,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43357,7 +43357,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43403,7 +43403,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43446,7 +43446,7 @@ class container(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43500,7 +43500,7 @@ class container(Endpoint):
                        "usergroup_id": usergroup_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43553,7 +43553,7 @@ class container(Endpoint):
                        "policyid": policyid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43604,7 +43604,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43652,7 +43652,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43698,7 +43698,7 @@ class container(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43744,7 +43744,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43798,7 +43798,7 @@ class container(Endpoint):
                        "user_id": user_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43848,7 +43848,7 @@ class container(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43901,7 +43901,7 @@ class container(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -43952,7 +43952,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44003,7 +44003,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44058,7 +44058,7 @@ class container(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44114,7 +44114,7 @@ class container(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44157,7 +44157,7 @@ class container(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44206,7 +44206,7 @@ class container(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44265,7 +44265,7 @@ class container(Endpoint):
                        "rights_id": rights_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44320,7 +44320,7 @@ class container(Endpoint):
                        "security_id": security_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44368,7 +44368,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44414,7 +44414,7 @@ class container(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44474,7 +44474,7 @@ class container(Endpoint):
                        "accessright_id": accessright_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44526,7 +44526,7 @@ class container(Endpoint):
         path_params = {"id": container_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44574,7 +44574,7 @@ class container(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44624,7 +44624,7 @@ class resources(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44677,7 +44677,7 @@ class addressrange(Endpoint):
         path_params = {"id": addressrange_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44723,7 +44723,7 @@ class addressrange(Endpoint):
         path_params = {"id": addressrange_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44779,7 +44779,7 @@ class dhcpoptions(Endpoint):
         path_params = {"id": dhcpoptions_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44822,7 +44822,7 @@ class dhcpoptions(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44868,7 +44868,7 @@ class dhcpoptions(Endpoint):
         path_params = {"id": dhcpoptions_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44911,7 +44911,7 @@ class dhcpoptions(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -44964,7 +44964,7 @@ class onboard(Endpoint):
         path_params = {"id": field_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45010,7 +45010,7 @@ class onboard(Endpoint):
         path_params = {"cloudId": search_cloudId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45053,7 +45053,7 @@ class onboard(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45096,7 +45096,7 @@ class onboard(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45142,7 +45142,7 @@ class onboard(Endpoint):
         path_params = {"id": meta_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45188,7 +45188,7 @@ class onboard(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45236,7 +45236,7 @@ class onboard(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45281,7 +45281,7 @@ class onboard(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45334,7 +45334,7 @@ class projectrole(Endpoint):
         path_params = {"id": projectrole_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45383,7 +45383,7 @@ class projectrole(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45428,7 +45428,7 @@ class projectrole(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45477,7 +45477,7 @@ class projectrole(Endpoint):
         path_params = {"id": projectrole_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45525,7 +45525,7 @@ class projectrole(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45573,7 +45573,7 @@ class projectrole(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45624,7 +45624,7 @@ class projectrole(Endpoint):
         path_params = {"id": projectrole_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45670,7 +45670,7 @@ class projectrole(Endpoint):
         path_params = {"id": projectrole_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45713,7 +45713,7 @@ class projectrole(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45756,7 +45756,7 @@ class projectrole(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45809,7 +45809,7 @@ class volumestoragesnapshot(Endpoint):
         path_params = {"id": volumestoragesnapshot_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45852,7 +45852,7 @@ class volumestoragesnapshot(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45908,7 +45908,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -45959,7 +45959,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46010,7 +46010,7 @@ class solution(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46054,7 +46054,7 @@ class solution(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46100,7 +46100,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46149,7 +46149,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46198,7 +46198,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46249,7 +46249,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46300,7 +46300,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46349,7 +46349,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46400,7 +46400,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46451,7 +46451,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46500,7 +46500,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46543,7 +46543,7 @@ class solution(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46589,7 +46589,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46638,7 +46638,7 @@ class solution(Endpoint):
         path_params = {"id": solution_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46693,7 +46693,7 @@ class model(Endpoint):
         path_params = {"id": model_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46736,7 +46736,7 @@ class model(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46785,7 +46785,7 @@ class model(Endpoint):
         path_params = {"id": model_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46837,7 +46837,7 @@ class model(Endpoint):
                        "resid": resource_resid}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46890,7 +46890,7 @@ class model(Endpoint):
                        "resourceId": resourceId}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46935,7 +46935,7 @@ class model(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -46984,7 +46984,7 @@ class model(Endpoint):
         path_params = {"id": model_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -47033,7 +47033,7 @@ class model(Endpoint):
         path_params = {"id": model_id}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id
@@ -47078,7 +47078,7 @@ class model(Endpoint):
         path_params = {}
 
         #convenience parameter conversion logic
-        for k, v in path_params.items():
+        for k, v in list(path_params.items()):
             if v is None: continue
             if hasattr(v, 'id'):
                 path_params[k] = v.id

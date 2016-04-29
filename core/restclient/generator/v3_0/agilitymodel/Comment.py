@@ -1,5 +1,5 @@
-from base.Comment import CommentBase
-from actions.Comment import CommentActions
+from .base.Comment import CommentBase
+from .actions.Comment import CommentActions
 
 class Comment(CommentBase, CommentActions):
     '''

@@ -44,10 +44,10 @@ from struct import pack
 
 def upack2(s, encoding='ascii'):
     # If not unicode, make it so.
-    if isinstance(s, unicode):
+    if isinstance(s, str):
         us = s
     else:
-        us = unicode(s, encoding)
+        us = str(s, encoding)
     # Limit is based on number of content characters
     # (not on number of bytes in packed result)
     len_us = len(us)
@@ -64,17 +64,17 @@ def upack2(s, encoding='ascii'):
     return pack('<HB', len_us, flag) + encs
 
 def upack2rt(rt, encoding='ascii'):
-    us = u''
+    us = ''
     fr = ''
     # convert rt strings to unicode if not already unicode
     # also generate the formatting run for the styles added
     for s, xf in rt:
         if xf is not None:
             fr += pack('<HH', len(us), xf)
-        if isinstance(s, unicode):
+        if isinstance(s, str):
             us += s
         else:
-            us += unicode(s, encoding)
+            us += str(s, encoding)
     num_fr = len(fr) / 4
     len_us = len(us)
     if len_us > 32767:
@@ -91,10 +91,10 @@ def upack2rt(rt, encoding='ascii'):
 
 def upack1(s, encoding='ascii'):
     # Same as upack2(), but with a one-byte length field.
-    if isinstance(s, unicode):
+    if isinstance(s, str):
         us = s
     else:
-        us = unicode(s, encoding)
+        us = str(s, encoding)
     len_us = len(us)
     if len_us > 255:
         raise Exception('String longer than 255 characters')

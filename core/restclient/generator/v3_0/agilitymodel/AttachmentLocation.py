@@ -1,5 +1,5 @@
-from base.AttachmentLocation import AttachmentLocationBase
-from actions.AttachmentLocation import AttachmentLocationActions
+from .base.AttachmentLocation import AttachmentLocationBase
+from .actions.AttachmentLocation import AttachmentLocationActions
 
 class AttachmentLocation(AttachmentLocationBase, AttachmentLocationActions):
     '''

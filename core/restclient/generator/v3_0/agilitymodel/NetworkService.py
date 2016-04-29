@@ -1,5 +1,5 @@
-from base.NetworkService import NetworkServiceBase
-from actions.NetworkService import NetworkServiceActions
+from .base.NetworkService import NetworkServiceBase
+from .actions.NetworkService import NetworkServiceActions
 
 class NetworkService(NetworkServiceBase, NetworkServiceActions):
     '''

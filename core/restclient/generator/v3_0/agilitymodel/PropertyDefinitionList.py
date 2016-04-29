@@ -1,5 +1,5 @@
-from base.PropertyDefinitionList import PropertyDefinitionListBase
-from actions.PropertyDefinitionList import PropertyDefinitionListActions
+from .base.PropertyDefinitionList import PropertyDefinitionListBase
+from .actions.PropertyDefinitionList import PropertyDefinitionListActions
 
 class PropertyDefinitionList(PropertyDefinitionListBase, PropertyDefinitionListActions):
     '''

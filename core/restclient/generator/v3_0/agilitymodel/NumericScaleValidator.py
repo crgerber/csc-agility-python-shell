@@ -1,5 +1,5 @@
-from base.NumericScaleValidator import NumericScaleValidatorBase
-from actions.NumericScaleValidator import NumericScaleValidatorActions
+from .base.NumericScaleValidator import NumericScaleValidatorBase
+from .actions.NumericScaleValidator import NumericScaleValidatorActions
 
 class NumericScaleValidator(NumericScaleValidatorBase, NumericScaleValidatorActions):
     '''

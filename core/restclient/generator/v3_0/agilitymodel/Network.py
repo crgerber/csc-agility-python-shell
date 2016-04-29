@@ -1,5 +1,5 @@
-from base.Network import NetworkBase
-from actions.Network import NetworkActions
+from .base.Network import NetworkBase
+from .actions.Network import NetworkActions
 
 class Network(NetworkBase, NetworkActions):
     '''

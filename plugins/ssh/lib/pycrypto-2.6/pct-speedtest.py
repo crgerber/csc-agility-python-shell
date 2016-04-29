@@ -52,7 +52,7 @@ class Benchmark:
         bytes = bytes_per_block * blocks
         data = self.random_data(bytes)
         retval = []
-        for i in xrange(blocks):
+        for i in range(blocks):
             p = i * bytes_per_block
             retval.append(data[p:p+bytes_per_block])
         return retval

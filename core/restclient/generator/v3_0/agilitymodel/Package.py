@@ -1,5 +1,5 @@
-from base.Package import PackageBase
-from actions.Package import PackageActions
+from .base.Package import PackageBase
+from .actions.Package import PackageActions
 
 class Package(PackageBase, PackageActions):
     '''

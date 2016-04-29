@@ -44,7 +44,7 @@ def deeptype(obj):
         if allhaveattrs(obj, idandtype):
             type_ = TYPE.ASSET_LIST
     elif isinstance(obj, dict):
-        if allhaveattrs(obj.values(), idandtype):
+        if allhaveattrs(list(obj.values()), idandtype):
             type_ = TYPE.ASSET_MAP
     elif isinstance(obj, (AssetEntryBeautifulSoup, AssetEntryLxml)):
         type_ = TYPE.ASSET
@@ -65,7 +65,7 @@ def cleanidmap(iterable, key='id'):
         return id_map
     if isinstance(iterable, (dict, AbstractProxy)):
         iterable = [iterable]
-    [id_map.update([(validSymbol(id, key), obj)]) for id, obj in mapfunc(iterable).items()]
+    [id_map.update([(validSymbol(id, key), obj)]) for id, obj in list(mapfunc(iterable).items())]
     return id_map
     
 class AssetContainer(AbstractProxy):

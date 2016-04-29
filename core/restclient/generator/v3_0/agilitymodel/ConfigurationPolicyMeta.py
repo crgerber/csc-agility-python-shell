@@ -1,5 +1,5 @@
-from base.ConfigurationPolicyMeta import ConfigurationPolicyMetaBase
-from actions.ConfigurationPolicyMeta import ConfigurationPolicyMetaActions
+from .base.ConfigurationPolicyMeta import ConfigurationPolicyMetaBase
+from .actions.ConfigurationPolicyMeta import ConfigurationPolicyMetaActions
 
 class ConfigurationPolicyMeta(ConfigurationPolicyMetaBase, ConfigurationPolicyMetaActions):
     '''

@@ -1,5 +1,5 @@
-from base.ConfigurationRepository import ConfigurationRepositoryBase
-from actions.ConfigurationRepository import ConfigurationRepositoryActions
+from .base.ConfigurationRepository import ConfigurationRepositoryBase
+from .actions.ConfigurationRepository import ConfigurationRepositoryActions
 
 class ConfigurationRepository(ConfigurationRepositoryBase, ConfigurationRepositoryActions):
     '''

@@ -1,5 +1,5 @@
-from base.AddressRange import AddressRangeBase
-from actions.AddressRange import AddressRangeActions
+from .base.AddressRange import AddressRangeBase
+from .actions.AddressRange import AddressRangeActions
 
 class AddressRange(AddressRangeBase, AddressRangeActions):
     '''

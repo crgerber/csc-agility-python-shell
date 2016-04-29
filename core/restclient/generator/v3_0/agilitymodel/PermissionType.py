@@ -1,5 +1,5 @@
-from base.PermissionType import PermissionTypeBase
-from actions.PermissionType import PermissionTypeActions
+from .base.PermissionType import PermissionTypeBase
+from .actions.PermissionType import PermissionTypeActions
 
 class PermissionType(PermissionTypeBase, PermissionTypeActions):
     '''

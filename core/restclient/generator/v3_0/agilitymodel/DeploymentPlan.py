@@ -1,5 +1,5 @@
-from base.DeploymentPlan import DeploymentPlanBase
-from actions.DeploymentPlan import DeploymentPlanActions
+from .base.DeploymentPlan import DeploymentPlanBase
+from .actions.DeploymentPlan import DeploymentPlanActions
 
 class DeploymentPlan(DeploymentPlanBase, DeploymentPlanActions):
     '''

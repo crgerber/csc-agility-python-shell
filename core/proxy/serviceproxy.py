@@ -34,11 +34,15 @@ class ParseDecorator(object):
         """
         def wrapped_f(*args, **kwargs):
             result = f(*args, **kwargs)
-            if isinstance(result, str):
+        
+            if isinstance(result, bytes):
+                return ParseDecorator._parse(str(result, encoding='utf-8'), self.assetName)
+            elif isinstance(result, str):
                 return ParseDecorator._parse(result, self.assetName)
             else:
                 result.assetType = self.assetName
                 return result
+            
         return update_wrapper(wrapped_f, f)
 
 class FilterDecorator(object):
@@ -63,7 +67,7 @@ class FilterDecorator(object):
         decorated function is called.
         """
         prefix = 'filter_'
-        filters = filter(lambda argitem: argitem[0].startswith(prefix), kwargs.items())
+        filters = [argitem for argitem in list(kwargs.items()) if argitem[0].startswith(prefix)]
         [kwargs.pop(f[0]) for f in filters]
         filters = [(k[len(prefix):], v) for k, v in filters]
         result = self.f(self._instance, *args, **kwargs)
@@ -76,7 +80,7 @@ class FilterDecorator(object):
         if not isinstance(result, (tuple, list)): result = [result]
 
         for item in result:
-            boolResults = map(lambda f: getattr(item, f[0]) == f[1], filters)
+            boolResults = [getattr(item, f[0]) == f[1] for f in filters]
             if all(boolResults):
                 filteredResult.append(item)
 
@@ -108,7 +112,7 @@ class ServiceProxy(AbstractProxy):
         '''
         __iter__ is modified to return only the available service endpoints
         '''
-        endpoints = filter(lambda attr: not attr.startswith('_'), dir(self._service))
+        endpoints = [attr for attr in dir(self._service) if not attr.startswith('_')]
         return iter(endpoints)
     
     def _newSubObject(self, attrs):
@@ -154,7 +158,7 @@ class ServiceProxy(AbstractProxy):
         assetList = parse(service(''), assetName, persistDir=summaryPersistDir if persist else '', persistFile=persistFile if persist else '')
         logger.info('Loaded [%s] %s summary entries', len(assetList), assetName)
         detailesPersistDir = os.path.join(persistRootDir, conn.conn_params['host'], conn.conn_params['systemversion'], assetName, 'details')
-        detailedAssetList = map(lambda c: parse(service(c.id), assetName, persistDir=detailesPersistDir if persist else '', persistFile='%s_%s'%(c.id, persistFile) if persist else ''), assetList) if getDetails else []
+        detailedAssetList = [parse(service(c.id), assetName, persistDir=detailesPersistDir if persist else '', persistFile='%s_%s'%(c.id, persistFile) if persist else '') for c in assetList] if getDetails else []
         logger.info('Loaded [%s] %s detailed entries', len(detailedAssetList), assetName)
         return assetList, detailedAssetList
     

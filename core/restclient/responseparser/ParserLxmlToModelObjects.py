@@ -8,8 +8,8 @@ Created on Oct 15, 2012
 
 # Create python xml structures compatible with
 # http://search.cpan.org/~grantm/XML-Simple-2.18/lib/XML/Simple.pm
-from common import *
-from LxmlTools import etree, d2xml, xml2d
+from .common import *
+from .LxmlTools import etree, d2xml, xml2d
 from itertools import groupby
 import re
 import copy
@@ -44,15 +44,19 @@ def parse(xmlText, assetType=None, removeNSPrefix=True):
 
     modelClassFactory = lambda name: getattr(agilitymodel, name)
 
-    e = etree.XML(xmlText)
+    if isinstance(xmlText, str) :
+        e = etree.XML(xmlText.encode('ascii'))
+    else :
+        e = etree.XML(xmlText)
+       
     dct = xml2d(e, removeNSPrefix, loadAttrs=True)
-    k, v = dct.items().pop()
+    k, v = list(dct.items()).pop()
     asset = modelClassFactory(k)()
     #Note the agilitymodel package with it's special __init__ file is used as an object factory
     asset._loadAttrs(v, modelClassFactory)
-    childAttrName = {Assetlist : 'Asset',
+    childAttrName = {Assetlist : 'asset',
                         Linklist : 'link',
-                        Tasklist : 'Task'
+                        Tasklist : 'task'
                         }
     if isinstance(asset, (Assetlist, Linklist, Tasklist)):
         childAttr = getattr(asset, childAttrName[type(asset)])

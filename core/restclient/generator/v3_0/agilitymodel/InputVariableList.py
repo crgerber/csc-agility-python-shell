@@ -1,5 +1,5 @@
-from base.InputVariableList import InputVariableListBase
-from actions.InputVariableList import InputVariableListActions
+from .base.InputVariableList import InputVariableListBase
+from .actions.InputVariableList import InputVariableListActions
 
 class InputVariableList(InputVariableListBase, InputVariableListActions):
     '''

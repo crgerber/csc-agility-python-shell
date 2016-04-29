@@ -1,9 +1,9 @@
 
-import ParserBeautifulSoup as BeautifulSoup
-import ParserLxml as Lxml
-import ParserLxmlToModelObjects as LxmlModel
-from ParserBeautifulSoup import AssetEntryBeautifulSoup
-from ParserLxml import AssetEntryLxml
+from . import ParserBeautifulSoup as BeautifulSoup
+from . import ParserLxml as Lxml
+from . import ParserLxmlToModelObjects as LxmlModel
+from .ParserBeautifulSoup import AssetEntryBeautifulSoup
+from .ParserLxml import AssetEntryLxml
 
 import sys
 

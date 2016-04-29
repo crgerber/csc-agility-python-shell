@@ -1,5 +1,5 @@
-from base.Volume import VolumeBase
-from actions.Volume import VolumeActions
+from .base.Volume import VolumeBase
+from .actions.Volume import VolumeActions
 
 class Volume(VolumeBase, VolumeActions):
     '''

@@ -1,5 +1,5 @@
-from base.Deployer import DeployerBase
-from actions.Deployer import DeployerActions
+from .base.Deployer import DeployerBase
+from .actions.Deployer import DeployerActions
 
 class Deployer(DeployerBase, DeployerActions):
     '''

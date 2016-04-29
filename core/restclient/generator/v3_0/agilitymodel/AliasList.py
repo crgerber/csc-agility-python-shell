@@ -1,5 +1,5 @@
-from base.AliasList import AliasListBase
-from actions.AliasList import AliasListActions
+from .base.AliasList import AliasListBase
+from .actions.AliasList import AliasListActions
 
 class AliasList(AliasListBase, AliasListActions):
     '''

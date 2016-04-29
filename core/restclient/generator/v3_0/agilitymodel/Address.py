@@ -1,5 +1,5 @@
-from base.Address import AddressBase
-from actions.Address import AddressActions
+from .base.Address import AddressBase
+from .actions.Address import AddressActions
 
 class Address(AddressBase, AddressActions):
     '''

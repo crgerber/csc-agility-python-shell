@@ -1,5 +1,5 @@
-from base.ConfigurationArtifactType import ConfigurationArtifactTypeBase
-from actions.ConfigurationArtifactType import ConfigurationArtifactTypeActions
+from .base.ConfigurationArtifactType import ConfigurationArtifactTypeBase
+from .actions.ConfigurationArtifactType import ConfigurationArtifactTypeActions
 
 class ConfigurationArtifactType(ConfigurationArtifactTypeBase, ConfigurationArtifactTypeActions):
     '''

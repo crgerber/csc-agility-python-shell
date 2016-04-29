@@ -1,5 +1,5 @@
-from base.Template import TemplateBase
-from actions.Template import TemplateActions
+from .base.Template import TemplateBase
+from .actions.Template import TemplateActions
 
 class Template(TemplateBase, TemplateActions):
     '''

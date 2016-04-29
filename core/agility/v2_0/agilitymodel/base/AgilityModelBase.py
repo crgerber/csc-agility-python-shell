@@ -22,7 +22,7 @@ class AgilityModelBase(object):
         assert isinstance(attrs, dict)
         self._topLevel = topLevel
         self.typeName = self._extractTypeName(attrs) or self.typeName
-        for attrName, attrVal in attrs.items():
+        for attrName, attrVal in list(attrs.items()):
             #handle control tags, e.g. xsi, nsmap, etc ...
             if attrName.startswith('__') and attrName.endswith('__'):
                 setattr(self, attrName, attrVal)
@@ -80,7 +80,7 @@ class AgilityModelBase(object):
         if not subTypeClassName: return subTypeClass #no inheritance type information in attribute dict, use base type from XSD
         subTypeClassName = subTypeClassName.split(':')[-1]#handle "ns1:className" format of the type attribute
         subTypeClass = classFactory(subTypeClassName)
-        assert any(map(lambda base: issubclass(subTypeClass, base), baseClass.mro()))
+        assert any([issubclass(subTypeClass, base) for base in baseClass.mro()])
         return subTypeClass
          
         
@@ -90,7 +90,7 @@ class AgilityModelBase(object):
         typeName = ''
 
         typeUrl = attrs.get('type', None)
-        typeUrl = typeUrl[0] if isinstance(typeUrl, (list, tuple)) else typeUrl if isinstance(typeUrl, (str, unicode)) else None
+        typeUrl = typeUrl[0] if isinstance(typeUrl, (list, tuple)) else typeUrl if isinstance(typeUrl, str) else None
         TYPE_NAME = 'TYPE_NAME'
         if typeUrl:
             match = re.match('application/com\.servicemesh\.agility\.api\.(?P<TYPE_NAME>.*)\+xml', typeUrl)
@@ -123,8 +123,8 @@ class AgilityModelBase(object):
     def _asMap(self, topLevel=False, execludeEmptyFields=True, includeControlTags=True):
         asMap = lambda e: e._asMap() if isinstance(e, AgilityModelBase) else e
         topLevel = self._topLevel or topLevel
-        reprMap = {k: v for k, v in vars(self).items() if k.startswith('__') and k.endswith('__')}
-        for k, v in self._attrSpecs.items():
+        reprMap = {k: v for k, v in list(vars(self).items()) if k.startswith('__') and k.endswith('__')}
+        for k, v in list(self._attrSpecs.items()):
             attr = getattr(self, k, None)
             if execludeEmptyFields and not attr:#None, empty string, list, dict, etc ...
                 continue
@@ -138,7 +138,7 @@ class AgilityModelBase(object):
             return reprMap
     
     def __dir__(self):
-        return self._attrSpecs.keys() + ['typeName']
+        return list(self._attrSpecs.keys()) + ['typeName']
     
     def __getitem__(self, key):
         return self._asMap()[key]

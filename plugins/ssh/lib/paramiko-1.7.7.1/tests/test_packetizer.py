@@ -48,8 +48,8 @@ class PacketizerTest (unittest.TestCase):
         p.send_message(m)
         data = rsock.recv(100)
         # 32 + 12 bytes of MAC = 44
-        self.assertEquals(44, len(data))
-        self.assertEquals('\x43\x91\x97\xbd\x5b\x50\xac\x25\x87\xc2\xc4\x6b\xc7\xe9\x38\xc0', data[:16])
+        self.assertEqual(44, len(data))
+        self.assertEqual('\x43\x91\x97\xbd\x5b\x50\xac\x25\x87\xc2\xc4\x6b\xc7\xe9\x38\xc0', data[:16])
     
     def test_2_read (self):
         rsock = LoopSocket()
@@ -64,7 +64,7 @@ class PacketizerTest (unittest.TestCase):
         wsock.send('C\x91\x97\xbd[P\xac%\x87\xc2\xc4k\xc7\xe98\xc0' + \
                    '\x90\xd2\x16V\rqsa8|L=\xfb\x97}\xe2n\x03\xb1\xa0\xc2\x1c\xd6AAL\xb4Y')
         cmd, m = p.read_message()
-        self.assertEquals(100, cmd)
-        self.assertEquals(100, m.get_int())
-        self.assertEquals(1, m.get_int())
-        self.assertEquals(900, m.get_int())
+        self.assertEqual(100, cmd)
+        self.assertEqual(100, m.get_int())
+        self.assertEqual(1, m.get_int())
+        self.assertEqual(900, m.get_int())

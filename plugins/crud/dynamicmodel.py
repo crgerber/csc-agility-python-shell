@@ -12,7 +12,7 @@ DISPLAY_NAME_ASSET_TYPE_MAP = agility.tools.scripting.idmap(ASSET_TYPES, 'displa
 class Asset(AbstractProxy):
     _BASE_ATTRIBUTES = ['name', 'description']
     def __init__(self, typeName, name='', description=''):
-        attrs = dict(zip(Asset._BASE_ATTRIBUTES, [name, description]))
+        attrs = dict(list(zip(Asset._BASE_ATTRIBUTES, [name, description])))
         AbstractProxy.__init__(self, attrs=attrs, typeName=typeName)
         self._autoattrs += ['_top', '_serviceendpoint']
         self._top = True
@@ -61,7 +61,7 @@ class AssetFactory(object):
     
     def __getattr__(self, name):
         if name not in DISPLAY_NAME_ASSET_TYPE_MAP:
-            raise AttributeError, name
+            raise AttributeError(name)
         asset = partial(Asset, name)
         
         return asset

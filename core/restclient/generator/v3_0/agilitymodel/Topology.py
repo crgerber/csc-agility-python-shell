@@ -1,5 +1,5 @@
-from base.Topology import TopologyBase
-from actions.Topology import TopologyActions
+from .base.Topology import TopologyBase
+from .actions.Topology import TopologyActions
 
 class Topology(TopologyBase, TopologyActions):
     '''

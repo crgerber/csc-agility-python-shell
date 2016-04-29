@@ -1,4 +1,4 @@
-from PolicyMeta import PolicyMetaBase
+from .PolicyMeta import PolicyMetaBase
 
 class LifecyclePolicyMetaBase(PolicyMetaBase):
     '''

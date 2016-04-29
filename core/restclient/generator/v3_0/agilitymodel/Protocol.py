@@ -1,5 +1,5 @@
-from base.Protocol import ProtocolBase
-from actions.Protocol import ProtocolActions
+from .base.Protocol import ProtocolBase
+from .actions.Protocol import ProtocolActions
 
 class Protocol(ProtocolBase, ProtocolActions):
     '''

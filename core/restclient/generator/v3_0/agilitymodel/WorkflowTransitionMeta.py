@@ -1,5 +1,5 @@
-from base.WorkflowTransitionMeta import WorkflowTransitionMetaBase
-from actions.WorkflowTransitionMeta import WorkflowTransitionMetaActions
+from .base.WorkflowTransitionMeta import WorkflowTransitionMetaBase
+from .actions.WorkflowTransitionMeta import WorkflowTransitionMetaActions
 
 class WorkflowTransitionMeta(WorkflowTransitionMetaBase, WorkflowTransitionMetaActions):
     '''

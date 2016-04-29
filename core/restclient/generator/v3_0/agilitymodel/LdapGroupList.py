@@ -1,5 +1,5 @@
-from base.LdapGroupList import LdapGroupListBase
-from actions.LdapGroupList import LdapGroupListActions
+from .base.LdapGroupList import LdapGroupListBase
+from .actions.LdapGroupList import LdapGroupListActions
 
 class LdapGroupList(LdapGroupListBase, LdapGroupListActions):
     '''

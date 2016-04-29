@@ -1,5 +1,5 @@
-from base.StoreReleaseType import StoreReleaseTypeBase
-from actions.StoreReleaseType import StoreReleaseTypeActions
+from .base.StoreReleaseType import StoreReleaseTypeBase
+from .actions.StoreReleaseType import StoreReleaseTypeActions
 
 class StoreReleaseType(StoreReleaseTypeBase, StoreReleaseTypeActions):
     '''

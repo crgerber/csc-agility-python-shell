@@ -41,44 +41,44 @@ def close_thread(pipe):
 
 class BufferedPipeTest (unittest.TestCase):
 
-    assertTrue = unittest.TestCase.failUnless   # for Python 2.3 and below
-    assertFalse = unittest.TestCase.failIf      # for Python 2.3 and below
+    assertTrue = unittest.TestCase.assertTrue   # for Python 2.3 and below
+    assertFalse = unittest.TestCase.assertFalse      # for Python 2.3 and below
 
     def test_1_buffered_pipe(self):
         p = BufferedPipe()
-        self.assert_(not p.read_ready())
+        self.assertTrue(not p.read_ready())
         p.feed('hello.')
-        self.assert_(p.read_ready())
+        self.assertTrue(p.read_ready())
         data = p.read(6)
-        self.assertEquals('hello.', data)
+        self.assertEqual('hello.', data)
         
         p.feed('plus/minus')
-        self.assertEquals('plu', p.read(3))
-        self.assertEquals('s/m', p.read(3))
-        self.assertEquals('inus', p.read(4))
+        self.assertEqual('plu', p.read(3))
+        self.assertEqual('s/m', p.read(3))
+        self.assertEqual('inus', p.read(4))
         
         p.close()
-        self.assert_(not p.read_ready())
-        self.assertEquals('', p.read(1))
+        self.assertTrue(not p.read_ready())
+        self.assertEqual('', p.read(1))
 
     def test_2_delay(self):
         p = BufferedPipe()
-        self.assert_(not p.read_ready())
+        self.assertTrue(not p.read_ready())
         threading.Thread(target=delay_thread, args=(p,)).start()
-        self.assertEquals('a', p.read(1, 0.1))
+        self.assertEqual('a', p.read(1, 0.1))
         try:
             p.read(1, 0.1)
-            self.assert_(False)
+            self.assertTrue(False)
         except PipeTimeout:
             pass
-        self.assertEquals('b', p.read(1, 1.0))
-        self.assertEquals('', p.read(1))
+        self.assertEqual('b', p.read(1, 1.0))
+        self.assertEqual('', p.read(1))
 
     def test_3_close_while_reading(self):
         p = BufferedPipe()
         threading.Thread(target=close_thread, args=(p,)).start()
         data = p.read(1, 1.0)
-        self.assertEquals('', data)
+        self.assertEqual('', data)
 
     def test_4_or_pipe(self):
         p = pipe.make_pipe()

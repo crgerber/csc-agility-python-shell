@@ -1,5 +1,5 @@
-from base.Runtime import RuntimeBase
-from actions.Runtime import RuntimeActions
+from .base.Runtime import RuntimeBase
+from .actions.Runtime import RuntimeActions
 
 class Runtime(RuntimeBase, RuntimeActions):
     '''

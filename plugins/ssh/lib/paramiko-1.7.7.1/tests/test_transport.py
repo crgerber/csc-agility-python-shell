@@ -107,8 +107,8 @@ class NullServer (ServerInterface):
 
 class TransportTest (unittest.TestCase):
 
-    assertTrue = unittest.TestCase.failUnless   # for Python 2.3 and below
-    assertFalse = unittest.TestCase.failIf      # for Python 2.3 and below
+    assertTrue = unittest.TestCase.assertTrue   # for Python 2.3 and below
+    assertFalse = unittest.TestCase.assertFalse      # for Python 2.3 and below
 
     def setUp(self):
         self.socks = LoopSocket()
@@ -135,37 +135,37 @@ class TransportTest (unittest.TestCase):
         
         event = threading.Event()
         self.server = NullServer()
-        self.assert_(not event.isSet())
+        self.assertTrue(not event.isSet())
         self.ts.start_server(event, self.server)
         self.tc.connect(hostkey=public_host_key,
                         username='slowdive', password='pygmalion')
         event.wait(1.0)
-        self.assert_(event.isSet())
-        self.assert_(self.ts.is_active())
+        self.assertTrue(event.isSet())
+        self.assertTrue(self.ts.is_active())
 
     def test_1_security_options(self):
         o = self.tc.get_security_options()
-        self.assertEquals(type(o), SecurityOptions)
-        self.assert_(('aes256-cbc', 'blowfish-cbc') != o.ciphers)
+        self.assertEqual(type(o), SecurityOptions)
+        self.assertTrue(('aes256-cbc', 'blowfish-cbc') != o.ciphers)
         o.ciphers = ('aes256-cbc', 'blowfish-cbc')
-        self.assertEquals(('aes256-cbc', 'blowfish-cbc'), o.ciphers)
+        self.assertEqual(('aes256-cbc', 'blowfish-cbc'), o.ciphers)
         try:
             o.ciphers = ('aes256-cbc', 'made-up-cipher')
-            self.assert_(False)
+            self.assertTrue(False)
         except ValueError:
             pass
         try:
             o.ciphers = 23
-            self.assert_(False)
+            self.assertTrue(False)
         except TypeError:
             pass
             
     def test_2_compute_key(self):
-        self.tc.K = 123281095979686581523377256114209720774539068973101330872763622971399429481072519713536292772709507296759612401802191955568143056534122385270077606457721553469730659233569339356140085284052436697480759510519672848743794433460113118986816826624865291116513647975790797391795651716378444844877749505443714557929L
+        self.tc.K = 123281095979686581523377256114209720774539068973101330872763622971399429481072519713536292772709507296759612401802191955568143056534122385270077606457721553469730659233569339356140085284052436697480759510519672848743794433460113118986816826624865291116513647975790797391795651716378444844877749505443714557929
         self.tc.H = unhexlify('0C8307CDE6856FF30BA93684EB0F04C2520E9ED3')
         self.tc.session_id = self.tc.H
         key = self.tc._compute_key('C', 32)
-        self.assertEquals('207E66594CA87C44ECCBA3B3CD39FDDB378E6FDB0F97C54B2AA0CFBF900CD995',
+        self.assertEqual('207E66594CA87C44ECCBA3B3CD39FDDB378E6FDB0F97C54B2AA0CFBF900CD995',
                           hexlify(key).upper())
 
     def test_3_simple(self):
@@ -179,21 +179,21 @@ class TransportTest (unittest.TestCase):
         self.ts.add_server_key(host_key)
         event = threading.Event()
         server = NullServer()
-        self.assert_(not event.isSet())
-        self.assertEquals(None, self.tc.get_username())
-        self.assertEquals(None, self.ts.get_username())
-        self.assertEquals(False, self.tc.is_authenticated())
-        self.assertEquals(False, self.ts.is_authenticated())
+        self.assertTrue(not event.isSet())
+        self.assertEqual(None, self.tc.get_username())
+        self.assertEqual(None, self.ts.get_username())
+        self.assertEqual(False, self.tc.is_authenticated())
+        self.assertEqual(False, self.ts.is_authenticated())
         self.ts.start_server(event, server)
         self.tc.connect(hostkey=public_host_key,
                         username='slowdive', password='pygmalion')
         event.wait(1.0)
-        self.assert_(event.isSet())
-        self.assert_(self.ts.is_active())
-        self.assertEquals('slowdive', self.tc.get_username())
-        self.assertEquals('slowdive', self.ts.get_username())
-        self.assertEquals(True, self.tc.is_authenticated())
-        self.assertEquals(True, self.ts.is_authenticated())
+        self.assertTrue(event.isSet())
+        self.assertTrue(self.ts.is_active())
+        self.assertEqual('slowdive', self.tc.get_username())
+        self.assertEqual('slowdive', self.ts.get_username())
+        self.assertEqual(True, self.tc.is_authenticated())
+        self.assertEqual(True, self.ts.is_authenticated())
 
     def test_3a_long_banner(self):
         """
@@ -204,14 +204,14 @@ class TransportTest (unittest.TestCase):
         self.ts.add_server_key(host_key)
         event = threading.Event()
         server = NullServer()
-        self.assert_(not event.isSet())
+        self.assertTrue(not event.isSet())
         self.socks.send(LONG_BANNER)
         self.ts.start_server(event, server)
         self.tc.connect(hostkey=public_host_key,
                         username='slowdive', password='pygmalion')
         event.wait(1.0)
-        self.assert_(event.isSet())
-        self.assert_(self.ts.is_active())
+        self.assertTrue(event.isSet())
+        self.assertTrue(self.ts.is_active())
         
     def test_4_special(self):
         """
@@ -222,10 +222,10 @@ class TransportTest (unittest.TestCase):
             options.ciphers = ('aes256-cbc',)
             options.digests = ('hmac-md5-96',)
         self.setup_test_server(client_options=force_algorithms)
-        self.assertEquals('aes256-cbc', self.tc.local_cipher)
-        self.assertEquals('aes256-cbc', self.tc.remote_cipher)
-        self.assertEquals(12, self.tc.packetizer.get_mac_size_out())
-        self.assertEquals(12, self.tc.packetizer.get_mac_size_in())
+        self.assertEqual('aes256-cbc', self.tc.local_cipher)
+        self.assertEqual('aes256-cbc', self.tc.remote_cipher)
+        self.assertEqual(12, self.tc.packetizer.get_mac_size_out())
+        self.assertEqual(12, self.tc.packetizer.get_mac_size_in())
         
         self.tc.send_ignore(1024)
         self.tc.renegotiate_keys()
@@ -236,10 +236,10 @@ class TransportTest (unittest.TestCase):
         verify that the keepalive will be sent.
         """
         self.setup_test_server()
-        self.assertEquals(None, getattr(self.server, '_global_request', None))
+        self.assertEqual(None, getattr(self.server, '_global_request', None))
         self.tc.set_keepalive(1)
         time.sleep(2)
-        self.assertEquals('keepalive@lag.net', self.server._global_request)
+        self.assertEqual('keepalive@lag.net', self.server._global_request)
         
     def test_6_exec_command(self):
         """
@@ -251,8 +251,8 @@ class TransportTest (unittest.TestCase):
         schan = self.ts.accept(1.0)
         try:
             chan.exec_command('no')
-            self.assert_(False)
-        except SSHException, x:
+            self.assertTrue(False)
+        except SSHException as x:
             pass
         
         chan = self.tc.open_session()
@@ -263,11 +263,11 @@ class TransportTest (unittest.TestCase):
         schan.close()
 
         f = chan.makefile()
-        self.assertEquals('Hello there.\n', f.readline())
-        self.assertEquals('', f.readline())
+        self.assertEqual('Hello there.\n', f.readline())
+        self.assertEqual('', f.readline())
         f = chan.makefile_stderr()
-        self.assertEquals('This is on stderr.\n', f.readline())
-        self.assertEquals('', f.readline())
+        self.assertEqual('This is on stderr.\n', f.readline())
+        self.assertEqual('', f.readline())
         
         # now try it with combined stdout/stderr
         chan = self.tc.open_session()
@@ -279,9 +279,9 @@ class TransportTest (unittest.TestCase):
 
         chan.set_combine_stderr(True)        
         f = chan.makefile()
-        self.assertEquals('Hello there.\n', f.readline())
-        self.assertEquals('This is on stderr.\n', f.readline())
-        self.assertEquals('', f.readline())
+        self.assertEqual('Hello there.\n', f.readline())
+        self.assertEqual('This is on stderr.\n', f.readline())
+        self.assertEqual('', f.readline())
 
     def test_7_invoke_shell(self):
         """
@@ -293,9 +293,9 @@ class TransportTest (unittest.TestCase):
         schan = self.ts.accept(1.0)
         chan.send('communist j. cat\n')
         f = schan.makefile()
-        self.assertEquals('communist j. cat\n', f.readline())
+        self.assertEqual('communist j. cat\n', f.readline())
         chan.close()
-        self.assertEquals('', f.readline())
+        self.assertEqual('', f.readline())
 
     def test_8_channel_exception(self):
         """
@@ -305,8 +305,8 @@ class TransportTest (unittest.TestCase):
         try:
             chan = self.tc.open_channel('bogus')
             self.fail('expected exception')
-        except ChannelException, x:
-            self.assert_(x.code == OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED)
+        except ChannelException as x:
+            self.assertTrue(x.code == OPEN_FAILED_ADMINISTRATIVELY_PROHIBITED)
 
     def test_9_exit_status(self):
         """
@@ -318,7 +318,7 @@ class TransportTest (unittest.TestCase):
         schan = self.ts.accept(1.0)
         chan.exec_command('yes')
         schan.send('Hello there.\n')
-        self.assert_(not chan.exit_status_ready())
+        self.assertTrue(not chan.exit_status_ready())
         # trigger an EOF
         schan.shutdown_read()
         schan.shutdown_write()
@@ -326,15 +326,15 @@ class TransportTest (unittest.TestCase):
         schan.close()
         
         f = chan.makefile()
-        self.assertEquals('Hello there.\n', f.readline())
-        self.assertEquals('', f.readline())
+        self.assertEqual('Hello there.\n', f.readline())
+        self.assertEqual('', f.readline())
         count = 0
         while not chan.exit_status_ready():
             time.sleep(0.1)
             count += 1
             if count > 50:
                 raise Exception("timeout")
-        self.assertEquals(23, chan.recv_exit_status())
+        self.assertEqual(23, chan.recv_exit_status())
         chan.close()
 
     def test_A_select(self):
@@ -348,9 +348,9 @@ class TransportTest (unittest.TestCase):
 
         # nothing should be ready        
         r, w, e = select.select([chan], [], [], 0.1)
-        self.assertEquals([], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
+        self.assertEqual([], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
         
         schan.send('hello\n')
         
@@ -360,17 +360,17 @@ class TransportTest (unittest.TestCase):
             if chan in r:
                 break
             time.sleep(0.1)
-        self.assertEquals([chan], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
+        self.assertEqual([chan], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
 
-        self.assertEquals('hello\n', chan.recv(6))
+        self.assertEqual('hello\n', chan.recv(6))
         
         # and, should be dead again now
         r, w, e = select.select([chan], [], [], 0.1)
-        self.assertEquals([], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
+        self.assertEqual([], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
 
         schan.close()
         
@@ -380,17 +380,17 @@ class TransportTest (unittest.TestCase):
             if chan in r:
                 break
             time.sleep(0.1)
-        self.assertEquals([chan], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
-        self.assertEquals('', chan.recv(16))
+        self.assertEqual([chan], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
+        self.assertEqual('', chan.recv(16))
         
         # make sure the pipe is still open for now...
         p = chan._pipe
-        self.assertEquals(False, p._closed)
+        self.assertEqual(False, p._closed)
         chan.close()
         # ...and now is closed.
-        self.assertEquals(True, p._closed)
+        self.assertEqual(True, p._closed)
    
     def test_B_renegotiate(self):
         """
@@ -402,17 +402,17 @@ class TransportTest (unittest.TestCase):
         chan.exec_command('yes')
         schan = self.ts.accept(1.0)
 
-        self.assertEquals(self.tc.H, self.tc.session_id)
+        self.assertEqual(self.tc.H, self.tc.session_id)
         for i in range(20):
             chan.send('x' * 1024)
         chan.close()
         
         # allow a few seconds for the rekeying to complete
-        for i in xrange(50):
+        for i in range(50):
             if self.tc.H != self.tc.session_id:
                 break
             time.sleep(0.1)
-        self.assertNotEquals(self.tc.H, self.tc.session_id)
+        self.assertNotEqual(self.tc.H, self.tc.session_id)
 
         schan.close()
 
@@ -431,8 +431,8 @@ class TransportTest (unittest.TestCase):
         chan.send('x' * 1024)
         bytes2 = self.tc.packetizer._Packetizer__sent_bytes
         # tests show this is actually compressed to *52 bytes*!  including packet overhead!  nice!! :)
-        self.assert_(bytes2 - bytes < 1024)
-        self.assertEquals(52, bytes2 - bytes)
+        self.assertTrue(bytes2 - bytes < 1024)
+        self.assertEqual(52, bytes2 - bytes)
 
         chan.close()
         schan.close()
@@ -447,24 +447,25 @@ class TransportTest (unittest.TestCase):
         schan = self.ts.accept(1.0)
         
         requested = []
-        def handler(c, (addr, port)):
+        def handler(c, xxx_todo_changeme):
+            (addr, port) = xxx_todo_changeme
             requested.append((addr, port))
             self.tc._queue_incoming_channel(c)
             
-        self.assertEquals(None, getattr(self.server, '_x11_screen_number', None))
+        self.assertEqual(None, getattr(self.server, '_x11_screen_number', None))
         cookie = chan.request_x11(0, single_connection=True, handler=handler)
-        self.assertEquals(0, self.server._x11_screen_number)
-        self.assertEquals('MIT-MAGIC-COOKIE-1', self.server._x11_auth_protocol)
-        self.assertEquals(cookie, self.server._x11_auth_cookie)
-        self.assertEquals(True, self.server._x11_single_connection)
+        self.assertEqual(0, self.server._x11_screen_number)
+        self.assertEqual('MIT-MAGIC-COOKIE-1', self.server._x11_auth_protocol)
+        self.assertEqual(cookie, self.server._x11_auth_cookie)
+        self.assertEqual(True, self.server._x11_single_connection)
         
         x11_server = self.ts.open_x11_channel(('localhost', 6093))
         x11_client = self.tc.accept()
-        self.assertEquals('localhost', requested[0][0])
-        self.assertEquals(6093, requested[0][1])
+        self.assertEqual('localhost', requested[0][0])
+        self.assertEqual(6093, requested[0][1])
         
         x11_server.send('hello')
-        self.assertEquals('hello', x11_client.recv(5))
+        self.assertEqual('hello', x11_client.recv(5))
         
         x11_server.close()
         x11_client.close()
@@ -482,13 +483,15 @@ class TransportTest (unittest.TestCase):
         schan = self.ts.accept(1.0)
         
         requested = []
-        def handler(c, (origin_addr, origin_port), (server_addr, server_port)):
+        def handler(c, xxx_todo_changeme1, xxx_todo_changeme2):
+            (origin_addr, origin_port) = xxx_todo_changeme1
+            (server_addr, server_port) = xxx_todo_changeme2
             requested.append((origin_addr, origin_port))
             requested.append((server_addr, server_port))
             self.tc._queue_incoming_channel(c)
             
         port = self.tc.request_port_forward('127.0.0.1', 0, handler)
-        self.assertEquals(port, self.server._listen.getsockname()[1])
+        self.assertEqual(port, self.server._listen.getsockname()[1])
 
         cs = socket.socket()
         cs.connect(('127.0.0.1', port))
@@ -497,7 +500,7 @@ class TransportTest (unittest.TestCase):
         cch = self.tc.accept()
         
         sch.send('hello')
-        self.assertEquals('hello', cch.recv(5))
+        self.assertEqual('hello', cch.recv(5))
         sch.close()
         cch.close()
         ss.close()
@@ -534,7 +537,7 @@ class TransportTest (unittest.TestCase):
         sch.send(cch.recv(8192))
         sch.close()
         
-        self.assertEquals('Hello!\n', cs.recv(7))
+        self.assertEqual('Hello!\n', cs.recv(7))
         cs.close()
 
     def test_G_stderr_select(self):
@@ -549,9 +552,9 @@ class TransportTest (unittest.TestCase):
 
         # nothing should be ready        
         r, w, e = select.select([chan], [], [], 0.1)
-        self.assertEquals([], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
+        self.assertEqual([], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
         
         schan.send_stderr('hello\n')
         
@@ -561,17 +564,17 @@ class TransportTest (unittest.TestCase):
             if chan in r:
                 break
             time.sleep(0.1)
-        self.assertEquals([chan], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
+        self.assertEqual([chan], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
 
-        self.assertEquals('hello\n', chan.recv_stderr(6))
+        self.assertEqual('hello\n', chan.recv_stderr(6))
         
         # and, should be dead again now
         r, w, e = select.select([chan], [], [], 0.1)
-        self.assertEquals([], r)
-        self.assertEquals([], w)
-        self.assertEquals([], e)
+        self.assertEqual([], r)
+        self.assertEqual([], w)
+        self.assertEqual([], e)
 
         schan.close()
         chan.close()
@@ -585,7 +588,7 @@ class TransportTest (unittest.TestCase):
         chan.invoke_shell()
         schan = self.ts.accept(1.0)
 
-        self.assertEquals(chan.send_ready(), True)
+        self.assertEqual(chan.send_ready(), True)
         total = 0
         K = '*' * 1024
         while total < 1024 * 1024:
@@ -593,11 +596,11 @@ class TransportTest (unittest.TestCase):
             total += len(K)
             if not chan.send_ready():
                 break
-        self.assert_(total < 1024 * 1024)
+        self.assertTrue(total < 1024 * 1024)
 
         schan.close()
         chan.close()
-        self.assertEquals(chan.send_ready(), True)
+        self.assertEqual(chan.send_ready(), True)
 
     def test_I_rekey_deadlock(self):
         """
@@ -660,7 +663,7 @@ class TransportTest (unittest.TestCase):
             
             def run(self):
                 try:
-                    for i in xrange(1, 1+self.iterations):
+                    for i in range(1, 1+self.iterations):
                         if self.done_event.isSet():
                             break
                         self.watchdog_event.set()
