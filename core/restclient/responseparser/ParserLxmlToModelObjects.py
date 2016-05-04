@@ -50,9 +50,9 @@ def parse(xmlText, assetType=None, removeNSPrefix=True):
     asset = modelClassFactory(k)()
     #Note the agilitymodel package with it's special __init__ file is used as an object factory
     asset._loadAttrs(v, modelClassFactory)
-    childAttrName = {Assetlist : 'Asset',
+    childAttrName = {Assetlist : 'asset',
                         Linklist : 'link',
-                        Tasklist : 'Task'
+                        Tasklist : 'task'
                         }
     if isinstance(asset, (Assetlist, Linklist, Tasklist)):
         childAttr = getattr(asset, childAttrName[type(asset)])

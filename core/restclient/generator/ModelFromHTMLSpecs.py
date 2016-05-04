@@ -7,27 +7,27 @@ import os
 import urllib2
 from itertools import chain
 import re
-
 from lxml import etree
+import ssl
 import sys
-sys.path.append('/Users/dawood/Documents/workspace/agilitypythonshell/lib/beautifulsoup4-4.1.3/')
+#sys.path.append('/Users/dawood/Documents/workspace/agilitypythonshell/lib/beautifulsoup4-4.1.3/')
+sys.path.append('/Users/cgerber/python3-lib/beautifulsoup4-4.4.1/')
 from bs4 import BeautifulSoup
 from core.restclient.responseparser.ParserLxml import xml2d
 from core.pyworx.text import isValidPythonSymbol, validPythonSymbol
+from agilityinit import getConfiguration
 from core.agility import getModel
-agilitymodel = getModel()
 
+agilitymodel = getModel()
+configuration = getConfiguration()
+ssl._create_default_https_context = ssl._create_unverified_context
 
 CDATA_KEY = '__CDATA__'
-HOST = '54.206.19.70'
 PYTHON = 'python'
 RUBY = 'ruby'
-
-LANG = PYTHON
-
-CODE_FILE_EXTENSION = '.py' if LANG == PYTHON else '.rb'
-
-
+LANG = configuration.get(section='main', option='lang')
+HOST = configuration.get(section='main', option='host')
+CODE_FILE_EXTENSION = '.py' if LANG == PYTHON else '.rb' 
 
 ALL_MODULES = set()
 ALL_CLASSES = set()
@@ -49,7 +49,7 @@ def getClassDocUrl(host, className):
 def extractClassSpec(classDocUrl, className=None, asText=False):
     classDoc = urllib2.urlopen(url=classDocUrl).read()
     classDocSoup = BeautifulSoup(classDoc, 'html')
-    print 'Downloading spec: %s'%classDocUrl
+    print("Downloading spec: %s" % classDocUrl)
     dct = extractComplexTypeFromHTML(classDocSoup, asText) or extractSimpleTypeEnumFromHTML(classDocSoup, asText)
     if dct is None:
         REJECTED_SPECS.add(classDocUrl)
@@ -70,7 +70,7 @@ def processComplexType(complexTypeSoup):
 def extractSimpleTypeEnumFromHTML(classDocSoup, asText=False):
     simpleType = classDocSoup.find_all('pre', text=re.compile('simpleType'))#list of soup objects
     if len(simpleType) != 1:
-        print 'Warning: could not parse file'
+        print('Warning: could not parse file')
         return None
     return simpleType[0].text if asText else processSimpleType(simpleType)
 
@@ -89,7 +89,7 @@ def processSimpleType(simpleTypeSoup):
     enumValues = [entry['value'] for entry in enumeration]
     dirname = rootDirName()
     filepath = os.path.join(dirname, enumName + CODE_FILE_EXTENSION)
-    print 'Writing file: %s'%filepath
+    print('Writing file: %s'%filepath)
     enumMap = dict(zip(enumValues, enumValues))
     code = getSimpleTypeCodePython(enumName, enumMap) if LANG == PYTHON else getSimpleTypeCodeRuby(enumName, enumMap)
     with open(filepath, 'w') as classFile:
@@ -125,13 +125,12 @@ end
     enum_context['attr_readers'] = ('\n%s'%(AgilityType.INDENT)).join('attr_reader :%s'%key for key in enumMap.keys())
     return ENUM_TEMPLATE%enum_context
 
-def processClassSpec(specDict):
+def processClassSpec(specDict, asText = False):
     if not specDict:
         return
-    asText = False
     className = specDict['complexType']['name']
     MODULES_QUEUE.add(className)
-    print 'Queued for writing: %s'%list(MODULES_QUEUE)
+    print('Queued for writing: %s'%list(MODULES_QUEUE))
     baseTypeNode = specDict['complexType']['complexContent'].get('restriction', None) 
     if baseTypeNode is not None: 
         native, classBase = extractType(baseTypeNode['base'])
@@ -148,7 +147,7 @@ def processClassSpec(specDict):
     else: 
         elements = sequence.get('element', None)
         if elements is None:
-            print 'Warning can not parse spec, skipping class [%s]'%className
+            print('Warning can not parse spec, skipping class [%s]'%className)
             return
         elements = elements if isinstance(elements, list) else [elements]
     
@@ -186,7 +185,7 @@ class AgilityTypeAttribute(object):
         nameSymbol = kwargs['name']
         if not isValidPythonSymbol(nameSymbol, False):
             validNameSymbol = validPythonSymbol(nameSymbol, False)
-            print 'WARNING: Python reserved symbol [%s] -> changed to [%s]'%(nameSymbol, validNameSymbol)
+            print('WARNING: Python reserved symbol [%s] -> changed to [%s]'%(nameSymbol, validNameSymbol))
             kwargs['name'] = validNameSymbol
         
         kwargs['name'] = kwargs['name'].lower()#looks more consistent and would make the Ruby interpreter happy if the attribute name == a class name
@@ -218,6 +217,7 @@ class AgilityTypeAttribute(object):
                                   'integer' : 'None',
                                   'decimal' : 'None',
                                   'date' : 'None', 
+                                  'dateTime' : 'None', 
                                   'hexBinary' : 'None',
                                   'base64Binary' : 'None',
                                   'long' : 'None',
@@ -251,8 +251,8 @@ class AgilityTypeAttribute(object):
         elif self.native:
             try:
                 return nativeTypeDefaultMap[LANG][self.type]
-            except KeyError, ex:
-                print ex
+            except KeyError as ex:
+                print(ex)
                 raise RuntimeError('Unhandled XML native type: %s'%self.type)
         return defaultValue
     
@@ -337,7 +337,7 @@ end
         actionsfilepath = os.path.join(dirname, 'actions', (self.name if LANG == PYTHON else self.name + 'Actions') + CODE_FILE_EXTENSION)
         classfilepath = os.path.join(dirname, self.name + CODE_FILE_EXTENSION)
         
-        print 'Writing [3] files: \n1.%s\n2.%s\n3.%s'%(basefilepath, actionsfilepath, classfilepath)
+        print('Writing [3] files: \n1.%s\n2.%s\n3.%s'%(basefilepath, actionsfilepath, classfilepath))
         basecode, actionscode, classcode = self.formatPython() if LANG == PYTHON else self.formatRuby()
         with open(basefilepath, 'w') as baseClassFile:
             baseClassFile.write(basecode)
@@ -360,7 +360,7 @@ end
                 imports = '\n'.join(['from %(cls)s import %(cls)s'%{'cls' : cls} for cls in ALL_MODULES])
                 packageInitFile.write(imports)
                 packageInitFile.write('\n__all__ = %s'%list(ALL_MODULES))
-            print 'agilitymodel.<base.|actions.|.>__init.__all__ = %s'%list(ALL_MODULES)   
+            print('agilitymodel.<base.|actions.|.>__init.__all__ = %s'%list(ALL_MODULES))
         
     def formatRuby(self):
         SUPER_BASE = 'AgilityModelBase'
@@ -392,14 +392,14 @@ end
         
     def formatPython(self):
         SUPER_BASE = 'AgilityModelBase'
-        base_imports = ['from %s import %s'%(self.baseName, self.baseName + 'Base')] if self.baseName else ['from %(SUPER_BASE)s import %(SUPER_BASE)s'%{'SUPER_BASE' : SUPER_BASE}] 
+        base_imports = ['from %s import %s'%(self.baseName, self.baseName + 'Base')] if self.baseName and not self.baseName.startswith('{') else ['from core.agility.common.%(SUPER_BASE)s import %(SUPER_BASE)s'%{'SUPER_BASE' : SUPER_BASE}] 
         comma = ', ' if self.attrs else ''
         kwargs = ', '.join(['%s=%s'%(attr.name, attr.defaultValue) for attr in self.attrs.values()])
         kwargsDelegation = ', '.join(['%s=%s'%(attr.name, attr.name) for attr in self.attrs.values()])
         base_context = {
                    'imports' : '\n'.join(base_imports),
                    'Clazz' : self.name,
-                   'BaseClazz' : self.baseName + 'Base' if self.baseName else SUPER_BASE,
+                   'BaseClazz' : self.baseName + 'Base' if self.baseName and not self.baseName.startswith('{') else SUPER_BASE,
                    'comma' : comma,
                    'kwargs' : kwargs,
                    'atrrSpecs' : '%s'%dict(zip([attrname for attrname in self.attrs], [attr.attrSpecs for attr in self.attrs.values()])),
@@ -456,8 +456,8 @@ def parseHTMLSpecs():
             requires = '\n'.join(["require '%(cls)s'"%{'cls' : cls} for cls in ALL_ENUMS])
             enumsModule.write(requires)
             
-    print 'Rejected spec URLs: %s'%list(REJECTED_SPECS)
-    print 'Queue final status: %s'%list(MODULES_QUEUE)
+    print('Rejected spec URLs: %s'%list(REJECTED_SPECS))
+    print('Queue final status: %s'%list(MODULES_QUEUE))
 
 
 def generateSchema():
@@ -467,10 +467,10 @@ def generateSchema():
         SEP = '\n' if classSpec else ''
         schemaContent += (SEP + classSpec)
 
-    print schemaContent
-
+    print(schemaContent)
+    
 if __name__ == '__main__':
-    schemaMode = True
+    schemaMode = configuration.get(section='main', option='schemaMode')  
     if schemaMode:
         generateSchema()
     else:

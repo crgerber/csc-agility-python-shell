@@ -8,6 +8,7 @@ import base64
 import urllib
 import os
 import cookielib
+import ssl
 from functools import update_wrapper
 
 from core.http.put.multipartform import MultiPartForm
@@ -81,7 +82,9 @@ class RESTConnection(object):
                         'host' : '',
                         'port' : '8443',
                         'version' : 'current',#API Version
-                        'systemversion' : 'latest'
+                        'systemversion' : 'latest',
+                        'ssl_context_unverified' : True,
+                        'ssl_cacert_location' : 'cacert.pem' 
                         }
         self._auth = auth
         self.conn_params.update(kwargs)
@@ -89,8 +92,17 @@ class RESTConnection(object):
         missing_conn_params = [k for k, v in self.conn_params.items() if (v is None) or (v == '')]
         if missing_conn_params:
             raise RuntimeError('missing connection params %s'%missing_conn_params)
+        check_hostname = None
+        https_context = None
         
-        handlers = [urllib2.HTTPHandler(), urllib2.HTTPSHandler()]        
+        if self.conn_params['ssl_context_unverified'] == 'True' :
+            https_context = ssl._create_unverified_context()
+            check_hostname = False
+        else :
+            https_context = ssl._create_default_https_context()
+            https_context.load_verify_locations(self.conn_params['ssl_cacert_location'])
+            check_hostname = True
+        handlers = [urllib2.HTTPHandler(), urllib2.HTTPSHandler(context = https_context)]        
         if self._auth == 'basic':
             self._opener = urllib2.build_opener(*handlers)
         elif self._auth == 'oauth':
