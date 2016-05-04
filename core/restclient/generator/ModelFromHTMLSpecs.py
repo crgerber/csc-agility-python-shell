@@ -10,9 +10,6 @@ import re
 from lxml import etree
 import ssl
 import sys
-#sys.path.append('/Users/dawood/Documents/workspace/agilitypythonshell/lib/beautifulsoup4-4.1.3/')
-sys.path.append('/Users/cgerber/python3-lib/beautifulsoup4-4.4.1/')
-from bs4 import BeautifulSoup
 from core.restclient.responseparser.ParserLxml import xml2d
 from core.pyworx.text import isValidPythonSymbol, validPythonSymbol
 from agilityinit import getConfiguration
@@ -20,6 +17,10 @@ from core.agility import getModel
 
 agilitymodel = getModel()
 configuration = getConfiguration()
+
+sys.path.append(configuration.get(section='main', option='bs4path'))
+from bs4 import BeautifulSoup
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 CDATA_KEY = '__CDATA__'
@@ -27,6 +28,7 @@ PYTHON = 'python'
 RUBY = 'ruby'
 LANG = configuration.get(section='main', option='lang')
 HOST = configuration.get(section='main', option='host')
+PORT = configuration.get(section='main', option='port')
 CODE_FILE_EXTENSION = '.py' if LANG == PYTHON else '.rb' 
 
 ALL_MODULES = set()
@@ -35,16 +37,16 @@ ALL_ENUMS = set()
 MODULES_QUEUE = set()
 REJECTED_SPECS = set()
 
-def getAllClassesDocsUrls(host):
-    allclassesIndex = urllib2.urlopen(url="https://%s:8443/javadoc/scripting/allclasses-frame.html"%host).read()
+def getAllClassesDocsUrls(host,port):
+    allclassesIndex = urllib2.urlopen(url="https://%s:%s/javadoc/scripting/allclasses-frame.html"%(host,port)).read()
     allclassesIndexSoup = BeautifulSoup(allclassesIndex, 'html')
     
     allclassesUrls = allclassesIndexSoup.find_all('a')
-    return map(lambda link: 'https://%s:8443/javadoc/scripting/%s'%(host, link.get('href')), allclassesUrls)
+    return map(lambda link: 'https://%s:%s/javadoc/scripting/%s'%(host,port,link.get('href')), allclassesUrls)
 
-def getClassDocUrl(host, className):
-    urlTemplate = "https://%(host)s:8443/javadoc/scripting/com/servicemesh/agility/api/%(className)s.html"
-    return urlTemplate%{'host' : host, 'className' : className}
+def getClassDocUrl(host,port,className):
+    urlTemplate = "https://%(host)s:%(port)s/javadoc/scripting/com/servicemesh/agility/api/%(className)s.html"
+    return urlTemplate%{'host' : host, 'port' : port, 'className' : className}
     
 def extractClassSpec(classDocUrl, className=None, asText=False):
     classDoc = urllib2.urlopen(url=classDocUrl).read()
@@ -139,7 +141,7 @@ def processClassSpec(specDict, asText = False):
         native, classBase = extractType(baseTypeNode['base'])
     if not native:
         if not classBase in ALL_MODULES:
-            processClassSpec(extractClassSpec(getClassDocUrl(HOST, classBase),  classBase), asText)
+            processClassSpec(extractClassSpec(getClassDocUrl(HOST, PORT, classBase),  classBase), asText)
     typeClass = AgilityType(className, classBase if not native else None)
     sequence = baseTypeNode.get('sequence', None)
     if sequence is None or not sequence:
@@ -159,7 +161,7 @@ def processClassSpec(specDict, asText = False):
         nativeAttr, attrType = extractType(attr['type'])
         if not nativeAttr:
             if not attrType in ALL_MODULES and attrType != className and attrType not in MODULES_QUEUE:#break recursive loop for composites containing children of the same type
-                processClassSpec(extractClassSpec(getClassDocUrl(HOST, attrType), attrType, asText))
+                processClassSpec(extractClassSpec(getClassDocUrl(HOST, PORT, attrType), attrType, asText))
         attr['native'] = nativeAttr
         attr['type'] = attrType
         typeClass.addAttribute(**attr)
@@ -443,7 +445,7 @@ def parseHTMLSpecs():
     if not os.path.exists(actionsdir):
         os.makedirs(actionsdir)
 
-    for classDocUrl in getAllClassesDocsUrls(host=HOST):
+    for classDocUrl in getAllClassesDocsUrls(host=HOST, port=PORT):
         specDict = extractClassSpec(classDocUrl, asText=False)
         processClassSpec(specDict)
     dirname = rootDirName()
@@ -462,7 +464,7 @@ def parseHTMLSpecs():
 
 def generateSchema():
     schemaContent = ""
-    for classDocUrl in getAllClassesDocsUrls(host=HOST):
+    for classDocUrl in getAllClassesDocsUrls(host=HOST,port=PORT):
         classSpec = extractClassSpec(classDocUrl, asText=True) or ''
         SEP = '\n' if classSpec else ''
         schemaContent += (SEP + classSpec)

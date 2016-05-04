@@ -103,7 +103,10 @@ from xml.dom import *
 validSymbol = lambda txt, prefix='': re.sub('^[\W|\d]|\W+?', '_', prefix + txt)
 isValidSymbol = lambda txt: re.match('^\W|.*\W+.*', txt) is None
 
-lang = "python"
+from agilityinit import getConfiguration
+configuration = getConfiguration()
+
+lang = configuration.get(section='main', option='lang')
 out_dir = "."
 wadl_file = None
 api_version = None
