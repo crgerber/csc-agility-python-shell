@@ -24,7 +24,7 @@ from core.proxy.hook import Hook
 
 from core.plugin import loadPlugins, reloadPluginFeature
 from shellutils.utils import Tools
-#from core.restclient.connection import RESTConnection
+from core.restclient.connection import RESTConnection
 from core.restclient.search.query import AgilityQuery
 from core import universal
 from core import agility as client
@@ -43,9 +43,7 @@ def configure(config=None):
 
 def getConnection(config):
     from core.restclient.connection import RESTConnection
-    conn = RESTConnection(auth=config.main_auth, host=config.main_host, username=config.main_username, password=config.main_password,
-                          stemversion=config.main_systemversion, version=config.apiversion_version, use_cookies=config.main_use_cookies,
-                          reauthenticate=config.main_reauthenticate)
+    conn = RESTConnection(auth=config.main_auth, host=config.main_host, username=config.main_username, password=config.main_password, systemversion=config.main_systemversion, version=config.apiversion_version, use_cookies=config.main_use_cookies, reauthenticate=config.main_reauthenticate, ssl_context_unverified=config.main_ssl_context_unverified, ssl_cacert_location=config.main_ssl_cacert_location)
     return conn
 
 
@@ -66,7 +64,8 @@ class Agility(object):
         _client = client.getClient()
         attrnames = dir(_client)
         self._services = [attrname for attrname in attrnames if isinstance(getattr(_client, attrname), type) and issubclass(getattr(_client, attrname), Endpoint)]
-        self._services.remove('Endpoint') #@todo: use decorators and tag services with a marker attribute to avoid using dir(module) and receiving the Base Class as an attribute that meets the criteria: isinstance(Base Class)
+        if 'Endpoint' in self._services :
+            self._services.remove('Endpoint') #@todo: use decorators and tag services with a marker attribute to avoid using dir(module) and receiving the Base Class as an attribute that meets the criteria: isinstance(Base Class)
         self._assetNames = [assetName.title() for assetName in self._services]
         prefetch = configuration.get('main', 'prefetch')
         [object.__setattr__(self, serviceName, ServiceProxy(self.cfg.conn, serviceName.title(), prefetch)) for serviceName in self._services]
@@ -161,7 +160,8 @@ def init(configuration=None, conn=None, agility=None):
     if not conn:
         conn = getConnection(config)
         if config.main_connect:
-            conn.connect()
+            conn.connect(host = config.main_host, username = config.main_username, password = config.main_password)
+            #conn.connect()
     if agility is None:
         agility = Agility(conn, configuration)
     else:

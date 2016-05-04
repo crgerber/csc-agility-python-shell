@@ -12,7 +12,8 @@ import logging
 COMPONENT_NAME = 'agility-client'
 from logger import getLogger
 logger = getLogger(COMPONENT_NAME)
-from ..connection import RESTException
-from ..responseparser.decorators import download
+from core.restclient.connection import RESTException
+from core.http.decorators import download
+from core.agility.common.service import Endpoint
 
 %(classes)s
