@@ -1,5 +1,5 @@
-from base.ConfigSettings import ConfigSettingsBase
-from actions.ConfigSettings import ConfigSettingsActions
+from core.agility.v3_3.agilitymodel.base.ConfigSettings import ConfigSettingsBase
+from core.agility.v3_3.agilitymodel.actions.ConfigSettings import ConfigSettingsActions
 
 class ConfigSettings(ConfigSettingsBase, ConfigSettingsActions):
     '''

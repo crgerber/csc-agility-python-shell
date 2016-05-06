@@ -1,5 +1,5 @@
-from base.ApiInfo import ApiInfoBase
-from actions.ApiInfo import ApiInfoActions
+from core.agility.v3_3.agilitymodel.base.ApiInfo import ApiInfoBase
+from core.agility.v3_3.agilitymodel.actions.ApiInfo import ApiInfoActions
 
 class ApiInfo(ApiInfoBase, ApiInfoActions):
     '''

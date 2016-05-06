@@ -1,5 +1,5 @@
-from base.DistNode import DistNodeBase
-from actions.DistNode import DistNodeActions
+from core.agility.v3_3.agilitymodel.base.DistNode import DistNodeBase
+from core.agility.v3_3.agilitymodel.actions.DistNode import DistNodeActions
 
 class DistNode(DistNodeBase, DistNodeActions):
     '''

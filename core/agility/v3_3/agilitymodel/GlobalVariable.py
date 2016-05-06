@@ -1,5 +1,5 @@
-from base.GlobalVariable import GlobalVariableBase
-from actions.GlobalVariable import GlobalVariableActions
+from core.agility.v3_3.agilitymodel.base.GlobalVariable import GlobalVariableBase
+from core.agility.v3_3.agilitymodel.actions.GlobalVariable import GlobalVariableActions
 
 class GlobalVariable(GlobalVariableBase, GlobalVariableActions):
     '''

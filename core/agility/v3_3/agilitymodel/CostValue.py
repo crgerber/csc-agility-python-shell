@@ -1,5 +1,5 @@
-from base.CostValue import CostValueBase
-from actions.CostValue import CostValueActions
+from core.agility.v3_3.agilitymodel.base.CostValue import CostValueBase
+from core.agility.v3_3.agilitymodel.actions.CostValue import CostValueActions
 
 class CostValue(CostValueBase, CostValueActions):
     '''

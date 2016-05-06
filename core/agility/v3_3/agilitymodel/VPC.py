@@ -1,5 +1,5 @@
-from base.VPC import VPCBase
-from actions.VPC import VPCActions
+from core.agility.v3_3.agilitymodel.base.VPC import VPCBase
+from core.agility.v3_3.agilitymodel.actions.VPC import VPCActions
 
 class VPC(VPCBase, VPCActions):
     '''

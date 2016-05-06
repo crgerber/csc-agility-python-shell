@@ -1,4 +1,4 @@
-from VersionedItem import VersionedItemBase
+from core.agility.v3_3.agilitymodel.base.VersionedItem import VersionedItemBase
 
 class ContainerBase(VersionedItemBase):
     '''

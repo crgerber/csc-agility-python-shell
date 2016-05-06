@@ -1,5 +1,5 @@
-from base.ImportAssetReport import ImportAssetReportBase
-from actions.ImportAssetReport import ImportAssetReportActions
+from core.agility.v3_3.agilitymodel.base.ImportAssetReport import ImportAssetReportBase
+from core.agility.v3_3.agilitymodel.actions.ImportAssetReport import ImportAssetReportActions
 
 class ImportAssetReport(ImportAssetReportBase, ImportAssetReportActions):
     '''

@@ -1,5 +1,5 @@
-from base.StorePublisher import StorePublisherBase
-from actions.StorePublisher import StorePublisherActions
+from core.agility.v3_3.agilitymodel.base.StorePublisher import StorePublisherBase
+from core.agility.v3_3.agilitymodel.actions.StorePublisher import StorePublisherActions
 
 class StorePublisher(StorePublisherBase, StorePublisherActions):
     '''

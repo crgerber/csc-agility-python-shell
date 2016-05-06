@@ -1,5 +1,5 @@
-from base.Protocol import ProtocolBase
-from actions.Protocol import ProtocolActions
+from core.agility.v3_3.agilitymodel.base.Protocol import ProtocolBase
+from core.agility.v3_3.agilitymodel.actions.Protocol import ProtocolActions
 
 class Protocol(ProtocolBase, ProtocolActions):
     '''

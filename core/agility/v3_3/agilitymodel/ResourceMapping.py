@@ -1,5 +1,5 @@
-from base.ResourceMapping import ResourceMappingBase
-from actions.ResourceMapping import ResourceMappingActions
+from core.agility.v3_3.agilitymodel.base.ResourceMapping import ResourceMappingBase
+from core.agility.v3_3.agilitymodel.actions.ResourceMapping import ResourceMappingActions
 
 class ResourceMapping(ResourceMappingBase, ResourceMappingActions):
     '''

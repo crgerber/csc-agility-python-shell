@@ -1,5 +1,5 @@
-from base.TreeNode import TreeNodeBase
-from actions.TreeNode import TreeNodeActions
+from core.agility.v3_3.agilitymodel.base.TreeNode import TreeNodeBase
+from core.agility.v3_3.agilitymodel.actions.TreeNode import TreeNodeActions
 
 class TreeNode(TreeNodeBase, TreeNodeActions):
     '''

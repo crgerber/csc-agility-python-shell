@@ -1,5 +1,5 @@
-from base.UserTaskList import UserTaskListBase
-from actions.UserTaskList import UserTaskListActions
+from core.agility.v3_3.agilitymodel.base.UserTaskList import UserTaskListBase
+from core.agility.v3_3.agilitymodel.actions.UserTaskList import UserTaskListActions
 
 class UserTaskList(UserTaskListBase, UserTaskListActions):
     '''

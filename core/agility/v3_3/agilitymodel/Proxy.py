@@ -1,5 +1,5 @@
-from base.Proxy import ProxyBase
-from actions.Proxy import ProxyActions
+from core.agility.v3_3.agilitymodel.base.Proxy import ProxyBase
+from core.agility.v3_3.agilitymodel.actions.Proxy import ProxyActions
 
 class Proxy(ProxyBase, ProxyActions):
     '''

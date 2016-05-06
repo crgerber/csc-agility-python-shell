@@ -1,5 +1,5 @@
-from base.DescriptiveLink import DescriptiveLinkBase
-from actions.DescriptiveLink import DescriptiveLinkActions
+from core.agility.v3_3.agilitymodel.base.DescriptiveLink import DescriptiveLinkBase
+from core.agility.v3_3.agilitymodel.actions.DescriptiveLink import DescriptiveLinkActions
 
 class DescriptiveLink(DescriptiveLinkBase, DescriptiveLinkActions):
     '''

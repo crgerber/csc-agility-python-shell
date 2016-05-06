@@ -1,5 +1,5 @@
-from base.VolumeStorageSnapshot import VolumeStorageSnapshotBase
-from actions.VolumeStorageSnapshot import VolumeStorageSnapshotActions
+from core.agility.v3_3.agilitymodel.base.VolumeStorageSnapshot import VolumeStorageSnapshotBase
+from core.agility.v3_3.agilitymodel.actions.VolumeStorageSnapshot import VolumeStorageSnapshotActions
 
 class VolumeStorageSnapshot(VolumeStorageSnapshotBase, VolumeStorageSnapshotActions):
     '''

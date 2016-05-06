@@ -1,5 +1,5 @@
-from base.ImportDirectives import ImportDirectivesBase
-from actions.ImportDirectives import ImportDirectivesActions
+from core.agility.v3_3.agilitymodel.base.ImportDirectives import ImportDirectivesBase
+from core.agility.v3_3.agilitymodel.actions.ImportDirectives import ImportDirectivesActions
 
 class ImportDirectives(ImportDirectivesBase, ImportDirectivesActions):
     '''

@@ -1,4 +1,4 @@
-from ApiResponse import ApiResponseBase
+from core.agility.v3_3.agilitymodel.base.ApiResponse import ApiResponseBase
 
 class NetworkInterfaceUpdateResponseBase(ApiResponseBase):
     '''

@@ -1,5 +1,5 @@
-from base.Model import ModelBase
-from actions.Model import ModelActions
+from core.agility.v3_3.agilitymodel.base.Model import ModelBase
+from core.agility.v3_3.agilitymodel.actions.Model import ModelActions
 
 class Model(ModelBase, ModelActions):
     '''

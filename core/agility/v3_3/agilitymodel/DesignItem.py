@@ -1,5 +1,5 @@
-from base.DesignItem import DesignItemBase
-from actions.DesignItem import DesignItemActions
+from core.agility.v3_3.agilitymodel.base.DesignItem import DesignItemBase
+from core.agility.v3_3.agilitymodel.actions.DesignItem import DesignItemActions
 
 class DesignItem(DesignItemBase, DesignItemActions):
     '''

@@ -1,5 +1,5 @@
-from base.Project import ProjectBase
-from actions.Project import ProjectActions
+from core.agility.v3_3.agilitymodel.base.Project import ProjectBase
+from core.agility.v3_3.agilitymodel.actions.Project import ProjectActions
 
 class Project(ProjectBase, ProjectActions):
     '''

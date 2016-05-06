@@ -1,5 +1,5 @@
-from base.AuthToken import AuthTokenBase
-from actions.AuthToken import AuthTokenActions
+from core.agility.v3_3.agilitymodel.base.AuthToken import AuthTokenBase
+from core.agility.v3_3.agilitymodel.actions.AuthToken import AuthTokenActions
 
 class AuthToken(AuthTokenBase, AuthTokenActions):
     '''

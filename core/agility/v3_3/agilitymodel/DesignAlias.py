@@ -1,5 +1,5 @@
-from base.DesignAlias import DesignAliasBase
-from actions.DesignAlias import DesignAliasActions
+from core.agility.v3_3.agilitymodel.base.DesignAlias import DesignAliasBase
+from core.agility.v3_3.agilitymodel.actions.DesignAlias import DesignAliasActions
 
 class DesignAlias(DesignAliasBase, DesignAliasActions):
     '''

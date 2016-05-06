@@ -1,5 +1,5 @@
-from base.PlatformService import PlatformServiceBase
-from actions.PlatformService import PlatformServiceActions
+from core.agility.v3_3.agilitymodel.base.PlatformService import PlatformServiceBase
+from core.agility.v3_3.agilitymodel.actions.PlatformService import PlatformServiceActions
 
 class PlatformService(PlatformServiceBase, PlatformServiceActions):
     '''

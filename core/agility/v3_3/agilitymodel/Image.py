@@ -1,5 +1,5 @@
-from base.Image import ImageBase
-from actions.Image import ImageActions
+from core.agility.v3_3.agilitymodel.base.Image import ImageBase
+from core.agility.v3_3.agilitymodel.actions.Image import ImageActions
 
 class Image(ImageBase, ImageActions):
     '''

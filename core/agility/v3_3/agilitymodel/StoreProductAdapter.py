@@ -1,5 +1,5 @@
-from base.StoreProductAdapter import StoreProductAdapterBase
-from actions.StoreProductAdapter import StoreProductAdapterActions
+from core.agility.v3_3.agilitymodel.base.StoreProductAdapter import StoreProductAdapterBase
+from core.agility.v3_3.agilitymodel.actions.StoreProductAdapter import StoreProductAdapterActions
 
 class StoreProductAdapter(StoreProductAdapterBase, StoreProductAdapterActions):
     '''

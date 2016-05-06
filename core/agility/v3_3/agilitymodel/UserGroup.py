@@ -1,5 +1,5 @@
-from base.UserGroup import UserGroupBase
-from actions.UserGroup import UserGroupActions
+from core.agility.v3_3.agilitymodel.base.UserGroup import UserGroupBase
+from core.agility.v3_3.agilitymodel.actions.UserGroup import UserGroupActions
 
 class UserGroup(UserGroupBase, UserGroupActions):
     '''

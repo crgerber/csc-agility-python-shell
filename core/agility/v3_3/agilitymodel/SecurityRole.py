@@ -1,5 +1,5 @@
-from base.SecurityRole import SecurityRoleBase
-from actions.SecurityRole import SecurityRoleActions
+from core.agility.v3_3.agilitymodel.base.SecurityRole import SecurityRoleBase
+from core.agility.v3_3.agilitymodel.actions.SecurityRole import SecurityRoleActions
 
 class SecurityRole(SecurityRoleBase, SecurityRoleActions):
     '''

@@ -1,5 +1,5 @@
-from base.CloudMetaModel import CloudMetaModelBase
-from actions.CloudMetaModel import CloudMetaModelActions
+from core.agility.v3_3.agilitymodel.base.CloudMetaModel import CloudMetaModelBase
+from core.agility.v3_3.agilitymodel.actions.CloudMetaModel import CloudMetaModelActions
 
 class CloudMetaModel(CloudMetaModelBase, CloudMetaModelActions):
     '''

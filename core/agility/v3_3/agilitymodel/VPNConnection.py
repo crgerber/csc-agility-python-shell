@@ -1,5 +1,5 @@
-from base.VPNConnection import VPNConnectionBase
-from actions.VPNConnection import VPNConnectionActions
+from core.agility.v3_3.agilitymodel.base.VPNConnection import VPNConnectionBase
+from core.agility.v3_3.agilitymodel.actions.VPNConnection import VPNConnectionActions
 
 class VPNConnection(VPNConnectionBase, VPNConnectionActions):
     '''

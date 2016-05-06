@@ -1,5 +1,5 @@
-from base.Blueprint import BlueprintBase
-from actions.Blueprint import BlueprintActions
+from core.agility.v3_3.agilitymodel.base.Blueprint import BlueprintBase
+from core.agility.v3_3.agilitymodel.actions.Blueprint import BlueprintActions
 
 class Blueprint(BlueprintBase, BlueprintActions):
     '''

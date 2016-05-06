@@ -1,5 +1,5 @@
-from base.StorageAssignment import StorageAssignmentBase
-from actions.StorageAssignment import StorageAssignmentActions
+from core.agility.v3_3.agilitymodel.base.StorageAssignment import StorageAssignmentBase
+from core.agility.v3_3.agilitymodel.actions.StorageAssignment import StorageAssignmentActions
 
 class StorageAssignment(StorageAssignmentBase, StorageAssignmentActions):
     '''

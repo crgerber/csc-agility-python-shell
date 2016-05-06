@@ -1,5 +1,5 @@
-from base.StorageSnapshot import StorageSnapshotBase
-from actions.StorageSnapshot import StorageSnapshotActions
+from core.agility.v3_3.agilitymodel.base.StorageSnapshot import StorageSnapshotBase
+from core.agility.v3_3.agilitymodel.actions.StorageSnapshot import StorageSnapshotActions
 
 class StorageSnapshot(StorageSnapshotBase, StorageSnapshotActions):
     '''

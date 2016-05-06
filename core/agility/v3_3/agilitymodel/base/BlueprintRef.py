@@ -1,4 +1,4 @@
-from DesignItem import DesignItemBase
+from core.agility.v3_3.agilitymodel.base.DesignItem import DesignItemBase
 
 class BlueprintRefBase(DesignItemBase):
     '''

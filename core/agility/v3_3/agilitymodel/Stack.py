@@ -1,5 +1,5 @@
-from base.Stack import StackBase
-from actions.Stack import StackActions
+from core.agility.v3_3.agilitymodel.base.Stack import StackBase
+from core.agility.v3_3.agilitymodel.actions.Stack import StackActions
 
 class Stack(StackBase, StackActions):
     '''

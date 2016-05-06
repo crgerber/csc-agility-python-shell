@@ -1,5 +1,5 @@
-from base.InternetGateway import InternetGatewayBase
-from actions.InternetGateway import InternetGatewayActions
+from core.agility.v3_3.agilitymodel.base.InternetGateway import InternetGatewayBase
+from core.agility.v3_3.agilitymodel.actions.InternetGateway import InternetGatewayActions
 
 class InternetGateway(InternetGatewayBase, InternetGatewayActions):
     '''

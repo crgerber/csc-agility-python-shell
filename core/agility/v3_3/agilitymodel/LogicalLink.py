@@ -1,5 +1,5 @@
-from base.LogicalLink import LogicalLinkBase
-from actions.LogicalLink import LogicalLinkActions
+from core.agility.v3_3.agilitymodel.base.LogicalLink import LogicalLinkBase
+from core.agility.v3_3.agilitymodel.actions.LogicalLink import LogicalLinkActions
 
 class LogicalLink(LogicalLinkBase, LogicalLinkActions):
     '''

@@ -1,5 +1,5 @@
-from base.GetVariableRequest import GetVariableRequestBase
-from actions.GetVariableRequest import GetVariableRequestActions
+from core.agility.v3_3.agilitymodel.base.GetVariableRequest import GetVariableRequestBase
+from core.agility.v3_3.agilitymodel.actions.GetVariableRequest import GetVariableRequestActions
 
 class GetVariableRequest(GetVariableRequestBase, GetVariableRequestActions):
     '''

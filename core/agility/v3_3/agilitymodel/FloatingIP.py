@@ -1,5 +1,5 @@
-from base.FloatingIP import FloatingIPBase
-from actions.FloatingIP import FloatingIPActions
+from core.agility.v3_3.agilitymodel.base.FloatingIP import FloatingIPBase
+from core.agility.v3_3.agilitymodel.actions.FloatingIP import FloatingIPActions
 
 class FloatingIP(FloatingIPBase, FloatingIPActions):
     '''

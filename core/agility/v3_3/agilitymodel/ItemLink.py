@@ -1,5 +1,5 @@
-from base.ItemLink import ItemLinkBase
-from actions.ItemLink import ItemLinkActions
+from core.agility.v3_3.agilitymodel.base.ItemLink import ItemLinkBase
+from core.agility.v3_3.agilitymodel.actions.ItemLink import ItemLinkActions
 
 class ItemLink(ItemLinkBase, ItemLinkActions):
     '''

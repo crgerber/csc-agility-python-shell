@@ -1,5 +1,5 @@
-from base.Instance import InstanceBase
-from actions.Instance import InstanceActions
+from core.agility.v3_3.agilitymodel.base.Instance import InstanceBase
+from core.agility.v3_3.agilitymodel.actions.Instance import InstanceActions
 
 class Instance(InstanceBase, InstanceActions):
     '''

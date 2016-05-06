@@ -1,5 +1,5 @@
-from base.ImportReport import ImportReportBase
-from actions.ImportReport import ImportReportActions
+from core.agility.v3_3.agilitymodel.base.ImportReport import ImportReportBase
+from core.agility.v3_3.agilitymodel.actions.ImportReport import ImportReportActions
 
 class ImportReport(ImportReportBase, ImportReportActions):
     '''

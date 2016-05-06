@@ -1,5 +1,5 @@
-from base.VPNGateway import VPNGatewayBase
-from actions.VPNGateway import VPNGatewayActions
+from core.agility.v3_3.agilitymodel.base.VPNGateway import VPNGatewayBase
+from core.agility.v3_3.agilitymodel.actions.VPNGateway import VPNGatewayActions
 
 class VPNGateway(VPNGatewayBase, VPNGatewayActions):
     '''

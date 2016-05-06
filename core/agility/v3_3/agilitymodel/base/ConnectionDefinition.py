@@ -1,4 +1,4 @@
-from Asset import AssetBase
+from core.agility.v3_3.agilitymodel.base.Asset import AssetBase
 
 class ConnectionDefinitionBase(AssetBase):
     '''

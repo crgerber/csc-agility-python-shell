@@ -1,5 +1,5 @@
-from base.NetworkSubscription import NetworkSubscriptionBase
-from actions.NetworkSubscription import NetworkSubscriptionActions
+from core.agility.v3_3.agilitymodel.base.NetworkSubscription import NetworkSubscriptionBase
+from core.agility.v3_3.agilitymodel.actions.NetworkSubscription import NetworkSubscriptionActions
 
 class NetworkSubscription(NetworkSubscriptionBase, NetworkSubscriptionActions):
     '''

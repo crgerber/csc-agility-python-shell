@@ -1,5 +1,5 @@
-from base.Credential import CredentialBase
-from actions.Credential import CredentialActions
+from core.agility.v3_3.agilitymodel.base.Credential import CredentialBase
+from core.agility.v3_3.agilitymodel.actions.Credential import CredentialActions
 
 class Credential(CredentialBase, CredentialActions):
     '''

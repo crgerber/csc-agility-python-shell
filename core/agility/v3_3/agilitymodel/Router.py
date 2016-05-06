@@ -1,5 +1,5 @@
-from base.Router import RouterBase
-from actions.Router import RouterActions
+from core.agility.v3_3.agilitymodel.base.Router import RouterBase
+from core.agility.v3_3.agilitymodel.actions.Router import RouterActions
 
 class Router(RouterBase, RouterActions):
     '''

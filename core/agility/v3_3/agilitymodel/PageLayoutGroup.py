@@ -1,5 +1,5 @@
-from base.PageLayoutGroup import PageLayoutGroupBase
-from actions.PageLayoutGroup import PageLayoutGroupActions
+from core.agility.v3_3.agilitymodel.base.PageLayoutGroup import PageLayoutGroupBase
+from core.agility.v3_3.agilitymodel.actions.PageLayoutGroup import PageLayoutGroupActions
 
 class PageLayoutGroup(PageLayoutGroupBase, PageLayoutGroupActions):
     '''

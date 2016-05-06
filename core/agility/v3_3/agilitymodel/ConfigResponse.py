@@ -1,5 +1,5 @@
-from base.ConfigResponse import ConfigResponseBase
-from actions.ConfigResponse import ConfigResponseActions
+from core.agility.v3_3.agilitymodel.base.ConfigResponse import ConfigResponseBase
+from core.agility.v3_3.agilitymodel.actions.ConfigResponse import ConfigResponseActions
 
 class ConfigResponse(ConfigResponseBase, ConfigResponseActions):
     '''

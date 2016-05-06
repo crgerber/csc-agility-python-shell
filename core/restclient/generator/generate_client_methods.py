@@ -476,7 +476,12 @@ def resolveMethodNameConflict(cls, method, othermethod, methodsMap):
         duplicateMethodNames[othermethodKey] = othermethodentry
 
     if methodKey not in duplicateMethods or othermethodKey not in duplicateMethods:
-        methodAlias, othermethodAlias = promptResolveMethodNameConflict(methodentry, othermethodentry)
+        autoDedupe = configuration.get(section='main', option='auto_dedupe')
+        if autoDedupe :
+            methodAlias = "%s_1" % methodentry['name']
+            othermethodAlias = "%s_2" % othermethodentry['name']
+        else :
+            methodAlias, othermethodAlias = promptResolveMethodNameConflict(methodentry, othermethodentry)        
     else:
         methodAlias = duplicateMethods[methodKey]['method_alias']
         othermethodAlias = duplicateMethods[othermethodKey]['method_alias']
@@ -671,7 +676,7 @@ def comment_out(text, comment="#"):
 
     return result.strip()
 
-def update_file_if_changed(filename, contents):
+def update_file_if_changed(filename, content):
     """
     Update a file using the specified contents. We deliberately avoid touching
     the file if it's contents haven't changed, so that re-compiles aren't
@@ -865,7 +870,8 @@ if __name__ == "__main__":
     # Create/update the output file(s) as necessary
     
     if lang == "python":
-        out_dir = os.path.join(out_dir, api_version)
+        if not api_version == None:
+            out_dir = os.path.join(out_dir, api_version)        
         if not os.path.exists(out_dir):
             os.makedirs(out_dir)
         filename = os.path.join(out_dir, "methods.py")

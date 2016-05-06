@@ -1,5 +1,5 @@
-from base.ObjectReference import ObjectReferenceBase
-from actions.ObjectReference import ObjectReferenceActions
+from core.agility.v3_3.agilitymodel.base.ObjectReference import ObjectReferenceBase
+from core.agility.v3_3.agilitymodel.actions.ObjectReference import ObjectReferenceActions
 
 class ObjectReference(ObjectReferenceBase, ObjectReferenceActions):
     '''

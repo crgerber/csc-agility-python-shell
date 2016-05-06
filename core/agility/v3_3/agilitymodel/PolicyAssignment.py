@@ -1,5 +1,5 @@
-from base.PolicyAssignment import PolicyAssignmentBase
-from actions.PolicyAssignment import PolicyAssignmentActions
+from core.agility.v3_3.agilitymodel.base.PolicyAssignment import PolicyAssignmentBase
+from core.agility.v3_3.agilitymodel.actions.PolicyAssignment import PolicyAssignmentActions
 
 class PolicyAssignment(PolicyAssignmentBase, PolicyAssignmentActions):
     '''

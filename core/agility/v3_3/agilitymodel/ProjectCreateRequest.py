@@ -1,5 +1,5 @@
-from base.ProjectCreateRequest import ProjectCreateRequestBase
-from actions.ProjectCreateRequest import ProjectCreateRequestActions
+from core.agility.v3_3.agilitymodel.base.ProjectCreateRequest import ProjectCreateRequestBase
+from core.agility.v3_3.agilitymodel.actions.ProjectCreateRequest import ProjectCreateRequestActions
 
 class ProjectCreateRequest(ProjectCreateRequestBase, ProjectCreateRequestActions):
     '''

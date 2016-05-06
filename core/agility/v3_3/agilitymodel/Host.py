@@ -1,5 +1,5 @@
-from base.Host import HostBase
-from actions.Host import HostActions
+from core.agility.v3_3.agilitymodel.base.Host import HostBase
+from core.agility.v3_3.agilitymodel.actions.Host import HostActions
 
 class Host(HostBase, HostActions):
     '''

@@ -1,5 +1,5 @@
-from base.NetworkProvider import NetworkProviderBase
-from actions.NetworkProvider import NetworkProviderActions
+from core.agility.v3_3.agilitymodel.base.NetworkProvider import NetworkProviderBase
+from core.agility.v3_3.agilitymodel.actions.NetworkProvider import NetworkProviderActions
 
 class NetworkProvider(NetworkProviderBase, NetworkProviderActions):
     '''

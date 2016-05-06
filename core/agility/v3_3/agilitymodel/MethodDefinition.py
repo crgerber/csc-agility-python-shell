@@ -1,5 +1,5 @@
-from base.MethodDefinition import MethodDefinitionBase
-from actions.MethodDefinition import MethodDefinitionActions
+from core.agility.v3_3.agilitymodel.base.MethodDefinition import MethodDefinitionBase
+from core.agility.v3_3.agilitymodel.actions.MethodDefinition import MethodDefinitionActions
 
 class MethodDefinition(MethodDefinitionBase, MethodDefinitionActions):
     '''

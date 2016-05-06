@@ -1,5 +1,5 @@
-from base.ProjectTemplate import ProjectTemplateBase
-from actions.ProjectTemplate import ProjectTemplateActions
+from core.agility.v3_3.agilitymodel.base.ProjectTemplate import ProjectTemplateBase
+from core.agility.v3_3.agilitymodel.actions.ProjectTemplate import ProjectTemplateActions
 
 class ProjectTemplate(ProjectTemplateBase, ProjectTemplateActions):
     '''

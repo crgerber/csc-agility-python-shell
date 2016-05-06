@@ -1,5 +1,5 @@
-from base.AuthGroupList import AuthGroupListBase
-from actions.AuthGroupList import AuthGroupListActions
+from core.agility.v3_3.agilitymodel.base.AuthGroupList import AuthGroupListBase
+from core.agility.v3_3.agilitymodel.actions.AuthGroupList import AuthGroupListActions
 
 class AuthGroupList(AuthGroupListBase, AuthGroupListActions):
     '''

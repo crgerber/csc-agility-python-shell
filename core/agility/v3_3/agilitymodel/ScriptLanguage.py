@@ -1,5 +1,5 @@
-from base.ScriptLanguage import ScriptLanguageBase
-from actions.ScriptLanguage import ScriptLanguageActions
+from core.agility.v3_3.agilitymodel.base.ScriptLanguage import ScriptLanguageBase
+from core.agility.v3_3.agilitymodel.actions.ScriptLanguage import ScriptLanguageActions
 
 class ScriptLanguage(ScriptLanguageBase, ScriptLanguageActions):
     '''

@@ -1,5 +1,5 @@
-from base.StorePrice import StorePriceBase
-from actions.StorePrice import StorePriceActions
+from core.agility.v3_3.agilitymodel.base.StorePrice import StorePriceBase
+from core.agility.v3_3.agilitymodel.actions.StorePrice import StorePriceActions
 
 class StorePrice(StorePriceBase, StorePriceActions):
     '''

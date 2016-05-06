@@ -1,5 +1,5 @@
-from base.RegexValidator import RegexValidatorBase
-from actions.RegexValidator import RegexValidatorActions
+from core.agility.v3_3.agilitymodel.base.RegexValidator import RegexValidatorBase
+from core.agility.v3_3.agilitymodel.actions.RegexValidator import RegexValidatorActions
 
 class RegexValidator(RegexValidatorBase, RegexValidatorActions):
     '''

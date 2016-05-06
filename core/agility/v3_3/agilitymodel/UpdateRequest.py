@@ -1,5 +1,5 @@
-from base.UpdateRequest import UpdateRequestBase
-from actions.UpdateRequest import UpdateRequestActions
+from core.agility.v3_3.agilitymodel.base.UpdateRequest import UpdateRequestBase
+from core.agility.v3_3.agilitymodel.actions.UpdateRequest import UpdateRequestActions
 
 class UpdateRequest(UpdateRequestBase, UpdateRequestActions):
     '''

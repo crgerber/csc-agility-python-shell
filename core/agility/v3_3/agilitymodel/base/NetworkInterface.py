@@ -1,4 +1,4 @@
-from Resource import ResourceBase
+from core.agility.v3_3.agilitymodel.base.Resource import ResourceBase
 
 class NetworkInterfaceBase(ResourceBase):
     '''

@@ -1,4 +1,4 @@
-from Baselink import BaselinkBase
+from core.agility.v3_3.agilitymodel.base.Baselink import BaselinkBase
 
 class LinkBase(BaselinkBase):
     '''

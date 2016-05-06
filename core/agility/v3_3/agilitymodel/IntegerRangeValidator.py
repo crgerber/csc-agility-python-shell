@@ -1,5 +1,5 @@
-from base.IntegerRangeValidator import IntegerRangeValidatorBase
-from actions.IntegerRangeValidator import IntegerRangeValidatorActions
+from core.agility.v3_3.agilitymodel.base.IntegerRangeValidator import IntegerRangeValidatorBase
+from core.agility.v3_3.agilitymodel.actions.IntegerRangeValidator import IntegerRangeValidatorActions
 
 class IntegerRangeValidator(IntegerRangeValidatorBase, IntegerRangeValidatorActions):
     '''

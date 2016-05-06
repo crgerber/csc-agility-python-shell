@@ -1,5 +1,5 @@
-from base.DeploymentPlan import DeploymentPlanBase
-from actions.DeploymentPlan import DeploymentPlanActions
+from core.agility.v3_3.agilitymodel.base.DeploymentPlan import DeploymentPlanBase
+from core.agility.v3_3.agilitymodel.actions.DeploymentPlan import DeploymentPlanActions
 
 class DeploymentPlan(DeploymentPlanBase, DeploymentPlanActions):
     '''

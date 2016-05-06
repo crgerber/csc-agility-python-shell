@@ -1,5 +1,5 @@
-from base.AttachmentLocation import AttachmentLocationBase
-from actions.AttachmentLocation import AttachmentLocationActions
+from core.agility.v3_3.agilitymodel.base.AttachmentLocation import AttachmentLocationBase
+from core.agility.v3_3.agilitymodel.actions.AttachmentLocation import AttachmentLocationActions
 
 class AttachmentLocation(AttachmentLocationBase, AttachmentLocationActions):
     '''

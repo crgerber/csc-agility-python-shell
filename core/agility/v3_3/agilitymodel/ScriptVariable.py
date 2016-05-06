@@ -1,5 +1,5 @@
-from base.ScriptVariable import ScriptVariableBase
-from actions.ScriptVariable import ScriptVariableActions
+from core.agility.v3_3.agilitymodel.base.ScriptVariable import ScriptVariableBase
+from core.agility.v3_3.agilitymodel.actions.ScriptVariable import ScriptVariableActions
 
 class ScriptVariable(ScriptVariableBase, ScriptVariableActions):
     '''

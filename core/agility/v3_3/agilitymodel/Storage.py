@@ -1,5 +1,5 @@
-from base.Storage import StorageBase
-from actions.Storage import StorageActions
+from core.agility.v3_3.agilitymodel.base.Storage import StorageBase
+from core.agility.v3_3.agilitymodel.actions.Storage import StorageActions
 
 class Storage(StorageBase, StorageActions):
     '''

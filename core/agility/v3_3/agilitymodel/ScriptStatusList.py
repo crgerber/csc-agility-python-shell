@@ -1,5 +1,5 @@
-from base.ScriptStatusList import ScriptStatusListBase
-from actions.ScriptStatusList import ScriptStatusListActions
+from core.agility.v3_3.agilitymodel.base.ScriptStatusList import ScriptStatusListBase
+from core.agility.v3_3.agilitymodel.actions.ScriptStatusList import ScriptStatusListActions
 
 class ScriptStatusList(ScriptStatusListBase, ScriptStatusListActions):
     '''

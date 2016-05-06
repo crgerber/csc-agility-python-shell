@@ -1,5 +1,5 @@
-from base.Authentication import AuthenticationBase
-from actions.Authentication import AuthenticationActions
+from core.agility.v3_3.agilitymodel.base.Authentication import AuthenticationBase
+from core.agility.v3_3.agilitymodel.actions.Authentication import AuthenticationActions
 
 class Authentication(AuthenticationBase, AuthenticationActions):
     '''

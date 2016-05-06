@@ -1,4 +1,4 @@
-from DescriptiveLink import DescriptiveLinkBase
+from core.agility.v3_3.agilitymodel.base.DescriptiveLink import DescriptiveLinkBase
 
 class ResourceMatchBase(DescriptiveLinkBase):
     '''

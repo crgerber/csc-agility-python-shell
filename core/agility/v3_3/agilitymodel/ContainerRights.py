@@ -1,5 +1,5 @@
-from base.ContainerRights import ContainerRightsBase
-from actions.ContainerRights import ContainerRightsActions
+from core.agility.v3_3.agilitymodel.base.ContainerRights import ContainerRightsBase
+from core.agility.v3_3.agilitymodel.actions.ContainerRights import ContainerRightsActions
 
 class ContainerRights(ContainerRightsBase, ContainerRightsActions):
     '''

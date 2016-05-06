@@ -1,5 +1,5 @@
-from base.StoreEdition import StoreEditionBase
-from actions.StoreEdition import StoreEditionActions
+from core.agility.v3_3.agilitymodel.base.StoreEdition import StoreEditionBase
+from core.agility.v3_3.agilitymodel.actions.StoreEdition import StoreEditionActions
 
 class StoreEdition(StoreEditionBase, StoreEditionActions):
     '''

@@ -1,5 +1,5 @@
-from base.Cloud import CloudBase
-from actions.Cloud import CloudActions
+from core.agility.v3_3.agilitymodel.base.Cloud import CloudBase
+from core.agility.v3_3.agilitymodel.actions.Cloud import CloudActions
 
 class Cloud(CloudBase, CloudActions):
     '''

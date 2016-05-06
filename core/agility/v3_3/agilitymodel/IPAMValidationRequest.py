@@ -1,5 +1,5 @@
-from base.IPAMValidationRequest import IPAMValidationRequestBase
-from actions.IPAMValidationRequest import IPAMValidationRequestActions
+from core.agility.v3_3.agilitymodel.base.IPAMValidationRequest import IPAMValidationRequestBase
+from core.agility.v3_3.agilitymodel.actions.IPAMValidationRequest import IPAMValidationRequestActions
 
 class IPAMValidationRequest(IPAMValidationRequestBase, IPAMValidationRequestActions):
     '''

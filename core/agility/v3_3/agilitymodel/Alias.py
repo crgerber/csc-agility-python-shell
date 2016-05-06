@@ -1,5 +1,5 @@
-from base.Alias import AliasBase
-from actions.Alias import AliasActions
+from core.agility.v3_3.agilitymodel.base.Alias import AliasBase
+from core.agility.v3_3.agilitymodel.actions.Alias import AliasActions
 
 class Alias(AliasBase, AliasActions):
     '''

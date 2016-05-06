@@ -1,5 +1,5 @@
-from base.NetworkInterface import NetworkInterfaceBase
-from actions.NetworkInterface import NetworkInterfaceActions
+from core.agility.v3_3.agilitymodel.base.NetworkInterface import NetworkInterfaceBase
+from core.agility.v3_3.agilitymodel.actions.NetworkInterface import NetworkInterfaceActions
 
 class NetworkInterface(NetworkInterfaceBase, NetworkInterfaceActions):
     '''

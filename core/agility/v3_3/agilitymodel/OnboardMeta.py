@@ -1,5 +1,5 @@
-from base.OnboardMeta import OnboardMetaBase
-from actions.OnboardMeta import OnboardMetaActions
+from core.agility.v3_3.agilitymodel.base.OnboardMeta import OnboardMetaBase
+from core.agility.v3_3.agilitymodel.actions.OnboardMeta import OnboardMetaActions
 
 class OnboardMeta(OnboardMetaBase, OnboardMetaActions):
     '''

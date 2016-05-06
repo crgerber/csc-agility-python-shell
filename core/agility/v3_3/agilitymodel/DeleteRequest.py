@@ -1,5 +1,5 @@
-from base.DeleteRequest import DeleteRequestBase
-from actions.DeleteRequest import DeleteRequestActions
+from core.agility.v3_3.agilitymodel.base.DeleteRequest import DeleteRequestBase
+from core.agility.v3_3.agilitymodel.actions.DeleteRequest import DeleteRequestActions
 
 class DeleteRequest(DeleteRequestBase, DeleteRequestActions):
     '''

@@ -1,5 +1,5 @@
-from base.RouterInterface import RouterInterfaceBase
-from actions.RouterInterface import RouterInterfaceActions
+from core.agility.v3_3.agilitymodel.base.RouterInterface import RouterInterfaceBase
+from core.agility.v3_3.agilitymodel.actions.RouterInterface import RouterInterfaceActions
 
 class RouterInterface(RouterInterfaceBase, RouterInterfaceActions):
     '''

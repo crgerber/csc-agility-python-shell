@@ -1,5 +1,5 @@
-from base.VolumeStorage import VolumeStorageBase
-from actions.VolumeStorage import VolumeStorageActions
+from core.agility.v3_3.agilitymodel.base.VolumeStorage import VolumeStorageBase
+from core.agility.v3_3.agilitymodel.actions.VolumeStorage import VolumeStorageActions
 
 class VolumeStorage(VolumeStorageBase, VolumeStorageActions):
     '''

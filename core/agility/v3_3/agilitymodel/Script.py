@@ -1,5 +1,5 @@
-from base.Script import ScriptBase
-from actions.Script import ScriptActions
+from core.agility.v3_3.agilitymodel.base.Script import ScriptBase
+from core.agility.v3_3.agilitymodel.actions.Script import ScriptActions
 
 class Script(ScriptBase, ScriptActions):
     '''

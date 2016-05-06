@@ -1,5 +1,5 @@
-from base.FileSystem import FileSystemBase
-from actions.FileSystem import FileSystemActions
+from core.agility.v3_3.agilitymodel.base.FileSystem import FileSystemBase
+from core.agility.v3_3.agilitymodel.actions.FileSystem import FileSystemActions
 
 class FileSystem(FileSystemBase, FileSystemActions):
     '''

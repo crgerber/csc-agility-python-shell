@@ -1,5 +1,5 @@
-from base.ProjectRole import ProjectRoleBase
-from actions.ProjectRole import ProjectRoleActions
+from core.agility.v3_3.agilitymodel.base.ProjectRole import ProjectRoleBase
+from core.agility.v3_3.agilitymodel.actions.ProjectRole import ProjectRoleActions
 
 class ProjectRole(ProjectRoleBase, ProjectRoleActions):
     '''

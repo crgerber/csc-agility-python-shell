@@ -1,5 +1,5 @@
-from base.ArtifactRuntimeBinding import ArtifactRuntimeBindingBase
-from actions.ArtifactRuntimeBinding import ArtifactRuntimeBindingActions
+from core.agility.v3_3.agilitymodel.base.ArtifactRuntimeBinding import ArtifactRuntimeBindingBase
+from core.agility.v3_3.agilitymodel.actions.ArtifactRuntimeBinding import ArtifactRuntimeBindingActions
 
 class ArtifactRuntimeBinding(ArtifactRuntimeBindingBase, ArtifactRuntimeBindingActions):
     '''

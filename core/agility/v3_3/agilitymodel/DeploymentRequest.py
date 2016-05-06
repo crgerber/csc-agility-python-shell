@@ -1,5 +1,5 @@
-from base.DeploymentRequest import DeploymentRequestBase
-from actions.DeploymentRequest import DeploymentRequestActions
+from core.agility.v3_3.agilitymodel.base.DeploymentRequest import DeploymentRequestBase
+from core.agility.v3_3.agilitymodel.actions.DeploymentRequest import DeploymentRequestActions
 
 class DeploymentRequest(DeploymentRequestBase, DeploymentRequestActions):
     '''

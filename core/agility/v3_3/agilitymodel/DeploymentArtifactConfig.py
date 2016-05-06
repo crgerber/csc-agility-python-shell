@@ -1,5 +1,5 @@
-from base.DeploymentArtifactConfig import DeploymentArtifactConfigBase
-from actions.DeploymentArtifactConfig import DeploymentArtifactConfigActions
+from core.agility.v3_3.agilitymodel.base.DeploymentArtifactConfig import DeploymentArtifactConfigBase
+from core.agility.v3_3.agilitymodel.actions.DeploymentArtifactConfig import DeploymentArtifactConfigActions
 
 class DeploymentArtifactConfig(DeploymentArtifactConfigBase, DeploymentArtifactConfigActions):
     '''

@@ -1,5 +1,5 @@
-from base.EffectiveProtocol import EffectiveProtocolBase
-from actions.EffectiveProtocol import EffectiveProtocolActions
+from core.agility.v3_3.agilitymodel.base.EffectiveProtocol import EffectiveProtocolBase
+from core.agility.v3_3.agilitymodel.actions.EffectiveProtocol import EffectiveProtocolActions
 
 class EffectiveProtocol(EffectiveProtocolBase, EffectiveProtocolActions):
     '''

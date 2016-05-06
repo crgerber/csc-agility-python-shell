@@ -1,5 +1,5 @@
-from base.CreateRequest import CreateRequestBase
-from actions.CreateRequest import CreateRequestActions
+from core.agility.v3_3.agilitymodel.base.CreateRequest import CreateRequestBase
+from core.agility.v3_3.agilitymodel.actions.CreateRequest import CreateRequestActions
 
 class CreateRequest(CreateRequestBase, CreateRequestActions):
     '''

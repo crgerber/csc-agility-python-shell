@@ -1,5 +1,5 @@
-from base.TargetCloud import TargetCloudBase
-from actions.TargetCloud import TargetCloudActions
+from core.agility.v3_3.agilitymodel.base.TargetCloud import TargetCloudBase
+from core.agility.v3_3.agilitymodel.actions.TargetCloud import TargetCloudActions
 
 class TargetCloud(TargetCloudBase, TargetCloudActions):
     '''

@@ -1,5 +1,5 @@
-from base.DesignDeployer import DesignDeployerBase
-from actions.DesignDeployer import DesignDeployerActions
+from core.agility.v3_3.agilitymodel.base.DesignDeployer import DesignDeployerBase
+from core.agility.v3_3.agilitymodel.actions.DesignDeployer import DesignDeployerActions
 
 class DesignDeployer(DesignDeployerBase, DesignDeployerActions):
     '''

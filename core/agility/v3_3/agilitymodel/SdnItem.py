@@ -1,5 +1,5 @@
-from base.SdnItem import SdnItemBase
-from actions.SdnItem import SdnItemActions
+from core.agility.v3_3.agilitymodel.base.SdnItem import SdnItemBase
+from core.agility.v3_3.agilitymodel.actions.SdnItem import SdnItemActions
 
 class SdnItem(SdnItemBase, SdnItemActions):
     '''

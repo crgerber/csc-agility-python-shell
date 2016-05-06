@@ -1,5 +1,5 @@
-from base.Link import LinkBase
-from actions.Link import LinkActions
+from core.agility.v3_3.agilitymodel.base.Link import LinkBase
+from core.agility.v3_3.agilitymodel.actions.Link import LinkActions
 
 class Link(LinkBase, LinkActions):
     '''

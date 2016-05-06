@@ -9,6 +9,7 @@ prefetch = True
 connect = True
 bs4path = <beautifulsoup4_home_path>
 lang = python
+auto_dedupe = True
 
 #[security]
 #oauth or basic

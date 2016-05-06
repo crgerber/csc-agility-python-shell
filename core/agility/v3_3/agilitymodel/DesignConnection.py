@@ -1,5 +1,5 @@
-from base.DesignConnection import DesignConnectionBase
-from actions.DesignConnection import DesignConnectionActions
+from core.agility.v3_3.agilitymodel.base.DesignConnection import DesignConnectionBase
+from core.agility.v3_3.agilitymodel.actions.DesignConnection import DesignConnectionActions
 
 class DesignConnection(DesignConnectionBase, DesignConnectionActions):
     '''

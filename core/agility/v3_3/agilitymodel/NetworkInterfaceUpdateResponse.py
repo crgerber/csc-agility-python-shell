@@ -1,5 +1,5 @@
-from base.NetworkInterfaceUpdateResponse import NetworkInterfaceUpdateResponseBase
-from actions.NetworkInterfaceUpdateResponse import NetworkInterfaceUpdateResponseActions
+from core.agility.v3_3.agilitymodel.base.NetworkInterfaceUpdateResponse import NetworkInterfaceUpdateResponseBase
+from core.agility.v3_3.agilitymodel.actions.NetworkInterfaceUpdateResponse import NetworkInterfaceUpdateResponseActions
 
 class NetworkInterfaceUpdateResponse(NetworkInterfaceUpdateResponseBase, NetworkInterfaceUpdateResponseActions):
     '''

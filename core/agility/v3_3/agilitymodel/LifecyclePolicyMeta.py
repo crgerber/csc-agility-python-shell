@@ -1,5 +1,5 @@
-from base.LifecyclePolicyMeta import LifecyclePolicyMetaBase
-from actions.LifecyclePolicyMeta import LifecyclePolicyMetaActions
+from core.agility.v3_3.agilitymodel.base.LifecyclePolicyMeta import LifecyclePolicyMetaBase
+from core.agility.v3_3.agilitymodel.actions.LifecyclePolicyMeta import LifecyclePolicyMetaActions
 
 class LifecyclePolicyMeta(LifecyclePolicyMetaBase, LifecyclePolicyMetaActions):
     '''

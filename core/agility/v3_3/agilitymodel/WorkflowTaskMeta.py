@@ -1,5 +1,5 @@
-from base.WorkflowTaskMeta import WorkflowTaskMetaBase
-from actions.WorkflowTaskMeta import WorkflowTaskMetaActions
+from core.agility.v3_3.agilitymodel.base.WorkflowTaskMeta import WorkflowTaskMetaBase
+from core.agility.v3_3.agilitymodel.actions.WorkflowTaskMeta import WorkflowTaskMetaActions
 
 class WorkflowTaskMeta(WorkflowTaskMetaBase, WorkflowTaskMetaActions):
     '''

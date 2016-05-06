@@ -1,5 +1,5 @@
-from base.PublishRequest import PublishRequestBase
-from actions.PublishRequest import PublishRequestActions
+from core.agility.v3_3.agilitymodel.base.PublishRequest import PublishRequestBase
+from core.agility.v3_3.agilitymodel.actions.PublishRequest import PublishRequestActions
 
 class PublishRequest(PublishRequestBase, PublishRequestActions):
     '''

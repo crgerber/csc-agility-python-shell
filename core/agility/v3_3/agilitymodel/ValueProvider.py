@@ -1,5 +1,5 @@
-from base.ValueProvider import ValueProviderBase
-from actions.ValueProvider import ValueProviderActions
+from core.agility.v3_3.agilitymodel.base.ValueProvider import ValueProviderBase
+from core.agility.v3_3.agilitymodel.actions.ValueProvider import ValueProviderActions
 
 class ValueProvider(ValueProviderBase, ValueProviderActions):
     '''

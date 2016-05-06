@@ -1,5 +1,5 @@
-from base.PriceEngine import PriceEngineBase
-from actions.PriceEngine import PriceEngineActions
+from core.agility.v3_3.agilitymodel.base.PriceEngine import PriceEngineBase
+from core.agility.v3_3.agilitymodel.actions.PriceEngine import PriceEngineActions
 
 class PriceEngine(PriceEngineBase, PriceEngineActions):
     '''

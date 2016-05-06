@@ -1,5 +1,5 @@
-from base.VPCSubnet import VPCSubnetBase
-from actions.VPCSubnet import VPCSubnetActions
+from core.agility.v3_3.agilitymodel.base.VPCSubnet import VPCSubnetBase
+from core.agility.v3_3.agilitymodel.actions.VPCSubnet import VPCSubnetActions
 
 class VPCSubnet(VPCSubnetBase, VPCSubnetActions):
     '''

@@ -1,5 +1,5 @@
-from base.CustomItemList import CustomItemListBase
-from actions.CustomItemList import CustomItemListActions
+from core.agility.v3_3.agilitymodel.base.CustomItemList import CustomItemListBase
+from core.agility.v3_3.agilitymodel.actions.CustomItemList import CustomItemListActions
 
 class CustomItemList(CustomItemListBase, CustomItemListActions):
     '''

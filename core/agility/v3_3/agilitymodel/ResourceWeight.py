@@ -1,5 +1,5 @@
-from base.ResourceWeight import ResourceWeightBase
-from actions.ResourceWeight import ResourceWeightActions
+from core.agility.v3_3.agilitymodel.base.ResourceWeight import ResourceWeightBase
+from core.agility.v3_3.agilitymodel.actions.ResourceWeight import ResourceWeightActions
 
 class ResourceWeight(ResourceWeightBase, ResourceWeightActions):
     '''

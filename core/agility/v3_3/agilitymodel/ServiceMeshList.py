@@ -1,5 +1,5 @@
-from base.ServiceMeshList import ServiceMeshListBase
-from actions.ServiceMeshList import ServiceMeshListActions
+from core.agility.v3_3.agilitymodel.base.ServiceMeshList import ServiceMeshListBase
+from core.agility.v3_3.agilitymodel.actions.ServiceMeshList import ServiceMeshListActions
 
 class ServiceMeshList(ServiceMeshListBase, ServiceMeshListActions):
     '''

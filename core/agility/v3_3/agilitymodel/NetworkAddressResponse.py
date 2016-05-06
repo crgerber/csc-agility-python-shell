@@ -1,5 +1,5 @@
-from base.NetworkAddressResponse import NetworkAddressResponseBase
-from actions.NetworkAddressResponse import NetworkAddressResponseActions
+from core.agility.v3_3.agilitymodel.base.NetworkAddressResponse import NetworkAddressResponseBase
+from core.agility.v3_3.agilitymodel.actions.NetworkAddressResponse import NetworkAddressResponseActions
 
 class NetworkAddressResponse(NetworkAddressResponseBase, NetworkAddressResponseActions):
     '''

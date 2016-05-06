@@ -1,5 +1,5 @@
-from base.PageContext import PageContextBase
-from actions.PageContext import PageContextActions
+from core.agility.v3_3.agilitymodel.base.PageContext import PageContextBase
+from core.agility.v3_3.agilitymodel.actions.PageContext import PageContextActions
 
 class PageContext(PageContextBase, PageContextActions):
     '''

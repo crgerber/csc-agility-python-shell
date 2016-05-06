@@ -1,5 +1,5 @@
-from base.AssetFilter import AssetFilterBase
-from actions.AssetFilter import AssetFilterActions
+from core.agility.v3_3.agilitymodel.base.AssetFilter import AssetFilterBase
+from core.agility.v3_3.agilitymodel.actions.AssetFilter import AssetFilterActions
 
 class AssetFilter(AssetFilterBase, AssetFilterActions):
     '''

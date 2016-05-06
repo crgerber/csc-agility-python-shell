@@ -1,5 +1,5 @@
-from base.ErrorInfo import ErrorInfoBase
-from actions.ErrorInfo import ErrorInfoActions
+from core.agility.v3_3.agilitymodel.base.ErrorInfo import ErrorInfoBase
+from core.agility.v3_3.agilitymodel.actions.ErrorInfo import ErrorInfoActions
 
 class ErrorInfo(ErrorInfoBase, ErrorInfoActions):
     '''

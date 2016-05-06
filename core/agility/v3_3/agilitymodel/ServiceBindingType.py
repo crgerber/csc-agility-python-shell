@@ -1,5 +1,5 @@
-from base.ServiceBindingType import ServiceBindingTypeBase
-from actions.ServiceBindingType import ServiceBindingTypeActions
+from core.agility.v3_3.agilitymodel.base.ServiceBindingType import ServiceBindingTypeBase
+from core.agility.v3_3.agilitymodel.actions.ServiceBindingType import ServiceBindingTypeActions
 
 class ServiceBindingType(ServiceBindingTypeBase, ServiceBindingTypeActions):
     '''

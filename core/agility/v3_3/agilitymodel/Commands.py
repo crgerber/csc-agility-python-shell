@@ -1,5 +1,5 @@
-from base.Commands import CommandsBase
-from actions.Commands import CommandsActions
+from core.agility.v3_3.agilitymodel.base.Commands import CommandsBase
+from core.agility.v3_3.agilitymodel.actions.Commands import CommandsActions
 
 class Commands(CommandsBase, CommandsActions):
     '''

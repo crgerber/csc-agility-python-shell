@@ -1,5 +1,5 @@
-from base.BlueprintRef import BlueprintRefBase
-from actions.BlueprintRef import BlueprintRefActions
+from core.agility.v3_3.agilitymodel.base.BlueprintRef import BlueprintRefBase
+from core.agility.v3_3.agilitymodel.actions.BlueprintRef import BlueprintRefActions
 
 class BlueprintRef(BlueprintRefBase, BlueprintRefActions):
     '''

@@ -1,5 +1,5 @@
-from base.DateValidator import DateValidatorBase
-from actions.DateValidator import DateValidatorActions
+from core.agility.v3_3.agilitymodel.base.DateValidator import DateValidatorBase
+from core.agility.v3_3.agilitymodel.actions.DateValidator import DateValidatorActions
 
 class DateValidator(DateValidatorBase, DateValidatorActions):
     '''

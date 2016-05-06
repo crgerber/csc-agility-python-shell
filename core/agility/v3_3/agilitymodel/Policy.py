@@ -1,5 +1,5 @@
-from base.Policy import PolicyBase
-from actions.Policy import PolicyActions
+from core.agility.v3_3.agilitymodel.base.Policy import PolicyBase
+from core.agility.v3_3.agilitymodel.actions.Policy import PolicyActions
 
 class Policy(PolicyBase, PolicyActions):
     '''

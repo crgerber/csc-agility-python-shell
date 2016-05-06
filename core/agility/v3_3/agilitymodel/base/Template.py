@@ -1,4 +1,4 @@
-from Item import ItemBase
+from core.agility.v3_3.agilitymodel.base.Item import ItemBase
 
 class TemplateBase(ItemBase):
     '''

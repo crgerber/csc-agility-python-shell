@@ -1,5 +1,5 @@
-from base.ListRequest import ListRequestBase
-from actions.ListRequest import ListRequestActions
+from core.agility.v3_3.agilitymodel.base.ListRequest import ListRequestBase
+from core.agility.v3_3.agilitymodel.actions.ListRequest import ListRequestActions
 
 class ListRequest(ListRequestBase, ListRequestActions):
     '''

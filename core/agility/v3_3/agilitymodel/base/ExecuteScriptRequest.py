@@ -1,4 +1,4 @@
-from ApiRequest import ApiRequestBase
+from core.agility.v3_3.agilitymodel.base.ApiRequest import ApiRequestBase
 
 class ExecuteScriptRequestBase(ApiRequestBase):
     '''

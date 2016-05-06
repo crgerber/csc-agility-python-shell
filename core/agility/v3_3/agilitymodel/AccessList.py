@@ -1,5 +1,5 @@
-from base.AccessList import AccessListBase
-from actions.AccessList import AccessListActions
+from core.agility.v3_3.agilitymodel.base.AccessList import AccessListBase
+from core.agility.v3_3.agilitymodel.actions.AccessList import AccessListActions
 
 class AccessList(AccessListBase, AccessListActions):
     '''

@@ -1,4 +1,4 @@
-from Topology import TopologyBase
+from core.agility.v3_3.agilitymodel.base.Topology import TopologyBase
 
 class EnvironmentBase(TopologyBase):
     '''

@@ -1,5 +1,5 @@
-from base.HotswapList import HotswapListBase
-from actions.HotswapList import HotswapListActions
+from core.agility.v3_3.agilitymodel.base.HotswapList import HotswapListBase
+from core.agility.v3_3.agilitymodel.actions.HotswapList import HotswapListActions
 
 class HotswapList(HotswapListBase, HotswapListActions):
     '''

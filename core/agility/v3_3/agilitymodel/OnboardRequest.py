@@ -1,5 +1,5 @@
-from base.OnboardRequest import OnboardRequestBase
-from actions.OnboardRequest import OnboardRequestActions
+from core.agility.v3_3.agilitymodel.base.OnboardRequest import OnboardRequestBase
+from core.agility.v3_3.agilitymodel.actions.OnboardRequest import OnboardRequestActions
 
 class OnboardRequest(OnboardRequestBase, OnboardRequestActions):
     '''

@@ -1,5 +1,5 @@
-from base.CustomContainerList import CustomContainerListBase
-from actions.CustomContainerList import CustomContainerListActions
+from core.agility.v3_3.agilitymodel.base.CustomContainerList import CustomContainerListBase
+from core.agility.v3_3.agilitymodel.actions.CustomContainerList import CustomContainerListActions
 
 class CustomContainerList(CustomContainerListBase, CustomContainerListActions):
     '''

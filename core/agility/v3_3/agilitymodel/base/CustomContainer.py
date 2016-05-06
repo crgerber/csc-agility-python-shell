@@ -1,4 +1,4 @@
-from Container import ContainerBase
+from core.agility.v3_3.agilitymodel.base.Container import ContainerBase
 
 class CustomContainerBase(ContainerBase):
     '''

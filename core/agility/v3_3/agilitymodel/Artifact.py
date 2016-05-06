@@ -1,5 +1,5 @@
-from base.Artifact import ArtifactBase
-from actions.Artifact import ArtifactActions
+from core.agility.v3_3.agilitymodel.base.Artifact import ArtifactBase
+from core.agility.v3_3.agilitymodel.actions.Artifact import ArtifactActions
 
 class Artifact(ArtifactBase, ArtifactActions):
     '''

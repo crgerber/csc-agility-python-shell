@@ -1,4 +1,4 @@
-from Protocol import ProtocolBase
+from core.agility.v3_3.agilitymodel.base.Protocol import ProtocolBase
 
 class EffectiveProtocolBase(ProtocolBase):
     '''

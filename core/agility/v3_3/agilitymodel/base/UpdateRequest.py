@@ -1,4 +1,4 @@
-from CreateRequest import CreateRequestBase
+from core.agility.v3_3.agilitymodel.base.CreateRequest import CreateRequestBase
 
 class UpdateRequestBase(CreateRequestBase):
     '''

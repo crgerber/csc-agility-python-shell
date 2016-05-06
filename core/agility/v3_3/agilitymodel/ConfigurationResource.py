@@ -1,5 +1,5 @@
-from base.ConfigurationResource import ConfigurationResourceBase
-from actions.ConfigurationResource import ConfigurationResourceActions
+from core.agility.v3_3.agilitymodel.base.ConfigurationResource import ConfigurationResourceBase
+from core.agility.v3_3.agilitymodel.actions.ConfigurationResource import ConfigurationResourceActions
 
 class ConfigurationResource(ConfigurationResourceBase, ConfigurationResourceActions):
     '''

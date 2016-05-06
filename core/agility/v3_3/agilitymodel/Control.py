@@ -1,5 +1,5 @@
-from base.Control import ControlBase
-from actions.Control import ControlActions
+from core.agility.v3_3.agilitymodel.base.Control import ControlBase
+from core.agility.v3_3.agilitymodel.actions.Control import ControlActions
 
 class Control(ControlBase, ControlActions):
     '''

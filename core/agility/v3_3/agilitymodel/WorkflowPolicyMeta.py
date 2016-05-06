@@ -1,5 +1,5 @@
-from base.WorkflowPolicyMeta import WorkflowPolicyMetaBase
-from actions.WorkflowPolicyMeta import WorkflowPolicyMetaActions
+from core.agility.v3_3.agilitymodel.base.WorkflowPolicyMeta import WorkflowPolicyMetaBase
+from core.agility.v3_3.agilitymodel.actions.WorkflowPolicyMeta import WorkflowPolicyMetaActions
 
 class WorkflowPolicyMeta(WorkflowPolicyMetaBase, WorkflowPolicyMetaActions):
     '''

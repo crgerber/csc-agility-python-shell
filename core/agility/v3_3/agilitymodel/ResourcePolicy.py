@@ -1,5 +1,5 @@
-from base.ResourcePolicy import ResourcePolicyBase
-from actions.ResourcePolicy import ResourcePolicyActions
+from core.agility.v3_3.agilitymodel.base.ResourcePolicy import ResourcePolicyBase
+from core.agility.v3_3.agilitymodel.actions.ResourcePolicy import ResourcePolicyActions
 
 class ResourcePolicy(ResourcePolicyBase, ResourcePolicyActions):
     '''

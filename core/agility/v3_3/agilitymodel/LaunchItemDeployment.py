@@ -1,5 +1,5 @@
-from base.LaunchItemDeployment import LaunchItemDeploymentBase
-from actions.LaunchItemDeployment import LaunchItemDeploymentActions
+from core.agility.v3_3.agilitymodel.base.LaunchItemDeployment import LaunchItemDeploymentBase
+from core.agility.v3_3.agilitymodel.actions.LaunchItemDeployment import LaunchItemDeploymentActions
 
 class LaunchItemDeployment(LaunchItemDeploymentBase, LaunchItemDeploymentActions):
     '''

@@ -1,5 +1,5 @@
-from base.Volume import VolumeBase
-from actions.Volume import VolumeActions
+from core.agility.v3_3.agilitymodel.base.Volume import VolumeBase
+from core.agility.v3_3.agilitymodel.actions.Volume import VolumeActions
 
 class Volume(VolumeBase, VolumeActions):
     '''

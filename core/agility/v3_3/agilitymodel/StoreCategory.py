@@ -1,5 +1,5 @@
-from base.StoreCategory import StoreCategoryBase
-from actions.StoreCategory import StoreCategoryActions
+from core.agility.v3_3.agilitymodel.base.StoreCategory import StoreCategoryBase
+from core.agility.v3_3.agilitymodel.actions.StoreCategory import StoreCategoryActions
 
 class StoreCategory(StoreCategoryBase, StoreCategoryActions):
     '''

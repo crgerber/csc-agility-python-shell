@@ -1,5 +1,5 @@
-from base.ResourceMatch import ResourceMatchBase
-from actions.ResourceMatch import ResourceMatchActions
+from core.agility.v3_3.agilitymodel.base.ResourceMatch import ResourceMatchBase
+from core.agility.v3_3.agilitymodel.actions.ResourceMatch import ResourceMatchActions
 
 class ResourceMatch(ResourceMatchBase, ResourceMatchActions):
     '''

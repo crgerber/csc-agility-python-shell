@@ -1,5 +1,5 @@
-from base.ConfigurationArtifact import ConfigurationArtifactBase
-from actions.ConfigurationArtifact import ConfigurationArtifactActions
+from core.agility.v3_3.agilitymodel.base.ConfigurationArtifact import ConfigurationArtifactBase
+from core.agility.v3_3.agilitymodel.actions.ConfigurationArtifact import ConfigurationArtifactActions
 
 class ConfigurationArtifact(ConfigurationArtifactBase, ConfigurationArtifactActions):
     '''

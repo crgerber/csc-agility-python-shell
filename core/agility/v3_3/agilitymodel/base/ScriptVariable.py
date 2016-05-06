@@ -1,4 +1,4 @@
-from Variable import VariableBase
+from core.agility.v3_3.agilitymodel.base.Variable import VariableBase
 
 class ScriptVariableBase(VariableBase):
     '''

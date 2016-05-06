@@ -1,5 +1,5 @@
-from base.ResourceMetric import ResourceMetricBase
-from actions.ResourceMetric import ResourceMetricActions
+from core.agility.v3_3.agilitymodel.base.ResourceMetric import ResourceMetricBase
+from core.agility.v3_3.agilitymodel.actions.ResourceMetric import ResourceMetricActions
 
 class ResourceMetric(ResourceMetricBase, ResourceMetricActions):
     '''

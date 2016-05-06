@@ -1,4 +1,4 @@
-from FieldValidator import FieldValidatorBase
+from core.agility.v3_3.agilitymodel.base.FieldValidator import FieldValidatorBase
 
 class StringLengthValidatorBase(FieldValidatorBase):
     '''

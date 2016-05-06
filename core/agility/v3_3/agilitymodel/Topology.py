@@ -1,5 +1,5 @@
-from base.Topology import TopologyBase
-from actions.Topology import TopologyActions
+from core.agility.v3_3.agilitymodel.base.Topology import TopologyBase
+from core.agility.v3_3.agilitymodel.actions.Topology import TopologyActions
 
 class Topology(TopologyBase, TopologyActions):
     '''

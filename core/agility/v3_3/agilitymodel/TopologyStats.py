@@ -1,5 +1,5 @@
-from base.TopologyStats import TopologyStatsBase
-from actions.TopologyStats import TopologyStatsActions
+from core.agility.v3_3.agilitymodel.base.TopologyStats import TopologyStatsBase
+from core.agility.v3_3.agilitymodel.actions.TopologyStats import TopologyStatsActions
 
 class TopologyStats(TopologyStatsBase, TopologyStatsActions):
     '''

@@ -1,5 +1,5 @@
-from base.FileSystemDevice import FileSystemDeviceBase
-from actions.FileSystemDevice import FileSystemDeviceActions
+from core.agility.v3_3.agilitymodel.base.FileSystemDevice import FileSystemDeviceBase
+from core.agility.v3_3.agilitymodel.actions.FileSystemDevice import FileSystemDeviceActions
 
 class FileSystemDevice(FileSystemDeviceBase, FileSystemDeviceActions):
     '''

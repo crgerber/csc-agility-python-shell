@@ -1,4 +1,4 @@
-from SdnItem import SdnItemBase
+from core.agility.v3_3.agilitymodel.base.SdnItem import SdnItemBase
 
 class PortBase(SdnItemBase):
     '''

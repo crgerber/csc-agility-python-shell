@@ -1,5 +1,5 @@
-from base.ConnectionDefinition import ConnectionDefinitionBase
-from actions.ConnectionDefinition import ConnectionDefinitionActions
+from core.agility.v3_3.agilitymodel.base.ConnectionDefinition import ConnectionDefinitionBase
+from core.agility.v3_3.agilitymodel.actions.ConnectionDefinition import ConnectionDefinitionActions
 
 class ConnectionDefinition(ConnectionDefinitionBase, ConnectionDefinitionActions):
     '''

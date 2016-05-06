@@ -1,5 +1,5 @@
-from base.PropertyMatch import PropertyMatchBase
-from actions.PropertyMatch import PropertyMatchActions
+from core.agility.v3_3.agilitymodel.base.PropertyMatch import PropertyMatchBase
+from core.agility.v3_3.agilitymodel.actions.PropertyMatch import PropertyMatchActions
 
 class PropertyMatch(PropertyMatchBase, PropertyMatchActions):
     '''

@@ -1,5 +1,5 @@
-from base.NameValuePair import NameValuePairBase
-from actions.NameValuePair import NameValuePairActions
+from core.agility.v3_3.agilitymodel.base.NameValuePair import NameValuePairBase
+from core.agility.v3_3.agilitymodel.actions.NameValuePair import NameValuePairActions
 
 class NameValuePair(NameValuePairBase, NameValuePairActions):
     '''

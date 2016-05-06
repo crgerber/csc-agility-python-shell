@@ -1,5 +1,5 @@
-from base.InputVariable import InputVariableBase
-from actions.InputVariable import InputVariableActions
+from core.agility.v3_3.agilitymodel.base.InputVariable import InputVariableBase
+from core.agility.v3_3.agilitymodel.actions.InputVariable import InputVariableActions
 
 class InputVariable(InputVariableBase, InputVariableActions):
     '''

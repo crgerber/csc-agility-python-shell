@@ -1,5 +1,5 @@
-from base.Runtime import RuntimeBase
-from actions.Runtime import RuntimeActions
+from core.agility.v3_3.agilitymodel.base.Runtime import RuntimeBase
+from core.agility.v3_3.agilitymodel.actions.Runtime import RuntimeActions
 
 class Runtime(RuntimeBase, RuntimeActions):
     '''

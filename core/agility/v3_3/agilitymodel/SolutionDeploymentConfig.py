@@ -1,5 +1,5 @@
-from base.SolutionDeploymentConfig import SolutionDeploymentConfigBase
-from actions.SolutionDeploymentConfig import SolutionDeploymentConfigActions
+from core.agility.v3_3.agilitymodel.base.SolutionDeploymentConfig import SolutionDeploymentConfigBase
+from core.agility.v3_3.agilitymodel.actions.SolutionDeploymentConfig import SolutionDeploymentConfigActions
 
 class SolutionDeploymentConfig(SolutionDeploymentConfigBase, SolutionDeploymentConfigActions):
     '''

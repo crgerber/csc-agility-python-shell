@@ -1,5 +1,5 @@
-from base.PermissionType import PermissionTypeBase
-from actions.PermissionType import PermissionTypeActions
+from core.agility.v3_3.agilitymodel.base.PermissionType import PermissionTypeBase
+from core.agility.v3_3.agilitymodel.actions.PermissionType import PermissionTypeActions
 
 class PermissionType(PermissionTypeBase, PermissionTypeActions):
     '''

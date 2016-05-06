@@ -1,5 +1,5 @@
-from base.VolumeResponse import VolumeResponseBase
-from actions.VolumeResponse import VolumeResponseActions
+from core.agility.v3_3.agilitymodel.base.VolumeResponse import VolumeResponseBase
+from core.agility.v3_3.agilitymodel.actions.VolumeResponse import VolumeResponseActions
 
 class VolumeResponse(VolumeResponseBase, VolumeResponseActions):
     '''

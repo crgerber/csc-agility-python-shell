@@ -1,5 +1,5 @@
-from base.Item import ItemBase
-from actions.Item import ItemActions
+from core.agility.v3_3.agilitymodel.base.Item import ItemBase
+from core.agility.v3_3.agilitymodel.actions.Item import ItemActions
 
 class Item(ItemBase, ItemActions):
     '''

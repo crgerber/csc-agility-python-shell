@@ -1,5 +1,5 @@
-from base.AssetTypeBrief import AssetTypeBriefBase
-from actions.AssetTypeBrief import AssetTypeBriefActions
+from core.agility.v3_3.agilitymodel.base.AssetTypeBrief import AssetTypeBriefBase
+from core.agility.v3_3.agilitymodel.actions.AssetTypeBrief import AssetTypeBriefActions
 
 class AssetTypeBrief(AssetTypeBriefBase, AssetTypeBriefActions):
     '''

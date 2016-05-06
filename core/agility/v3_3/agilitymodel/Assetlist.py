@@ -1,5 +1,5 @@
-from base.Assetlist import AssetlistBase
-from actions.Assetlist import AssetlistActions
+from core.agility.v3_3.agilitymodel.base.Assetlist import AssetlistBase
+from core.agility.v3_3.agilitymodel.actions.Assetlist import AssetlistActions
 
 class Assetlist(AssetlistBase, AssetlistActions):
     '''

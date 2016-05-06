@@ -1,5 +1,5 @@
-from base.Solution import SolutionBase
-from actions.Solution import SolutionActions
+from core.agility.v3_3.agilitymodel.base.Solution import SolutionBase
+from core.agility.v3_3.agilitymodel.actions.Solution import SolutionActions
 
 class Solution(SolutionBase, SolutionActions):
     '''

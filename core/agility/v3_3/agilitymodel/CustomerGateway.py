@@ -1,5 +1,5 @@
-from base.CustomerGateway import CustomerGatewayBase
-from actions.CustomerGateway import CustomerGatewayActions
+from core.agility.v3_3.agilitymodel.base.CustomerGateway import CustomerGatewayBase
+from core.agility.v3_3.agilitymodel.actions.CustomerGateway import CustomerGatewayActions
 
 class CustomerGateway(CustomerGatewayBase, CustomerGatewayActions):
     '''

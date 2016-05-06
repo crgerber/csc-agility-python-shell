@@ -1,5 +1,5 @@
-from base.ApiResponse import ApiResponseBase
-from actions.ApiResponse import ApiResponseActions
+from core.agility.v3_3.agilitymodel.base.ApiResponse import ApiResponseBase
+from core.agility.v3_3.agilitymodel.actions.ApiResponse import ApiResponseActions
 
 class ApiResponse(ApiResponseBase, ApiResponseActions):
     '''

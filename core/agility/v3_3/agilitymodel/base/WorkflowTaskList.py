@@ -1,4 +1,4 @@
-from ServiceMeshList import ServiceMeshListBase
+from core.agility.v3_3.agilitymodel.base.ServiceMeshList import ServiceMeshListBase
 
 class WorkflowTaskListBase(ServiceMeshListBase):
     '''

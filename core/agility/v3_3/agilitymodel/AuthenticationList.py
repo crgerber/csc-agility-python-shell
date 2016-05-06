@@ -1,5 +1,5 @@
-from base.AuthenticationList import AuthenticationListBase
-from actions.AuthenticationList import AuthenticationListActions
+from core.agility.v3_3.agilitymodel.base.AuthenticationList import AuthenticationListBase
+from core.agility.v3_3.agilitymodel.actions.AuthenticationList import AuthenticationListActions
 
 class AuthenticationList(AuthenticationListBase, AuthenticationListActions):
     '''

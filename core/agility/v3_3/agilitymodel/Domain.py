@@ -1,5 +1,5 @@
-from base.Domain import DomainBase
-from actions.Domain import DomainActions
+from core.agility.v3_3.agilitymodel.base.Domain import DomainBase
+from core.agility.v3_3.agilitymodel.actions.Domain import DomainActions
 
 class Domain(DomainBase, DomainActions):
     '''

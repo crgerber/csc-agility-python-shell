@@ -1,5 +1,5 @@
-from base.ErrorMessage import ErrorMessageBase
-from actions.ErrorMessage import ErrorMessageActions
+from core.agility.v3_3.agilitymodel.base.ErrorMessage import ErrorMessageBase
+from core.agility.v3_3.agilitymodel.actions.ErrorMessage import ErrorMessageActions
 
 class ErrorMessage(ErrorMessageBase, ErrorMessageActions):
     '''

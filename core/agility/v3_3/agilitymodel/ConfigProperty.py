@@ -1,5 +1,5 @@
-from base.ConfigProperty import ConfigPropertyBase
-from actions.ConfigProperty import ConfigPropertyActions
+from core.agility.v3_3.agilitymodel.base.ConfigProperty import ConfigPropertyBase
+from core.agility.v3_3.agilitymodel.actions.ConfigProperty import ConfigPropertyActions
 
 class ConfigProperty(ConfigPropertyBase, ConfigPropertyActions):
     '''

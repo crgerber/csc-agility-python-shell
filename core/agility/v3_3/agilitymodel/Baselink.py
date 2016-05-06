@@ -1,5 +1,5 @@
-from base.Baselink import BaselinkBase
-from actions.Baselink import BaselinkActions
+from core.agility.v3_3.agilitymodel.base.Baselink import BaselinkBase
+from core.agility.v3_3.agilitymodel.actions.Baselink import BaselinkActions
 
 class Baselink(BaselinkBase, BaselinkActions):
     '''

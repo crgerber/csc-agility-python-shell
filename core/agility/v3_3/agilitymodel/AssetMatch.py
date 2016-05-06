@@ -1,5 +1,5 @@
-from base.AssetMatch import AssetMatchBase
-from actions.AssetMatch import AssetMatchActions
+from core.agility.v3_3.agilitymodel.base.AssetMatch import AssetMatchBase
+from core.agility.v3_3.agilitymodel.actions.AssetMatch import AssetMatchActions
 
 class AssetMatch(AssetMatchBase, AssetMatchActions):
     '''

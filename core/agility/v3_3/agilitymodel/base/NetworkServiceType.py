@@ -1,4 +1,4 @@
-from ServiceProviderType import ServiceProviderTypeBase
+from core.agility.v3_3.agilitymodel.base.ServiceProviderType import ServiceProviderTypeBase
 
 class NetworkServiceTypeBase(ServiceProviderTypeBase):
     '''

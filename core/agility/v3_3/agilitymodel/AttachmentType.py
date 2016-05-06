@@ -1,5 +1,5 @@
-from base.AttachmentType import AttachmentTypeBase
-from actions.AttachmentType import AttachmentTypeActions
+from core.agility.v3_3.agilitymodel.base.AttachmentType import AttachmentTypeBase
+from core.agility.v3_3.agilitymodel.actions.AttachmentType import AttachmentTypeActions
 
 class AttachmentType(AttachmentTypeBase, AttachmentTypeActions):
     '''

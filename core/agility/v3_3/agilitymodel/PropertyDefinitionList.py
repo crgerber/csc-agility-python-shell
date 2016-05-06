@@ -1,5 +1,5 @@
-from base.PropertyDefinitionList import PropertyDefinitionListBase
-from actions.PropertyDefinitionList import PropertyDefinitionListActions
+from core.agility.v3_3.agilitymodel.base.PropertyDefinitionList import PropertyDefinitionListBase
+from core.agility.v3_3.agilitymodel.actions.PropertyDefinitionList import PropertyDefinitionListActions
 
 class PropertyDefinitionList(PropertyDefinitionListBase, PropertyDefinitionListActions):
     '''

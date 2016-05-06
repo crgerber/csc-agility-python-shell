@@ -1,5 +1,5 @@
-from base.VersionList import VersionListBase
-from actions.VersionList import VersionListActions
+from core.agility.v3_3.agilitymodel.base.VersionList import VersionListBase
+from core.agility.v3_3.agilitymodel.actions.VersionList import VersionListActions
 
 class VersionList(VersionListBase, VersionListActions):
     '''

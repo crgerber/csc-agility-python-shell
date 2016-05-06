@@ -1,5 +1,5 @@
-from base.NetworkServiceType import NetworkServiceTypeBase
-from actions.NetworkServiceType import NetworkServiceTypeActions
+from core.agility.v3_3.agilitymodel.base.NetworkServiceType import NetworkServiceTypeBase
+from core.agility.v3_3.agilitymodel.actions.NetworkServiceType import NetworkServiceTypeActions
 
 class NetworkServiceType(NetworkServiceTypeBase, NetworkServiceTypeActions):
     '''

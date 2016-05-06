@@ -1,5 +1,5 @@
-from base.PackageInfo import PackageInfoBase
-from actions.PackageInfo import PackageInfoActions
+from core.agility.v3_3.agilitymodel.base.PackageInfo import PackageInfoBase
+from core.agility.v3_3.agilitymodel.actions.PackageInfo import PackageInfoActions
 
 class PackageInfo(PackageInfoBase, PackageInfoActions):
     '''

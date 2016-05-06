@@ -1,5 +1,5 @@
-from base.Parameter import ParameterBase
-from actions.Parameter import ParameterActions
+from core.agility.v3_3.agilitymodel.base.Parameter import ParameterBase
+from core.agility.v3_3.agilitymodel.actions.Parameter import ParameterActions
 
 class Parameter(ParameterBase, ParameterActions):
     '''

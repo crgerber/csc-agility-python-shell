@@ -1,5 +1,5 @@
-from base.VPCGateway import VPCGatewayBase
-from actions.VPCGateway import VPCGatewayActions
+from core.agility.v3_3.agilitymodel.base.VPCGateway import VPCGatewayBase
+from core.agility.v3_3.agilitymodel.actions.VPCGateway import VPCGatewayActions
 
 class VPCGateway(VPCGatewayBase, VPCGatewayActions):
     '''

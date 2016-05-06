@@ -1,5 +1,5 @@
-from base.EULA import EULABase
-from actions.EULA import EULAActions
+from core.agility.v3_3.agilitymodel.base.EULA import EULABase
+from core.agility.v3_3.agilitymodel.actions.EULA import EULAActions
 
 class EULA(EULABase, EULAActions):
     '''

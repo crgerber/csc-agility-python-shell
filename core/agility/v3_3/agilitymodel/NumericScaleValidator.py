@@ -1,5 +1,5 @@
-from base.NumericScaleValidator import NumericScaleValidatorBase
-from actions.NumericScaleValidator import NumericScaleValidatorActions
+from core.agility.v3_3.agilitymodel.base.NumericScaleValidator import NumericScaleValidatorBase
+from core.agility.v3_3.agilitymodel.actions.NumericScaleValidator import NumericScaleValidatorActions
 
 class NumericScaleValidator(NumericScaleValidatorBase, NumericScaleValidatorActions):
     '''

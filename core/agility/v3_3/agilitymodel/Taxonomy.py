@@ -1,5 +1,5 @@
-from base.Taxonomy import TaxonomyBase
-from actions.Taxonomy import TaxonomyActions
+from core.agility.v3_3.agilitymodel.base.Taxonomy import TaxonomyBase
+from core.agility.v3_3.agilitymodel.actions.Taxonomy import TaxonomyActions
 
 class Taxonomy(TaxonomyBase, TaxonomyActions):
     '''

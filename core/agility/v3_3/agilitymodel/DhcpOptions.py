@@ -1,5 +1,5 @@
-from base.DhcpOptions import DhcpOptionsBase
-from actions.DhcpOptions import DhcpOptionsActions
+from core.agility.v3_3.agilitymodel.base.DhcpOptions import DhcpOptionsBase
+from core.agility.v3_3.agilitymodel.actions.DhcpOptions import DhcpOptionsActions
 
 class DhcpOptions(DhcpOptionsBase, DhcpOptionsActions):
     '''

@@ -1,5 +1,5 @@
-from base.ApiRequest import ApiRequestBase
-from actions.ApiRequest import ApiRequestActions
+from core.agility.v3_3.agilitymodel.base.ApiRequest import ApiRequestBase
+from core.agility.v3_3.agilitymodel.actions.ApiRequest import ApiRequestActions
 
 class ApiRequest(ApiRequestBase, ApiRequestActions):
     '''

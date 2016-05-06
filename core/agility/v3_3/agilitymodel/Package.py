@@ -1,5 +1,5 @@
-from base.Package import PackageBase
-from actions.Package import PackageActions
+from core.agility.v3_3.agilitymodel.base.Package import PackageBase
+from core.agility.v3_3.agilitymodel.actions.Package import PackageActions
 
 class Package(PackageBase, PackageActions):
     '''

@@ -1,4 +1,4 @@
-from Project import ProjectBase
+from core.agility.v3_3.agilitymodel.base.Project import ProjectBase
 
 class ProjectTemplateBase(ProjectBase):
     '''

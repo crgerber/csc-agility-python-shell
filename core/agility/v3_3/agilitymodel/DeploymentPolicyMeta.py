@@ -1,5 +1,5 @@
-from base.DeploymentPolicyMeta import DeploymentPolicyMetaBase
-from actions.DeploymentPolicyMeta import DeploymentPolicyMetaActions
+from core.agility.v3_3.agilitymodel.base.DeploymentPolicyMeta import DeploymentPolicyMetaBase
+from core.agility.v3_3.agilitymodel.actions.DeploymentPolicyMeta import DeploymentPolicyMetaActions
 
 class DeploymentPolicyMeta(DeploymentPolicyMetaBase, DeploymentPolicyMetaActions):
     '''

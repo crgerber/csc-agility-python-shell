@@ -1,5 +1,5 @@
-from base.Linklist import LinklistBase
-from actions.Linklist import LinklistActions
+from core.agility.v3_3.agilitymodel.base.Linklist import LinklistBase
+from core.agility.v3_3.agilitymodel.actions.Linklist import LinklistActions
 
 class Linklist(LinklistBase, LinklistActions):
     '''

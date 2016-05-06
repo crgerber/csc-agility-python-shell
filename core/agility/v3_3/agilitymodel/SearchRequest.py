@@ -1,5 +1,5 @@
-from base.SearchRequest import SearchRequestBase
-from actions.SearchRequest import SearchRequestActions
+from core.agility.v3_3.agilitymodel.base.SearchRequest import SearchRequestBase
+from core.agility.v3_3.agilitymodel.actions.SearchRequest import SearchRequestActions
 
 class SearchRequest(SearchRequestBase, SearchRequestActions):
     '''

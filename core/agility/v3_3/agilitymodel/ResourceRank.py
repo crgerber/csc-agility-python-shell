@@ -1,5 +1,5 @@
-from base.ResourceRank import ResourceRankBase
-from actions.ResourceRank import ResourceRankActions
+from core.agility.v3_3.agilitymodel.base.ResourceRank import ResourceRankBase
+from core.agility.v3_3.agilitymodel.actions.ResourceRank import ResourceRankActions
 
 class ResourceRank(ResourceRankBase, ResourceRankActions):
     '''

@@ -1,5 +1,5 @@
-from base.SearchTree import SearchTreeBase
-from actions.SearchTree import SearchTreeActions
+from core.agility.v3_3.agilitymodel.base.SearchTree import SearchTreeBase
+from core.agility.v3_3.agilitymodel.actions.SearchTree import SearchTreeActions
 
 class SearchTree(SearchTreeBase, SearchTreeActions):
     '''

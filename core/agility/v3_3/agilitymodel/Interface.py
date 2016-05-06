@@ -1,5 +1,5 @@
-from base.Interface import InterfaceBase
-from actions.Interface import InterfaceActions
+from core.agility.v3_3.agilitymodel.base.Interface import InterfaceBase
+from core.agility.v3_3.agilitymodel.actions.Interface import InterfaceActions
 
 class Interface(InterfaceBase, InterfaceActions):
     '''

@@ -1,5 +1,5 @@
-from base.CloudPropertyResponse import CloudPropertyResponseBase
-from actions.CloudPropertyResponse import CloudPropertyResponseActions
+from core.agility.v3_3.agilitymodel.base.CloudPropertyResponse import CloudPropertyResponseBase
+from core.agility.v3_3.agilitymodel.actions.CloudPropertyResponse import CloudPropertyResponseActions
 
 class CloudPropertyResponse(CloudPropertyResponseBase, CloudPropertyResponseActions):
     '''

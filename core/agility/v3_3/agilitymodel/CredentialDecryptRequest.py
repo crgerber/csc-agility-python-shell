@@ -1,5 +1,5 @@
-from base.CredentialDecryptRequest import CredentialDecryptRequestBase
-from actions.CredentialDecryptRequest import CredentialDecryptRequestActions
+from core.agility.v3_3.agilitymodel.base.CredentialDecryptRequest import CredentialDecryptRequestBase
+from core.agility.v3_3.agilitymodel.actions.CredentialDecryptRequest import CredentialDecryptRequestActions
 
 class CredentialDecryptRequest(CredentialDecryptRequestBase, CredentialDecryptRequestActions):
     '''

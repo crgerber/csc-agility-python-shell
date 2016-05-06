@@ -1,5 +1,5 @@
-from base.NumericRange import NumericRangeBase
-from actions.NumericRange import NumericRangeActions
+from core.agility.v3_3.agilitymodel.base.NumericRange import NumericRangeBase
+from core.agility.v3_3.agilitymodel.actions.NumericRange import NumericRangeActions
 
 class NumericRange(NumericRangeBase, NumericRangeActions):
     '''

@@ -1,5 +1,5 @@
-from base.ScriptPropertyReference import ScriptPropertyReferenceBase
-from actions.ScriptPropertyReference import ScriptPropertyReferenceActions
+from core.agility.v3_3.agilitymodel.base.ScriptPropertyReference import ScriptPropertyReferenceBase
+from core.agility.v3_3.agilitymodel.actions.ScriptPropertyReference import ScriptPropertyReferenceActions
 
 class ScriptPropertyReference(ScriptPropertyReferenceBase, ScriptPropertyReferenceActions):
     '''

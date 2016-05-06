@@ -1,5 +1,5 @@
-from base.OperatingSystem import OperatingSystemBase
-from actions.OperatingSystem import OperatingSystemActions
+from core.agility.v3_3.agilitymodel.base.OperatingSystem import OperatingSystemBase
+from core.agility.v3_3.agilitymodel.actions.OperatingSystem import OperatingSystemActions
 
 class OperatingSystem(OperatingSystemBase, OperatingSystemActions):
     '''

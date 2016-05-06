@@ -1,5 +1,5 @@
-from base.Asset import AssetBase
-from actions.Asset import AssetActions
+from core.agility.v3_3.agilitymodel.base.Asset import AssetBase
+from core.agility.v3_3.agilitymodel.actions.Asset import AssetActions
 
 class Asset(AssetBase, AssetActions):
     '''

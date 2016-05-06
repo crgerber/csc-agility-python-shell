@@ -1,5 +1,5 @@
-from base.MgmtScript import MgmtScriptBase
-from actions.MgmtScript import MgmtScriptActions
+from core.agility.v3_3.agilitymodel.base.MgmtScript import MgmtScriptBase
+from core.agility.v3_3.agilitymodel.actions.MgmtScript import MgmtScriptActions
 
 class MgmtScript(MgmtScriptBase, MgmtScriptActions):
     '''

@@ -1,5 +1,5 @@
-from base.ServiceInstance import ServiceInstanceBase
-from actions.ServiceInstance import ServiceInstanceActions
+from core.agility.v3_3.agilitymodel.base.ServiceInstance import ServiceInstanceBase
+from core.agility.v3_3.agilitymodel.actions.ServiceInstance import ServiceInstanceActions
 
 class ServiceInstance(ServiceInstanceBase, ServiceInstanceActions):
     '''

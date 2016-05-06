@@ -1,4 +1,4 @@
-from AssetProperty import AssetPropertyBase
+from core.agility.v3_3.agilitymodel.base.AssetProperty import AssetPropertyBase
 
 class VariableBase(AssetPropertyBase):
     '''

@@ -1,5 +1,5 @@
-from base.Address import AddressBase
-from actions.Address import AddressActions
+from core.agility.v3_3.agilitymodel.base.Address import AddressBase
+from core.agility.v3_3.agilitymodel.actions.Address import AddressActions
 
 class Address(AddressBase, AddressActions):
     '''

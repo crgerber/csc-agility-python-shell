@@ -1,5 +1,5 @@
-from base.Snapshot import SnapshotBase
-from actions.Snapshot import SnapshotActions
+from core.agility.v3_3.agilitymodel.base.Snapshot import SnapshotBase
+from core.agility.v3_3.agilitymodel.actions.Snapshot import SnapshotActions
 
 class Snapshot(SnapshotBase, SnapshotActions):
     '''

@@ -1,5 +1,5 @@
-from base.WorkflowTaskList import WorkflowTaskListBase
-from actions.WorkflowTaskList import WorkflowTaskListActions
+from core.agility.v3_3.agilitymodel.base.WorkflowTaskList import WorkflowTaskListBase
+from core.agility.v3_3.agilitymodel.actions.WorkflowTaskList import WorkflowTaskListActions
 
 class WorkflowTaskList(WorkflowTaskListBase, WorkflowTaskListActions):
     '''

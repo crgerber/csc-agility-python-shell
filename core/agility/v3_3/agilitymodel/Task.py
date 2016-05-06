@@ -1,5 +1,5 @@
-from base.Task import TaskBase
-from actions.Task import TaskActions
+from core.agility.v3_3.agilitymodel.base.Task import TaskBase
+from core.agility.v3_3.agilitymodel.actions.Task import TaskActions
 
 class Task(TaskBase, TaskActions):
     '''

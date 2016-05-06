@@ -1,5 +1,5 @@
-from base.EnvironmentType import EnvironmentTypeBase
-from actions.EnvironmentType import EnvironmentTypeActions
+from core.agility.v3_3.agilitymodel.base.EnvironmentType import EnvironmentTypeBase
+from core.agility.v3_3.agilitymodel.actions.EnvironmentType import EnvironmentTypeActions
 
 class EnvironmentType(EnvironmentTypeBase, EnvironmentTypeActions):
     '''

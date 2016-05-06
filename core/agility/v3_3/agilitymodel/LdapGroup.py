@@ -1,5 +1,5 @@
-from base.LdapGroup import LdapGroupBase
-from actions.LdapGroup import LdapGroupActions
+from core.agility.v3_3.agilitymodel.base.LdapGroup import LdapGroupBase
+from core.agility.v3_3.agilitymodel.actions.LdapGroup import LdapGroupActions
 
 class LdapGroup(LdapGroupBase, LdapGroupActions):
     '''

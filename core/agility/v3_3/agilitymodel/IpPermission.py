@@ -1,5 +1,5 @@
-from base.IpPermission import IpPermissionBase
-from actions.IpPermission import IpPermissionActions
+from core.agility.v3_3.agilitymodel.base.IpPermission import IpPermissionBase
+from core.agility.v3_3.agilitymodel.actions.IpPermission import IpPermissionActions
 
 class IpPermission(IpPermissionBase, IpPermissionActions):
     '''

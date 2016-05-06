@@ -1,5 +1,5 @@
-from base.User import UserBase
-from actions.User import UserActions
+from core.agility.v3_3.agilitymodel.base.User import UserBase
+from core.agility.v3_3.agilitymodel.actions.User import UserActions
 
 class User(UserBase, UserActions):
     '''

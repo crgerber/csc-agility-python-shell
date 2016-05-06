@@ -1,5 +1,5 @@
-from base.Page import PageBase
-from actions.Page import PageActions
+from core.agility.v3_3.agilitymodel.base.Page import PageBase
+from core.agility.v3_3.agilitymodel.actions.Page import PageActions
 
 class Page(PageBase, PageActions):
     '''

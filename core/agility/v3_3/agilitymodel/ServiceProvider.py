@@ -1,5 +1,5 @@
-from base.ServiceProvider import ServiceProviderBase
-from actions.ServiceProvider import ServiceProviderActions
+from core.agility.v3_3.agilitymodel.base.ServiceProvider import ServiceProviderBase
+from core.agility.v3_3.agilitymodel.actions.ServiceProvider import ServiceProviderActions
 
 class ServiceProvider(ServiceProviderBase, ServiceProviderActions):
     '''

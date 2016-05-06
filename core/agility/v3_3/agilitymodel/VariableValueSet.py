@@ -1,5 +1,5 @@
-from base.VariableValueSet import VariableValueSetBase
-from actions.VariableValueSet import VariableValueSetActions
+from core.agility.v3_3.agilitymodel.base.VariableValueSet import VariableValueSetBase
+from core.agility.v3_3.agilitymodel.actions.VariableValueSet import VariableValueSetActions
 
 class VariableValueSet(VariableValueSetBase, VariableValueSetActions):
     '''

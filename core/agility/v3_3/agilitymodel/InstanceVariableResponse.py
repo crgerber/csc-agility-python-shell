@@ -1,5 +1,5 @@
-from base.InstanceVariableResponse import InstanceVariableResponseBase
-from actions.InstanceVariableResponse import InstanceVariableResponseActions
+from core.agility.v3_3.agilitymodel.base.InstanceVariableResponse import InstanceVariableResponseBase
+from core.agility.v3_3.agilitymodel.actions.InstanceVariableResponse import InstanceVariableResponseActions
 
 class InstanceVariableResponse(InstanceVariableResponseBase, InstanceVariableResponseActions):
     '''

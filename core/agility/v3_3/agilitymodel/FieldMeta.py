@@ -1,5 +1,5 @@
-from base.FieldMeta import FieldMetaBase
-from actions.FieldMeta import FieldMetaActions
+from core.agility.v3_3.agilitymodel.base.FieldMeta import FieldMetaBase
+from core.agility.v3_3.agilitymodel.actions.FieldMeta import FieldMetaActions
 
 class FieldMeta(FieldMetaBase, FieldMetaActions):
     '''

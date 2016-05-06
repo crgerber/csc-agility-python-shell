@@ -1,5 +1,5 @@
-from base.SecurityGroup import SecurityGroupBase
-from actions.SecurityGroup import SecurityGroupActions
+from core.agility.v3_3.agilitymodel.base.SecurityGroup import SecurityGroupBase
+from core.agility.v3_3.agilitymodel.actions.SecurityGroup import SecurityGroupActions
 
 class SecurityGroup(SecurityGroupBase, SecurityGroupActions):
     '''

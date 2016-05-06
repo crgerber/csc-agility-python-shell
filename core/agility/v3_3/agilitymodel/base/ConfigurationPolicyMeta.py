@@ -1,4 +1,4 @@
-from PolicyMeta import PolicyMetaBase
+from core.agility.v3_3.agilitymodel.base.PolicyMeta import PolicyMetaBase
 
 class ConfigurationPolicyMetaBase(PolicyMetaBase):
     '''

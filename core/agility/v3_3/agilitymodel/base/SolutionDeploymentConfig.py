@@ -1,4 +1,4 @@
-from DeploymentConfiguration import DeploymentConfigurationBase
+from core.agility.v3_3.agilitymodel.base.DeploymentConfiguration import DeploymentConfigurationBase
 
 class SolutionDeploymentConfigBase(DeploymentConfigurationBase):
     '''

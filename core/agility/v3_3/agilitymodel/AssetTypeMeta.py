@@ -1,5 +1,5 @@
-from base.AssetTypeMeta import AssetTypeMetaBase
-from actions.AssetTypeMeta import AssetTypeMetaActions
+from core.agility.v3_3.agilitymodel.base.AssetTypeMeta import AssetTypeMetaBase
+from core.agility.v3_3.agilitymodel.actions.AssetTypeMeta import AssetTypeMetaActions
 
 class AssetTypeMeta(AssetTypeMetaBase, AssetTypeMetaActions):
     '''

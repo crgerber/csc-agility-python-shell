@@ -1,5 +1,5 @@
-from base.EffectiveProtocolRequest import EffectiveProtocolRequestBase
-from actions.EffectiveProtocolRequest import EffectiveProtocolRequestActions
+from core.agility.v3_3.agilitymodel.base.EffectiveProtocolRequest import EffectiveProtocolRequestBase
+from core.agility.v3_3.agilitymodel.actions.EffectiveProtocolRequest import EffectiveProtocolRequestActions
 
 class EffectiveProtocolRequest(EffectiveProtocolRequestBase, EffectiveProtocolRequestActions):
     '''

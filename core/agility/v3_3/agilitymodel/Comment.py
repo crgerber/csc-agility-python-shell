@@ -1,5 +1,5 @@
-from base.Comment import CommentBase
-from actions.Comment import CommentActions
+from core.agility.v3_3.agilitymodel.base.Comment import CommentBase
+from core.agility.v3_3.agilitymodel.actions.Comment import CommentActions
 
 class Comment(CommentBase, CommentActions):
     '''

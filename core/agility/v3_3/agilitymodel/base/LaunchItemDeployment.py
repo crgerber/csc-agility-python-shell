@@ -1,4 +1,4 @@
-from LaunchItem import LaunchItemBase
+from core.agility.v3_3.agilitymodel.base.LaunchItem import LaunchItemBase
 
 class LaunchItemDeploymentBase(LaunchItemBase):
     '''

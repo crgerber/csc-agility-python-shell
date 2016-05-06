@@ -1,5 +1,5 @@
-from base.ExecuteScriptResponse import ExecuteScriptResponseBase
-from actions.ExecuteScriptResponse import ExecuteScriptResponseActions
+from core.agility.v3_3.agilitymodel.base.ExecuteScriptResponse import ExecuteScriptResponseBase
+from core.agility.v3_3.agilitymodel.actions.ExecuteScriptResponse import ExecuteScriptResponseActions
 
 class ExecuteScriptResponse(ExecuteScriptResponseBase, ExecuteScriptResponseActions):
     '''

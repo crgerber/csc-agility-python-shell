@@ -1,4 +1,4 @@
-from DesignContainer import DesignContainerBase
+from core.agility.v3_3.agilitymodel.base.DesignContainer import DesignContainerBase
 
 class BlueprintBase(DesignContainerBase):
     '''

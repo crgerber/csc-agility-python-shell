@@ -1,5 +1,5 @@
-from base.RouteTable import RouteTableBase
-from actions.RouteTable import RouteTableActions
+from core.agility.v3_3.agilitymodel.base.RouteTable import RouteTableBase
+from core.agility.v3_3.agilitymodel.actions.RouteTable import RouteTableActions
 
 class RouteTable(RouteTableBase, RouteTableActions):
     '''

@@ -1,5 +1,5 @@
-from base.CloudPropertyRequest import CloudPropertyRequestBase
-from actions.CloudPropertyRequest import CloudPropertyRequestActions
+from core.agility.v3_3.agilitymodel.base.CloudPropertyRequest import CloudPropertyRequestBase
+from core.agility.v3_3.agilitymodel.actions.CloudPropertyRequest import CloudPropertyRequestActions
 
 class CloudPropertyRequest(CloudPropertyRequestBase, CloudPropertyRequestActions):
     '''

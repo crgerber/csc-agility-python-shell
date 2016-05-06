@@ -1,5 +1,5 @@
-from base.Location import LocationBase
-from actions.Location import LocationActions
+from core.agility.v3_3.agilitymodel.base.Location import LocationBase
+from core.agility.v3_3.agilitymodel.actions.Location import LocationActions
 
 class Location(LocationBase, LocationActions):
     '''

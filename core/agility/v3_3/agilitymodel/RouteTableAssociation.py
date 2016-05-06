@@ -1,5 +1,5 @@
-from base.RouteTableAssociation import RouteTableAssociationBase
-from actions.RouteTableAssociation import RouteTableAssociationActions
+from core.agility.v3_3.agilitymodel.base.RouteTableAssociation import RouteTableAssociationBase
+from core.agility.v3_3.agilitymodel.actions.RouteTableAssociation import RouteTableAssociationActions
 
 class RouteTableAssociation(RouteTableAssociationBase, RouteTableAssociationActions):
     '''

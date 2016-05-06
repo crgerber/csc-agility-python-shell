@@ -1,5 +1,5 @@
-from base.Envelope import EnvelopeBase
-from actions.Envelope import EnvelopeActions
+from core.agility.v3_3.agilitymodel.base.Envelope import EnvelopeBase
+from core.agility.v3_3.agilitymodel.actions.Envelope import EnvelopeActions
 
 class Envelope(EnvelopeBase, EnvelopeActions):
     '''

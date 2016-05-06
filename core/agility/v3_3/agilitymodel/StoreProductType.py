@@ -1,5 +1,5 @@
-from base.StoreProductType import StoreProductTypeBase
-from actions.StoreProductType import StoreProductTypeActions
+from core.agility.v3_3.agilitymodel.base.StoreProductType import StoreProductTypeBase
+from core.agility.v3_3.agilitymodel.actions.StoreProductType import StoreProductTypeActions
 
 class StoreProductType(StoreProductTypeBase, StoreProductTypeActions):
     '''

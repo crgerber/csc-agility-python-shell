@@ -1,5 +1,5 @@
-from base.PlanEvalRequest import PlanEvalRequestBase
-from actions.PlanEvalRequest import PlanEvalRequestActions
+from core.agility.v3_3.agilitymodel.base.PlanEvalRequest import PlanEvalRequestBase
+from core.agility.v3_3.agilitymodel.actions.PlanEvalRequest import PlanEvalRequestActions
 
 class PlanEvalRequest(PlanEvalRequestBase, PlanEvalRequestActions):
     '''

@@ -1,5 +1,5 @@
-from base.Subnet import SubnetBase
-from actions.Subnet import SubnetActions
+from core.agility.v3_3.agilitymodel.base.Subnet import SubnetBase
+from core.agility.v3_3.agilitymodel.actions.Subnet import SubnetActions
 
 class Subnet(SubnetBase, SubnetActions):
     '''

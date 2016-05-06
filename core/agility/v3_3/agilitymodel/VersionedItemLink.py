@@ -1,5 +1,5 @@
-from base.VersionedItemLink import VersionedItemLinkBase
-from actions.VersionedItemLink import VersionedItemLinkActions
+from core.agility.v3_3.agilitymodel.base.VersionedItemLink import VersionedItemLinkBase
+from core.agility.v3_3.agilitymodel.actions.VersionedItemLink import VersionedItemLinkActions
 
 class VersionedItemLink(VersionedItemLinkBase, VersionedItemLinkActions):
     '''

@@ -1,5 +1,5 @@
-from base.PropertyDefinitionGroup import PropertyDefinitionGroupBase
-from actions.PropertyDefinitionGroup import PropertyDefinitionGroupActions
+from core.agility.v3_3.agilitymodel.base.PropertyDefinitionGroup import PropertyDefinitionGroupBase
+from core.agility.v3_3.agilitymodel.actions.PropertyDefinitionGroup import PropertyDefinitionGroupActions
 
 class PropertyDefinitionGroup(PropertyDefinitionGroupBase, PropertyDefinitionGroupActions):
     '''

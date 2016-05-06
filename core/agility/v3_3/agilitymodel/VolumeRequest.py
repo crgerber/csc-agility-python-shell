@@ -1,5 +1,5 @@
-from base.VolumeRequest import VolumeRequestBase
-from actions.VolumeRequest import VolumeRequestActions
+from core.agility.v3_3.agilitymodel.base.VolumeRequest import VolumeRequestBase
+from core.agility.v3_3.agilitymodel.actions.VolumeRequest import VolumeRequestActions
 
 class VolumeRequest(VolumeRequestBase, VolumeRequestActions):
     '''

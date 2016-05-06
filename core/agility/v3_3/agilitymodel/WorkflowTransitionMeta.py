@@ -1,5 +1,5 @@
-from base.WorkflowTransitionMeta import WorkflowTransitionMetaBase
-from actions.WorkflowTransitionMeta import WorkflowTransitionMetaActions
+from core.agility.v3_3.agilitymodel.base.WorkflowTransitionMeta import WorkflowTransitionMetaBase
+from core.agility.v3_3.agilitymodel.actions.WorkflowTransitionMeta import WorkflowTransitionMetaActions
 
 class WorkflowTransitionMeta(WorkflowTransitionMetaBase, WorkflowTransitionMetaActions):
     '''

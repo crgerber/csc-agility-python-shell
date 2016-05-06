@@ -1,5 +1,5 @@
-from base.PageLayout import PageLayoutBase
-from actions.PageLayout import PageLayoutActions
+from core.agility.v3_3.agilitymodel.base.PageLayout import PageLayoutBase
+from core.agility.v3_3.agilitymodel.actions.PageLayout import PageLayoutActions
 
 class PageLayout(PageLayoutBase, PageLayoutActions):
     '''

@@ -1,5 +1,5 @@
-from base.StoreReleaseType import StoreReleaseTypeBase
-from actions.StoreReleaseType import StoreReleaseTypeActions
+from core.agility.v3_3.agilitymodel.base.StoreReleaseType import StoreReleaseTypeBase
+from core.agility.v3_3.agilitymodel.actions.StoreReleaseType import StoreReleaseTypeActions
 
 class StoreReleaseType(StoreReleaseTypeBase, StoreReleaseTypeActions):
     '''

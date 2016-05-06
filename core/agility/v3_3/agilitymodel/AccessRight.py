@@ -1,5 +1,5 @@
-from base.AccessRight import AccessRightBase
-from actions.AccessRight import AccessRightActions
+from core.agility.v3_3.agilitymodel.base.AccessRight import AccessRightBase
+from core.agility.v3_3.agilitymodel.actions.AccessRight import AccessRightActions
 
 class AccessRight(AccessRightBase, AccessRightActions):
     '''

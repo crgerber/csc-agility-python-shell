@@ -1,5 +1,5 @@
-from base.AccessUriList import AccessUriListBase
-from actions.AccessUriList import AccessUriListActions
+from core.agility.v3_3.agilitymodel.base.AccessUriList import AccessUriListBase
+from core.agility.v3_3.agilitymodel.actions.AccessUriList import AccessUriListActions
 
 class AccessUriList(AccessUriListBase, AccessUriListActions):
     '''

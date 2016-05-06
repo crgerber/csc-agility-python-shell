@@ -1,5 +1,5 @@
-from base.GetMultipleRequest import GetMultipleRequestBase
-from actions.GetMultipleRequest import GetMultipleRequestActions
+from core.agility.v3_3.agilitymodel.base.GetMultipleRequest import GetMultipleRequestBase
+from core.agility.v3_3.agilitymodel.actions.GetMultipleRequest import GetMultipleRequestActions
 
 class GetMultipleRequest(GetMultipleRequestBase, GetMultipleRequestActions):
     '''

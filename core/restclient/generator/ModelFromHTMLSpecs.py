@@ -29,6 +29,8 @@ RUBY = 'ruby'
 LANG = configuration.get(section='main', option='lang')
 HOST = configuration.get(section='main', option='host')
 PORT = configuration.get(section='main', option='port')
+VERSION = configuration.get(section='apiversion', option='version').replace('.', '_')
+AGILITYMODEL_PACKAGE = "core.agility.%s.agilitymodel" % VERSION
 CODE_FILE_EXTENSION = '.py' if LANG == PYTHON else '.rb' 
 
 ALL_MODULES = set()
@@ -345,21 +347,21 @@ end
             baseClassFile.write(basecode)
         with open(actionsfilepath, 'w') as actionsClassFile:
             actionsClassFile.write(actionscode)
-        with open(classfilepath, 'w') as actionsClassFile:
-            actionsClassFile.write(classcode)
+        with open(classfilepath, 'w') as classFile:
+            classFile.write(classcode)
         ALL_MODULES.add(self.name)
         MODULES_QUEUE.remove(self.name)
         if LANG == PYTHON:
             with open(os.path.join(dirname, 'base', '__init__.py'), 'w') as packageInitFile:
-                imports = '\n'.join(['from %(cls)s import %(cls)sBase'%{'cls' : cls} for cls in ALL_MODULES - ALL_ENUMS])
+                imports = '\n'.join(['from %(pkg)s.base.%(cls)s import %(cls)sBase'%{'pkg' : AGILITYMODEL_PACKAGE, 'cls' : cls} for cls in ALL_MODULES - ALL_ENUMS])
                 packageInitFile.write(imports)
                 packageInitFile.write('\n__all__ = %s'%list(['%sBase'%cls for cls in ALL_MODULES - ALL_ENUMS]))
             with open(os.path.join(dirname, 'actions', '__init__.py'), 'w') as packageInitFile:
-                imports = '\n'.join(['from %(cls)s import %(cls)sActions'%{'cls' : cls} for cls in ALL_MODULES - ALL_ENUMS])
+                imports = '\n'.join(['from %(pkg)s.actions.%(cls)s import %(cls)sActions'%{'pkg' : AGILITYMODEL_PACKAGE, 'cls' : cls} for cls in ALL_MODULES - ALL_ENUMS])
                 packageInitFile.write(imports)
                 packageInitFile.write('\n__all__ = %s'%list(['%sActions'%cls for cls in ALL_MODULES - ALL_ENUMS]))
             with open(os.path.join(dirname, '__init__.py'), 'w') as packageInitFile:
-                imports = '\n'.join(['from %(cls)s import %(cls)s'%{'cls' : cls} for cls in ALL_MODULES])
+                imports = '\n'.join(['from %(pkg)s.%(cls)s import %(cls)s'%{'pkg' : AGILITYMODEL_PACKAGE, 'cls' : cls} for cls in ALL_MODULES])
                 packageInitFile.write(imports)
                 packageInitFile.write('\n__all__ = %s'%list(ALL_MODULES))
             print('agilitymodel.<base.|actions.|.>__init.__all__ = %s'%list(ALL_MODULES))
@@ -394,7 +396,7 @@ end
         
     def formatPython(self):
         SUPER_BASE = 'AgilityModelBase'
-        base_imports = ['from %s import %s'%(self.baseName, self.baseName + 'Base')] if self.baseName and not self.baseName.startswith('{') else ['from core.agility.common.%(SUPER_BASE)s import %(SUPER_BASE)s'%{'SUPER_BASE' : SUPER_BASE}] 
+        base_imports = ['from %s.%s import %s'%(AGILITYMODEL_PACKAGE + '.base', self.baseName, self.baseName + 'Base')] if self.baseName and not self.baseName.startswith('{') else ['from core.agility.common.%(SUPER_BASE)s import %(SUPER_BASE)s'%{'SUPER_BASE' : SUPER_BASE}]         
         comma = ', ' if self.attrs else ''
         kwargs = ', '.join(['%s=%s'%(attr.name, attr.defaultValue) for attr in self.attrs.values()])
         kwargsDelegation = ', '.join(['%s=%s'%(attr.name, attr.name) for attr in self.attrs.values()])
@@ -416,7 +418,7 @@ end
         actions_context.update({'imports' : '', 'selfAttrs' : ''})
         actions_code = AgilityType.CLASS_ACTION_TEMPLATE[LANG]%actions_context
         
-        class_imports = ['from %s.%s import %s'%('base', self.name, self.name + 'Base'), 'from %s.%s import %s'%('actions', self.name, self.name + 'Actions')]
+        class_imports = ['from %s.%s import %s'%(AGILITYMODEL_PACKAGE + '.base', self.name, self.name + 'Base'), 'from %s.%s import %s'%(AGILITYMODEL_PACKAGE + '.actions', self.name, self.name + 'Actions')]
         class_context = {
                    'imports' : '\n'.join(class_imports),
                    'Clazz' : self.name,

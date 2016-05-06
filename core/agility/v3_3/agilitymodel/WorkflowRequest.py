@@ -1,5 +1,5 @@
-from base.WorkflowRequest import WorkflowRequestBase
-from actions.WorkflowRequest import WorkflowRequestActions
+from core.agility.v3_3.agilitymodel.base.WorkflowRequest import WorkflowRequestBase
+from core.agility.v3_3.agilitymodel.actions.WorkflowRequest import WorkflowRequestActions
 
 class WorkflowRequest(WorkflowRequestBase, WorkflowRequestActions):
     '''

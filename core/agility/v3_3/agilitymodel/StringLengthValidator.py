@@ -1,5 +1,5 @@
-from base.StringLengthValidator import StringLengthValidatorBase
-from actions.StringLengthValidator import StringLengthValidatorActions
+from core.agility.v3_3.agilitymodel.base.StringLengthValidator import StringLengthValidatorBase
+from core.agility.v3_3.agilitymodel.actions.StringLengthValidator import StringLengthValidatorActions
 
 class StringLengthValidator(StringLengthValidatorBase, StringLengthValidatorActions):
     '''

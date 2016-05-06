@@ -1,5 +1,5 @@
-from base.License import LicenseBase
-from actions.License import LicenseActions
+from core.agility.v3_3.agilitymodel.base.License import LicenseBase
+from core.agility.v3_3.agilitymodel.actions.License import LicenseActions
 
 class License(LicenseBase, LicenseActions):
     '''

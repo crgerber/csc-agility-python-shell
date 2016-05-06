@@ -1,5 +1,5 @@
-from base.FixedIP import FixedIPBase
-from actions.FixedIP import FixedIPActions
+from core.agility.v3_3.agilitymodel.base.FixedIP import FixedIPBase
+from core.agility.v3_3.agilitymodel.actions.FixedIP import FixedIPActions
 
 class FixedIP(FixedIPBase, FixedIPActions):
     '''

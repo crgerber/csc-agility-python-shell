@@ -1,5 +1,5 @@
-from base.ConfigRequest import ConfigRequestBase
-from actions.ConfigRequest import ConfigRequestActions
+from core.agility.v3_3.agilitymodel.base.ConfigRequest import ConfigRequestBase
+from core.agility.v3_3.agilitymodel.actions.ConfigRequest import ConfigRequestActions
 
 class ConfigRequest(ConfigRequestBase, ConfigRequestActions):
     '''

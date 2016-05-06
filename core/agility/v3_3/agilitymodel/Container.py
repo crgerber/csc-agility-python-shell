@@ -1,5 +1,5 @@
-from base.Container import ContainerBase
-from actions.Container import ContainerActions
+from core.agility.v3_3.agilitymodel.base.Container import ContainerBase
+from core.agility.v3_3.agilitymodel.actions.Container import ContainerActions
 
 class Container(ContainerBase, ContainerActions):
     '''

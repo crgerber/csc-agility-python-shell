@@ -1,5 +1,5 @@
-from base.AddressRangeList import AddressRangeListBase
-from actions.AddressRangeList import AddressRangeListActions
+from core.agility.v3_3.agilitymodel.base.AddressRangeList import AddressRangeListBase
+from core.agility.v3_3.agilitymodel.actions.AddressRangeList import AddressRangeListActions
 
 class AddressRangeList(AddressRangeListBase, AddressRangeListActions):
     '''

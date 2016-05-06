@@ -1,5 +1,5 @@
-from base.AdapterInfoList import AdapterInfoListBase
-from actions.AdapterInfoList import AdapterInfoListActions
+from core.agility.v3_3.agilitymodel.base.AdapterInfoList import AdapterInfoListBase
+from core.agility.v3_3.agilitymodel.actions.AdapterInfoList import AdapterInfoListActions
 
 class AdapterInfoList(AdapterInfoListBase, AdapterInfoListActions):
     '''

@@ -1,5 +1,5 @@
-from base.DesignContainer import DesignContainerBase
-from actions.DesignContainer import DesignContainerActions
+from core.agility.v3_3.agilitymodel.base.DesignContainer import DesignContainerBase
+from core.agility.v3_3.agilitymodel.actions.DesignContainer import DesignContainerActions
 
 class DesignContainer(DesignContainerBase, DesignContainerActions):
     '''

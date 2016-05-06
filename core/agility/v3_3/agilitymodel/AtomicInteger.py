@@ -1,5 +1,5 @@
-from base.AtomicInteger import AtomicIntegerBase
-from actions.AtomicInteger import AtomicIntegerActions
+from core.agility.v3_3.agilitymodel.base.AtomicInteger import AtomicIntegerBase
+from core.agility.v3_3.agilitymodel.actions.AtomicInteger import AtomicIntegerActions
 
 class AtomicInteger(AtomicIntegerBase, AtomicIntegerActions):
     '''

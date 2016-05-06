@@ -1,5 +1,5 @@
-from base.Repository import RepositoryBase
-from actions.Repository import RepositoryActions
+from core.agility.v3_3.agilitymodel.base.Repository import RepositoryBase
+from core.agility.v3_3.agilitymodel.actions.Repository import RepositoryActions
 
 class Repository(RepositoryBase, RepositoryActions):
     '''

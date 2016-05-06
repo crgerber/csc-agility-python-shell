@@ -1,5 +1,5 @@
-from base.NetworkAddressList import NetworkAddressListBase
-from actions.NetworkAddressList import NetworkAddressListActions
+from core.agility.v3_3.agilitymodel.base.NetworkAddressList import NetworkAddressListBase
+from core.agility.v3_3.agilitymodel.actions.NetworkAddressList import NetworkAddressListActions
 
 class NetworkAddressList(NetworkAddressListBase, NetworkAddressListActions):
     '''

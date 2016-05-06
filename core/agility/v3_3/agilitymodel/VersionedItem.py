@@ -1,5 +1,5 @@
-from base.VersionedItem import VersionedItemBase
-from actions.VersionedItem import VersionedItemActions
+from core.agility.v3_3.agilitymodel.base.VersionedItem import VersionedItemBase
+from core.agility.v3_3.agilitymodel.actions.VersionedItem import VersionedItemActions
 
 class VersionedItem(VersionedItemBase, VersionedItemActions):
     '''

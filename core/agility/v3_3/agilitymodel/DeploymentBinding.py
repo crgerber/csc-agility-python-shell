@@ -1,5 +1,5 @@
-from base.DeploymentBinding import DeploymentBindingBase
-from actions.DeploymentBinding import DeploymentBindingActions
+from core.agility.v3_3.agilitymodel.base.DeploymentBinding import DeploymentBindingBase
+from core.agility.v3_3.agilitymodel.actions.DeploymentBinding import DeploymentBindingActions
 
 class DeploymentBinding(DeploymentBindingBase, DeploymentBindingActions):
     '''

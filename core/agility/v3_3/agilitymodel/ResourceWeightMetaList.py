@@ -1,5 +1,5 @@
-from base.ResourceWeightMetaList import ResourceWeightMetaListBase
-from actions.ResourceWeightMetaList import ResourceWeightMetaListActions
+from core.agility.v3_3.agilitymodel.base.ResourceWeightMetaList import ResourceWeightMetaListBase
+from core.agility.v3_3.agilitymodel.actions.ResourceWeightMetaList import ResourceWeightMetaListActions
 
 class ResourceWeightMetaList(ResourceWeightMetaListBase, ResourceWeightMetaListActions):
     '''

@@ -1,5 +1,5 @@
-from base.Resource import ResourceBase
-from actions.Resource import ResourceActions
+from core.agility.v3_3.agilitymodel.base.Resource import ResourceBase
+from core.agility.v3_3.agilitymodel.actions.Resource import ResourceActions
 
 class Resource(ResourceBase, ResourceActions):
     '''

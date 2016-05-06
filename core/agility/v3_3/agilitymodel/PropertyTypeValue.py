@@ -1,5 +1,5 @@
-from base.PropertyTypeValue import PropertyTypeValueBase
-from actions.PropertyTypeValue import PropertyTypeValueActions
+from core.agility.v3_3.agilitymodel.base.PropertyTypeValue import PropertyTypeValueBase
+from core.agility.v3_3.agilitymodel.actions.PropertyTypeValue import PropertyTypeValueActions
 
 class PropertyTypeValue(PropertyTypeValueBase, PropertyTypeValueActions):
     '''

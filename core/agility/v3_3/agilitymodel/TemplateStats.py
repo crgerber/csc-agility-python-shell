@@ -1,5 +1,5 @@
-from base.TemplateStats import TemplateStatsBase
-from actions.TemplateStats import TemplateStatsActions
+from core.agility.v3_3.agilitymodel.base.TemplateStats import TemplateStatsBase
+from core.agility.v3_3.agilitymodel.actions.TemplateStats import TemplateStatsActions
 
 class TemplateStats(TemplateStatsBase, TemplateStatsActions):
     '''

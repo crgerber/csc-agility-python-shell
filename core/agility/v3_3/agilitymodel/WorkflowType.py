@@ -1,5 +1,5 @@
-from base.WorkflowType import WorkflowTypeBase
-from actions.WorkflowType import WorkflowTypeActions
+from core.agility.v3_3.agilitymodel.base.WorkflowType import WorkflowTypeBase
+from core.agility.v3_3.agilitymodel.actions.WorkflowType import WorkflowTypeActions
 
 class WorkflowType(WorkflowTypeBase, WorkflowTypeActions):
     '''

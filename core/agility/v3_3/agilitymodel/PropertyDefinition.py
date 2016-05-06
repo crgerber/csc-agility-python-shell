@@ -1,5 +1,5 @@
-from base.PropertyDefinition import PropertyDefinitionBase
-from actions.PropertyDefinition import PropertyDefinitionActions
+from core.agility.v3_3.agilitymodel.base.PropertyDefinition import PropertyDefinitionBase
+from core.agility.v3_3.agilitymodel.actions.PropertyDefinition import PropertyDefinitionActions
 
 class PropertyDefinition(PropertyDefinitionBase, PropertyDefinitionActions):
     '''

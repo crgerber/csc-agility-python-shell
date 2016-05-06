@@ -1,5 +1,5 @@
-from base.VariableList import VariableListBase
-from actions.VariableList import VariableListActions
+from core.agility.v3_3.agilitymodel.base.VariableList import VariableListBase
+from core.agility.v3_3.agilitymodel.actions.VariableList import VariableListActions
 
 class VariableList(VariableListBase, VariableListActions):
     '''

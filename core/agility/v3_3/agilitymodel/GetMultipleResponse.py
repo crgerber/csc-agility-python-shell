@@ -1,5 +1,5 @@
-from base.GetMultipleResponse import GetMultipleResponseBase
-from actions.GetMultipleResponse import GetMultipleResponseActions
+from core.agility.v3_3.agilitymodel.base.GetMultipleResponse import GetMultipleResponseBase
+from core.agility.v3_3.agilitymodel.actions.GetMultipleResponse import GetMultipleResponseActions
 
 class GetMultipleResponse(GetMultipleResponseBase, GetMultipleResponseActions):
     '''

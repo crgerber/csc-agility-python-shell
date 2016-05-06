@@ -1,5 +1,5 @@
-from base.Port import PortBase
-from actions.Port import PortActions
+from core.agility.v3_3.agilitymodel.base.Port import PortBase
+from core.agility.v3_3.agilitymodel.actions.Port import PortActions
 
 class Port(PortBase, PortActions):
     '''

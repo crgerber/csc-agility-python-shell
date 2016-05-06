@@ -1,5 +1,5 @@
-from base.ExecuteScriptRequest import ExecuteScriptRequestBase
-from actions.ExecuteScriptRequest import ExecuteScriptRequestActions
+from core.agility.v3_3.agilitymodel.base.ExecuteScriptRequest import ExecuteScriptRequestBase
+from core.agility.v3_3.agilitymodel.actions.ExecuteScriptRequest import ExecuteScriptRequestActions
 
 class ExecuteScriptRequest(ExecuteScriptRequestBase, ExecuteScriptRequestActions):
     '''

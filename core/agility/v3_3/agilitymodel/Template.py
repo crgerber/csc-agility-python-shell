@@ -1,5 +1,5 @@
-from base.Template import TemplateBase
-from actions.Template import TemplateActions
+from core.agility.v3_3.agilitymodel.base.Template import TemplateBase
+from core.agility.v3_3.agilitymodel.actions.Template import TemplateActions
 
 class Template(TemplateBase, TemplateActions):
     '''

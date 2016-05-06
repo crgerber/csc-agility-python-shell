@@ -1,5 +1,5 @@
-from base.ArtifactAttachment import ArtifactAttachmentBase
-from actions.ArtifactAttachment import ArtifactAttachmentActions
+from core.agility.v3_3.agilitymodel.base.ArtifactAttachment import ArtifactAttachmentBase
+from core.agility.v3_3.agilitymodel.actions.ArtifactAttachment import ArtifactAttachmentActions
 
 class ArtifactAttachment(ArtifactAttachmentBase, ArtifactAttachmentActions):
     '''

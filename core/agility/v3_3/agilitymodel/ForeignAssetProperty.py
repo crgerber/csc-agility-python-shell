@@ -1,5 +1,5 @@
-from base.ForeignAssetProperty import ForeignAssetPropertyBase
-from actions.ForeignAssetProperty import ForeignAssetPropertyActions
+from core.agility.v3_3.agilitymodel.base.ForeignAssetProperty import ForeignAssetPropertyBase
+from core.agility.v3_3.agilitymodel.actions.ForeignAssetProperty import ForeignAssetPropertyActions
 
 class ForeignAssetProperty(ForeignAssetPropertyBase, ForeignAssetPropertyActions):
     '''

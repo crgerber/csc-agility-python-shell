@@ -1,5 +1,5 @@
-from base.Rating import RatingBase
-from actions.Rating import RatingActions
+from core.agility.v3_3.agilitymodel.base.Rating import RatingBase
+from core.agility.v3_3.agilitymodel.actions.Rating import RatingActions
 
 class Rating(RatingBase, RatingActions):
     '''

@@ -1,5 +1,5 @@
-from base.PolicyMetaModel import PolicyMetaModelBase
-from actions.PolicyMetaModel import PolicyMetaModelActions
+from core.agility.v3_3.agilitymodel.base.PolicyMetaModel import PolicyMetaModelBase
+from core.agility.v3_3.agilitymodel.actions.PolicyMetaModel import PolicyMetaModelActions
 
 class PolicyMetaModel(PolicyMetaModelBase, PolicyMetaModelActions):
     '''

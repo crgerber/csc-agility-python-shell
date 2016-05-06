@@ -1,5 +1,5 @@
-from base.Workload import WorkloadBase
-from actions.Workload import WorkloadActions
+from core.agility.v3_3.agilitymodel.base.Workload import WorkloadBase
+from core.agility.v3_3.agilitymodel.actions.Workload import WorkloadActions
 
 class Workload(WorkloadBase, WorkloadActions):
     '''

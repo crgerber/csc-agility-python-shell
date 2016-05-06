@@ -1,5 +1,5 @@
-from base.ConfigurationPolicyMeta import ConfigurationPolicyMetaBase
-from actions.ConfigurationPolicyMeta import ConfigurationPolicyMetaActions
+from core.agility.v3_3.agilitymodel.base.ConfigurationPolicyMeta import ConfigurationPolicyMetaBase
+from core.agility.v3_3.agilitymodel.actions.ConfigurationPolicyMeta import ConfigurationPolicyMetaActions
 
 class ConfigurationPolicyMeta(ConfigurationPolicyMetaBase, ConfigurationPolicyMetaActions):
     '''

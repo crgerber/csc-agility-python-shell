@@ -1,5 +1,5 @@
-from base.ConfigurationRepository import ConfigurationRepositoryBase
-from actions.ConfigurationRepository import ConfigurationRepositoryActions
+from core.agility.v3_3.agilitymodel.base.ConfigurationRepository import ConfigurationRepositoryBase
+from core.agility.v3_3.agilitymodel.actions.ConfigurationRepository import ConfigurationRepositoryActions
 
 class ConfigurationRepository(ConfigurationRepositoryBase, ConfigurationRepositoryActions):
     '''
