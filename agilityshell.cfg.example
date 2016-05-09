@@ -1,13 +1,13 @@
 [main]
 client = <client_name>
-environment = <environment_name e.g. PROD>
+environment = <environment_name>
 host = <ipv4>
 port = 8443
 systemversion = <agility_version>
 prefetch = True
 #connect on startup
 connect = True
-bs4path = <beautifulsoup4_home_path>
+bs4path = <bs4_path>
 lang = python
 auto_dedupe = True
 
