@@ -109,7 +109,7 @@ configuration = getConfiguration()
 lang = configuration.get(section='main', option='lang')
 out_dir = "."
 wadl_file = None
-api_version = None
+api_version = configuration.get(section='apiversion', option='version').replace('.', '_')
 
 #Agility control directives
 __AGILITY__PARSE_RESULT_FIELD__ = False

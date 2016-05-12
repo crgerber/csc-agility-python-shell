@@ -215,8 +215,9 @@ class RESTConnection(object):
         if version:
             self.conn_params['version'] = version
         self.url_base = 'https://%(host)s:%(port)s/agility/api/%(version)s/'%self.conn_params
-        #log(url)
+
         url = self._build_url(path, path_params, query_params)
+        logger.info("url:=%s"%url)
         
         response = None
         try:
@@ -292,6 +293,9 @@ class RESTConnection(object):
         """
         new_params = {}
         for key, value in params.items():
+            if key.find('query_params') >= 0:
+                new_params.update(self._params_to_string(value))
+                continue
             if value != None:
                 if isinstance(value, bool):
                     if value: new_params[key] = "true"
@@ -329,8 +333,7 @@ class RESTConnection(object):
 
 #        if not query_params.has_key("flatten"):
 #            query_params["flatten"] = "true"
-        #_query_params = urllib.parse.urlencode(query_params)
-        _query_params = urllib.parse.urlencode(query_params).encode('utf-8') 
+        _query_params = urllib.parse.urlencode(query_params)
         
         path += "?%s"%_query_params if _query_params else ''
 
