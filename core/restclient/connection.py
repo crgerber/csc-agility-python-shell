@@ -200,8 +200,8 @@ class RESTConnection(object):
             custom_headers = {}
             
             
-        path_params = self._params_to_strings(path_params)
-        query_params = self._params_to_strings(query_params)
+        path_params = self._params_to_string(path_params)
+        query_params = self._params_to_string(query_params)
         
         self.conn_params['resource'] = path
         if version:
@@ -249,7 +249,7 @@ class RESTConnection(object):
             request.add_header('Content-Length', len(data))
         
         elif form_params:
-    #            form_params = self._params_to_strings(form_params)
+    #            form_params = self._params_to_string(form_params)
             form = MultiPartForm()
             [form.add_field(k, v) for k, v in form_params.items()]
         if files:
@@ -275,13 +275,16 @@ class RESTConnection(object):
         return response
         
 
-    def _params_to_strings(self, params):
+    def _params_to_string(self, params):
         """
         Convert the values in a parameter map into strings suitable for
         sending to the server. Any null values will be omitted.
         """
         new_params = {}
         for key, value in params.iteritems():
+            if key.find('query_params') >= 0:
+                new_params.update(self._params_to_string(value))
+                continue        
             if value != None:
                 if isinstance(value, bool):
                     if value: new_params[key] = "true"
