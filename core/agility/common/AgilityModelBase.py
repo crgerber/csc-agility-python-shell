@@ -11,7 +11,7 @@ from core.restclient.responseparser.common import persistXML, AbstractProxy
 from logger import logger
 
 class AgilityModelBase(object):
-    def __init__(self, *args, **kwrags):
+    def __init__(self, *args, **kwargs):
         self.typeName = self.__class__.__name__
         self._topLevel = True
         #importing agility at the top of the module will not have access to the agility object yet
