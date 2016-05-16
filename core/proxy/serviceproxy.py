@@ -34,7 +34,10 @@ class ParseDecorator(object):
         """
         def wrapped_f(*args, **kwargs):
             result = f(*args, **kwargs)
-            if isinstance(result, str):
+        
+            if isinstance(result, bytes):
+                return ParseDecorator._parse(str(result, encoding='utf-8'), self.assetName)
+            elif isinstance(result, str):
                 return ParseDecorator._parse(result, self.assetName)
             else:
                 result.assetType = self.assetName

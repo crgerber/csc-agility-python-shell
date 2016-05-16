@@ -207,8 +207,9 @@ class RESTConnection(object):
         if version:
             self.conn_params['version'] = version
         self.url_base = 'https://%(host)s:%(port)s/agility/api/%(version)s/'%self.conn_params
-        #log(url)
+
         url = self._build_url(path, path_params, query_params)
+        logger.debug("url:=%s"%url)
         
         response = None
         try:

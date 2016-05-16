@@ -78,7 +78,7 @@ class NonXmlResponseHelper(object):
         archive = LocalArchive(localPath=parentDir, fileName=fileName, data=self.data)
         archive.assetType = self.assetType
         archive.sourceServiceName = self.serviceName
-        
+        archive.save()
         return archive
     
     def doubleSeparatorTextToMap(self, text, sep1=';', sep2='=', targetMap=None):

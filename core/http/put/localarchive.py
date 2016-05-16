@@ -7,14 +7,16 @@ import time
 import os
 import mimetypes
 from StringIO import StringIO
+from core.agility.common.AgilityModelBase import AgilityModelBase
 
 COMPONENT_NAME = __name__
 from logger import getLogger
 logger = getLogger(COMPONENT_NAME)
 
-class LocalArchive(object):
+class LocalArchive(AgilityModelBase):
     
     def __init__(self, localPath=None, fileName=None, attachmentName=None, data=None):
+        AgilityModelBase.__init__(self)
         self.localPath = localPath
         self.fileName = fileName
         self.attachmentName = attachmentName or fileName
@@ -49,8 +51,10 @@ class LocalArchive(object):
     def save(self):
         if self.data is None:
             raise RuntimeError('save() invoked with empty data')
+        if not os.path.exists(self.localPath):
+            os.makedirs(self.localPath)
         #make sure inferred attributes are up to date
-        with open(self.fullPath, 'w') as dataFile:
+        with open(self.fullPath, 'wb') as dataFile:
             dataFile.write(self.data)
         logger.info('Successfully saved file: [%s] content info: [%s]'%(self.fullPath, self))
         self.saved = True

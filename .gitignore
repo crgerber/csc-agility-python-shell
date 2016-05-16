@@ -10,3 +10,4 @@ wadl_to_intermediate_model.xsl
 *.log
 __pycache__
 test/agility.wadl
+downloads
