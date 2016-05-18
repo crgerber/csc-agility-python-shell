@@ -21,7 +21,7 @@ use_cookies = False
 #re-authenticate if session token expires
 reauthenticate = True
 ssl_context_unverified = True
-ssl_cacert_location = ca-cert.pem
+ssl_cacert_location = cacert.pem
 
 [apiversion]
 #v2.0 or v3.0 or v3.3 or current

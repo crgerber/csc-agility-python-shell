@@ -153,8 +153,9 @@ class AgilityModelBase(object):
         
         example: asList = lambda attr: attr if isinstance(attr, (tuple, list)) else [attr]
         since otherwise, client code might be iterating over the wrong sequence, e.g. object attribute names instead of list of objects 
-        '''
-        attr = self._asMap()[self.typeName].get(key, default)
+        ''' 
+        attr = self._asMap().get(key, default)
+        
         if mustbe is not None and attr is not None:
             if not isinstance(attr, mustbe):
                 raise ValueError('attribute of type [%s], expected type(s): [%s]'%(type(attr), mustbe))

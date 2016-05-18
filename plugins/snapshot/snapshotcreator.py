@@ -20,12 +20,19 @@ loadSnapshots = agility.tools.snapshot.loadSnapshots
 getAssetList = agility.tools.report.getAssetList
 createAssetReport = agility.tools.report._createAssetReport
 
+from agilityinit import getConfiguration
+
 def snapshot(host=None, username='admin', password=None, systemversion=None, assetNames=None, clientName='client', baseDir=''):
     '''set up test fixtures, do snapshots of all
     
     @param host: host name or address, if not specified, the current agility shell rest-connection will be used 
     '''
     conn = agility.cfg.conn if (not host) else RESTConnection(host=host, username=username, password=password, systemversion=systemversion)
+        
+    if not conn._connected :
+        configuration = getConfiguration()
+        conn.connect(host = configuration.get(section='main', option='host'), username = configuration.get(section='main', option='username'), password = configuration.get(section='main', option='password'))
+    
     assetNames = assetNames or agility._assetNames
     persistDir = os.path.join(baseDir, 'environments')
     reportDir = os.path.join(baseDir, 'reports')

@@ -21,9 +21,12 @@ logger = logger.getLogger(COMPONENT_NAME)
 
 def decode(data):
     if not isinstance(data, str):
-        return str(data)
+        if isinstance(data, bytes):
+            return data.decode()
+        else :
+            return str(data) 
     else:
-        return unicodedata.normalize('NFKD', data).encode('ascii','ignore')
+        return unicodedata.normalize('NFKD', data)
 
 class AbstractProxy(object):
     
@@ -153,7 +156,7 @@ def persistXML(xmlText, persistDir='', persistFile=''):
     if not os.path.exists(persistDir):
         os.makedirs(persistDir)
     xmlFilePath = os.path.join(persistDir, persistFile)
-    with open(xmlFilePath, 'w') as xmlFile:
+    with open(xmlFilePath, 'wb') as xmlFile:
         xmlFile.write(xmlText)
         logger.info('Persistent xml file: %s created successfully', xmlFilePath)
     return True

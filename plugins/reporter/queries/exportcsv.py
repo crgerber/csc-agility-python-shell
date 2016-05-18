@@ -20,7 +20,7 @@ def customReport(data, reportFileName, reportDir='reports', fields=None, ignore=
     data = [selectFields(item, fields, ignore=ignore, default=default) for item in data]
     writeCSVFile(data, '%s%s%s'%(reportFileName, '.' if ext else '', ext), reportDir, fields, delimiter=delimiter)
 
-def exportSearchResultsCSV(agility, assetName, query, reportDir='reports', reportFileName=''):
+def exportSearchResultsCSV(agility, assetName, query, reportDir='reports', reportFileName='', delimiter='|'):
     '''
     exports search results, obtained by calling the asset's search API 
     with the specified query to a CSV file with name <reportFileName> under directory <rerpotDir>
@@ -40,10 +40,24 @@ def exportSearchResultsCSV(agility, assetName, query, reportDir='reports', repor
     reportParams['assetName'] = assetName
     reportParams['ext'] = 'csv'
     reportFileName = reportFileName or '%(host)s_%(assetName)s_%(version)s.%(ext)s'%reportParams
-    colNamesSet = set()
-    [colNamesSet.add(key) for asset in result for key in list(asset._attrs.keys())]
-    cols = query.params.fields or colNamesSet
-    data = [asset._attrs for asset in result]
+    
+    cols = []
+    
+    if query.params.fields : 
+        [cols.append(col.lower()) for col in query.params.fields.split(',')]
+    else :
+        for asset in result :
+            for col in sorted(asset__dict__.keys()) :
+                cols.append(col)
+                
+    data = []
+    
+    for asset in result :
+        row = {} 
+        for col in cols :
+            row[col] = str(asset.__dict__[col]).replace('"', '\\"').replace('\r', '\\r').replace('\n', '\\n')
+        data.append(row)
+    
     writeCSVFile(data, reportFileName, reportDir, cols)
 
 def exportCSV(agility, assetName, reportDir='reports'):

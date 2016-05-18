@@ -8,8 +8,8 @@ Created on Oct 15, 2012
 
 # Create python xml structures compatible with
 # http://search.cpan.org/~grantm/XML-Simple-2.18/lib/XML/Simple.pm
-from .common import *
-from .LxmlTools import etree, d2xml, xml2d
+from core.restclient.responseparser.common import *
+from core.restclient.responseparser.LxmlTools import etree, d2xml, xml2d
 from itertools import groupby
 import re
 import copy
@@ -42,7 +42,7 @@ def parse(xmlText, assetType=None, removeNSPrefix=True):
     Linklist = agilitymodel.Linklist
     Tasklist = agilitymodel.Tasklist
 
-    modelClassFactory = lambda name: getattr(agilitymodel, name)
+    modelClassFactory = lambda assetType: getattr(agilitymodel, assetType)
 
     if isinstance(xmlText, str) :
         e = etree.XML(xmlText.encode('ascii'))

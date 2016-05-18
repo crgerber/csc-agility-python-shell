@@ -3,7 +3,7 @@ Created on Oct 15, 2012
 
 @author: dawood
 '''
-from .common import *
+from core.restclient.responseparser.common import *
 from bs4 import BeautifulSoup
 COMPONENT_NAME = 'XML_PARSER_BeautifulSoup'
 from logger import getLogger

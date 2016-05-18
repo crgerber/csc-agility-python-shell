@@ -41,7 +41,6 @@ def applyFilters(sequence, **functions):
     return result
 
 def getAssetList(conn, assetName, getDetails=True, persist=True, persistRootDir='', persistFilePrefix=''):    
-    
     serviceProxy = getattr(getClient(), assetName.lower())(conn)
     serviceName = lookup(assetName, lookup.ACTION.GET)
     service = getattr(serviceProxy, serviceName)

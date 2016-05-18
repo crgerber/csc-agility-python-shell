@@ -97,7 +97,7 @@ class RESTConnection(object):
         check_hostname = None
         https_context = None
         
-        if self.conn_params['ssl_context_unverified'] == 'True' :
+        if self.conn_params['ssl_context_unverified'] :
             https_context = ssl._create_unverified_context()
             #https_context.verify_mode = ssl.CERT_NONE
             check_hostname = False
@@ -340,6 +340,4 @@ class RESTConnection(object):
         if path.startswith("/"):
             return "%s%s" % (self.url_base, path[1:])
         return "%s%s" % (self.url_base, path)
-    
-
     
