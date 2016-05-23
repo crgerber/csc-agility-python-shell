@@ -4,11 +4,11 @@ class ImportFileReportBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, filename='', importassetreports=[], failed=False, failreason=''):
+    def __init__(self, filename='', failreason='', importassetreports=[], failed=False):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'filename': {'native': True, 'name': 'filename', 'type': 'string'}, 'importAssetReports': {'maxOccurs': 'unbounded', 'native': False, 'name': 'importassetreports', 'minOccurs': '0', 'type': 'ImportAssetReport'}, 'failed': {'native': True, 'name': 'failed', 'type': 'boolean'}, 'failReason': {'native': True, 'name': 'failreason', 'type': 'string'}})
+        self._attrSpecs.update({'filename': {'name': 'filename', 'native': True, 'type': 'string'}, 'failed': {'name': 'failed', 'native': True, 'type': 'boolean'}, 'importAssetReports': {'name': 'importassetreports', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ImportAssetReport'}, 'failReason': {'name': 'failreason', 'native': True, 'type': 'string'}})
         self.filename = filename
+        self.failreason = failreason
         self.importassetreports = importassetreports
-        self.failed = failed
-        self.failreason = failreason 
+        self.failed = failed 

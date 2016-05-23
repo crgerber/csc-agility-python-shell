@@ -5,20 +5,20 @@ class ResourceMapping(ResourceMappingBase, ResourceMappingActions):
     '''
     classdocs
     '''
-    def __init__(self, condition=None, exclusion=None, description=None, name=None, rank=[], inclusion=None):
+    def __init__(self, description=None, rank=[], condition=None, name=None, exclusion=None, inclusion=None):
         '''
         Constructor
-        @param condition: condition minOccurs=0
-        @type condition: AssetFilter
-        @param exclusion: exclusion minOccurs=0
-        @type exclusion: AssetFilter
         @param description: description minOccurs=0
         @type description: string
-        @param name: name minOccurs=0
-        @type name: string
         @param rank: rank minOccurs=0 maxOccurs=unbounded
         @type rank: ResourceRank
+        @param condition: condition minOccurs=0
+        @type condition: AssetFilter
+        @param name: name minOccurs=0
+        @type name: string
+        @param exclusion: exclusion minOccurs=0
+        @type exclusion: AssetFilter
         @param inclusion: inclusion minOccurs=0
         @type inclusion: AssetFilter
         '''
-        ResourceMappingBase.__init__(self, condition=condition, exclusion=exclusion, description=description, name=name, rank=rank, inclusion=inclusion)
+        ResourceMappingBase.__init__(self, description=description, rank=rank, condition=condition, name=name, exclusion=exclusion, inclusion=inclusion)

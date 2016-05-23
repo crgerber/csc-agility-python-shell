@@ -5,18 +5,18 @@ class ArtifactRuntimeBinding(ArtifactRuntimeBindingBase, ArtifactRuntimeBindingA
     '''
     classdocs
     '''
-    def __init__(self, services=[], properties=[], runtime=None, id=None, type=None):
+    def __init__(self, id=None, services=[], type=None, runtime=None, properties=[]):
         '''
         Constructor
-        @param services: services minOccurs=0 maxOccurs=unbounded
-        @type services: string
-        @param properties: properties minOccurs=0 maxOccurs=unbounded
-        @type properties: Property
-        @param runtime: runtime minOccurs=0
-        @type runtime: Link
         @param id: id
         @type id: int
+        @param services: services minOccurs=0 maxOccurs=unbounded
+        @type services: string
         @param type: type minOccurs=0
         @type type: Link
+        @param runtime: runtime minOccurs=0
+        @type runtime: Link
+        @param properties: properties minOccurs=0 maxOccurs=unbounded
+        @type properties: Property
         '''
-        ArtifactRuntimeBindingBase.__init__(self, services=services, properties=properties, runtime=runtime, id=id, type=type)
+        ArtifactRuntimeBindingBase.__init__(self, id=id, services=services, type=type, runtime=runtime, properties=properties)

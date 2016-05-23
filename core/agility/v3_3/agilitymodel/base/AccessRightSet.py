@@ -4,12 +4,12 @@ class AccessRightSetBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, accessright=[], name=None, description=None, id=None, filter=None):
+    def __init__(self, id=None, name=None, accessright=[], filter=None, description=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'accessRight': {'maxOccurs': 'unbounded', 'native': False, 'name': 'accessright', 'minOccurs': '0', 'type': 'AccessRight'}, 'name': {'native': True, 'name': 'name', 'minOccurs': '0', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'minOccurs': '0', 'type': 'int'}, 'description': {'native': True, 'name': 'description', 'minOccurs': '0', 'type': 'string'}, 'filter': {'native': True, 'name': 'filter', 'minOccurs': '0', 'type': 'string'}})
-        self.accessright = accessright
-        self.name = name
-        self.description = description
+        self._attrSpecs.update({'id': {'name': 'id', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'name': {'name': 'name', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'accessRight': {'name': 'accessright', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AccessRight'}, 'filter': {'name': 'filter', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'description': {'name': 'description', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.id = id
-        self.filter = filter 
+        self.name = name
+        self.accessright = accessright
+        self.filter = filter
+        self.description = description 

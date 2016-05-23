@@ -5,12 +5,12 @@ class VariableValueSet(VariableValueSetBase, VariableValueSetActions):
     '''
     classdocs
     '''
-    def __init__(self, valuesource=None, value=[]):
+    def __init__(self, value=[], valuesource=None):
         '''
         Constructor
-        @param valuesource: valuesource minOccurs=0
-        @type valuesource: Asset
         @param value: value minOccurs=0 maxOccurs=unbounded
         @type value: AssetProperty
+        @param valuesource: valuesource minOccurs=0
+        @type valuesource: Asset
         '''
-        VariableValueSetBase.__init__(self, valuesource=valuesource, value=value)
+        VariableValueSetBase.__init__(self, value=value, valuesource=valuesource)

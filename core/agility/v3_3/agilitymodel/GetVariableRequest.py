@@ -5,12 +5,12 @@ class GetVariableRequest(GetVariableRequestBase, GetVariableRequestActions):
     '''
     classdocs
     '''
-    def __init__(self, valuesources=[], variablesources=[]):
+    def __init__(self, variablesources=[], valuesources=[]):
         '''
         Constructor
-        @param valuesources: valuesources minOccurs=0 maxOccurs=unbounded
-        @type valuesources: Link
         @param variablesources: variablesources minOccurs=0 maxOccurs=unbounded
         @type variablesources: Link
+        @param valuesources: valuesources minOccurs=0 maxOccurs=unbounded
+        @type valuesources: Link
         '''
-        GetVariableRequestBase.__init__(self, valuesources=valuesources, variablesources=variablesources)
+        GetVariableRequestBase.__init__(self, variablesources=variablesources, valuesources=valuesources)

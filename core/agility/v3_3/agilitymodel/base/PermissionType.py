@@ -7,6 +7,6 @@ class PermissionTypeBase(AssetBase):
     def __init__(self, global_=None, displayname=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'global': {'native': True, 'name': 'global_', 'minOccurs': '0', 'type': 'boolean'}, 'displayName': {'native': True, 'name': 'displayname', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'global': {'name': 'global_', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'displayName': {'name': 'displayname', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.global_ = global_
         self.displayname = displayname 

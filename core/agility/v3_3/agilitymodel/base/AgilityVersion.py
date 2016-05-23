@@ -4,10 +4,10 @@ class AgilityVersionBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, build='', version='', url=''):
+    def __init__(self, build='', url='', version=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'build': {'native': True, 'name': 'build', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'type': 'string'}, 'url': {'native': True, 'name': 'url', 'type': 'string'}})
+        self._attrSpecs.update({'version': {'name': 'version', 'native': True, 'type': 'string'}, 'url': {'name': 'url', 'native': True, 'type': 'string'}, 'build': {'name': 'build', 'native': True, 'type': 'string'}})
         self.build = build
-        self.version = version
-        self.url = url 
+        self.url = url
+        self.version = version 

@@ -7,5 +7,5 @@ class SolutionDeploymentConfigBase(DeploymentConfigurationBase):
     def __init__(self, artifactconfigurations=[]):
         DeploymentConfigurationBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'artifactConfigurations': {'maxOccurs': 'unbounded', 'native': False, 'name': 'artifactconfigurations', 'minOccurs': '0', 'type': 'DeploymentArtifactConfig'}})
+        self._attrSpecs.update({'artifactConfigurations': {'name': 'artifactconfigurations', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DeploymentArtifactConfig'}})
         self.artifactconfigurations = artifactconfigurations 

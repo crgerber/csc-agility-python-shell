@@ -4,12 +4,12 @@ class RouteTableBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, routetableid=None, mainassociationid=None, route=[], association=[], vpcid=None):
+    def __init__(self, mainassociationid=None, association=[], vpcid=None, routetableid=None, route=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'routeTableId': {'native': True, 'name': 'routetableid', 'minOccurs': '0', 'type': 'string'}, 'mainAssociationId': {'native': True, 'name': 'mainassociationid', 'minOccurs': '0', 'type': 'string'}, 'route': {'maxOccurs': 'unbounded', 'native': False, 'name': 'route', 'minOccurs': '0', 'type': 'RouteTableRoute'}, 'vpcId': {'native': True, 'name': 'vpcid', 'minOccurs': '0', 'type': 'string'}, 'association': {'maxOccurs': 'unbounded', 'native': False, 'name': 'association', 'minOccurs': '0', 'type': 'RouteTableAssociation'}})
-        self.routetableid = routetableid
+        self._attrSpecs.update({'mainAssociationId': {'name': 'mainassociationid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'association': {'name': 'association', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'RouteTableAssociation'}, 'routeTableId': {'name': 'routetableid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'vpcId': {'name': 'vpcid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'route': {'name': 'route', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'RouteTableRoute'}})
         self.mainassociationid = mainassociationid
-        self.route = route
         self.association = association
-        self.vpcid = vpcid 
+        self.vpcid = vpcid
+        self.routetableid = routetableid
+        self.route = route 

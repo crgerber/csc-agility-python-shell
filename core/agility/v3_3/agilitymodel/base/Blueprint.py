@@ -4,10 +4,10 @@ class BlueprintBase(DesignContainerBase):
     '''
     classdocs
     '''
-    def __init__(self, errorlevel=None, topology=[], connection=[]):
+    def __init__(self, topology=[], errorlevel=None, connection=[]):
         DesignContainerBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'errorLevel': {'native': False, 'name': 'errorlevel', 'type': 'ErrorLevel'}, 'topology': {'maxOccurs': 'unbounded', 'native': False, 'name': 'topology', 'minOccurs': '0', 'type': 'Link'}, 'connection': {'maxOccurs': 'unbounded', 'native': False, 'name': 'connection', 'minOccurs': '0', 'type': 'DesignConnection'}})
-        self.errorlevel = errorlevel
+        self._attrSpecs.update({'topology': {'name': 'topology', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'errorLevel': {'name': 'errorlevel', 'native': False, 'type': 'ErrorLevel'}, 'connection': {'name': 'connection', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DesignConnection'}})
         self.topology = topology
+        self.errorlevel = errorlevel
         self.connection = connection 

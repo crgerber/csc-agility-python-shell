@@ -7,5 +7,5 @@ class ImportDirectivesBase(AgilityModelBase):
     def __init__(self, onnotfound=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'onNotFound': {'native': False, 'name': 'onnotfound', 'type': 'LookupFailCode'}})
+        self._attrSpecs.update({'onNotFound': {'name': 'onnotfound', 'native': False, 'type': 'LookupFailCode'}})
         self.onnotfound = onnotfound 

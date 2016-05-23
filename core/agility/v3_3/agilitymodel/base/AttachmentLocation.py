@@ -7,6 +7,6 @@ class AttachmentLocationBase(AgilityModelBase):
     def __init__(self, path='', repository=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'path': {'native': True, 'name': 'path', 'type': 'string'}, 'repository': {'native': False, 'name': 'repository', 'type': 'Link'}})
+        self._attrSpecs.update({'path': {'name': 'path', 'native': True, 'type': 'string'}, 'repository': {'name': 'repository', 'native': False, 'type': 'Link'}})
         self.path = path
         self.repository = repository 

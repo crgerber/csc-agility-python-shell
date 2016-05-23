@@ -5,44 +5,44 @@ class VPC(VPCBase, VPCActions):
     '''
     classdocs
     '''
-    def __init__(self, vpnconnection=[], defaultvpc=None, networks=[], properties=[], mainroutetable=None, internetgateway=None, status=None, subnet=[], customergateway=[], vpcid=None, securitygroup=[], otherroutetable=[], instancetenancy=None, instance=[], cloud=None, cidrblock=None, dhcpoptions=None, virtualprivategateway=None):
+    def __init__(self, properties=[], instancetenancy=None, instance=[], cidrblock=None, dhcpoptions=None, defaultvpc=None, vpcid=None, vpnconnection=[], cloud=None, virtualprivategateway=None, networks=[], internetgateway=None, mainroutetable=None, customergateway=[], subnet=[], securitygroup=[], otherroutetable=[], status=None):
         '''
         Constructor
-        @param vpnconnection: vpnconnection minOccurs=0 maxOccurs=unbounded
-        @type vpnconnection: VPNConnection
-        @param defaultvpc: defaultvpc minOccurs=0
-        @type defaultvpc: boolean
-        @param networks: networks minOccurs=0 maxOccurs=unbounded
-        @type networks: Link
         @param properties: properties minOccurs=0 maxOccurs=unbounded
         @type properties: Property
-        @param mainroutetable: mainroutetable minOccurs=0
-        @type mainroutetable: RouteTable
-        @param internetgateway: internetgateway minOccurs=0
-        @type internetgateway: InternetGateway
-        @param status: status minOccurs=0
-        @type status: string
-        @param subnet: subnet minOccurs=0 maxOccurs=unbounded
-        @type subnet: VPCSubnet
-        @param customergateway: customergateway minOccurs=0 maxOccurs=unbounded
-        @type customergateway: CustomerGateway
-        @param vpcid: vpcid minOccurs=0
-        @type vpcid: string
-        @param securitygroup: securitygroup minOccurs=0 maxOccurs=unbounded
-        @type securitygroup: SecurityGroup
-        @param otherroutetable: otherroutetable minOccurs=0 maxOccurs=unbounded
-        @type otherroutetable: RouteTable
         @param instancetenancy: instancetenancy minOccurs=0
         @type instancetenancy: string
         @param instance: instance minOccurs=0 maxOccurs=unbounded
         @type instance: Instance
-        @param cloud: cloud minOccurs=0
-        @type cloud: Link
         @param cidrblock: cidrblock minOccurs=0
         @type cidrblock: string
         @param dhcpoptions: dhcpoptions minOccurs=0
         @type dhcpoptions: DhcpOptions
+        @param defaultvpc: defaultvpc minOccurs=0
+        @type defaultvpc: boolean
+        @param vpcid: vpcid minOccurs=0
+        @type vpcid: string
+        @param vpnconnection: vpnconnection minOccurs=0 maxOccurs=unbounded
+        @type vpnconnection: VPNConnection
+        @param cloud: cloud minOccurs=0
+        @type cloud: Link
         @param virtualprivategateway: virtualprivategateway minOccurs=0
         @type virtualprivategateway: VPNGateway
+        @param networks: networks minOccurs=0 maxOccurs=unbounded
+        @type networks: Link
+        @param internetgateway: internetgateway minOccurs=0
+        @type internetgateway: InternetGateway
+        @param mainroutetable: mainroutetable minOccurs=0
+        @type mainroutetable: RouteTable
+        @param customergateway: customergateway minOccurs=0 maxOccurs=unbounded
+        @type customergateway: CustomerGateway
+        @param subnet: subnet minOccurs=0 maxOccurs=unbounded
+        @type subnet: VPCSubnet
+        @param securitygroup: securitygroup minOccurs=0 maxOccurs=unbounded
+        @type securitygroup: SecurityGroup
+        @param otherroutetable: otherroutetable minOccurs=0 maxOccurs=unbounded
+        @type otherroutetable: RouteTable
+        @param status: status minOccurs=0
+        @type status: string
         '''
-        VPCBase.__init__(self, vpnconnection=vpnconnection, defaultvpc=defaultvpc, networks=networks, properties=properties, mainroutetable=mainroutetable, internetgateway=internetgateway, status=status, subnet=subnet, customergateway=customergateway, vpcid=vpcid, securitygroup=securitygroup, otherroutetable=otherroutetable, instancetenancy=instancetenancy, instance=instance, cloud=cloud, cidrblock=cidrblock, dhcpoptions=dhcpoptions, virtualprivategateway=virtualprivategateway)
+        VPCBase.__init__(self, properties=properties, instancetenancy=instancetenancy, instance=instance, cidrblock=cidrblock, dhcpoptions=dhcpoptions, defaultvpc=defaultvpc, vpcid=vpcid, vpnconnection=vpnconnection, cloud=cloud, virtualprivategateway=virtualprivategateway, networks=networks, internetgateway=internetgateway, mainroutetable=mainroutetable, customergateway=customergateway, subnet=subnet, securitygroup=securitygroup, otherroutetable=otherroutetable, status=status)

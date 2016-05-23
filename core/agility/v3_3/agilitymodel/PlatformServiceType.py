@@ -5,18 +5,18 @@ class PlatformServiceType(PlatformServiceTypeBase, PlatformServiceTypeActions):
     '''
     classdocs
     '''
-    def __init__(self, servicetypes=[], properties=[], artifacttypes=[], runtimeproperties=[], type=''):
+    def __init__(self, runtimeproperties=[], servicetypes=[], properties=[], type='', artifacttypes=[]):
         '''
         Constructor
+        @param runtimeproperties: runtimeproperties minOccurs=0 maxOccurs=unbounded
+        @type runtimeproperties: Property
         @param servicetypes: servicetypes minOccurs=0 maxOccurs=unbounded
         @type servicetypes: ServiceBindingType
         @param properties: properties minOccurs=0 maxOccurs=unbounded
         @type properties: Property
-        @param artifacttypes: artifacttypes minOccurs=0 maxOccurs=unbounded
-        @type artifacttypes: ArtifactType
-        @param runtimeproperties: runtimeproperties minOccurs=0 maxOccurs=unbounded
-        @type runtimeproperties: Property
         @param type: type
         @type type: string
+        @param artifacttypes: artifacttypes minOccurs=0 maxOccurs=unbounded
+        @type artifacttypes: ArtifactType
         '''
-        PlatformServiceTypeBase.__init__(self, servicetypes=servicetypes, properties=properties, artifacttypes=artifacttypes, runtimeproperties=runtimeproperties, type=type)
+        PlatformServiceTypeBase.__init__(self, runtimeproperties=runtimeproperties, servicetypes=servicetypes, properties=properties, type=type, artifacttypes=artifacttypes)

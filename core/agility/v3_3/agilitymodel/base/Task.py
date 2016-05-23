@@ -4,30 +4,30 @@ class TaskBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, cancellable=None, pausedtime=None, user=None, status=None, type=None, errormessage=None, workitemid=None, paused=None, result=None, name=None, proxyuser=None, cancelled=False, completed=None, startedtime=None, visible=False, currentnodeid=None, hasdependency=None, progress=None, id=None, parenttask=None, completedtime=None, pausedworkitemid=None, currentnodename=None):
+    def __init__(self, workitemid=None, paused=None, type=None, parenttask=None, completed=None, status=None, id=None, user=None, progress=None, cancellable=None, startedtime=None, cancelled=False, completedtime=None, pausedtime=None, name=None, pausedworkitemid=None, result=None, currentnodeid=None, currentnodename=None, visible=False, hasdependency=None, proxyuser=None, errormessage=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'cancellable': {'native': True, 'name': 'cancellable', 'minOccurs': '0', 'type': 'boolean'}, 'pausedTime': {'native': True, 'name': 'pausedtime', 'minOccurs': '0', 'type': 'dateTime'}, 'user': {'native': True, 'name': 'user', 'minOccurs': '0', 'type': 'string'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}, 'type': {'native': True, 'name': 'type', 'minOccurs': '0', 'type': 'string'}, 'errorMessage': {'native': True, 'name': 'errormessage', 'minOccurs': '0', 'type': 'string'}, 'workItemId': {'native': True, 'name': 'workitemid', 'minOccurs': '0', 'type': 'long'}, 'paused': {'native': True, 'name': 'paused', 'minOccurs': '0', 'type': 'boolean'}, 'result': {'native': False, 'name': 'result', 'minOccurs': '0', 'type': 'Link'}, 'name': {'native': True, 'name': 'name', 'minOccurs': '0', 'type': 'string'}, 'proxyUser': {'native': True, 'name': 'proxyuser', 'minOccurs': '0', 'type': 'string'}, 'cancelled': {'native': True, 'name': 'cancelled', 'type': 'boolean'}, 'completed': {'native': True, 'name': 'completed', 'minOccurs': '0', 'type': 'boolean'}, 'startedTime': {'native': True, 'name': 'startedtime', 'minOccurs': '0', 'type': 'dateTime'}, 'visible': {'native': True, 'name': 'visible', 'type': 'boolean'}, 'currentNodeId': {'native': True, 'name': 'currentnodeid', 'minOccurs': '0', 'type': 'long'}, 'hasDependency': {'native': True, 'name': 'hasdependency', 'minOccurs': '0', 'type': 'boolean'}, 'progress': {'native': True, 'name': 'progress', 'minOccurs': '0', 'type': 'int'}, 'id': {'native': True, 'name': 'id', 'minOccurs': '0', 'type': 'int'}, 'parentTask': {'native': False, 'name': 'parenttask', 'minOccurs': '0', 'type': 'Link'}, 'completedTime': {'native': True, 'name': 'completedtime', 'minOccurs': '0', 'type': 'dateTime'}, 'pausedWorkItemId': {'native': True, 'name': 'pausedworkitemid', 'minOccurs': '0', 'type': 'long'}, 'currentNodeName': {'native': True, 'name': 'currentnodename', 'minOccurs': '0', 'type': 'string'}})
-        self.cancellable = cancellable
-        self.pausedtime = pausedtime
-        self.user = user
-        self.status = status
-        self.type = type
-        self.errormessage = errormessage
+        self._attrSpecs.update({'workItemId': {'name': 'workitemid', 'minOccurs': '0', 'native': True, 'type': 'long'}, 'startedTime': {'name': 'startedtime', 'minOccurs': '0', 'native': True, 'type': 'dateTime'}, 'paused': {'name': 'paused', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'parentTask': {'name': 'parenttask', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'completed': {'name': 'completed', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'id': {'name': 'id', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'user': {'name': 'user', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'currentNodeId': {'name': 'currentnodeid', 'minOccurs': '0', 'native': True, 'type': 'long'}, 'cancellable': {'name': 'cancellable', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'type': {'name': 'type', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'pausedTime': {'name': 'pausedtime', 'minOccurs': '0', 'native': True, 'type': 'dateTime'}, 'completedTime': {'name': 'completedtime', 'minOccurs': '0', 'native': True, 'type': 'dateTime'}, 'cancelled': {'name': 'cancelled', 'native': True, 'type': 'boolean'}, 'name': {'name': 'name', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'pausedWorkItemId': {'name': 'pausedworkitemid', 'minOccurs': '0', 'native': True, 'type': 'long'}, 'result': {'name': 'result', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'progress': {'name': 'progress', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'currentNodeName': {'name': 'currentnodename', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'visible': {'name': 'visible', 'native': True, 'type': 'boolean'}, 'hasDependency': {'name': 'hasdependency', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'proxyUser': {'name': 'proxyuser', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'errorMessage': {'name': 'errormessage', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.workitemid = workitemid
         self.paused = paused
-        self.result = result
-        self.name = name
-        self.proxyuser = proxyuser
-        self.cancelled = cancelled
-        self.completed = completed
-        self.startedtime = startedtime
-        self.visible = visible
-        self.currentnodeid = currentnodeid
-        self.hasdependency = hasdependency
-        self.progress = progress
-        self.id = id
+        self.type = type
         self.parenttask = parenttask
+        self.completed = completed
+        self.status = status
+        self.id = id
+        self.user = user
+        self.progress = progress
+        self.cancellable = cancellable
+        self.startedtime = startedtime
+        self.cancelled = cancelled
         self.completedtime = completedtime
+        self.pausedtime = pausedtime
+        self.name = name
         self.pausedworkitemid = pausedworkitemid
-        self.currentnodename = currentnodename 
+        self.result = result
+        self.currentnodeid = currentnodeid
+        self.currentnodename = currentnodename
+        self.visible = visible
+        self.hasdependency = hasdependency
+        self.proxyuser = proxyuser
+        self.errormessage = errormessage 

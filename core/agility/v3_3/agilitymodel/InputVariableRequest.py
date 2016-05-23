@@ -5,14 +5,14 @@ class InputVariableRequest(InputVariableRequestBase, InputVariableRequestActions
     '''
     classdocs
     '''
-    def __init__(self, valuesource=[], variablesource=[], excludepackagescripts=False):
+    def __init__(self, excludepackagescripts=False, variablesource=[], valuesource=[]):
         '''
         Constructor
-        @param valuesource: valuesource minOccurs=0 maxOccurs=unbounded
-        @type valuesource: Link
-        @param variablesource: variablesource minOccurs=0 maxOccurs=unbounded
-        @type variablesource: Link
         @param excludepackagescripts: excludepackagescripts
         @type excludepackagescripts: boolean
+        @param variablesource: variablesource minOccurs=0 maxOccurs=unbounded
+        @type variablesource: Link
+        @param valuesource: valuesource minOccurs=0 maxOccurs=unbounded
+        @type valuesource: Link
         '''
-        InputVariableRequestBase.__init__(self, valuesource=valuesource, variablesource=variablesource, excludepackagescripts=excludepackagescripts)
+        InputVariableRequestBase.__init__(self, excludepackagescripts=excludepackagescripts, variablesource=variablesource, valuesource=valuesource)

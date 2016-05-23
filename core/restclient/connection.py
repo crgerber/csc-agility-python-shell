@@ -13,8 +13,11 @@ from functools import update_wrapper
 from base64 import b64encode
 
 from core.http.put.multipartform import MultiPartForm
-from logger import logger
 
+import logger
+from logger import ROOT_LOGGER_NAME
+#logger = logger.getLogger(__name__)
+logger = logger.getLogger('%s.%s'%(ROOT_LOGGER_NAME, __name__))
 
 CONTENT_TYPE_APLICATION_XML = 'application/xml'
 CONTENT_TYPE_MULTIPART_MIXED = 'multipart/mixed'

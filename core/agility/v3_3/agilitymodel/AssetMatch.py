@@ -5,14 +5,14 @@ class AssetMatch(AssetMatchBase, AssetMatchActions):
     '''
     classdocs
     '''
-    def __init__(self, name=None, property=[], type=''):
+    def __init__(self, name=None, type='', property=[]):
         '''
         Constructor
         @param name: name minOccurs=0
         @type name: string
-        @param property: property minOccurs=0 maxOccurs=unbounded
-        @type property: PropertyMatch
         @param type: type
         @type type: string
+        @param property: property minOccurs=0 maxOccurs=unbounded
+        @type property: PropertyMatch
         '''
-        AssetMatchBase.__init__(self, name=name, property=property, type=type)
+        AssetMatchBase.__init__(self, name=name, type=type, property=property)

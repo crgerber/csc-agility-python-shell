@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-ScriptErrorAction = Enum(**{'Abort': 'Abort', 'SkipPackage': 'SkipPackage', 'Continue': 'Continue'})
+ScriptErrorAction = Enum(**{'Continue': 'Continue', 'SkipPackage': 'SkipPackage', 'Abort': 'Abort'})

@@ -5,28 +5,28 @@ class VersionedItem(VersionedItemBase, VersionedItemActions):
     '''
     classdocs
     '''
-    def __init__(self, publishcomment=None, latest=None, versionstatus=None, slotid=None, checkoutallowed=None, slot=None, headallowed=None, version=None, imagepath=None, publisher=None):
+    def __init__(self, slotid=None, slot=None, versionstatus=None, publisher=None, latest=None, version=None, headallowed=None, imagepath=None, checkoutallowed=None, publishcomment=None):
         '''
         Constructor
-        @param publishcomment: publishcomment minOccurs=0
-        @type publishcomment: string
-        @param latest: latest minOccurs=0
-        @type latest: boolean
-        @param versionstatus: versionstatus minOccurs=0
-        @type versionstatus: string
         @param slotid: slotid minOccurs=0
         @type slotid: int
-        @param checkoutallowed: checkoutallowed minOccurs=0
-        @type checkoutallowed: boolean
         @param slot: slot minOccurs=0
         @type slot: string
-        @param headallowed: headallowed minOccurs=0
-        @type headallowed: boolean
-        @param version: version minOccurs=0
-        @type version: int
-        @param imagepath: imagepath minOccurs=0
-        @type imagepath: string
+        @param versionstatus: versionstatus minOccurs=0
+        @type versionstatus: string
         @param publisher: publisher minOccurs=0
         @type publisher: Link
+        @param latest: latest minOccurs=0
+        @type latest: boolean
+        @param version: version minOccurs=0
+        @type version: int
+        @param headallowed: headallowed minOccurs=0
+        @type headallowed: boolean
+        @param imagepath: imagepath minOccurs=0
+        @type imagepath: string
+        @param checkoutallowed: checkoutallowed minOccurs=0
+        @type checkoutallowed: boolean
+        @param publishcomment: publishcomment minOccurs=0
+        @type publishcomment: string
         '''
-        VersionedItemBase.__init__(self, publishcomment=publishcomment, latest=latest, versionstatus=versionstatus, slotid=slotid, checkoutallowed=checkoutallowed, slot=slot, headallowed=headallowed, version=version, imagepath=imagepath, publisher=publisher)
+        VersionedItemBase.__init__(self, slotid=slotid, slot=slot, versionstatus=versionstatus, publisher=publisher, latest=latest, version=version, headallowed=headallowed, imagepath=imagepath, checkoutallowed=checkoutallowed, publishcomment=publishcomment)

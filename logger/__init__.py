@@ -37,6 +37,7 @@ def configRootLogger(rootloggerName, logpath, logfile, level=logging.INFO, conso
     this.LOG_PATH = logpath
     this.LOG_FILE_NAME = '%s.log' % rootloggerName
     this.logger = logger
+    return logger
 
 def getLogger(component, rootloggerName=None):
     rootloggerName = rootloggerName or this.ROOT_LOGGER_NAME

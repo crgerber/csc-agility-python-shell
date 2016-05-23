@@ -5,18 +5,18 @@ class Artifact(ArtifactBase, ArtifactActions):
     '''
     classdocs
     '''
-    def __init__(self, configuration=None, buildid=None, solution=None, attachments=[], builton=None):
+    def __init__(self, configuration=None, builton=None, buildid=None, attachments=[], solution=None):
         '''
         Constructor
         @param configuration: configuration minOccurs=0
         @type configuration: ArtifactConfiguration
-        @param buildid: buildid minOccurs=0
-        @type buildid: string
-        @param solution: solution minOccurs=0
-        @type solution: Link
-        @param attachments: attachments minOccurs=0 maxOccurs=unbounded
-        @type attachments: Link
         @param builton: builton minOccurs=0
         @type builton: date
+        @param buildid: buildid minOccurs=0
+        @type buildid: string
+        @param attachments: attachments minOccurs=0 maxOccurs=unbounded
+        @type attachments: Link
+        @param solution: solution minOccurs=0
+        @type solution: Link
         '''
-        ArtifactBase.__init__(self, configuration=configuration, buildid=buildid, solution=solution, attachments=attachments, builton=builton)
+        ArtifactBase.__init__(self, configuration=configuration, builton=builton, buildid=buildid, attachments=attachments, solution=solution)

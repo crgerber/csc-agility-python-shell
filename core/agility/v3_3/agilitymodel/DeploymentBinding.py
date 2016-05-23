@@ -5,20 +5,20 @@ class DeploymentBinding(DeploymentBindingBase, DeploymentBindingActions):
     '''
     classdocs
     '''
-    def __init__(self, platformservice=None, deployer=None, artifact=None, artifacturl=None, deploymentid='', id=None):
+    def __init__(self, artifact=None, id=None, artifacturl=None, platformservice=None, deployer=None, deploymentid=''):
         '''
         Constructor
+        @param artifact: artifact minOccurs=0
+        @type artifact: Link
+        @param id: id
+        @type id: int
+        @param artifacturl: artifacturl minOccurs=0
+        @type artifacturl: string
         @param platformservice: platformservice minOccurs=0
         @type platformservice: Link
         @param deployer: deployer minOccurs=0
         @type deployer: Link
-        @param artifact: artifact minOccurs=0
-        @type artifact: Link
-        @param artifacturl: artifacturl minOccurs=0
-        @type artifacturl: string
         @param deploymentid: deploymentid
         @type deploymentid: string
-        @param id: id
-        @type id: int
         '''
-        DeploymentBindingBase.__init__(self, platformservice=platformservice, deployer=deployer, artifact=artifact, artifacturl=artifacturl, deploymentid=deploymentid, id=id)
+        DeploymentBindingBase.__init__(self, artifact=artifact, id=id, artifacturl=artifacturl, platformservice=platformservice, deployer=deployer, deploymentid=deploymentid)

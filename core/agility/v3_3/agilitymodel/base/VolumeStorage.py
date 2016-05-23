@@ -4,20 +4,20 @@ class VolumeStorageBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, location=None, storage=[], properties=[], instance=None, storageid=None, volumesnapshots=[], volume=None, unit=None, size=None, cloud=None, snapshotid=None, hasfilesystem=None, device=None):
+    def __init__(self, volume=None, instance=None, properties=[], size=None, volumesnapshots=[], unit=None, cloud=None, storageid=None, snapshotid=None, device=None, hasfilesystem=None, storage=[], location=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'location': {'native': True, 'name': 'location', 'minOccurs': '0', 'type': 'string'}, 'instance': {'native': False, 'name': 'instance', 'minOccurs': '0', 'type': 'Link'}, 'hasFileSystem': {'native': True, 'name': 'hasfilesystem', 'minOccurs': '0', 'type': 'boolean'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'storage': {'maxOccurs': 'unbounded', 'native': False, 'name': 'storage', 'minOccurs': '0', 'type': 'Storage'}, 'volumeSnapshots': {'maxOccurs': 'unbounded', 'native': False, 'name': 'volumesnapshots', 'minOccurs': '0', 'type': 'Link'}, 'unit': {'native': True, 'name': 'unit', 'minOccurs': '0', 'type': 'int'}, 'size': {'native': True, 'name': 'size', 'minOccurs': '0', 'type': 'int'}, 'snapshotId': {'native': True, 'name': 'snapshotid', 'minOccurs': '0', 'type': 'int'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'storageId': {'native': True, 'name': 'storageid', 'minOccurs': '0', 'type': 'string'}, 'volume': {'native': False, 'name': 'volume', 'minOccurs': '0', 'type': 'Link'}, 'device': {'native': True, 'name': 'device', 'minOccurs': '0', 'type': 'string'}})
-        self.location = location
-        self.storage = storage
-        self.properties = properties
-        self.instance = instance
-        self.storageid = storageid
-        self.volumesnapshots = volumesnapshots
+        self._attrSpecs.update({'volume': {'name': 'volume', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'location': {'name': 'location', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'instance': {'name': 'instance', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'size': {'name': 'size', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'volumeSnapshots': {'name': 'volumesnapshots', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'unit': {'name': 'unit', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'storageId': {'name': 'storageid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'snapshotId': {'name': 'snapshotid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'device': {'name': 'device', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'hasFileSystem': {'name': 'hasfilesystem', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'storage': {'name': 'storage', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Storage'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}})
         self.volume = volume
-        self.unit = unit
+        self.instance = instance
+        self.properties = properties
         self.size = size
+        self.volumesnapshots = volumesnapshots
+        self.unit = unit
         self.cloud = cloud
+        self.storageid = storageid
         self.snapshotid = snapshotid
+        self.device = device
         self.hasfilesystem = hasfilesystem
-        self.device = device 
+        self.storage = storage
+        self.location = location 

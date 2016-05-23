@@ -4,9 +4,9 @@ class ObjectReferenceBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, fieldname=None, fieldassettypename=None):
+    def __init__(self, fieldassettypename=None, fieldname=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'fieldName': {'native': True, 'name': 'fieldname', 'minOccurs': '0', 'type': 'string'}, 'fieldAssetTypeName': {'native': True, 'name': 'fieldassettypename', 'minOccurs': '0', 'type': 'string'}})
-        self.fieldname = fieldname
-        self.fieldassettypename = fieldassettypename 
+        self._attrSpecs.update({'fieldAssetTypeName': {'name': 'fieldassettypename', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'fieldName': {'name': 'fieldname', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.fieldassettypename = fieldassettypename
+        self.fieldname = fieldname 

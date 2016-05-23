@@ -4,25 +4,25 @@ class VPCBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, vpnconnection=[], defaultvpc=None, networks=[], properties=[], mainroutetable=None, internetgateway=None, status=None, subnet=[], customergateway=[], vpcid=None, securitygroup=[], otherroutetable=[], instancetenancy=None, instance=[], cloud=None, cidrblock=None, dhcpoptions=None, virtualprivategateway=None):
+    def __init__(self, properties=[], instancetenancy=None, instance=[], cidrblock=None, dhcpoptions=None, defaultvpc=None, vpcid=None, vpnconnection=[], cloud=None, virtualprivategateway=None, networks=[], internetgateway=None, mainroutetable=None, customergateway=[], subnet=[], securitygroup=[], otherroutetable=[], status=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'dhcpOptions': {'native': False, 'name': 'dhcpoptions', 'minOccurs': '0', 'type': 'DhcpOptions'}, 'vpnConnection': {'maxOccurs': 'unbounded', 'native': False, 'name': 'vpnconnection', 'minOccurs': '0', 'type': 'VPNConnection'}, 'customerGateway': {'maxOccurs': 'unbounded', 'native': False, 'name': 'customergateway', 'minOccurs': '0', 'type': 'CustomerGateway'}, 'instanceTenancy': {'native': True, 'name': 'instancetenancy', 'minOccurs': '0', 'type': 'string'}, 'securityGroup': {'maxOccurs': 'unbounded', 'native': False, 'name': 'securitygroup', 'minOccurs': '0', 'type': 'SecurityGroup'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'mainRouteTable': {'native': False, 'name': 'mainroutetable', 'minOccurs': '0', 'type': 'RouteTable'}, 'internetGateway': {'native': False, 'name': 'internetgateway', 'minOccurs': '0', 'type': 'InternetGateway'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}, 'virtualPrivateGateway': {'native': False, 'name': 'virtualprivategateway', 'minOccurs': '0', 'type': 'VPNGateway'}, 'instance': {'maxOccurs': 'unbounded', 'native': False, 'name': 'instance', 'minOccurs': '0', 'type': 'Instance'}, 'vpcId': {'native': True, 'name': 'vpcid', 'minOccurs': '0', 'type': 'string'}, 'defaultVpc': {'native': True, 'name': 'defaultvpc', 'minOccurs': '0', 'type': 'boolean'}, 'otherRouteTable': {'maxOccurs': 'unbounded', 'native': False, 'name': 'otherroutetable', 'minOccurs': '0', 'type': 'RouteTable'}, 'networks': {'maxOccurs': 'unbounded', 'native': False, 'name': 'networks', 'minOccurs': '0', 'type': 'Link'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'cidrBlock': {'native': True, 'name': 'cidrblock', 'minOccurs': '0', 'type': 'string'}, 'subnet': {'maxOccurs': 'unbounded', 'native': False, 'name': 'subnet', 'minOccurs': '0', 'type': 'VPCSubnet'}})
-        self.vpnconnection = vpnconnection
-        self.defaultvpc = defaultvpc
-        self.networks = networks
+        self._attrSpecs.update({'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'instanceTenancy': {'name': 'instancetenancy', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'cidrBlock': {'name': 'cidrblock', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'dhcpOptions': {'name': 'dhcpoptions', 'minOccurs': '0', 'native': False, 'type': 'DhcpOptions'}, 'defaultVpc': {'name': 'defaultvpc', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'vpcId': {'name': 'vpcid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'vpnConnection': {'name': 'vpnconnection', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'VPNConnection'}, 'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'virtualPrivateGateway': {'name': 'virtualprivategateway', 'minOccurs': '0', 'native': False, 'type': 'VPNGateway'}, 'otherRouteTable': {'name': 'otherroutetable', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'RouteTable'}, 'internetGateway': {'name': 'internetgateway', 'minOccurs': '0', 'native': False, 'type': 'InternetGateway'}, 'mainRouteTable': {'name': 'mainroutetable', 'minOccurs': '0', 'native': False, 'type': 'RouteTable'}, 'customerGateway': {'name': 'customergateway', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'CustomerGateway'}, 'subnet': {'name': 'subnet', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'VPCSubnet'}, 'securityGroup': {'name': 'securitygroup', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'SecurityGroup'}, 'networks': {'name': 'networks', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'instance': {'name': 'instance', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Instance'}})
         self.properties = properties
-        self.mainroutetable = mainroutetable
-        self.internetgateway = internetgateway
-        self.status = status
-        self.subnet = subnet
-        self.customergateway = customergateway
-        self.vpcid = vpcid
-        self.securitygroup = securitygroup
-        self.otherroutetable = otherroutetable
         self.instancetenancy = instancetenancy
         self.instance = instance
-        self.cloud = cloud
         self.cidrblock = cidrblock
         self.dhcpoptions = dhcpoptions
-        self.virtualprivategateway = virtualprivategateway 
+        self.defaultvpc = defaultvpc
+        self.vpcid = vpcid
+        self.vpnconnection = vpnconnection
+        self.cloud = cloud
+        self.virtualprivategateway = virtualprivategateway
+        self.networks = networks
+        self.internetgateway = internetgateway
+        self.mainroutetable = mainroutetable
+        self.customergateway = customergateway
+        self.subnet = subnet
+        self.securitygroup = securitygroup
+        self.otherroutetable = otherroutetable
+        self.status = status 

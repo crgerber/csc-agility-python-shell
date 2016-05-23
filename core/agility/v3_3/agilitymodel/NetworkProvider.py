@@ -5,22 +5,22 @@ class NetworkProvider(NetworkProviderBase, NetworkProviderActions):
     '''
     classdocs
     '''
-    def __init__(self, routers=[], networks=[], floatingips=[], networkprovidertype=None, networkcredentials=None, defaulttenantid=None, hostname=None):
+    def __init__(self, networkprovidertype=None, floatingips=[], defaulttenantid=None, routers=[], hostname=None, networks=[], networkcredentials=None):
         '''
         Constructor
-        @param routers: routers minOccurs=0 maxOccurs=unbounded
-        @type routers: Link
-        @param networks: networks minOccurs=0 maxOccurs=unbounded
-        @type networks: Link
-        @param floatingips: floatingips minOccurs=0 maxOccurs=unbounded
-        @type floatingips: Link
         @param networkprovidertype: networkprovidertype minOccurs=0
         @type networkprovidertype: Link
-        @param networkcredentials: networkcredentials minOccurs=0
-        @type networkcredentials: Credential
+        @param floatingips: floatingips minOccurs=0 maxOccurs=unbounded
+        @type floatingips: Link
         @param defaulttenantid: defaulttenantid minOccurs=0
         @type defaulttenantid: string
+        @param routers: routers minOccurs=0 maxOccurs=unbounded
+        @type routers: Link
         @param hostname: hostname minOccurs=0
         @type hostname: string
+        @param networks: networks minOccurs=0 maxOccurs=unbounded
+        @type networks: Link
+        @param networkcredentials: networkcredentials minOccurs=0
+        @type networkcredentials: Credential
         '''
-        NetworkProviderBase.__init__(self, routers=routers, networks=networks, floatingips=floatingips, networkprovidertype=networkprovidertype, networkcredentials=networkcredentials, defaulttenantid=defaulttenantid, hostname=hostname)
+        NetworkProviderBase.__init__(self, networkprovidertype=networkprovidertype, floatingips=floatingips, defaulttenantid=defaulttenantid, routers=routers, hostname=hostname, networks=networks, networkcredentials=networkcredentials)

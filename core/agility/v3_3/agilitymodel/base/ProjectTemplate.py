@@ -4,9 +4,9 @@ class ProjectTemplateBase(ProjectBase):
     '''
     classdocs
     '''
-    def __init__(self, projecttype=None, readyforuse=None):
+    def __init__(self, readyforuse=None, projecttype=None):
         ProjectBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'projectType': {'native': False, 'name': 'projecttype', 'minOccurs': '0', 'type': 'Link'}, 'readyForUse': {'native': True, 'name': 'readyforuse', 'minOccurs': '0', 'type': 'boolean'}})
-        self.projecttype = projecttype
-        self.readyforuse = readyforuse 
+        self._attrSpecs.update({'readyForUse': {'name': 'readyforuse', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'projectType': {'name': 'projecttype', 'minOccurs': '0', 'native': False, 'type': 'Link'}})
+        self.readyforuse = readyforuse
+        self.projecttype = projecttype 

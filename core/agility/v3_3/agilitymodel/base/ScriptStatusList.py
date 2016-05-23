@@ -7,5 +7,5 @@ class ScriptStatusListBase(ServiceMeshListBase):
     def __init__(self, scriptstatus=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'scriptStatus': {'maxOccurs': 'unbounded', 'native': False, 'name': 'scriptstatus', 'minOccurs': '0', 'type': 'ScriptStatus'}})
+        self._attrSpecs.update({'scriptStatus': {'name': 'scriptstatus', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ScriptStatus'}})
         self.scriptstatus = scriptstatus 

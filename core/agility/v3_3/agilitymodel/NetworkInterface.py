@@ -5,16 +5,16 @@ class NetworkInterface(NetworkInterfaceBase, NetworkInterfaceActions):
     '''
     classdocs
     '''
-    def __init__(self, physicaladdress=None, address=None, network=None, port=None):
+    def __init__(self, address=None, port=None, network=None, physicaladdress=None):
         '''
         Constructor
-        @param physicaladdress: physicaladdress minOccurs=0
-        @type physicaladdress: string
         @param address: address minOccurs=0
         @type address: Address
-        @param network: network minOccurs=0
-        @type network: Link
         @param port: port minOccurs=0
         @type port: Link
+        @param network: network minOccurs=0
+        @type network: Link
+        @param physicaladdress: physicaladdress minOccurs=0
+        @type physicaladdress: string
         '''
-        NetworkInterfaceBase.__init__(self, physicaladdress=physicaladdress, address=address, network=network, port=port)
+        NetworkInterfaceBase.__init__(self, address=address, port=port, network=network, physicaladdress=physicaladdress)

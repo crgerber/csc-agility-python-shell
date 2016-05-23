@@ -4,10 +4,10 @@ class FixedIPBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, ipaddress=None, subnet=None, id=None):
+    def __init__(self, id=None, subnet=None, ipaddress=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'ipAddress': {'native': True, 'name': 'ipaddress', 'minOccurs': '0', 'type': 'string'}, 'subnet': {'native': False, 'name': 'subnet', 'minOccurs': '0', 'type': 'Link'}, 'id': {'native': True, 'name': 'id', 'minOccurs': '0', 'type': 'int'}})
-        self.ipaddress = ipaddress
+        self._attrSpecs.update({'id': {'name': 'id', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'subnet': {'name': 'subnet', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'ipAddress': {'name': 'ipaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.id = id
         self.subnet = subnet
-        self.id = id 
+        self.ipaddress = ipaddress 

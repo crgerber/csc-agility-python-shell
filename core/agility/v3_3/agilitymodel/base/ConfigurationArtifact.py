@@ -4,13 +4,13 @@ class ConfigurationArtifactBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, resource=[], repository=[], documentation=None, version=None, property=[], type=None):
+    def __init__(self, property=[], documentation=None, version=None, repository=[], type=None, resource=[]):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'resource': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resource', 'minOccurs': '0', 'type': 'Link'}, 'repository': {'maxOccurs': 'unbounded', 'native': False, 'name': 'repository', 'minOccurs': '0', 'type': 'Link'}, 'documentation': {'native': True, 'name': 'documentation', 'minOccurs': '0', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'minOccurs': '0', 'type': 'string'}, 'property': {'maxOccurs': 'unbounded', 'native': False, 'name': 'property', 'minOccurs': '0', 'type': 'AssetProperty'}, 'type': {'native': True, 'name': 'type', 'minOccurs': '0', 'type': 'string'}})
-        self.resource = resource
-        self.repository = repository
+        self._attrSpecs.update({'property': {'name': 'property', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'documentation': {'name': 'documentation', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'version': {'name': 'version', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'repository': {'name': 'repository', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'type': {'name': 'type', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'resource': {'name': 'resource', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
+        self.property = property
         self.documentation = documentation
         self.version = version
-        self.property = property
-        self.type = type 
+        self.repository = repository
+        self.type = type
+        self.resource = resource 

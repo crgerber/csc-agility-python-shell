@@ -5,22 +5,22 @@ class ServiceProvider(ServiceProviderBase, ServiceProviderActions):
     '''
     classdocs
     '''
-    def __init__(self, credentials=None, networks=[], properties=[], type=None, cloud=None, hostname=None, locations=[]):
+    def __init__(self, credentials=None, type=None, cloud=None, properties=[], networks=[], hostname=None, locations=[]):
         '''
         Constructor
         @param credentials: credentials minOccurs=0
         @type credentials: Credential
-        @param networks: networks minOccurs=0 maxOccurs=unbounded
-        @type networks: Link
-        @param properties: properties minOccurs=0 maxOccurs=unbounded
-        @type properties: AssetProperty
         @param type: type minOccurs=0
         @type type: Link
         @param cloud: cloud minOccurs=0
         @type cloud: Link
+        @param properties: properties minOccurs=0 maxOccurs=unbounded
+        @type properties: AssetProperty
+        @param networks: networks minOccurs=0 maxOccurs=unbounded
+        @type networks: Link
         @param hostname: hostname minOccurs=0
         @type hostname: string
         @param locations: locations minOccurs=0 maxOccurs=unbounded
         @type locations: Link
         '''
-        ServiceProviderBase.__init__(self, credentials=credentials, networks=networks, properties=properties, type=type, cloud=cloud, hostname=hostname, locations=locations)
+        ServiceProviderBase.__init__(self, credentials=credentials, type=type, cloud=cloud, properties=properties, networks=networks, hostname=hostname, locations=locations)

@@ -4,26 +4,26 @@ class NetworkBase(SdnItemBase):
     '''
     classdocs
     '''
-    def __init__(self, serviceprovider=[], status=None, networkgateway=None, networkid=None, networkmask=None, dnsdomain=None, tenantid=None, subnets=[], addressrange=[], dnsservers=None, networkaddress=None, dsnsearch=[], routerexternal=None, shared=None, adminstateup=None, networkprovider=None, cloud=None, locations=[], ports=[]):
+    def __init__(self, networkid=None, serviceprovider=[], tenantid=None, networkprovider=None, adminstateup=None, routerexternal=None, dnsservers=None, dnsdomain=None, addressrange=[], locations=[], status=None, cloud=None, networkmask=None, networkaddress=None, subnets=[], ports=[], dsnsearch=[], shared=None, networkgateway=None):
         SdnItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'networkGateway': {'native': True, 'name': 'networkgateway', 'minOccurs': '0', 'type': 'string'}, 'networkId': {'native': True, 'name': 'networkid', 'minOccurs': '0', 'type': 'string'}, 'networkMask': {'native': True, 'name': 'networkmask', 'minOccurs': '0', 'type': 'string'}, 'locations': {'maxOccurs': 'unbounded', 'native': False, 'name': 'locations', 'minOccurs': '0', 'type': 'Link'}, 'dsnSearch': {'maxOccurs': 'unbounded', 'native': True, 'name': 'dsnsearch', 'minOccurs': '0', 'type': 'string'}, 'dnsDomain': {'native': True, 'name': 'dnsdomain', 'minOccurs': '0', 'type': 'string'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}, 'subnets': {'maxOccurs': 'unbounded', 'native': False, 'name': 'subnets', 'minOccurs': '0', 'type': 'Link'}, 'addressRange': {'maxOccurs': 'unbounded', 'native': False, 'name': 'addressrange', 'minOccurs': '0', 'type': 'Link'}, 'dnsServers': {'native': True, 'name': 'dnsservers', 'minOccurs': '0', 'type': 'string'}, 'serviceProvider': {'maxOccurs': 'unbounded', 'native': False, 'name': 'serviceprovider', 'minOccurs': '0', 'type': 'Link'}, 'tenantId': {'native': True, 'name': 'tenantid', 'minOccurs': '0', 'type': 'string'}, 'routerExternal': {'native': True, 'name': 'routerexternal', 'minOccurs': '0', 'type': 'boolean'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'adminStateUp': {'native': True, 'name': 'adminstateup', 'minOccurs': '0', 'type': 'boolean'}, 'networkAddress': {'native': True, 'name': 'networkaddress', 'minOccurs': '0', 'type': 'string'}, 'networkProvider': {'native': False, 'name': 'networkprovider', 'minOccurs': '0', 'type': 'Link'}, 'shared': {'native': True, 'name': 'shared', 'minOccurs': '0', 'type': 'boolean'}, 'ports': {'maxOccurs': 'unbounded', 'native': False, 'name': 'ports', 'minOccurs': '0', 'type': 'Link'}})
-        self.serviceprovider = serviceprovider
-        self.status = status
-        self.networkgateway = networkgateway
+        self._attrSpecs.update({'networkId': {'name': 'networkid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'serviceProvider': {'name': 'serviceprovider', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'tenantId': {'name': 'tenantid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'adminStateUp': {'name': 'adminstateup', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'dsnSearch': {'name': 'dsnsearch', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'dnsServers': {'name': 'dnsservers', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'dnsDomain': {'name': 'dnsdomain', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'addressRange': {'name': 'addressrange', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'locations': {'name': 'locations', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'networkMask': {'name': 'networkmask', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'networkProvider': {'name': 'networkprovider', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'shared': {'name': 'shared', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'subnets': {'name': 'subnets', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'ports': {'name': 'ports', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'routerExternal': {'name': 'routerexternal', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'networkAddress': {'name': 'networkaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'networkGateway': {'name': 'networkgateway', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.networkid = networkid
-        self.networkmask = networkmask
-        self.dnsdomain = dnsdomain
+        self.serviceprovider = serviceprovider
         self.tenantid = tenantid
-        self.subnets = subnets
-        self.addressrange = addressrange
-        self.dnsservers = dnsservers
-        self.networkaddress = networkaddress
-        self.dsnsearch = dsnsearch
-        self.routerexternal = routerexternal
-        self.shared = shared
-        self.adminstateup = adminstateup
         self.networkprovider = networkprovider
-        self.cloud = cloud
+        self.adminstateup = adminstateup
+        self.routerexternal = routerexternal
+        self.dnsservers = dnsservers
+        self.dnsdomain = dnsdomain
+        self.addressrange = addressrange
         self.locations = locations
-        self.ports = ports 
+        self.status = status
+        self.cloud = cloud
+        self.networkmask = networkmask
+        self.networkaddress = networkaddress
+        self.subnets = subnets
+        self.ports = ports
+        self.dsnsearch = dsnsearch
+        self.shared = shared
+        self.networkgateway = networkgateway 

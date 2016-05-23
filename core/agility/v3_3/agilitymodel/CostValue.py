@@ -5,12 +5,12 @@ class CostValue(CostValueBase, CostValueActions):
     '''
     classdocs
     '''
-    def __init__(self, recurringprice=None, initialprice=None):
+    def __init__(self, initialprice=None, recurringprice=None):
         '''
         Constructor
-        @param recurringprice: recurringprice minOccurs=0
-        @type recurringprice: string
         @param initialprice: initialprice minOccurs=0
         @type initialprice: string
+        @param recurringprice: recurringprice minOccurs=0
+        @type recurringprice: string
         '''
-        CostValueBase.__init__(self, recurringprice=recurringprice, initialprice=initialprice)
+        CostValueBase.__init__(self, initialprice=initialprice, recurringprice=recurringprice)

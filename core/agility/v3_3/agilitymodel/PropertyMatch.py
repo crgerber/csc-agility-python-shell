@@ -5,14 +5,14 @@ class PropertyMatch(PropertyMatchBase, PropertyMatchActions):
     '''
     classdocs
     '''
-    def __init__(self, matches='', name='', value=''):
+    def __init__(self, name='', value='', matches=''):
         '''
         Constructor
-        @param matches: matches
-        @type matches: string
         @param name: name
         @type name: string
         @param value: value
         @type value: string
+        @param matches: matches
+        @type matches: string
         '''
-        PropertyMatchBase.__init__(self, matches=matches, name=name, value=value)
+        PropertyMatchBase.__init__(self, name=name, value=value, matches=matches)

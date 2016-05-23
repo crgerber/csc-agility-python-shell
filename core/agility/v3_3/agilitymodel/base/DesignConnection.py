@@ -4,11 +4,11 @@ class DesignConnectionBase(DesignItemBase):
     '''
     classdocs
     '''
-    def __init__(self, destlogicalid=None, destid=None, srclogicalid=None, srcid=None):
+    def __init__(self, srcid=None, destid=None, srclogicalid=None, destlogicalid=None):
         DesignItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'destLogicalId': {'native': True, 'name': 'destlogicalid', 'minOccurs': '0', 'type': 'string'}, 'srcId': {'native': True, 'name': 'srcid', 'minOccurs': '0', 'type': 'int'}, 'srcLogicalId': {'native': True, 'name': 'srclogicalid', 'minOccurs': '0', 'type': 'string'}, 'destId': {'native': True, 'name': 'destid', 'minOccurs': '0', 'type': 'int'}})
-        self.destlogicalid = destlogicalid
+        self._attrSpecs.update({'srcId': {'name': 'srcid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'destId': {'name': 'destid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'srcLogicalId': {'name': 'srclogicalid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'destLogicalId': {'name': 'destlogicalid', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.srcid = srcid
         self.destid = destid
         self.srclogicalid = srclogicalid
-        self.srcid = srcid 
+        self.destlogicalid = destlogicalid 

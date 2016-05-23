@@ -5,18 +5,18 @@ class StoreRelease(StoreReleaseBase, StoreReleaseActions):
     '''
     classdocs
     '''
-    def __init__(self, build='', resources=[], version='', editions=[], product=None):
+    def __init__(self, product=None, editions=[], resources=[], build='', version=''):
         '''
         Constructor
-        @param build: build
-        @type build: string
-        @param resources: resources minOccurs=0 maxOccurs=unbounded
-        @type resources: StoreResource
-        @param version: version
-        @type version: string
-        @param editions: editions minOccurs=0 maxOccurs=unbounded
-        @type editions: Link
         @param product: product minOccurs=0
         @type product: Link
+        @param editions: editions minOccurs=0 maxOccurs=unbounded
+        @type editions: Link
+        @param resources: resources minOccurs=0 maxOccurs=unbounded
+        @type resources: StoreResource
+        @param build: build
+        @type build: string
+        @param version: version
+        @type version: string
         '''
-        StoreReleaseBase.__init__(self, build=build, resources=resources, version=version, editions=editions, product=product)
+        StoreReleaseBase.__init__(self, product=product, editions=editions, resources=resources, build=build, version=version)

@@ -4,11 +4,11 @@ class ConnectionDefinitionBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, sourcetype=None, displayname=None, destinationtype=None, connectiontype=None):
+    def __init__(self, destinationtype=None, connectiontype=None, displayname=None, sourcetype=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'sourceType': {'native': False, 'name': 'sourcetype', 'type': 'Link'}, 'displayName': {'native': True, 'name': 'displayname', 'minOccurs': '0', 'type': 'string'}, 'connectionType': {'native': False, 'name': 'connectiontype', 'type': 'Link'}, 'destinationType': {'native': False, 'name': 'destinationtype', 'type': 'Link'}})
-        self.sourcetype = sourcetype
-        self.displayname = displayname
+        self._attrSpecs.update({'destinationType': {'name': 'destinationtype', 'native': False, 'type': 'Link'}, 'connectionType': {'name': 'connectiontype', 'native': False, 'type': 'Link'}, 'displayName': {'name': 'displayname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'sourceType': {'name': 'sourcetype', 'native': False, 'type': 'Link'}})
         self.destinationtype = destinationtype
-        self.connectiontype = connectiontype 
+        self.connectiontype = connectiontype
+        self.displayname = displayname
+        self.sourcetype = sourcetype 

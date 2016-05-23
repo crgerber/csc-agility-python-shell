@@ -4,11 +4,11 @@ class NetworkInterfaceBase(ResourceBase):
     '''
     classdocs
     '''
-    def __init__(self, physicaladdress=None, address=None, network=None, port=None):
+    def __init__(self, address=None, port=None, network=None, physicaladdress=None):
         ResourceBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'physicalAddress': {'native': True, 'name': 'physicaladdress', 'minOccurs': '0', 'type': 'string'}, 'address': {'native': False, 'name': 'address', 'minOccurs': '0', 'type': 'Address'}, 'network': {'native': False, 'name': 'network', 'minOccurs': '0', 'type': 'Link'}, 'port': {'native': False, 'name': 'port', 'minOccurs': '0', 'type': 'Link'}})
-        self.physicaladdress = physicaladdress
+        self._attrSpecs.update({'address': {'name': 'address', 'minOccurs': '0', 'native': False, 'type': 'Address'}, 'port': {'name': 'port', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'network': {'name': 'network', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'physicalAddress': {'name': 'physicaladdress', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.address = address
+        self.port = port
         self.network = network
-        self.port = port 
+        self.physicaladdress = physicaladdress 

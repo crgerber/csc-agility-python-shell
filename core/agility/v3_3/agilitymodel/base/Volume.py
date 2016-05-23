@@ -4,17 +4,17 @@ class VolumeBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, encrypted=None, volumesize=None, credential=None, disksize=None, filesystem=None, privatekey=None, cloud=None, volumestorage=[], numdisks=None, raidlevel=None):
+    def __init__(self, cloud=None, disksize=None, volumestorage=[], privatekey=None, volumesize=None, raidlevel=None, credential=None, numdisks=None, filesystem=None, encrypted=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'encrypted': {'native': True, 'name': 'encrypted', 'minOccurs': '0', 'type': 'boolean'}, 'volumeSize': {'native': True, 'name': 'volumesize', 'minOccurs': '0', 'type': 'int'}, 'privateKey': {'native': True, 'name': 'privatekey', 'minOccurs': '0', 'type': 'hexBinary'}, 'diskSize': {'native': True, 'name': 'disksize', 'minOccurs': '0', 'type': 'int'}, 'fileSystem': {'native': True, 'name': 'filesystem', 'minOccurs': '0', 'type': 'string'}, 'credential': {'native': False, 'name': 'credential', 'minOccurs': '0', 'type': 'Credential'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'volumeStorage': {'maxOccurs': 'unbounded', 'native': False, 'name': 'volumestorage', 'minOccurs': '0', 'type': 'Link'}, 'numDisks': {'native': True, 'name': 'numdisks', 'minOccurs': '0', 'type': 'int'}, 'raidLevel': {'native': False, 'name': 'raidlevel', 'minOccurs': '0', 'type': 'RaidLevel'}})
-        self.encrypted = encrypted
-        self.volumesize = volumesize
-        self.credential = credential
-        self.disksize = disksize
-        self.filesystem = filesystem
-        self.privatekey = privatekey
+        self._attrSpecs.update({'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'volumeStorage': {'name': 'volumestorage', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'privateKey': {'name': 'privatekey', 'minOccurs': '0', 'native': True, 'type': 'hexBinary'}, 'diskSize': {'name': 'disksize', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'raidLevel': {'name': 'raidlevel', 'minOccurs': '0', 'native': False, 'type': 'RaidLevel'}, 'encrypted': {'name': 'encrypted', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'numDisks': {'name': 'numdisks', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'fileSystem': {'name': 'filesystem', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'volumeSize': {'name': 'volumesize', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'credential': {'name': 'credential', 'minOccurs': '0', 'native': False, 'type': 'Credential'}})
         self.cloud = cloud
+        self.disksize = disksize
         self.volumestorage = volumestorage
+        self.privatekey = privatekey
+        self.volumesize = volumesize
+        self.raidlevel = raidlevel
+        self.credential = credential
         self.numdisks = numdisks
-        self.raidlevel = raidlevel 
+        self.filesystem = filesystem
+        self.encrypted = encrypted 

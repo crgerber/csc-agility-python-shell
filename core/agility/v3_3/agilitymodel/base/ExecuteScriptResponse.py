@@ -7,5 +7,5 @@ class ExecuteScriptResponseBase(AgilityModelBase):
     def __init__(self, scriptstatus=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'scriptStatus': {'native': False, 'name': 'scriptstatus', 'minOccurs': '0', 'type': 'ScriptStatus'}})
+        self._attrSpecs.update({'scriptStatus': {'name': 'scriptstatus', 'minOccurs': '0', 'native': False, 'type': 'ScriptStatus'}})
         self.scriptstatus = scriptstatus 

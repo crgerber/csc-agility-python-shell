@@ -5,20 +5,20 @@ class ServiceProviderType(ServiceProviderTypeBase, ServiceProviderTypeActions):
     '''
     classdocs
     '''
-    def __init__(self, servicetypesupertype=[], sdkservice=False, servicetype=[], option=[], adapter=None, supertype=[]):
+    def __init__(self, sdkservice=False, supertype=[], servicetypesupertype=[], option=[], adapter=None, servicetype=[]):
         '''
         Constructor
-        @param servicetypesupertype: servicetypesupertype minOccurs=0 maxOccurs=unbounded
-        @type servicetypesupertype: Link
         @param sdkservice: sdkservice
         @type sdkservice: boolean
-        @param servicetype: servicetype minOccurs=0 maxOccurs=unbounded
-        @type servicetype: Link
+        @param supertype: supertype minOccurs=0 maxOccurs=unbounded
+        @type supertype: Link
+        @param servicetypesupertype: servicetypesupertype minOccurs=0 maxOccurs=unbounded
+        @type servicetypesupertype: Link
         @param option: option minOccurs=0 maxOccurs=unbounded
         @type option: ServiceProviderOption
         @param adapter: adapter minOccurs=0
         @type adapter: string
-        @param supertype: supertype minOccurs=0 maxOccurs=unbounded
-        @type supertype: Link
+        @param servicetype: servicetype minOccurs=0 maxOccurs=unbounded
+        @type servicetype: Link
         '''
-        ServiceProviderTypeBase.__init__(self, servicetypesupertype=servicetypesupertype, sdkservice=sdkservice, servicetype=servicetype, option=option, adapter=adapter, supertype=supertype)
+        ServiceProviderTypeBase.__init__(self, sdkservice=sdkservice, supertype=supertype, servicetypesupertype=servicetypesupertype, option=option, adapter=adapter, servicetype=servicetype)

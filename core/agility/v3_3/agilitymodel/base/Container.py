@@ -4,19 +4,19 @@ class ContainerBase(VersionedItemBase):
     '''
     classdocs
     '''
-    def __init__(self, customcontainer=[], credential=[], package=[], blueprint=[], script=[], containerright=[], policy=[], project=[], container=[], stack=[], customitem=[], application=[]):
+    def __init__(self, blueprint=[], stack=[], container=[], containerright=[], package=[], project=[], script=[], policy=[], customcontainer=[], customitem=[], application=[], credential=[]):
         VersionedItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'customContainer': {'maxOccurs': 'unbounded', 'native': False, 'name': 'customcontainer', 'minOccurs': '0', 'type': 'Link'}, 'credential': {'maxOccurs': 'unbounded', 'native': False, 'name': 'credential', 'minOccurs': '0', 'type': 'Link'}, 'package': {'maxOccurs': 'unbounded', 'native': False, 'name': 'package', 'minOccurs': '0', 'type': 'Link'}, 'blueprint': {'maxOccurs': 'unbounded', 'native': False, 'name': 'blueprint', 'minOccurs': '0', 'type': 'Link'}, 'script': {'maxOccurs': 'unbounded', 'native': False, 'name': 'script', 'minOccurs': '0', 'type': 'Link'}, 'containerRight': {'maxOccurs': 'unbounded', 'native': False, 'name': 'containerright', 'minOccurs': '0', 'type': 'Link'}, 'policy': {'maxOccurs': 'unbounded', 'native': False, 'name': 'policy', 'minOccurs': '0', 'type': 'Link'}, 'project': {'maxOccurs': 'unbounded', 'native': False, 'name': 'project', 'minOccurs': '0', 'type': 'Link'}, 'container': {'maxOccurs': 'unbounded', 'native': False, 'name': 'container', 'minOccurs': '0', 'type': 'Link'}, 'stack': {'maxOccurs': 'unbounded', 'native': False, 'name': 'stack', 'minOccurs': '0', 'type': 'Link'}, 'customItem': {'maxOccurs': 'unbounded', 'native': False, 'name': 'customitem', 'minOccurs': '0', 'type': 'Link'}, 'application': {'maxOccurs': 'unbounded', 'native': False, 'name': 'application', 'minOccurs': '0', 'type': 'Link'}})
-        self.customcontainer = customcontainer
-        self.credential = credential
-        self.package = package
+        self._attrSpecs.update({'blueprint': {'name': 'blueprint', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'script': {'name': 'script', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'stack': {'name': 'stack', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'containerRight': {'name': 'containerright', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'package': {'name': 'package', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'project': {'name': 'project', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'container': {'name': 'container', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'policy': {'name': 'policy', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'credential': {'name': 'credential', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'customItem': {'name': 'customitem', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'application': {'name': 'application', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'customContainer': {'name': 'customcontainer', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.blueprint = blueprint
-        self.script = script
-        self.containerright = containerright
-        self.policy = policy
-        self.project = project
-        self.container = container
         self.stack = stack
+        self.container = container
+        self.containerright = containerright
+        self.package = package
+        self.project = project
+        self.script = script
+        self.policy = policy
+        self.customcontainer = customcontainer
         self.customitem = customitem
-        self.application = application 
+        self.application = application
+        self.credential = credential 

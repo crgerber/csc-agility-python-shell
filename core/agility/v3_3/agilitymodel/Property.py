@@ -5,20 +5,20 @@ class Property(PropertyBase, PropertyActions):
     '''
     classdocs
     '''
-    def __init__(self, encrypted=False, dataencrypted=False, overridable=False, value='', data=None, availableoptions=[]):
+    def __init__(self, value='', data=None, dataencrypted=False, encrypted=False, overridable=False, availableoptions=[]):
         '''
         Constructor
-        @param encrypted: encrypted
-        @type encrypted: boolean
-        @param dataencrypted: dataencrypted
-        @type dataencrypted: boolean
-        @param overridable: overridable
-        @type overridable: boolean
         @param value: value
         @type value: string
         @param data: data minOccurs=0
         @type data: hexBinary
+        @param dataencrypted: dataencrypted
+        @type dataencrypted: boolean
+        @param encrypted: encrypted
+        @type encrypted: boolean
+        @param overridable: overridable
+        @type overridable: boolean
         @param availableoptions: availableoptions minOccurs=0 maxOccurs=unbounded
         @type availableoptions: string
         '''
-        PropertyBase.__init__(self, encrypted=encrypted, dataencrypted=dataencrypted, overridable=overridable, value=value, data=data, availableoptions=availableoptions)
+        PropertyBase.__init__(self, value=value, data=data, dataencrypted=dataencrypted, encrypted=encrypted, overridable=overridable, availableoptions=availableoptions)

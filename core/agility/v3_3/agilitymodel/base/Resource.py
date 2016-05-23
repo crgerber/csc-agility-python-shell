@@ -4,13 +4,13 @@ class ResourceBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, quantity=None, editable=None, hostresource=None, resourcetype=None, subtype=None, units=None):
+    def __init__(self, editable=None, quantity=None, units=None, hostresource=None, resourcetype=None, subtype=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'quantity': {'native': True, 'name': 'quantity', 'type': 'float'}, 'editable': {'native': True, 'name': 'editable', 'minOccurs': '0', 'type': 'boolean'}, 'hostResource': {'native': True, 'name': 'hostresource', 'minOccurs': '0', 'type': 'string'}, 'subType': {'native': True, 'name': 'subtype', 'minOccurs': '0', 'type': 'string'}, 'resourceType': {'native': False, 'name': 'resourcetype', 'minOccurs': '0', 'type': 'ResourceType'}, 'units': {'native': True, 'name': 'units', 'minOccurs': '0', 'type': 'string'}})
-        self.quantity = quantity
+        self._attrSpecs.update({'editable': {'name': 'editable', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'quantity': {'name': 'quantity', 'native': True, 'type': 'float'}, 'units': {'name': 'units', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'hostResource': {'name': 'hostresource', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'resourceType': {'name': 'resourcetype', 'minOccurs': '0', 'native': False, 'type': 'ResourceType'}, 'subType': {'name': 'subtype', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.editable = editable
+        self.quantity = quantity
+        self.units = units
         self.hostresource = hostresource
         self.resourcetype = resourcetype
-        self.subtype = subtype
-        self.units = units 
+        self.subtype = subtype 

@@ -4,14 +4,14 @@ class RouterBase(SdnItemBase):
     '''
     classdocs
     '''
-    def __init__(self, tenantid=None, routerinterfaces=[], networkprovider=None, externalnetwork=None, adminstateup=None, routerid=None, status=None):
+    def __init__(self, tenantid=None, status=None, adminstateup=None, routerid=None, externalnetwork=None, networkprovider=None, routerinterfaces=[]):
         SdnItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'routerId': {'native': True, 'name': 'routerid', 'minOccurs': '0', 'type': 'string'}, 'tenantId': {'native': True, 'name': 'tenantid', 'minOccurs': '0', 'type': 'string'}, 'externalNetwork': {'native': False, 'name': 'externalnetwork', 'minOccurs': '0', 'type': 'Link'}, 'adminStateUp': {'native': True, 'name': 'adminstateup', 'minOccurs': '0', 'type': 'boolean'}, 'networkProvider': {'native': False, 'name': 'networkprovider', 'minOccurs': '0', 'type': 'Link'}, 'routerInterfaces': {'maxOccurs': 'unbounded', 'native': False, 'name': 'routerinterfaces', 'minOccurs': '0', 'type': 'RouterInterface'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'tenantId': {'name': 'tenantid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'adminStateUp': {'name': 'adminstateup', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'routerId': {'name': 'routerid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'routerInterfaces': {'name': 'routerinterfaces', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'RouterInterface'}, 'externalNetwork': {'name': 'externalnetwork', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'networkProvider': {'name': 'networkprovider', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.tenantid = tenantid
-        self.routerinterfaces = routerinterfaces
-        self.networkprovider = networkprovider
-        self.externalnetwork = externalnetwork
+        self.status = status
         self.adminstateup = adminstateup
         self.routerid = routerid
-        self.status = status 
+        self.externalnetwork = externalnetwork
+        self.networkprovider = networkprovider
+        self.routerinterfaces = routerinterfaces 

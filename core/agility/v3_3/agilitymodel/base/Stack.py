@@ -4,13 +4,13 @@ class StackBase(VersionedItemBase):
     '''
     classdocs
     '''
-    def __init__(self, template=None, basestack=None, operatingsystem=None, targets=[], status=None, images=[]):
+    def __init__(self, operatingsystem=None, status=None, template=None, images=[], basestack=None, targets=[]):
         VersionedItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'template': {'native': False, 'name': 'template', 'minOccurs': '0', 'type': 'Link'}, 'baseStack': {'native': False, 'name': 'basestack', 'minOccurs': '0', 'type': 'Link'}, 'operatingSystem': {'native': True, 'name': 'operatingsystem', 'minOccurs': '0', 'type': 'string'}, 'targets': {'maxOccurs': 'unbounded', 'native': False, 'name': 'targets', 'minOccurs': '0', 'type': 'Link'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}, 'images': {'maxOccurs': 'unbounded', 'native': False, 'name': 'images', 'minOccurs': '0', 'type': 'Link'}})
-        self.template = template
-        self.basestack = basestack
+        self._attrSpecs.update({'operatingSystem': {'name': 'operatingsystem', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'template': {'name': 'template', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'images': {'name': 'images', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'baseStack': {'name': 'basestack', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'targets': {'name': 'targets', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.operatingsystem = operatingsystem
-        self.targets = targets
         self.status = status
-        self.images = images 
+        self.template = template
+        self.images = images
+        self.basestack = basestack
+        self.targets = targets 

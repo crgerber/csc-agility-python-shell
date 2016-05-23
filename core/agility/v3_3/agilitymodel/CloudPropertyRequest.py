@@ -5,12 +5,12 @@ class CloudPropertyRequest(CloudPropertyRequestBase, CloudPropertyRequestActions
     '''
     classdocs
     '''
-    def __init__(self, propertyname='', defaultvalue=False):
+    def __init__(self, defaultvalue=False, propertyname=''):
         '''
         Constructor
-        @param propertyname: propertyname
-        @type propertyname: string
         @param defaultvalue: defaultvalue
         @type defaultvalue: boolean
+        @param propertyname: propertyname
+        @type propertyname: string
         '''
-        CloudPropertyRequestBase.__init__(self, propertyname=propertyname, defaultvalue=defaultvalue)
+        CloudPropertyRequestBase.__init__(self, defaultvalue=defaultvalue, propertyname=propertyname)

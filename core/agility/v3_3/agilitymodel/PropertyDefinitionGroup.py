@@ -5,16 +5,16 @@ class PropertyDefinitionGroup(PropertyDefinitionGroupBase, PropertyDefinitionGro
     '''
     classdocs
     '''
-    def __init__(self, parent=None, displayname=None, derivedgroup=[], propertydefinition=[]):
+    def __init__(self, derivedgroup=[], displayname=None, propertydefinition=[], parent=None):
         '''
         Constructor
-        @param parent: parent minOccurs=0
-        @type parent: Link
-        @param displayname: displayname minOccurs=0
-        @type displayname: string
         @param derivedgroup: derivedgroup minOccurs=0 maxOccurs=unbounded
         @type derivedgroup: Link
+        @param displayname: displayname minOccurs=0
+        @type displayname: string
         @param propertydefinition: propertydefinition minOccurs=0 maxOccurs=unbounded
         @type propertydefinition: PropertyDefinition
+        @param parent: parent minOccurs=0
+        @type parent: Link
         '''
-        PropertyDefinitionGroupBase.__init__(self, parent=parent, displayname=displayname, derivedgroup=derivedgroup, propertydefinition=propertydefinition)
+        PropertyDefinitionGroupBase.__init__(self, derivedgroup=derivedgroup, displayname=displayname, propertydefinition=propertydefinition, parent=parent)

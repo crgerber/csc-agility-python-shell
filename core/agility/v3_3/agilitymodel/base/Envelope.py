@@ -4,11 +4,11 @@ class EnvelopeBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, version='', pendingasset=[], asset=[], productversion=''):
+    def __init__(self, productversion='', pendingasset=[], version='', asset=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'version': {'native': True, 'name': 'version', 'type': 'string'}, 'pendingAsset': {'maxOccurs': 'unbounded', 'native': False, 'name': 'pendingasset', 'minOccurs': '0', 'type': 'Asset'}, 'Asset': {'maxOccurs': 'unbounded', 'native': False, 'name': 'asset', 'minOccurs': '0', 'type': 'Asset'}, 'productVersion': {'native': True, 'name': 'productversion', 'type': 'string'}})
-        self.version = version
+        self._attrSpecs.update({'pendingAsset': {'name': 'pendingasset', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Asset'}, 'version': {'name': 'version', 'native': True, 'type': 'string'}, 'Asset': {'name': 'asset', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Asset'}, 'productVersion': {'name': 'productversion', 'native': True, 'type': 'string'}})
+        self.productversion = productversion
         self.pendingasset = pendingasset
-        self.asset = asset
-        self.productversion = productversion 
+        self.version = version
+        self.asset = asset 

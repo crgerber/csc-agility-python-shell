@@ -4,33 +4,33 @@ class CloudBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, credentials=[], networks=[], dhcpoptions=[], postbootscripts=[], networkservices=[], networksubscriptions=[], postreleasescripts=[], prebootscripts=[], cloudlogin=None, vmmserver=None, hostname=None, vmmport=None, cloudcertificate=None, cloudcredentials=None, properties=[], cloudtype=None, cloudadmincredentials=None, locations=[], repositories=[], priceengine=None, subscription=None, cloudid=None, proxies=[], enabled=None, variables=[], models=[]):
+    def __init__(self, postreleasescripts=[], hostname=None, postbootscripts=[], vmmserver=None, cloudcredentials=None, cloudcertificate=None, enabled=None, locations=[], credentials=[], networksubscriptions=[], variables=[], priceengine=None, prebootscripts=[], repositories=[], cloudid=None, properties=[], proxies=[], dhcpoptions=[], cloudtype=None, cloudadmincredentials=None, cloudlogin=None, networkservices=[], vmmport=None, subscription=None, networks=[], models=[]):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'credentials': {'maxOccurs': 'unbounded', 'native': False, 'name': 'credentials', 'minOccurs': '0', 'type': 'Link'}, 'vmmServer': {'native': True, 'name': 'vmmserver', 'minOccurs': '0', 'type': 'string'}, 'dhcpOptions': {'maxOccurs': 'unbounded', 'native': False, 'name': 'dhcpoptions', 'minOccurs': '0', 'type': 'Link'}, 'postBootScripts': {'maxOccurs': 'unbounded', 'native': False, 'name': 'postbootscripts', 'minOccurs': '0', 'type': 'Link'}, 'cloudAdminCredentials': {'native': False, 'name': 'cloudadmincredentials', 'minOccurs': '0', 'type': 'Credential'}, 'postReleaseScripts': {'maxOccurs': 'unbounded', 'native': False, 'name': 'postreleasescripts', 'minOccurs': '0', 'type': 'Link'}, 'preBootScripts': {'maxOccurs': 'unbounded', 'native': False, 'name': 'prebootscripts', 'minOccurs': '0', 'type': 'Link'}, 'cloudLogin': {'native': False, 'name': 'cloudlogin', 'minOccurs': '0', 'type': 'Credential'}, 'hostname': {'native': True, 'name': 'hostname', 'minOccurs': '0', 'type': 'string'}, 'vmmPort': {'native': True, 'name': 'vmmport', 'minOccurs': '0', 'type': 'int'}, 'proxies': {'maxOccurs': 'unbounded', 'native': False, 'name': 'proxies', 'minOccurs': '0', 'type': 'Proxy'}, 'cloudCertificate': {'native': False, 'name': 'cloudcertificate', 'minOccurs': '0', 'type': 'Credential'}, 'cloudCredentials': {'native': False, 'name': 'cloudcredentials', 'minOccurs': '0', 'type': 'Credential'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'cloudType': {'native': False, 'name': 'cloudtype', 'minOccurs': '0', 'type': 'Link'}, 'models': {'maxOccurs': 'unbounded', 'native': False, 'name': 'models', 'minOccurs': '0', 'type': 'Link'}, 'networkServices': {'maxOccurs': 'unbounded', 'native': False, 'name': 'networkservices', 'minOccurs': '0', 'type': 'Link'}, 'locations': {'maxOccurs': 'unbounded', 'native': False, 'name': 'locations', 'minOccurs': '0', 'type': 'Link'}, 'repositories': {'maxOccurs': 'unbounded', 'native': False, 'name': 'repositories', 'minOccurs': '0', 'type': 'Repository'}, 'priceEngine': {'native': False, 'name': 'priceengine', 'minOccurs': '0', 'type': 'PriceEngine'}, 'subscription': {'native': True, 'name': 'subscription', 'minOccurs': '0', 'type': 'string'}, 'cloudId': {'native': True, 'name': 'cloudid', 'minOccurs': '0', 'type': 'string'}, 'networks': {'maxOccurs': 'unbounded', 'native': False, 'name': 'networks', 'minOccurs': '0', 'type': 'Link'}, 'enabled': {'native': True, 'name': 'enabled', 'minOccurs': '0', 'type': 'boolean'}, 'variables': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variables', 'minOccurs': '0', 'type': 'AssetProperty'}, 'networkSubscriptions': {'maxOccurs': 'unbounded', 'native': False, 'name': 'networksubscriptions', 'minOccurs': '0', 'type': 'NetworkSubscription'}})
-        self.credentials = credentials
-        self.networks = networks
-        self.dhcpoptions = dhcpoptions
-        self.postbootscripts = postbootscripts
-        self.networkservices = networkservices
-        self.networksubscriptions = networksubscriptions
+        self._attrSpecs.update({'networkSubscriptions': {'name': 'networksubscriptions', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'NetworkSubscription'}, 'postBootScripts': {'name': 'postbootscripts', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'vmmServer': {'name': 'vmmserver', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'cloudCredentials': {'name': 'cloudcredentials', 'minOccurs': '0', 'native': False, 'type': 'Credential'}, 'cloudCertificate': {'name': 'cloudcertificate', 'minOccurs': '0', 'native': False, 'type': 'Credential'}, 'enabled': {'name': 'enabled', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'dhcpOptions': {'name': 'dhcpoptions', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'locations': {'name': 'locations', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'credentials': {'name': 'credentials', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'variables': {'name': 'variables', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'priceEngine': {'name': 'priceengine', 'minOccurs': '0', 'native': False, 'type': 'PriceEngine'}, 'cloudId': {'name': 'cloudid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'preBootScripts': {'name': 'prebootscripts', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'repositories': {'name': 'repositories', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Repository'}, 'postReleaseScripts': {'name': 'postreleasescripts', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'proxies': {'name': 'proxies', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Proxy'}, 'hostname': {'name': 'hostname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'cloudType': {'name': 'cloudtype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'cloudAdminCredentials': {'name': 'cloudadmincredentials', 'minOccurs': '0', 'native': False, 'type': 'Credential'}, 'cloudLogin': {'name': 'cloudlogin', 'minOccurs': '0', 'native': False, 'type': 'Credential'}, 'networkServices': {'name': 'networkservices', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'vmmPort': {'name': 'vmmport', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'subscription': {'name': 'subscription', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'networks': {'name': 'networks', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'models': {'name': 'models', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.postreleasescripts = postreleasescripts
-        self.prebootscripts = prebootscripts
-        self.cloudlogin = cloudlogin
-        self.vmmserver = vmmserver
         self.hostname = hostname
-        self.vmmport = vmmport
-        self.cloudcertificate = cloudcertificate
+        self.postbootscripts = postbootscripts
+        self.vmmserver = vmmserver
         self.cloudcredentials = cloudcredentials
+        self.cloudcertificate = cloudcertificate
+        self.enabled = enabled
+        self.locations = locations
+        self.credentials = credentials
+        self.networksubscriptions = networksubscriptions
+        self.variables = variables
+        self.priceengine = priceengine
+        self.prebootscripts = prebootscripts
+        self.repositories = repositories
+        self.cloudid = cloudid
         self.properties = properties
+        self.proxies = proxies
+        self.dhcpoptions = dhcpoptions
         self.cloudtype = cloudtype
         self.cloudadmincredentials = cloudadmincredentials
-        self.locations = locations
-        self.repositories = repositories
-        self.priceengine = priceengine
+        self.cloudlogin = cloudlogin
+        self.networkservices = networkservices
+        self.vmmport = vmmport
         self.subscription = subscription
-        self.cloudid = cloudid
-        self.proxies = proxies
-        self.enabled = enabled
-        self.variables = variables
+        self.networks = networks
         self.models = models 

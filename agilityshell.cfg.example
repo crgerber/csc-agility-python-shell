@@ -10,6 +10,7 @@ connect = True
 bs4path = <bs4_path>
 lang = python
 auto_dedupe = True
+schemaMode = False
 
 #[security]
 #oauth or basic
@@ -25,7 +26,7 @@ ssl_cacert_location = cacert.pem
 
 [apiversion]
 #v2.0 or v3.0 or v3.3 or current
-version = current
+version = v3.3
 
 [log]
 level = INFO

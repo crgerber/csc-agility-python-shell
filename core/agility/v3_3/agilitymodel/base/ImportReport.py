@@ -7,5 +7,5 @@ class ImportReportBase(AgilityModelBase):
     def __init__(self, importfilereports=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'importFileReports': {'maxOccurs': 'unbounded', 'native': False, 'name': 'importfilereports', 'minOccurs': '0', 'type': 'ImportFileReport'}})
+        self._attrSpecs.update({'importFileReports': {'name': 'importfilereports', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ImportFileReport'}})
         self.importfilereports = importfilereports 

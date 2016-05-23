@@ -4,12 +4,12 @@ class WorkflowTaskMetaBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, pathicon='', name='', icon='', description='', transitions=[]):
+    def __init__(self, name='', description='', transitions=[], pathicon='', icon=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'pathIcon': {'native': True, 'name': 'pathicon', 'type': 'string'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'icon': {'native': True, 'name': 'icon', 'type': 'string'}, 'description': {'native': True, 'name': 'description', 'type': 'string'}, 'transitions': {'maxOccurs': 'unbounded', 'native': False, 'name': 'transitions', 'minOccurs': '0', 'type': 'Link'}})
-        self.pathicon = pathicon
+        self._attrSpecs.update({'name': {'name': 'name', 'native': True, 'type': 'string'}, 'description': {'name': 'description', 'native': True, 'type': 'string'}, 'icon': {'name': 'icon', 'native': True, 'type': 'string'}, 'pathIcon': {'name': 'pathicon', 'native': True, 'type': 'string'}, 'transitions': {'name': 'transitions', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.name = name
-        self.icon = icon
         self.description = description
-        self.transitions = transitions 
+        self.transitions = transitions
+        self.pathicon = pathicon
+        self.icon = icon 

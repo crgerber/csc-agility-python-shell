@@ -5,16 +5,16 @@ class RouteTableAssociation(RouteTableAssociationBase, RouteTableAssociationActi
     '''
     classdocs
     '''
-    def __init__(self, routetableid=None, subnetid=None, associationid=None, main=None):
+    def __init__(self, subnetid=None, associationid=None, main=None, routetableid=None):
         '''
         Constructor
-        @param routetableid: routetableid minOccurs=0
-        @type routetableid: string
         @param subnetid: subnetid minOccurs=0
         @type subnetid: string
         @param associationid: associationid minOccurs=0
         @type associationid: string
         @param main: main minOccurs=0
         @type main: boolean
+        @param routetableid: routetableid minOccurs=0
+        @type routetableid: string
         '''
-        RouteTableAssociationBase.__init__(self, routetableid=routetableid, subnetid=subnetid, associationid=associationid, main=main)
+        RouteTableAssociationBase.__init__(self, subnetid=subnetid, associationid=associationid, main=main, routetableid=routetableid)

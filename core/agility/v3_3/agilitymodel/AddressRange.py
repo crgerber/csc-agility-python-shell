@@ -5,22 +5,22 @@ class AddressRange(AddressRangeBase, AddressRangeActions):
     '''
     classdocs
     '''
-    def __init__(self, network=None, rangemin=None, inetmin=None, rangetype=None, inetmax=None, availableaddresses=[], rangemax=None):
+    def __init__(self, network=None, inetmax=None, rangemax=None, rangemin=None, rangetype=None, availableaddresses=[], inetmin=None):
         '''
         Constructor
         @param network: network minOccurs=0
         @type network: Link
-        @param rangemin: rangemin minOccurs=0
-        @type rangemin: string
-        @param inetmin: inetmin minOccurs=0
-        @type inetmin: string
-        @param rangetype: rangetype minOccurs=0
-        @type rangetype: string
         @param inetmax: inetmax minOccurs=0
         @type inetmax: string
-        @param availableaddresses: availableaddresses minOccurs=0 maxOccurs=unbounded
-        @type availableaddresses: Address
         @param rangemax: rangemax minOccurs=0
         @type rangemax: string
+        @param rangemin: rangemin minOccurs=0
+        @type rangemin: string
+        @param rangetype: rangetype minOccurs=0
+        @type rangetype: string
+        @param availableaddresses: availableaddresses minOccurs=0 maxOccurs=unbounded
+        @type availableaddresses: Address
+        @param inetmin: inetmin minOccurs=0
+        @type inetmin: string
         '''
-        AddressRangeBase.__init__(self, network=network, rangemin=rangemin, inetmin=inetmin, rangetype=rangetype, inetmax=inetmax, availableaddresses=availableaddresses, rangemax=rangemax)
+        AddressRangeBase.__init__(self, network=network, inetmax=inetmax, rangemax=rangemax, rangemin=rangemin, rangetype=rangetype, availableaddresses=availableaddresses, inetmin=inetmin)

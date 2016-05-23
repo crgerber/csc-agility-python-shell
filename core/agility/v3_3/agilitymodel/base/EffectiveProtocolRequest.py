@@ -7,6 +7,6 @@ class EffectiveProtocolRequestBase(AgilityModelBase):
     def __init__(self, policyid=[], item=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'policyId': {'maxOccurs': 'unbounded', 'native': True, 'name': 'policyid', 'minOccurs': '0', 'type': 'int'}, 'item': {'native': False, 'name': 'item', 'minOccurs': '0', 'type': 'Link'}})
+        self._attrSpecs.update({'policyId': {'name': 'policyid', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'int'}, 'item': {'name': 'item', 'minOccurs': '0', 'native': False, 'type': 'Link'}})
         self.policyid = policyid
         self.item = item 

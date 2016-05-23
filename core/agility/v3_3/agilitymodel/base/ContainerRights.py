@@ -4,11 +4,11 @@ class ContainerRightsBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, user=[], rights=[], projectrole=None, usergroup=[]):
+    def __init__(self, rights=[], projectrole=None, usergroup=[], user=[]):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'user': {'maxOccurs': 'unbounded', 'native': False, 'name': 'user', 'minOccurs': '0', 'type': 'Link'}, 'usergroup': {'maxOccurs': 'unbounded', 'native': False, 'name': 'usergroup', 'minOccurs': '0', 'type': 'Link'}, 'projectRole': {'native': False, 'name': 'projectrole', 'minOccurs': '0', 'type': 'Link'}, 'rights': {'maxOccurs': 'unbounded', 'native': False, 'name': 'rights', 'minOccurs': '0', 'type': 'AccessRightSet'}})
-        self.user = user
+        self._attrSpecs.update({'rights': {'name': 'rights', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AccessRightSet'}, 'projectRole': {'name': 'projectrole', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'usergroup': {'name': 'usergroup', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'user': {'name': 'user', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.rights = rights
         self.projectrole = projectrole
-        self.usergroup = usergroup 
+        self.usergroup = usergroup
+        self.user = user 

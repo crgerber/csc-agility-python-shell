@@ -12,7 +12,7 @@ import ssl
 import sys
 from core.restclient.responseparser.ParserLxml import xml2d
 from core.pyworx.text import isValidPythonSymbol, validPythonSymbol
-from agilityinit import getConfiguration
+from agilityinit import getConfiguration, BOOLEAN
 from core.agility import getModel
 
 agilitymodel = getModel()
@@ -151,8 +151,11 @@ def processClassSpec(specDict, asText = False):
     else: 
         elements = sequence.get('element', None)
         if elements is None:
-            print("Warning can not parse spec, skipping class [%s]"%className)
-            return
+            choice = sequence.get('choice', None)
+            elements = choice.get('element', None)
+            if elements is None:
+                print("Warning can not parse spec, skipping class [%s]"%className)
+                return
         elements = elements if isinstance(elements, list) else [elements]
     
     attributes = baseTypeNode.get('attribute', [])
@@ -444,6 +447,9 @@ def parseXSDSpecs():
     
 def parseHTMLSpecs():
     dirname = rootDirName()
+    
+    print("DirName:=%s"%dirname) 
+    
     basedir = os.path.join(dirname, 'base')
     if not os.path.exists(basedir):
         os.makedirs(basedir)
@@ -479,7 +485,11 @@ def generateSchema():
     
 if __name__ == '__main__':
     schemaMode = configuration.get(section='main', option='schemaMode')  
-    if schemaMode:
+    print("SchemaMode:=%s"%schemaMode)
+    
+    if BOOLEAN[str(schemaMode)] :
+        print("generateSchema")
         generateSchema()
     else:
+        print("parseHTMLSpecs")
         parseHTMLSpecs()

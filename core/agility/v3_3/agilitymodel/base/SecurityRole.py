@@ -4,11 +4,11 @@ class SecurityRoleBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, enabled=None, securityrolename=None, product=None, visible=None):
+    def __init__(self, product=None, enabled=None, visible=None, securityrolename=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'enabled': {'native': True, 'name': 'enabled', 'minOccurs': '0', 'type': 'boolean'}, 'securityRoleName': {'native': True, 'name': 'securityrolename', 'minOccurs': '0', 'type': 'string'}, 'product': {'native': False, 'name': 'product', 'minOccurs': '0', 'type': 'Product'}, 'visible': {'native': True, 'name': 'visible', 'minOccurs': '0', 'type': 'boolean'}})
-        self.enabled = enabled
-        self.securityrolename = securityrolename
+        self._attrSpecs.update({'product': {'name': 'product', 'minOccurs': '0', 'native': False, 'type': 'Product'}, 'enabled': {'name': 'enabled', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'visible': {'name': 'visible', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'securityRoleName': {'name': 'securityrolename', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.product = product
-        self.visible = visible 
+        self.enabled = enabled
+        self.visible = visible
+        self.securityrolename = securityrolename 

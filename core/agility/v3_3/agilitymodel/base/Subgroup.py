@@ -4,10 +4,10 @@ class SubgroupBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, groupname=None, userid=None, groupid=None):
+    def __init__(self, groupid=None, userid=None, groupname=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'groupName': {'native': True, 'name': 'groupname', 'minOccurs': '0', 'type': 'string'}, 'userId': {'native': True, 'name': 'userid', 'minOccurs': '0', 'type': 'string'}, 'groupId': {'native': True, 'name': 'groupid', 'minOccurs': '0', 'type': 'string'}})
-        self.groupname = groupname
+        self._attrSpecs.update({'groupId': {'name': 'groupid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'userId': {'name': 'userid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'groupName': {'name': 'groupname', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.groupid = groupid
         self.userid = userid
-        self.groupid = groupid 
+        self.groupname = groupname 

@@ -4,9 +4,9 @@ class StringLengthValidatorBase(FieldValidatorBase):
     '''
     classdocs
     '''
-    def __init__(self, maxlength=None, minlength=None):
+    def __init__(self, minlength=None, maxlength=None):
         FieldValidatorBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'minLength': {'native': True, 'name': 'minlength', 'minOccurs': '0', 'type': 'int'}, 'maxLength': {'native': True, 'name': 'maxlength', 'minOccurs': '0', 'type': 'int'}})
-        self.maxlength = maxlength
-        self.minlength = minlength 
+        self._attrSpecs.update({'minLength': {'name': 'minlength', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'maxLength': {'name': 'maxlength', 'minOccurs': '0', 'native': True, 'type': 'int'}})
+        self.minlength = minlength
+        self.maxlength = maxlength 

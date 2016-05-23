@@ -4,13 +4,13 @@ class PageContextBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, name='', description='', pagelinks=[], routes=[], id=None, type=''):
+    def __init__(self, name='', type='', description='', id=None, pagelinks=[], routes=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'routes': {'maxOccurs': 'unbounded', 'native': False, 'name': 'routes', 'minOccurs': '0', 'type': 'AssetProperty'}, 'description': {'native': True, 'name': 'description', 'type': 'string'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'pageLinks': {'maxOccurs': 'unbounded', 'native': False, 'name': 'pagelinks', 'minOccurs': '0', 'type': 'Link'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}, 'type': {'native': True, 'name': 'type', 'type': 'string'}})
+        self._attrSpecs.update({'description': {'name': 'description', 'native': True, 'type': 'string'}, 'type': {'name': 'type', 'native': True, 'type': 'string'}, 'pageLinks': {'name': 'pagelinks', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'routes': {'name': 'routes', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'id': {'name': 'id', 'native': True, 'type': 'int'}})
         self.name = name
+        self.type = type
         self.description = description
-        self.pagelinks = pagelinks
-        self.routes = routes
         self.id = id
-        self.type = type 
+        self.pagelinks = pagelinks
+        self.routes = routes 

@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-ServiceState = Enum(**{'Running': 'Running', 'Starting': 'Starting', 'Failed': 'Failed', 'Degraded': 'Degraded', 'Stopping': 'Stopping', 'Stopped': 'Stopped', 'Unprovisioned': 'Unprovisioned'})
+ServiceState = Enum(**{'Starting': 'Starting', 'Stopping': 'Stopping', 'Failed': 'Failed', 'Unprovisioned': 'Unprovisioned', 'Degraded': 'Degraded', 'Running': 'Running', 'Stopped': 'Stopped'})

@@ -4,14 +4,14 @@ class PageLayoutGroupBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, gridclass='', description='', controls=[], showheader=False, name='', id=None, type=''):
+    def __init__(self, name='', gridclass='', controls=[], description='', id=None, showheader=False, type=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'gridClass': {'native': True, 'name': 'gridclass', 'type': 'string'}, 'description': {'native': True, 'name': 'description', 'type': 'string'}, 'controls': {'maxOccurs': 'unbounded', 'native': False, 'name': 'controls', 'minOccurs': '0', 'type': 'Control'}, 'showHeader': {'native': True, 'name': 'showheader', 'type': 'boolean'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}, 'type': {'native': True, 'name': 'type', 'type': 'string'}})
-        self.gridclass = gridclass
-        self.description = description
-        self.controls = controls
-        self.showheader = showheader
+        self._attrSpecs.update({'type': {'name': 'type', 'native': True, 'type': 'string'}, 'description': {'name': 'description', 'native': True, 'type': 'string'}, 'gridClass': {'name': 'gridclass', 'native': True, 'type': 'string'}, 'controls': {'name': 'controls', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Control'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'showHeader': {'name': 'showheader', 'native': True, 'type': 'boolean'}, 'id': {'name': 'id', 'native': True, 'type': 'int'}})
         self.name = name
+        self.gridclass = gridclass
+        self.controls = controls
+        self.description = description
         self.id = id
+        self.showheader = showheader
         self.type = type 

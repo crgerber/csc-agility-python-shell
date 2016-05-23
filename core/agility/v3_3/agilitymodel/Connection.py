@@ -5,14 +5,14 @@ class Connection(ConnectionBase, ConnectionActions):
     '''
     classdocs
     '''
-    def __init__(self, destination=None, source=None, variable=[]):
+    def __init__(self, destination=None, variable=[], source=None):
         '''
         Constructor
         @param destination: destination
         @type destination: Link
-        @param source: source
-        @type source: Link
         @param variable: variable minOccurs=0 maxOccurs=unbounded
         @type variable: AssetProperty
+        @param source: source
+        @type source: Link
         '''
-        ConnectionBase.__init__(self, destination=destination, source=source, variable=variable)
+        ConnectionBase.__init__(self, destination=destination, variable=variable, source=source)

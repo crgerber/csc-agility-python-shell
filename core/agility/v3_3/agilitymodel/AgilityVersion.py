@@ -5,14 +5,14 @@ class AgilityVersion(AgilityVersionBase, AgilityVersionActions):
     '''
     classdocs
     '''
-    def __init__(self, build='', version='', url=''):
+    def __init__(self, build='', url='', version=''):
         '''
         Constructor
         @param build: build
         @type build: string
-        @param version: version
-        @type version: string
         @param url: url
         @type url: string
+        @param version: version
+        @type version: string
         '''
-        AgilityVersionBase.__init__(self, build=build, version=version, url=url)
+        AgilityVersionBase.__init__(self, build=build, url=url, version=version)

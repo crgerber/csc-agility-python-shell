@@ -7,5 +7,5 @@ class InstanceVariableRequestBase(ApiRequestBase):
     def __init__(self, instanceid=None):
         ApiRequestBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'instanceId': {'native': True, 'name': 'instanceid', 'type': 'int'}})
+        self._attrSpecs.update({'instanceId': {'name': 'instanceid', 'native': True, 'type': 'int'}})
         self.instanceid = instanceid 

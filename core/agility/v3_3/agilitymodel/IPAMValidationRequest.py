@@ -5,12 +5,12 @@ class IPAMValidationRequest(IPAMValidationRequestBase, IPAMValidationRequestActi
     '''
     classdocs
     '''
-    def __init__(self, serviceprovider=None, crudoperation=None):
+    def __init__(self, crudoperation=None, serviceprovider=None):
         '''
         Constructor
-        @param serviceprovider: serviceprovider minOccurs=0
-        @type serviceprovider: ServiceProvider
         @param crudoperation: crudoperation
         @type crudoperation: IPAMValidationCRUDType
+        @param serviceprovider: serviceprovider minOccurs=0
+        @type serviceprovider: ServiceProvider
         '''
-        IPAMValidationRequestBase.__init__(self, serviceprovider=serviceprovider, crudoperation=crudoperation)
+        IPAMValidationRequestBase.__init__(self, crudoperation=crudoperation, serviceprovider=serviceprovider)

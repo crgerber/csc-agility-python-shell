@@ -5,18 +5,18 @@ class FileSystem(FileSystemBase, FileSystemActions):
     '''
     classdocs
     '''
-    def __init__(self, storagedevices=[], name='', encryptionsupported=None, raidlevels=[], maxvolumesize=''):
+    def __init__(self, name='', maxvolumesize='', encryptionsupported=None, storagedevices=[], raidlevels=[]):
         '''
         Constructor
-        @param storagedevices: storagedevices minOccurs=0 maxOccurs=unbounded
-        @type storagedevices: FileSystemDevice
         @param name: name
         @type name: string
-        @param encryptionsupported: encryptionsupported minOccurs=0
-        @type encryptionsupported: boolean
-        @param raidlevels: raidlevels minOccurs=0 maxOccurs=unbounded
-        @type raidlevels: string
         @param maxvolumesize: maxvolumesize
         @type maxvolumesize: string
+        @param encryptionsupported: encryptionsupported minOccurs=0
+        @type encryptionsupported: boolean
+        @param storagedevices: storagedevices minOccurs=0 maxOccurs=unbounded
+        @type storagedevices: FileSystemDevice
+        @param raidlevels: raidlevels minOccurs=0 maxOccurs=unbounded
+        @type raidlevels: string
         '''
-        FileSystemBase.__init__(self, storagedevices=storagedevices, name=name, encryptionsupported=encryptionsupported, raidlevels=raidlevels, maxvolumesize=maxvolumesize)
+        FileSystemBase.__init__(self, name=name, maxvolumesize=maxvolumesize, encryptionsupported=encryptionsupported, storagedevices=storagedevices, raidlevels=raidlevels)

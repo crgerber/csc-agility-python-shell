@@ -5,26 +5,26 @@ class EULA(EULABase, EULAActions):
     '''
     classdocs
     '''
-    def __init__(self, eula='', signature='', agreedto=False, adminuser=False, readonly=False, timestamp=None, valid=False, title='', company=''):
+    def __init__(self, timestamp=None, title='', valid=False, readonly=False, signature='', agreedto=False, eula='', adminuser=False, company=''):
         '''
         Constructor
-        @param eula: eula
-        @type eula: string
+        @param timestamp: timestamp minOccurs=0
+        @type timestamp: date
+        @param title: title
+        @type title: string
+        @param valid: valid
+        @type valid: boolean
+        @param readonly: readonly
+        @type readonly: boolean
         @param signature: signature
         @type signature: string
         @param agreedto: agreedto
         @type agreedto: boolean
+        @param eula: eula
+        @type eula: string
         @param adminuser: adminuser
         @type adminuser: boolean
-        @param readonly: readonly
-        @type readonly: boolean
-        @param timestamp: timestamp minOccurs=0
-        @type timestamp: date
-        @param valid: valid
-        @type valid: boolean
-        @param title: title
-        @type title: string
         @param company: company
         @type company: string
         '''
-        EULABase.__init__(self, eula=eula, signature=signature, agreedto=agreedto, adminuser=adminuser, readonly=readonly, timestamp=timestamp, valid=valid, title=title, company=company)
+        EULABase.__init__(self, timestamp=timestamp, title=title, valid=valid, readonly=readonly, signature=signature, agreedto=agreedto, eula=eula, adminuser=adminuser, company=company)

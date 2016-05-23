@@ -8,8 +8,8 @@ import os, sys
 #the following trick can't be done from the agilityshell.py file, since the main entry point with __name__ == '__main__' might not have a __file__ attribute, depending on the Python implementation for the underlying platform
 SHELL_ROOT_DIR = os.path.dirname(sys.modules[__name__].__file__)
 import logging
-import logger
-logger.configRootLogger('agilityshell', os.path.join(SHELL_ROOT_DIR, 'logs'), 'agilityshell.log', logging.DEBUG, console=True) 
+from logger import configRootLogger
+configRootLogger('agilityshell', os.path.join(SHELL_ROOT_DIR, 'logs'), 'agilityshell.log', logging.DEBUG, console=True) 
 ####################### <END> KEEP THE FOLLOWING INIT CODE ON TOP OF EVERYTHING ELSE ###########################
 from logger import logger
 from core.pyworx import pythonpath
@@ -32,8 +32,13 @@ from core.agility.common.service import Endpoint
 
 import inspect
 
+BOOLEAN = {'True' : True, 'False' : False}
+
 def getConfiguration(path=None):
     path = path or os.path.join(SHELL_ROOT_DIR, 'agilityshell.cfg')
+   
+    print("Path:=%s"%path) 
+    
     configuration = AgilityShellConfig(path=path)
     return configuration
 
@@ -50,11 +55,11 @@ def query(**kwargs):
     return AgilityQuery(**kwargs)
 
 class Agility(object):
-    def __init__(self, conn, configuration, assetName='ROOT'):
+    def __init__(self, conn, configuration, assetName='ROOT', logger=None):
         self.cfg = Hook()
         self.cfg.conn = conn
         self._loadServices(configuration)
-        self._initLogger(configuration)
+        self._initLogger(configuration, _logger=logger)
         self._initDirs()
         self.tools = Tools()
 
@@ -85,8 +90,12 @@ class Agility(object):
         '''
         self.cfg.conn.http_exception_hooks[int(HTTPResponseCode)] = (exceptionClass, message)
     
-    def _initLogger(self, configuration):
-        self.cfg.logger = logger
+    def _initLogger(self, configuration, _logger):
+        if _logger :
+            self.cfg.logger = _logger
+        else :    
+            self.cfg.logger = logger
+            
         level = Enum(**dict(CRITICAL = logging.CRITICAL,
                     FATAL = logging.CRITICAL,
                     ERROR = logging.ERROR,
@@ -158,7 +167,7 @@ class Agility(object):
                     matches.append('a.%s.%s'%(attrName, attrName_))
         return matches
         
-def init(configuration=None, conn=None, agility=None):
+def init(configuration=None, conn=None, agility=None, logger=None):
     if not configuration:
         configuration = getConfiguration()
 
@@ -169,7 +178,8 @@ def init(configuration=None, conn=None, agility=None):
         if config.main_connect:
             conn.connect(host = config.main_host, username = config.main_username, password = config.main_password)
     if agility is None:
-        agility = Agility(conn, configuration)
+        print("Initializing agility...")
+        agility = Agility(conn, configuration, logger=logger)
     else:
         agility.cfg.conn = conn
         agility._prefetch = config.main_prefetch

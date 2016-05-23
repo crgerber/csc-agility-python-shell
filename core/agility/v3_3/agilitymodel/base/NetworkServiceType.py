@@ -7,6 +7,6 @@ class NetworkServiceTypeBase(ServiceProviderTypeBase):
     def __init__(self, services=[], properties=[]):
         ServiceProviderTypeBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'services': {'maxOccurs': 'unbounded', 'native': True, 'name': 'services', 'minOccurs': '0', 'type': 'string'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'PropertyDefinition'}})
+        self._attrSpecs.update({'services': {'name': 'services', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'PropertyDefinition'}})
         self.services = services
         self.properties = properties 

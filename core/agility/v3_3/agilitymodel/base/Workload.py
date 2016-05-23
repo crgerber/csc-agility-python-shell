@@ -4,20 +4,20 @@ class WorkloadBase(DesignItemBase):
     '''
     classdocs
     '''
-    def __init__(self, numinstances=None, destconnections=None, volumes=[], configurations=[], releasedisks=None, scaleuppolicy=None, resources=[], hostnameprefix=None, basestack=None, scaledownpolicy=None, operatingsystem=None, packages=[], srcconnections=None):
+    def __init__(self, hostnameprefix=None, operatingsystem=None, srcconnections=None, destconnections=None, releasedisks=None, basestack=None, numinstances=None, scaleuppolicy=None, scaledownpolicy=None, configurations=[], packages=[], volumes=[], resources=[]):
         DesignItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'numInstances': {'native': True, 'name': 'numinstances', 'type': 'int'}, 'destConnections': {'native': False, 'name': 'destconnections', 'minOccurs': '0', 'type': 'Link'}, 'releaseDisks': {'native': True, 'name': 'releasedisks', 'minOccurs': '0', 'type': 'boolean'}, 'configurations': {'maxOccurs': 'unbounded', 'native': False, 'name': 'configurations', 'minOccurs': '0', 'type': 'Link'}, 'scaleUpPolicy': {'native': False, 'name': 'scaleuppolicy', 'minOccurs': '0', 'type': 'Policy'}, 'volumes': {'maxOccurs': 'unbounded', 'native': False, 'name': 'volumes', 'minOccurs': '0', 'type': 'Volume'}, 'hostnamePrefix': {'native': True, 'name': 'hostnameprefix', 'minOccurs': '0', 'type': 'string'}, 'baseStack': {'native': False, 'name': 'basestack', 'minOccurs': '0', 'type': 'Link'}, 'scaleDownPolicy': {'native': False, 'name': 'scaledownpolicy', 'minOccurs': '0', 'type': 'Policy'}, 'operatingSystem': {'native': True, 'name': 'operatingsystem', 'minOccurs': '0', 'type': 'string'}, 'packages': {'maxOccurs': 'unbounded', 'native': False, 'name': 'packages', 'minOccurs': '0', 'type': 'Link'}, 'resources': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resources', 'minOccurs': '0', 'type': 'Resource'}, 'srcConnections': {'native': False, 'name': 'srcconnections', 'minOccurs': '0', 'type': 'Link'}})
-        self.numinstances = numinstances
-        self.destconnections = destconnections
-        self.volumes = volumes
-        self.configurations = configurations
-        self.releasedisks = releasedisks
-        self.scaleuppolicy = scaleuppolicy
-        self.resources = resources
+        self._attrSpecs.update({'hostnamePrefix': {'name': 'hostnameprefix', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'scaleDownPolicy': {'name': 'scaledownpolicy', 'minOccurs': '0', 'native': False, 'type': 'Policy'}, 'srcConnections': {'name': 'srcconnections', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'packages': {'name': 'packages', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'releaseDisks': {'name': 'releasedisks', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'baseStack': {'name': 'basestack', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'numInstances': {'name': 'numinstances', 'native': True, 'type': 'int'}, 'resources': {'name': 'resources', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Resource'}, 'operatingSystem': {'name': 'operatingsystem', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'configurations': {'name': 'configurations', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'destConnections': {'name': 'destconnections', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'volumes': {'name': 'volumes', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Volume'}, 'scaleUpPolicy': {'name': 'scaleuppolicy', 'minOccurs': '0', 'native': False, 'type': 'Policy'}})
         self.hostnameprefix = hostnameprefix
-        self.basestack = basestack
-        self.scaledownpolicy = scaledownpolicy
         self.operatingsystem = operatingsystem
+        self.srcconnections = srcconnections
+        self.destconnections = destconnections
+        self.releasedisks = releasedisks
+        self.basestack = basestack
+        self.numinstances = numinstances
+        self.scaleuppolicy = scaleuppolicy
+        self.scaledownpolicy = scaledownpolicy
+        self.configurations = configurations
         self.packages = packages
-        self.srcconnections = srcconnections 
+        self.volumes = volumes
+        self.resources = resources 

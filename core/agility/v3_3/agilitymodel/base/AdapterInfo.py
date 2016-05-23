@@ -4,14 +4,14 @@ class AdapterInfoBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, category='', dependencies=[], version='', description='', symbolicname='', vendor='', name=''):
+    def __init__(self, vendor='', description='', version='', name='', category='', dependencies=[], symbolicname=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'category': {'native': True, 'name': 'category', 'type': 'string'}, 'dependencies': {'maxOccurs': 'unbounded', 'native': False, 'name': 'dependencies', 'minOccurs': '0', 'type': 'PackageInfo'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'description': {'native': True, 'name': 'description', 'type': 'string'}, 'symbolicName': {'native': True, 'name': 'symbolicname', 'type': 'string'}, 'vendor': {'native': True, 'name': 'vendor', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'type': 'string'}})
+        self._attrSpecs.update({'description': {'name': 'description', 'native': True, 'type': 'string'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'version': {'name': 'version', 'native': True, 'type': 'string'}, 'vendor': {'name': 'vendor', 'native': True, 'type': 'string'}, 'symbolicName': {'name': 'symbolicname', 'native': True, 'type': 'string'}, 'category': {'name': 'category', 'native': True, 'type': 'string'}, 'dependencies': {'name': 'dependencies', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'PackageInfo'}})
+        self.vendor = vendor
+        self.description = description
+        self.version = version
+        self.name = name
         self.category = category
         self.dependencies = dependencies
-        self.version = version
-        self.description = description
-        self.symbolicname = symbolicname
-        self.vendor = vendor
-        self.name = name 
+        self.symbolicname = symbolicname 

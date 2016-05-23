@@ -4,11 +4,11 @@ class CommentBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, comment=None, createdon=None, user=None, updatedon=None):
+    def __init__(self, user=None, comment=None, createdon=None, updatedon=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'comment': {'native': True, 'name': 'comment', 'minOccurs': '0', 'type': 'string'}, 'createdOn': {'native': True, 'name': 'createdon', 'minOccurs': '0', 'type': 'date'}, 'user': {'native': False, 'name': 'user', 'minOccurs': '0', 'type': 'Link'}, 'updatedOn': {'native': True, 'name': 'updatedon', 'minOccurs': '0', 'type': 'date'}})
+        self._attrSpecs.update({'user': {'name': 'user', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'comment': {'name': 'comment', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'createdOn': {'name': 'createdon', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'updatedOn': {'name': 'updatedon', 'minOccurs': '0', 'native': True, 'type': 'date'}})
+        self.user = user
         self.comment = comment
         self.createdon = createdon
-        self.user = user
         self.updatedon = updatedon 

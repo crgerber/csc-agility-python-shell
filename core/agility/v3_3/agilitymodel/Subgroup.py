@@ -5,14 +5,14 @@ class Subgroup(SubgroupBase, SubgroupActions):
     '''
     classdocs
     '''
-    def __init__(self, groupname=None, userid=None, groupid=None):
+    def __init__(self, groupid=None, userid=None, groupname=None):
         '''
         Constructor
-        @param groupname: groupname minOccurs=0
-        @type groupname: string
-        @param userid: userid minOccurs=0
-        @type userid: string
         @param groupid: groupid minOccurs=0
         @type groupid: string
+        @param userid: userid minOccurs=0
+        @type userid: string
+        @param groupname: groupname minOccurs=0
+        @type groupname: string
         '''
-        SubgroupBase.__init__(self, groupname=groupname, userid=userid, groupid=groupid)
+        SubgroupBase.__init__(self, groupid=groupid, userid=userid, groupname=groupname)

@@ -7,5 +7,5 @@ class ResourceMetricsBase(AgilityModelBase):
     def __init__(self, metric=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'metric': {'maxOccurs': 'unbounded', 'native': False, 'name': 'metric', 'minOccurs': '0', 'type': 'ResourceMetric'}})
+        self._attrSpecs.update({'metric': {'name': 'metric', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ResourceMetric'}})
         self.metric = metric 

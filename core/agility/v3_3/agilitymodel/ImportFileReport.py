@@ -5,16 +5,16 @@ class ImportFileReport(ImportFileReportBase, ImportFileReportActions):
     '''
     classdocs
     '''
-    def __init__(self, filename='', importassetreports=[], failed=False, failreason=''):
+    def __init__(self, filename='', failreason='', importassetreports=[], failed=False):
         '''
         Constructor
         @param filename: filename
         @type filename: string
+        @param failreason: failreason
+        @type failreason: string
         @param importassetreports: importassetreports minOccurs=0 maxOccurs=unbounded
         @type importassetreports: ImportAssetReport
         @param failed: failed
         @type failed: boolean
-        @param failreason: failreason
-        @type failreason: string
         '''
-        ImportFileReportBase.__init__(self, filename=filename, importassetreports=importassetreports, failed=failed, failreason=failreason)
+        ImportFileReportBase.__init__(self, filename=filename, failreason=failreason, importassetreports=importassetreports, failed=failed)

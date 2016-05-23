@@ -4,10 +4,10 @@ class InputVariableRequestBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, valuesource=[], variablesource=[], excludepackagescripts=False):
+    def __init__(self, excludepackagescripts=False, variablesource=[], valuesource=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'valueSource': {'maxOccurs': 'unbounded', 'native': False, 'name': 'valuesource', 'minOccurs': '0', 'type': 'Link'}, 'variableSource': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variablesource', 'minOccurs': '0', 'type': 'Link'}, 'excludePackageScripts': {'native': True, 'name': 'excludepackagescripts', 'type': 'boolean'}})
-        self.valuesource = valuesource
+        self._attrSpecs.update({'excludePackageScripts': {'name': 'excludepackagescripts', 'native': True, 'type': 'boolean'}, 'variableSource': {'name': 'variablesource', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'valueSource': {'name': 'valuesource', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
+        self.excludepackagescripts = excludepackagescripts
         self.variablesource = variablesource
-        self.excludepackagescripts = excludepackagescripts 
+        self.valuesource = valuesource 

@@ -4,9 +4,9 @@ class GetVariableRequestBase(ApiRequestBase):
     '''
     classdocs
     '''
-    def __init__(self, valuesources=[], variablesources=[]):
+    def __init__(self, variablesources=[], valuesources=[]):
         ApiRequestBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'valueSources': {'maxOccurs': 'unbounded', 'native': False, 'name': 'valuesources', 'minOccurs': '0', 'type': 'Link'}, 'variableSources': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variablesources', 'minOccurs': '0', 'type': 'Link'}})
-        self.valuesources = valuesources
-        self.variablesources = variablesources 
+        self._attrSpecs.update({'variableSources': {'name': 'variablesources', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'valueSources': {'name': 'valuesources', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
+        self.variablesources = variablesources
+        self.valuesources = valuesources 

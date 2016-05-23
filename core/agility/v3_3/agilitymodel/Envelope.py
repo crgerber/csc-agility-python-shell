@@ -5,16 +5,16 @@ class Envelope(EnvelopeBase, EnvelopeActions):
     '''
     classdocs
     '''
-    def __init__(self, version='', pendingasset=[], asset=[], productversion=''):
+    def __init__(self, productversion='', pendingasset=[], version='', asset=[]):
         '''
         Constructor
-        @param version: version
-        @type version: string
-        @param pendingasset: pendingasset minOccurs=0 maxOccurs=unbounded
-        @type pendingasset: Asset
-        @param asset: asset minOccurs=0 maxOccurs=unbounded
-        @type asset: Asset
         @param productversion: productversion
         @type productversion: string
+        @param pendingasset: pendingasset minOccurs=0 maxOccurs=unbounded
+        @type pendingasset: Asset
+        @param version: version
+        @type version: string
+        @param asset: asset minOccurs=0 maxOccurs=unbounded
+        @type asset: Asset
         '''
-        EnvelopeBase.__init__(self, version=version, pendingasset=pendingasset, asset=asset, productversion=productversion)
+        EnvelopeBase.__init__(self, productversion=productversion, pendingasset=pendingasset, version=version, asset=asset)

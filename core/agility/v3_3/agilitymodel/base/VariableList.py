@@ -7,5 +7,5 @@ class VariableListBase(ServiceMeshListBase):
     def __init__(self, variable=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'variable': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variable', 'minOccurs': '0', 'type': 'Variable'}})
+        self._attrSpecs.update({'variable': {'name': 'variable', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Variable'}})
         self.variable = variable 

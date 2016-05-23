@@ -5,20 +5,20 @@ class ImportAssetReport(ImportAssetReportBase, ImportAssetReportActions):
     '''
     classdocs
     '''
-    def __init__(self, assetversion='', operationstatus='', assetid=None, assettype='', operation='', assetname=''):
+    def __init__(self, assettype='', assetid=None, assetname='', assetversion='', operation='', operationstatus=''):
         '''
         Constructor
-        @param assetversion: assetversion
-        @type assetversion: string
-        @param operationstatus: operationstatus
-        @type operationstatus: string
-        @param assetid: assetid
-        @type assetid: int
         @param assettype: assettype
         @type assettype: string
-        @param operation: operation
-        @type operation: string
+        @param assetid: assetid
+        @type assetid: int
         @param assetname: assetname
         @type assetname: string
+        @param assetversion: assetversion
+        @type assetversion: string
+        @param operation: operation
+        @type operation: string
+        @param operationstatus: operationstatus
+        @type operationstatus: string
         '''
-        ImportAssetReportBase.__init__(self, assetversion=assetversion, operationstatus=operationstatus, assetid=assetid, assettype=assettype, operation=operation, assetname=assetname)
+        ImportAssetReportBase.__init__(self, assettype=assettype, assetid=assetid, assetname=assetname, assetversion=assetversion, operation=operation, operationstatus=operationstatus)

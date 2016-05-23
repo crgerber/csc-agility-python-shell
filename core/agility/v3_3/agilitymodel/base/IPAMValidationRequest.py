@@ -4,9 +4,9 @@ class IPAMValidationRequestBase(ApiRequestBase):
     '''
     classdocs
     '''
-    def __init__(self, serviceprovider=None, crudoperation=None):
+    def __init__(self, crudoperation=None, serviceprovider=None):
         ApiRequestBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'serviceProvider': {'native': False, 'name': 'serviceprovider', 'minOccurs': '0', 'type': 'ServiceProvider'}, 'crudOperation': {'native': False, 'name': 'crudoperation', 'type': 'IPAMValidationCRUDType'}})
-        self.serviceprovider = serviceprovider
-        self.crudoperation = crudoperation 
+        self._attrSpecs.update({'crudOperation': {'name': 'crudoperation', 'native': False, 'type': 'IPAMValidationCRUDType'}, 'serviceProvider': {'name': 'serviceprovider', 'minOccurs': '0', 'native': False, 'type': 'ServiceProvider'}})
+        self.crudoperation = crudoperation
+        self.serviceprovider = serviceprovider 

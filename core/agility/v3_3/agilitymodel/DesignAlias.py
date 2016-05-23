@@ -5,12 +5,12 @@ class DesignAlias(DesignAliasBase, DesignAliasActions):
     '''
     classdocs
     '''
-    def __init__(self, workloadlogicalid=None, workloadid=None):
+    def __init__(self, workloadid=None, workloadlogicalid=None):
         '''
         Constructor
-        @param workloadlogicalid: workloadlogicalid minOccurs=0
-        @type workloadlogicalid: string
         @param workloadid: workloadid minOccurs=0
         @type workloadid: int
+        @param workloadlogicalid: workloadlogicalid minOccurs=0
+        @type workloadlogicalid: string
         '''
-        DesignAliasBase.__init__(self, workloadlogicalid=workloadlogicalid, workloadid=workloadid)
+        DesignAliasBase.__init__(self, workloadid=workloadid, workloadlogicalid=workloadlogicalid)

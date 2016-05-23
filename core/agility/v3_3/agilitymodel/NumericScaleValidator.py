@@ -5,12 +5,12 @@ class NumericScaleValidator(NumericScaleValidatorBase, NumericScaleValidatorActi
     '''
     classdocs
     '''
-    def __init__(self, maxfractions=None, maxdigits=None):
+    def __init__(self, maxdigits=None, maxfractions=None):
         '''
         Constructor
-        @param maxfractions: maxfractions minOccurs=0
-        @type maxfractions: int
         @param maxdigits: maxdigits minOccurs=0
         @type maxdigits: int
+        @param maxfractions: maxfractions minOccurs=0
+        @type maxfractions: int
         '''
-        NumericScaleValidatorBase.__init__(self, maxfractions=maxfractions, maxdigits=maxdigits)
+        NumericScaleValidatorBase.__init__(self, maxdigits=maxdigits, maxfractions=maxfractions)

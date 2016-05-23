@@ -7,6 +7,6 @@ class AuthenticationTypeBase(AssetBase):
     def __init__(self, properties=[], type=''):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'type': {'native': True, 'name': 'type', 'type': 'string'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}})
+        self._attrSpecs.update({'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'type': {'name': 'type', 'native': True, 'type': 'string'}})
         self.properties = properties
         self.type = type 

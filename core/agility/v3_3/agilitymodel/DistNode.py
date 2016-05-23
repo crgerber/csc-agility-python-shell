@@ -5,22 +5,22 @@ class DistNode(DistNodeBase, DistNodeActions):
     '''
     classdocs
     '''
-    def __init__(self, ipaddress=None, version=None, nodestatus=None, packages=[], nodetype=None, state=None, hostname=None):
+    def __init__(self, state=None, nodetype=None, version=None, packages=[], ipaddress=None, hostname=None, nodestatus=None):
         '''
         Constructor
-        @param ipaddress: ipaddress minOccurs=0
-        @type ipaddress: string
-        @param version: version minOccurs=0
-        @type version: string
-        @param nodestatus: nodestatus minOccurs=0
-        @type nodestatus: string
-        @param packages: packages minOccurs=0 maxOccurs=unbounded
-        @type packages: DistNodePackage
-        @param nodetype: nodetype minOccurs=0
-        @type nodetype: string
         @param state: state minOccurs=0
         @type state: State
+        @param nodetype: nodetype minOccurs=0
+        @type nodetype: string
+        @param version: version minOccurs=0
+        @type version: string
+        @param packages: packages minOccurs=0 maxOccurs=unbounded
+        @type packages: DistNodePackage
+        @param ipaddress: ipaddress minOccurs=0
+        @type ipaddress: string
         @param hostname: hostname minOccurs=0
         @type hostname: string
+        @param nodestatus: nodestatus minOccurs=0
+        @type nodestatus: string
         '''
-        DistNodeBase.__init__(self, ipaddress=ipaddress, version=version, nodestatus=nodestatus, packages=packages, nodetype=nodetype, state=state, hostname=hostname)
+        DistNodeBase.__init__(self, state=state, nodetype=nodetype, version=version, packages=packages, ipaddress=ipaddress, hostname=hostname, nodestatus=nodestatus)

@@ -7,5 +7,5 @@ class NumericRangeValidatorBase(FieldValidatorBase):
     def __init__(self, range=[]):
         FieldValidatorBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'range': {'maxOccurs': 'unbounded', 'native': False, 'name': 'range', 'minOccurs': '0', 'type': 'NumericRange'}})
+        self._attrSpecs.update({'range': {'name': 'range', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'NumericRange'}})
         self.range = range 

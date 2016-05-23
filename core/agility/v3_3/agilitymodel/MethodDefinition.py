@@ -5,12 +5,12 @@ class MethodDefinition(MethodDefinitionBase, MethodDefinitionActions):
     '''
     classdocs
     '''
-    def __init__(self, parameter=[], displayname=None):
+    def __init__(self, displayname=None, parameter=[]):
         '''
         Constructor
-        @param parameter: parameter minOccurs=0 maxOccurs=unbounded
-        @type parameter: PropertyDefinition
         @param displayname: displayname minOccurs=0
         @type displayname: string
+        @param parameter: parameter minOccurs=0 maxOccurs=unbounded
+        @type parameter: PropertyDefinition
         '''
-        MethodDefinitionBase.__init__(self, parameter=parameter, displayname=displayname)
+        MethodDefinitionBase.__init__(self, displayname=displayname, parameter=parameter)

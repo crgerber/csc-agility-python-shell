@@ -5,14 +5,14 @@ class SolutionDeployment(SolutionDeploymentBase, SolutionDeploymentActions):
     '''
     classdocs
     '''
-    def __init__(self, solution=None, artifacts=[], artifactversions=[]):
+    def __init__(self, artifacts=[], artifactversions=[], solution=None):
         '''
         Constructor
-        @param solution: solution minOccurs=0
-        @type solution: Link
         @param artifacts: artifacts minOccurs=0 maxOccurs=unbounded
         @type artifacts: Link
         @param artifactversions: artifactversions minOccurs=0 maxOccurs=unbounded
         @type artifactversions: Artifact
+        @param solution: solution minOccurs=0
+        @type solution: Link
         '''
-        SolutionDeploymentBase.__init__(self, solution=solution, artifacts=artifacts, artifactversions=artifactversions)
+        SolutionDeploymentBase.__init__(self, artifacts=artifacts, artifactversions=artifactversions, solution=solution)

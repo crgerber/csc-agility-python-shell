@@ -7,5 +7,5 @@ class ResourceWeightMetaListBase(ServiceMeshListBase):
     def __init__(self, resourceweightmeta=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'resourceWeightMeta': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resourceweightmeta', 'minOccurs': '0', 'type': 'ResourceWeightMeta'}})
+        self._attrSpecs.update({'resourceWeightMeta': {'name': 'resourceweightmeta', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ResourceWeightMeta'}})
         self.resourceweightmeta = resourceweightmeta 

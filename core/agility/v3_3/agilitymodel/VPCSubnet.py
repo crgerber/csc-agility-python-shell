@@ -5,26 +5,26 @@ class VPCSubnet(VPCSubnetBase, VPCSubnetActions):
     '''
     classdocs
     '''
-    def __init__(self, vpcid=None, subnetid=None, interface=[], availabilityzone=None, defaultforavailibilityzone=None, cidrblock=None, mappubliciponlaunch=None, status=None, availableipaddresscount=None):
+    def __init__(self, subnetid=None, status=None, availabilityzone=None, cidrblock=None, mappubliciponlaunch=None, interface=[], defaultforavailibilityzone=None, vpcid=None, availableipaddresscount=None):
         '''
         Constructor
-        @param vpcid: vpcid minOccurs=0
-        @type vpcid: string
         @param subnetid: subnetid minOccurs=0
         @type subnetid: string
-        @param interface: interface minOccurs=0 maxOccurs=unbounded
-        @type interface: Interface
+        @param status: status minOccurs=0
+        @type status: string
         @param availabilityzone: availabilityzone minOccurs=0
         @type availabilityzone: string
-        @param defaultforavailibilityzone: defaultforavailibilityzone minOccurs=0
-        @type defaultforavailibilityzone: boolean
         @param cidrblock: cidrblock minOccurs=0
         @type cidrblock: string
         @param mappubliciponlaunch: mappubliciponlaunch minOccurs=0
         @type mappubliciponlaunch: boolean
-        @param status: status minOccurs=0
-        @type status: string
+        @param interface: interface minOccurs=0 maxOccurs=unbounded
+        @type interface: Interface
+        @param defaultforavailibilityzone: defaultforavailibilityzone minOccurs=0
+        @type defaultforavailibilityzone: boolean
+        @param vpcid: vpcid minOccurs=0
+        @type vpcid: string
         @param availableipaddresscount: availableipaddresscount minOccurs=0
         @type availableipaddresscount: int
         '''
-        VPCSubnetBase.__init__(self, vpcid=vpcid, subnetid=subnetid, interface=interface, availabilityzone=availabilityzone, defaultforavailibilityzone=defaultforavailibilityzone, cidrblock=cidrblock, mappubliciponlaunch=mappubliciponlaunch, status=status, availableipaddresscount=availableipaddresscount)
+        VPCSubnetBase.__init__(self, subnetid=subnetid, status=status, availabilityzone=availabilityzone, cidrblock=cidrblock, mappubliciponlaunch=mappubliciponlaunch, interface=interface, defaultforavailibilityzone=defaultforavailibilityzone, vpcid=vpcid, availableipaddresscount=availableipaddresscount)

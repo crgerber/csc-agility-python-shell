@@ -5,20 +5,20 @@ class VersionedItemLink(VersionedItemLinkBase, VersionedItemLinkActions):
     '''
     classdocs
     '''
-    def __init__(self, latest=None, versionstatus=None, locktype=None, slotid=None, slot=None, version=None):
+    def __init__(self, slotid=None, slot=None, versionstatus=None, latest=None, version=None, locktype=None):
         '''
         Constructor
-        @param latest: latest minOccurs=0
-        @type latest: boolean
-        @param versionstatus: versionstatus minOccurs=0
-        @type versionstatus: string
-        @param locktype: locktype minOccurs=0
-        @type locktype: int
         @param slotid: slotid minOccurs=0
         @type slotid: int
         @param slot: slot minOccurs=0
         @type slot: string
+        @param versionstatus: versionstatus minOccurs=0
+        @type versionstatus: string
+        @param latest: latest minOccurs=0
+        @type latest: boolean
         @param version: version minOccurs=0
         @type version: int
+        @param locktype: locktype minOccurs=0
+        @type locktype: int
         '''
-        VersionedItemLinkBase.__init__(self, latest=latest, versionstatus=versionstatus, locktype=locktype, slotid=slotid, slot=slot, version=version)
+        VersionedItemLinkBase.__init__(self, slotid=slotid, slot=slot, versionstatus=versionstatus, latest=latest, version=version, locktype=locktype)

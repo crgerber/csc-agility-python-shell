@@ -4,25 +4,25 @@ class AssetTypeBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, destconnection=[], super=[], global_=False, propertydefinitiongroup=[], propertydefinitionreference=[], custom=False, editor=[], displayname=None, hassubtypes=False, entitytablename='', entityclassname=None, usedtype=None, allowextensions=False, propertydefinition=[], objectreference=[], srcconnection=[], methoddefinition=[], supertype=None):
+    def __init__(self, custom=False, srcconnection=[], displayname=None, allowextensions=False, supertype=None, entitytablename='', global_=False, propertydefinitionreference=[], entityclassname=None, usedtype=None, hassubtypes=False, objectreference=[], editor=[], methoddefinition=[], propertydefinition=[], destconnection=[], super=[], propertydefinitiongroup=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'destConnection': {'maxOccurs': 'unbounded', 'native': False, 'name': 'destconnection', 'minOccurs': '0', 'type': 'ConnectionDefinition'}, 'methodDefinition': {'maxOccurs': 'unbounded', 'native': False, 'name': 'methoddefinition', 'minOccurs': '0', 'type': 'MethodDefinition'}, 'global': {'native': True, 'name': 'global_', 'type': 'boolean'}, 'propertyDefinitionGroup': {'maxOccurs': 'unbounded', 'native': False, 'name': 'propertydefinitiongroup', 'minOccurs': '0', 'type': 'Link'}, 'propertyDefinitionReference': {'maxOccurs': 'unbounded', 'native': False, 'name': 'propertydefinitionreference', 'minOccurs': '0', 'type': 'PropertyDefinitionReference'}, 'custom': {'native': True, 'name': 'custom', 'type': 'boolean'}, 'editor': {'maxOccurs': 'unbounded', 'native': False, 'name': 'editor', 'minOccurs': '0', 'type': 'Editor'}, 'displayName': {'native': True, 'name': 'displayname', 'minOccurs': '0', 'type': 'string'}, 'hasSubTypes': {'native': True, 'name': 'hassubtypes', 'type': 'boolean'}, 'entityTableName': {'native': True, 'name': 'entitytablename', 'type': 'string'}, 'entityClassName': {'native': True, 'name': 'entityclassname', 'minOccurs': '0', 'type': 'string'}, 'useDtype': {'native': True, 'name': 'usedtype', 'minOccurs': '0', 'type': 'boolean'}, 'propertyDefinition': {'maxOccurs': 'unbounded', 'native': False, 'name': 'propertydefinition', 'minOccurs': '0', 'type': 'PropertyDefinition'}, 'superType': {'native': False, 'name': 'supertype', 'minOccurs': '0', 'type': 'Link'}, 'allowExtensions': {'native': True, 'name': 'allowextensions', 'type': 'boolean'}, 'srcConnection': {'maxOccurs': 'unbounded', 'native': False, 'name': 'srcconnection', 'minOccurs': '0', 'type': 'ConnectionDefinition'}, 'super': {'maxOccurs': 'unbounded', 'native': False, 'name': 'super', 'minOccurs': '0', 'type': 'Link'}, 'objectReference': {'maxOccurs': 'unbounded', 'native': False, 'name': 'objectreference', 'minOccurs': '0', 'type': 'ObjectReference'}})
-        self.destconnection = destconnection
-        self.super = super
-        self.global_ = global_
-        self.propertydefinitiongroup = propertydefinitiongroup
-        self.propertydefinitionreference = propertydefinitionreference
+        self._attrSpecs.update({'custom': {'name': 'custom', 'native': True, 'type': 'boolean'}, 'srcConnection': {'name': 'srcconnection', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ConnectionDefinition'}, 'displayName': {'name': 'displayname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'superType': {'name': 'supertype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'allowExtensions': {'name': 'allowextensions', 'native': True, 'type': 'boolean'}, 'global': {'name': 'global_', 'native': True, 'type': 'boolean'}, 'propertyDefinition': {'name': 'propertydefinition', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'PropertyDefinition'}, 'entityClassName': {'name': 'entityclassname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'useDtype': {'name': 'usedtype', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'hasSubTypes': {'name': 'hassubtypes', 'native': True, 'type': 'boolean'}, 'propertyDefinitionGroup': {'name': 'propertydefinitiongroup', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'destConnection': {'name': 'destconnection', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ConnectionDefinition'}, 'editor': {'name': 'editor', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Editor'}, 'methodDefinition': {'name': 'methoddefinition', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'MethodDefinition'}, 'propertyDefinitionReference': {'name': 'propertydefinitionreference', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'PropertyDefinitionReference'}, 'objectReference': {'name': 'objectreference', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ObjectReference'}, 'super': {'name': 'super', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'entityTableName': {'name': 'entitytablename', 'native': True, 'type': 'string'}})
         self.custom = custom
-        self.editor = editor
+        self.srcconnection = srcconnection
         self.displayname = displayname
-        self.hassubtypes = hassubtypes
+        self.allowextensions = allowextensions
+        self.supertype = supertype
         self.entitytablename = entitytablename
+        self.global_ = global_
+        self.propertydefinitionreference = propertydefinitionreference
         self.entityclassname = entityclassname
         self.usedtype = usedtype
-        self.allowextensions = allowextensions
-        self.propertydefinition = propertydefinition
+        self.hassubtypes = hassubtypes
         self.objectreference = objectreference
-        self.srcconnection = srcconnection
+        self.editor = editor
         self.methoddefinition = methoddefinition
-        self.supertype = supertype 
+        self.propertydefinition = propertydefinition
+        self.destconnection = destconnection
+        self.super = super
+        self.propertydefinitiongroup = propertydefinitiongroup 

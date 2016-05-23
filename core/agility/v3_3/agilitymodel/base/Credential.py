@@ -4,19 +4,19 @@ class CredentialBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, certificate=None, publickey=None, managercloud=None, externallymanaged=None, credentialid=None, credentialtype=None, encrypted=None, privatekey=None, adminuser=None, secretkey=None, cloud=None, certificatename=None):
+    def __init__(self, managercloud=None, credentialtype=None, secretkey=None, privatekey=None, adminuser=None, encrypted=None, certificatename=None, cloud=None, publickey=None, credentialid=None, externallymanaged=None, certificate=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'certificate': {'native': True, 'name': 'certificate', 'minOccurs': '0', 'type': 'hexBinary'}, 'publicKey': {'native': True, 'name': 'publickey', 'minOccurs': '0', 'type': 'string'}, 'managerCloud': {'native': False, 'name': 'managercloud', 'minOccurs': '0', 'type': 'Link'}, 'externallyManaged': {'native': True, 'name': 'externallymanaged', 'minOccurs': '0', 'type': 'boolean'}, 'credentialId': {'native': True, 'name': 'credentialid', 'minOccurs': '0', 'type': 'string'}, 'credentialType': {'native': False, 'name': 'credentialtype', 'minOccurs': '0', 'type': 'CredentialType'}, 'encrypted': {'native': True, 'name': 'encrypted', 'minOccurs': '0', 'type': 'boolean'}, 'privateKey': {'native': True, 'name': 'privatekey', 'minOccurs': '0', 'type': 'string'}, 'adminUser': {'native': True, 'name': 'adminuser', 'minOccurs': '0', 'type': 'string'}, 'secretKey': {'native': True, 'name': 'secretkey', 'minOccurs': '0', 'type': 'hexBinary'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Cloud'}, 'certificateName': {'native': True, 'name': 'certificatename', 'minOccurs': '0', 'type': 'string'}})
-        self.certificate = certificate
-        self.publickey = publickey
+        self._attrSpecs.update({'managerCloud': {'name': 'managercloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'credentialType': {'name': 'credentialtype', 'minOccurs': '0', 'native': False, 'type': 'CredentialType'}, 'secretKey': {'name': 'secretkey', 'minOccurs': '0', 'native': True, 'type': 'hexBinary'}, 'privateKey': {'name': 'privatekey', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'credentialId': {'name': 'credentialid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'encrypted': {'name': 'encrypted', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'certificateName': {'name': 'certificatename', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Cloud'}, 'publicKey': {'name': 'publickey', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'adminUser': {'name': 'adminuser', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'externallyManaged': {'name': 'externallymanaged', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'certificate': {'name': 'certificate', 'minOccurs': '0', 'native': True, 'type': 'hexBinary'}})
         self.managercloud = managercloud
-        self.externallymanaged = externallymanaged
-        self.credentialid = credentialid
         self.credentialtype = credentialtype
-        self.encrypted = encrypted
+        self.secretkey = secretkey
         self.privatekey = privatekey
         self.adminuser = adminuser
-        self.secretkey = secretkey
+        self.encrypted = encrypted
+        self.certificatename = certificatename
         self.cloud = cloud
-        self.certificatename = certificatename 
+        self.publickey = publickey
+        self.credentialid = credentialid
+        self.externallymanaged = externallymanaged
+        self.certificate = certificate 

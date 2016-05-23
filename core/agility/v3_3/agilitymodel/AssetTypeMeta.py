@@ -5,16 +5,16 @@ class AssetTypeMeta(AssetTypeMetaBase, AssetTypeMetaActions):
     '''
     classdocs
     '''
-    def __init__(self, supportedeventtype=[], name='', displayname='', applicableassignmenttype=[]):
+    def __init__(self, name='', applicableassignmenttype=[], displayname='', supportedeventtype=[]):
         '''
         Constructor
-        @param supportedeventtype: supportedeventtype minOccurs=0 maxOccurs=unbounded
-        @type supportedeventtype: string
         @param name: name
         @type name: string
-        @param displayname: displayname
-        @type displayname: string
         @param applicableassignmenttype: applicableassignmenttype minOccurs=0 maxOccurs=unbounded
         @type applicableassignmenttype: string
+        @param displayname: displayname
+        @type displayname: string
+        @param supportedeventtype: supportedeventtype minOccurs=0 maxOccurs=unbounded
+        @type supportedeventtype: string
         '''
-        AssetTypeMetaBase.__init__(self, supportedeventtype=supportedeventtype, name=name, displayname=displayname, applicableassignmenttype=applicableassignmenttype)
+        AssetTypeMetaBase.__init__(self, name=name, applicableassignmenttype=applicableassignmenttype, displayname=displayname, supportedeventtype=supportedeventtype)

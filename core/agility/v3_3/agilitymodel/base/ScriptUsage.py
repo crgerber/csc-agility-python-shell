@@ -4,10 +4,10 @@ class ScriptUsageBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, category=None, script=None, package=None):
+    def __init__(self, script=None, package=None, category=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'category': {'native': True, 'name': 'category', 'minOccurs': '0', 'type': 'string'}, 'script': {'native': False, 'name': 'script', 'minOccurs': '0', 'type': 'Script'}, 'package': {'native': False, 'name': 'package', 'minOccurs': '0', 'type': 'Package'}})
-        self.category = category
+        self._attrSpecs.update({'script': {'name': 'script', 'minOccurs': '0', 'native': False, 'type': 'Script'}, 'package': {'name': 'package', 'minOccurs': '0', 'native': False, 'type': 'Package'}, 'category': {'name': 'category', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.script = script
-        self.package = package 
+        self.package = package
+        self.category = category 

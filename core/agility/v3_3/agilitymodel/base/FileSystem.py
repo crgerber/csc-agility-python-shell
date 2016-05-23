@@ -4,12 +4,12 @@ class FileSystemBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, storagedevices=[], name='', encryptionsupported=None, raidlevels=[], maxvolumesize=''):
+    def __init__(self, name='', maxvolumesize='', encryptionsupported=None, storagedevices=[], raidlevels=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'storageDevices': {'maxOccurs': 'unbounded', 'native': False, 'name': 'storagedevices', 'minOccurs': '0', 'type': 'FileSystemDevice'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'encryptionSupported': {'native': True, 'name': 'encryptionsupported', 'minOccurs': '0', 'type': 'boolean'}, 'raidLevels': {'maxOccurs': 'unbounded', 'native': True, 'name': 'raidlevels', 'minOccurs': '0', 'type': 'string'}, 'maxVolumeSize': {'native': True, 'name': 'maxvolumesize', 'type': 'string'}})
-        self.storagedevices = storagedevices
+        self._attrSpecs.update({'name': {'name': 'name', 'native': True, 'type': 'string'}, 'maxVolumeSize': {'name': 'maxvolumesize', 'native': True, 'type': 'string'}, 'encryptionSupported': {'name': 'encryptionsupported', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'storageDevices': {'name': 'storagedevices', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'FileSystemDevice'}, 'raidLevels': {'name': 'raidlevels', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}})
         self.name = name
+        self.maxvolumesize = maxvolumesize
         self.encryptionsupported = encryptionsupported
-        self.raidlevels = raidlevels
-        self.maxvolumesize = maxvolumesize 
+        self.storagedevices = storagedevices
+        self.raidlevels = raidlevels 

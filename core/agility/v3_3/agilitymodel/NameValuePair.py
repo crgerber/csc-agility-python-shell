@@ -5,14 +5,14 @@ class NameValuePair(NameValuePairBase, NameValuePairActions):
     '''
     classdocs
     '''
-    def __init__(self, name='', value=None, id=None):
+    def __init__(self, id=None, name='', value=None):
         '''
         Constructor
+        @param id: id minOccurs=0
+        @type id: int
         @param name: name
         @type name: string
         @param value: value minOccurs=0
         @type value: string
-        @param id: id minOccurs=0
-        @type id: int
         '''
-        NameValuePairBase.__init__(self, name=name, value=value, id=id)
+        NameValuePairBase.__init__(self, id=id, name=name, value=value)

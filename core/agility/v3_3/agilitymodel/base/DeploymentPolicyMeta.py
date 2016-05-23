@@ -7,6 +7,6 @@ class DeploymentPolicyMetaBase(PolicyMetaBase):
     def __init__(self, resourcetype=[], designtype=[]):
         PolicyMetaBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'resourceType': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resourcetype', 'minOccurs': '0', 'type': 'AssetTypeBrief'}, 'designType': {'maxOccurs': 'unbounded', 'native': False, 'name': 'designtype', 'minOccurs': '0', 'type': 'AssetTypeBrief'}})
+        self._attrSpecs.update({'resourceType': {'name': 'resourcetype', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetTypeBrief'}, 'designType': {'name': 'designtype', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetTypeBrief'}})
         self.resourcetype = resourcetype
         self.designtype = designtype 

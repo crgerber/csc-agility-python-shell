@@ -5,16 +5,16 @@ class ApiInfo(ApiInfoBase, ApiInfoActions):
     '''
     classdocs
     '''
-    def __init__(self, path=None, realpath=None, version=None, apiname=None):
+    def __init__(self, realpath=None, path=None, apiname=None, version=None):
         '''
         Constructor
-        @param path: path minOccurs=0
-        @type path: string
         @param realpath: realpath minOccurs=0
         @type realpath: string
-        @param version: version minOccurs=0
-        @type version: string
+        @param path: path minOccurs=0
+        @type path: string
         @param apiname: apiname minOccurs=0
         @type apiname: string
+        @param version: version minOccurs=0
+        @type version: string
         '''
-        ApiInfoBase.__init__(self, path=path, realpath=realpath, version=version, apiname=apiname)
+        ApiInfoBase.__init__(self, realpath=realpath, path=path, apiname=apiname, version=version)

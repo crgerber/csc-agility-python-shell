@@ -5,24 +5,24 @@ class GlobalVariable(GlobalVariableBase, GlobalVariableActions):
     '''
     classdocs
     '''
-    def __init__(self, booleanvalue=None, doublevalue=None, floatvalue=None, stringvalue=None, bytevalue=None, datevalue=None, key='', intvalue=None):
+    def __init__(self, datevalue=None, stringvalue=None, doublevalue=None, booleanvalue=None, intvalue=None, key=None, bytevalue=None, floatvalue=None):
         '''
         Constructor
-        @param booleanvalue: booleanvalue minOccurs=0
-        @type booleanvalue: boolean
-        @param doublevalue: doublevalue minOccurs=0
-        @type doublevalue: double
-        @param floatvalue: floatvalue minOccurs=0
-        @type floatvalue: float
-        @param stringvalue: stringvalue minOccurs=0
-        @type stringvalue: string
-        @param bytevalue: bytevalue minOccurs=0
-        @type bytevalue: hexBinary
         @param datevalue: datevalue minOccurs=0
         @type datevalue: date
-        @param key: key
-        @type key: string
+        @param stringvalue: stringvalue minOccurs=0
+        @type stringvalue: string
+        @param doublevalue: doublevalue minOccurs=0
+        @type doublevalue: double
+        @param booleanvalue: booleanvalue minOccurs=0
+        @type booleanvalue: boolean
         @param intvalue: intvalue minOccurs=0
         @type intvalue: int
+        @param key: key minOccurs=0
+        @type key: string
+        @param bytevalue: bytevalue minOccurs=0
+        @type bytevalue: hexBinary
+        @param floatvalue: floatvalue minOccurs=0
+        @type floatvalue: float
         '''
-        GlobalVariableBase.__init__(self, booleanvalue=booleanvalue, doublevalue=doublevalue, floatvalue=floatvalue, stringvalue=stringvalue, bytevalue=bytevalue, datevalue=datevalue, key=key, intvalue=intvalue)
+        GlobalVariableBase.__init__(self, datevalue=datevalue, stringvalue=stringvalue, doublevalue=doublevalue, booleanvalue=booleanvalue, intvalue=intvalue, key=key, bytevalue=bytevalue, floatvalue=floatvalue)

@@ -5,18 +5,18 @@ class PageLayout(PageLayoutBase, PageLayoutActions):
     '''
     classdocs
     '''
-    def __init__(self, path='', groups=[], name='', description='', id=None):
+    def __init__(self, id=None, name='', groups=[], path='', description=''):
         '''
         Constructor
-        @param path: path
-        @type path: string
-        @param groups: groups minOccurs=0 maxOccurs=unbounded
-        @type groups: PageLayoutGroup
-        @param name: name
-        @type name: string
-        @param description: description
-        @type description: string
         @param id: id
         @type id: int
+        @param name: name
+        @type name: string
+        @param groups: groups minOccurs=0 maxOccurs=unbounded
+        @type groups: PageLayoutGroup
+        @param path: path
+        @type path: string
+        @param description: description
+        @type description: string
         '''
-        PageLayoutBase.__init__(self, path=path, groups=groups, name=name, description=description, id=id)
+        PageLayoutBase.__init__(self, id=id, name=name, groups=groups, path=path, description=description)

@@ -5,22 +5,22 @@ class NetworkAddressRequest(NetworkAddressRequestBase, NetworkAddressRequestActi
     '''
     classdocs
     '''
-    def __init__(self, instance=None, networklink=None, nic=None, addresstorelease=None, address=None, operation=None, network=None):
+    def __init__(self, address=None, network=None, operation=None, nic=None, addresstorelease=None, networklink=None, instance=None):
         '''
         Constructor
-        @param instance: instance minOccurs=0
-        @type instance: Instance
-        @param networklink: networklink minOccurs=0
-        @type networklink: Link
+        @param address: address minOccurs=0
+        @type address: Address
+        @param network: network minOccurs=0
+        @type network: Network
+        @param operation: operation
+        @type operation: AddressOperation
         @param nic: nic minOccurs=0
         @type nic: NetworkInterface
         @param addresstorelease: addresstorelease minOccurs=0
         @type addresstorelease: string
-        @param address: address minOccurs=0
-        @type address: Address
-        @param operation: operation
-        @type operation: AddressOperation
-        @param network: network minOccurs=0
-        @type network: Network
+        @param networklink: networklink minOccurs=0
+        @type networklink: Link
+        @param instance: instance minOccurs=0
+        @type instance: Instance
         '''
-        NetworkAddressRequestBase.__init__(self, instance=instance, networklink=networklink, nic=nic, addresstorelease=addresstorelease, address=address, operation=operation, network=network)
+        NetworkAddressRequestBase.__init__(self, address=address, network=network, operation=operation, nic=nic, addresstorelease=addresstorelease, networklink=networklink, instance=instance)

@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-DeploymentState = Enum(**{'Deployed': 'Deployed', 'Running': 'Running', 'Unknown': 'Unknown', 'Failed': 'Failed', 'Stopping': 'Stopping', 'Stopped': 'Stopped', 'Released': 'Released', 'Starting': 'Starting'})
+DeploymentState = Enum(**{'Unknown': 'Unknown', 'Starting': 'Starting', 'Deployed': 'Deployed', 'Failed': 'Failed', 'Released': 'Released', 'Running': 'Running', 'Stopping': 'Stopping', 'Stopped': 'Stopped'})

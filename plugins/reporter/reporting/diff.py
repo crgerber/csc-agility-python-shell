@@ -39,18 +39,31 @@ flattenmap = agility.tools.scripting.flattenmap
 setField = agility.tools.scripting.setField
 getField = agility.tools.scripting.getField
 
-def assertEqual(master, slave, fields, mode=COMPARE_MODE.EXACT):
+def assertEqual(master, slave, fields, mode=COMPARE_MODE.EXACT, _logger=None):
+    if _logger :
+        logger = _logger
     diffmaster, diffslave, diffcommon, _ = compare(master, slave, fields, detailed=True)
     result = False
     if mode == COMPARE_MODE.EXACT:
-        if not any((diffmaster, diffslave, diffcommon)):#no deleted items, no added items, common fields are equal
+        if not diffmaster :
             result = True
+            logger.warn("assertEqual: mode:=%s, master is different (i.e., items deleted, added or not equal)"%mode)
+        if not diffslave :
+            result = True
+            logger.warn("assertEqual: mode:=%s, slave is different (i.e., items deleted, added or not equal)"%mode)
+        if not diffcommon :
+            result = True
+            logger.warn("assertEqual: mode:=%s, common is different (i.e., items deleted, added or not equal)"%mode)
     elif mode == COMPARE_MODE.MASTER_INTACT:
         if not(any(diffmaster, diffcommon)):#no deleted items, common fields are equal, i.e. master is contained within slave
             result = True
+        else :
+            logger.warn("compare_mode_master_intact: items deleted, added or not equal")    
     elif mode == COMPARE_MODE.SLAVE_INTACT:
         if not any((diffslave, diffcommon)):#no added items, common fields are equal, i.e. slave is contained within master
             result = True
+        else :
+            logger.warn("compare_mode_slave_intact: items deleted, added or not equal")    
     return result
 
 assertEqual.MODE = COMPARE_MODE#expose the enum to the outside world as an attribute of the compare function

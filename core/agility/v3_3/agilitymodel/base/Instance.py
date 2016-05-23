@@ -4,36 +4,36 @@ class InstanceBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, scriptstatuslink=[], location=None, resources=[], pending=None, canonicalname=None, image=None, createdon=None, addresses=[], privateaddress=None, scriptstatus=[], variables=[], credential=[], template=None, model=None, properties=[], laststartedorstoppedby=None, instanceid=None, state=None, snapshots=[], starttime=None, lastupdate=None, environment=None, onboarded=None, stoptime=None, cloud=None, stack=None, hostname=None, volumestorage=[], publicaddress=None):
+    def __init__(self, starttime=None, onboarded=None, location=None, stoptime=None, scriptstatuslink=[], model=None, pending=None, cloud=None, variables=[], publicaddress=None, snapshots=[], resources=[], privateaddress=None, lastupdate=None, canonicalname=None, properties=[], environment=None, template=None, volumestorage=[], instanceid=None, stack=None, hostname=None, addresses=[], state=None, scriptstatus=[], laststartedorstoppedby=None, createdon=None, credential=[], image=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'scriptstatusLink': {'maxOccurs': 'unbounded', 'native': False, 'name': 'scriptstatuslink', 'minOccurs': '0', 'type': 'Link'}, 'credential': {'maxOccurs': 'unbounded', 'native': False, 'name': 'credential', 'minOccurs': '0', 'type': 'Link'}, 'resources': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resources', 'minOccurs': '0', 'type': 'Resource'}, 'pending': {'native': True, 'name': 'pending', 'minOccurs': '0', 'type': 'boolean'}, 'canonicalName': {'native': True, 'name': 'canonicalname', 'minOccurs': '0', 'type': 'string'}, 'stopTime': {'native': True, 'name': 'stoptime', 'minOccurs': '0', 'type': 'date'}, 'addresses': {'maxOccurs': 'unbounded', 'native': False, 'name': 'addresses', 'minOccurs': '0', 'type': 'Address'}, 'privateAddress': {'native': True, 'name': 'privateaddress', 'minOccurs': '0', 'type': 'string'}, 'scriptstatus': {'maxOccurs': 'unbounded', 'native': False, 'name': 'scriptstatus', 'minOccurs': '0', 'type': 'ScriptStatus'}, 'variables': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variables', 'minOccurs': '0', 'type': 'AssetProperty'}, 'location': {'native': False, 'name': 'location', 'minOccurs': '0', 'type': 'Link'}, 'template': {'native': False, 'name': 'template', 'minOccurs': '0', 'type': 'Link'}, 'model': {'native': False, 'name': 'model', 'minOccurs': '0', 'type': 'Link'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'volumeStorage': {'maxOccurs': 'unbounded', 'native': False, 'name': 'volumestorage', 'minOccurs': '0', 'type': 'Link'}, 'instanceId': {'native': True, 'name': 'instanceid', 'minOccurs': '0', 'type': 'string'}, 'state': {'native': False, 'name': 'state', 'minOccurs': '0', 'type': 'State'}, 'snapshots': {'maxOccurs': 'unbounded', 'native': False, 'name': 'snapshots', 'minOccurs': '0', 'type': 'Snapshot'}, 'startTime': {'native': True, 'name': 'starttime', 'minOccurs': '0', 'type': 'date'}, 'hostname': {'native': True, 'name': 'hostname', 'minOccurs': '0', 'type': 'string'}, 'publicAddress': {'native': True, 'name': 'publicaddress', 'minOccurs': '0', 'type': 'string'}, 'environment': {'native': False, 'name': 'environment', 'minOccurs': '0', 'type': 'Link'}, 'onboarded': {'native': True, 'name': 'onboarded', 'minOccurs': '0', 'type': 'boolean'}, 'createdOn': {'native': True, 'name': 'createdon', 'minOccurs': '0', 'type': 'date'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'stack': {'native': False, 'name': 'stack', 'minOccurs': '0', 'type': 'Link'}, 'image': {'native': False, 'name': 'image', 'minOccurs': '0', 'type': 'Link'}, 'lastStartedOrStoppedBy': {'native': True, 'name': 'laststartedorstoppedby', 'minOccurs': '0', 'type': 'string'}, 'lastUpdate': {'native': True, 'name': 'lastupdate', 'minOccurs': '0', 'type': 'date'}})
-        self.scriptstatuslink = scriptstatuslink
-        self.location = location
-        self.resources = resources
-        self.pending = pending
-        self.canonicalname = canonicalname
-        self.image = image
-        self.createdon = createdon
-        self.addresses = addresses
-        self.privateaddress = privateaddress
-        self.scriptstatus = scriptstatus
-        self.variables = variables
-        self.credential = credential
-        self.template = template
-        self.model = model
-        self.properties = properties
-        self.laststartedorstoppedby = laststartedorstoppedby
-        self.instanceid = instanceid
-        self.state = state
-        self.snapshots = snapshots
+        self._attrSpecs.update({'startTime': {'name': 'starttime', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'onboarded': {'name': 'onboarded', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'location': {'name': 'location', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'stopTime': {'name': 'stoptime', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'scriptstatusLink': {'name': 'scriptstatuslink', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'model': {'name': 'model', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'pending': {'name': 'pending', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'variables': {'name': 'variables', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'template': {'name': 'template', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'snapshots': {'name': 'snapshots', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Snapshot'}, 'resources': {'name': 'resources', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Resource'}, 'privateAddress': {'name': 'privateaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'lastUpdate': {'name': 'lastupdate', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'canonicalName': {'name': 'canonicalname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'environment': {'name': 'environment', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'publicAddress': {'name': 'publicaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'volumeStorage': {'name': 'volumestorage', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'instanceId': {'name': 'instanceid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'stack': {'name': 'stack', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'hostname': {'name': 'hostname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'addresses': {'name': 'addresses', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Address'}, 'state': {'name': 'state', 'minOccurs': '0', 'native': False, 'type': 'State'}, 'scriptstatus': {'name': 'scriptstatus', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ScriptStatus'}, 'createdOn': {'name': 'createdon', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'lastStartedOrStoppedBy': {'name': 'laststartedorstoppedby', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'credential': {'name': 'credential', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'image': {'name': 'image', 'minOccurs': '0', 'native': False, 'type': 'Link'}})
         self.starttime = starttime
-        self.lastupdate = lastupdate
-        self.environment = environment
         self.onboarded = onboarded
+        self.location = location
         self.stoptime = stoptime
+        self.scriptstatuslink = scriptstatuslink
+        self.model = model
+        self.pending = pending
         self.cloud = cloud
+        self.variables = variables
+        self.publicaddress = publicaddress
+        self.snapshots = snapshots
+        self.resources = resources
+        self.privateaddress = privateaddress
+        self.lastupdate = lastupdate
+        self.canonicalname = canonicalname
+        self.properties = properties
+        self.environment = environment
+        self.template = template
+        self.volumestorage = volumestorage
+        self.instanceid = instanceid
         self.stack = stack
         self.hostname = hostname
-        self.volumestorage = volumestorage
-        self.publicaddress = publicaddress 
+        self.addresses = addresses
+        self.state = state
+        self.scriptstatus = scriptstatus
+        self.laststartedorstoppedby = laststartedorstoppedby
+        self.createdon = createdon
+        self.credential = credential
+        self.image = image 

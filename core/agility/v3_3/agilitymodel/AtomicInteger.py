@@ -5,24 +5,24 @@ class AtomicInteger(AtomicIntegerBase, AtomicIntegerActions):
     '''
     classdocs
     '''
-    def __init__(self, base=None, maxatomicvalue=None, uppercase=None, width=None, allowwrap=None, pkey=None, value=None, minatomicvalue=None):
+    def __init__(self, width=None, value=None, maxatomicvalue=None, pkey=None, minatomicvalue=None, uppercase=None, allowwrap=None, base=None):
         '''
         Constructor
-        @param base: base minOccurs=0
-        @type base: byte
-        @param maxatomicvalue: maxatomicvalue minOccurs=0
-        @type maxatomicvalue: long
-        @param uppercase: uppercase minOccurs=0
-        @type uppercase: boolean
         @param width: width minOccurs=0
         @type width: byte
-        @param allowwrap: allowwrap minOccurs=0
-        @type allowwrap: boolean
-        @param pkey: pkey minOccurs=0
-        @type pkey: string
         @param value: value minOccurs=0
         @type value: string
+        @param maxatomicvalue: maxatomicvalue minOccurs=0
+        @type maxatomicvalue: long
+        @param pkey: pkey minOccurs=0
+        @type pkey: string
         @param minatomicvalue: minatomicvalue minOccurs=0
         @type minatomicvalue: long
+        @param uppercase: uppercase minOccurs=0
+        @type uppercase: boolean
+        @param allowwrap: allowwrap minOccurs=0
+        @type allowwrap: boolean
+        @param base: base minOccurs=0
+        @type base: byte
         '''
-        AtomicIntegerBase.__init__(self, base=base, maxatomicvalue=maxatomicvalue, uppercase=uppercase, width=width, allowwrap=allowwrap, pkey=pkey, value=value, minatomicvalue=minatomicvalue)
+        AtomicIntegerBase.__init__(self, width=width, value=value, maxatomicvalue=maxatomicvalue, pkey=pkey, minatomicvalue=minatomicvalue, uppercase=uppercase, allowwrap=allowwrap, base=base)

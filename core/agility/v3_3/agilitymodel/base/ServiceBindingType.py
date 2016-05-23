@@ -4,9 +4,9 @@ class ServiceBindingTypeBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, properties=[], platformservicetype=None):
+    def __init__(self, platformservicetype=None, properties=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'platformServiceType': {'native': False, 'name': 'platformservicetype', 'minOccurs': '0', 'type': 'Link'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}})
-        self.properties = properties
-        self.platformservicetype = platformservicetype 
+        self._attrSpecs.update({'platformServiceType': {'name': 'platformservicetype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}})
+        self.platformservicetype = platformservicetype
+        self.properties = properties 

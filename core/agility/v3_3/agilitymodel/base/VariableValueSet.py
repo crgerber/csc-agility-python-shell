@@ -4,9 +4,9 @@ class VariableValueSetBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, valuesource=None, value=[]):
+    def __init__(self, value=[], valuesource=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'valueSource': {'native': False, 'name': 'valuesource', 'minOccurs': '0', 'type': 'Asset'}, 'value': {'maxOccurs': 'unbounded', 'native': False, 'name': 'value', 'minOccurs': '0', 'type': 'AssetProperty'}})
-        self.valuesource = valuesource
-        self.value = value 
+        self._attrSpecs.update({'value': {'name': 'value', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'valueSource': {'name': 'valuesource', 'minOccurs': '0', 'native': False, 'type': 'Asset'}})
+        self.value = value
+        self.valuesource = valuesource 

@@ -4,15 +4,15 @@ class AtomicIntegerBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, base=None, maxatomicvalue=None, uppercase=None, width=None, allowwrap=None, pkey=None, value=None, minatomicvalue=None):
+    def __init__(self, width=None, value=None, maxatomicvalue=None, pkey=None, minatomicvalue=None, uppercase=None, allowwrap=None, base=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'base': {'native': True, 'name': 'base', 'minOccurs': '0', 'type': 'byte'}, 'minAtomicValue': {'native': True, 'name': 'minatomicvalue', 'minOccurs': '0', 'type': 'long'}, 'maxAtomicValue': {'native': True, 'name': 'maxatomicvalue', 'minOccurs': '0', 'type': 'long'}, 'width': {'native': True, 'name': 'width', 'minOccurs': '0', 'type': 'byte'}, 'pkey': {'native': True, 'name': 'pkey', 'minOccurs': '0', 'type': 'string'}, 'allowWrap': {'native': True, 'name': 'allowwrap', 'minOccurs': '0', 'type': 'boolean'}, 'value': {'native': True, 'name': 'value', 'minOccurs': '0', 'type': 'string'}, 'upperCase': {'native': True, 'name': 'uppercase', 'minOccurs': '0', 'type': 'boolean'}})
-        self.base = base
-        self.maxatomicvalue = maxatomicvalue
-        self.uppercase = uppercase
+        self._attrSpecs.update({'width': {'name': 'width', 'minOccurs': '0', 'native': True, 'type': 'byte'}, 'value': {'name': 'value', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'maxAtomicValue': {'name': 'maxatomicvalue', 'minOccurs': '0', 'native': True, 'type': 'long'}, 'upperCase': {'name': 'uppercase', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'minAtomicValue': {'name': 'minatomicvalue', 'minOccurs': '0', 'native': True, 'type': 'long'}, 'pkey': {'name': 'pkey', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'allowWrap': {'name': 'allowwrap', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'base': {'name': 'base', 'minOccurs': '0', 'native': True, 'type': 'byte'}})
         self.width = width
-        self.allowwrap = allowwrap
-        self.pkey = pkey
         self.value = value
-        self.minatomicvalue = minatomicvalue 
+        self.maxatomicvalue = maxatomicvalue
+        self.pkey = pkey
+        self.minatomicvalue = minatomicvalue
+        self.uppercase = uppercase
+        self.allowwrap = allowwrap
+        self.base = base 

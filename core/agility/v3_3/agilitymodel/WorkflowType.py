@@ -5,14 +5,14 @@ class WorkflowType(WorkflowTypeBase, WorkflowTypeActions):
     '''
     classdocs
     '''
-    def __init__(self, name='', description='', id=None):
+    def __init__(self, id=None, name='', description=''):
         '''
         Constructor
+        @param id: id
+        @type id: int
         @param name: name
         @type name: string
         @param description: description
         @type description: string
-        @param id: id
-        @type id: int
         '''
-        WorkflowTypeBase.__init__(self, name=name, description=description, id=id)
+        WorkflowTypeBase.__init__(self, id=id, name=name, description=description)

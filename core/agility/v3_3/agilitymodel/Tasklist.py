@@ -5,20 +5,20 @@ class Tasklist(TasklistBase, TasklistActions):
     '''
     classdocs
     '''
-    def __init__(self, limit=None, offset=None, name='', task=[], totalcount=None, parentid=None):
+    def __init__(self, task=[], totalcount=None, parentid=None, name='', limit=None, offset=None):
         '''
         Constructor
-        @param limit: limit
-        @type limit: int
-        @param offset: offset
-        @type offset: int
-        @param name: name
-        @type name: string
         @param task: task minOccurs=0 maxOccurs=unbounded
         @type task: Task
         @param totalcount: totalcount
         @type totalcount: int
         @param parentid: parentid
         @type parentid: int
+        @param name: name
+        @type name: string
+        @param limit: limit
+        @type limit: int
+        @param offset: offset
+        @type offset: int
         '''
-        TasklistBase.__init__(self, limit=limit, offset=offset, name=name, task=task, totalcount=totalcount, parentid=parentid)
+        TasklistBase.__init__(self, task=task, totalcount=totalcount, parentid=parentid, name=name, limit=limit, offset=offset)

@@ -4,11 +4,11 @@ class DistNodePackageBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, version=None, name=None, status=None, id=None):
+    def __init__(self, id=None, name=None, status=None, version=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'name': {'native': True, 'name': 'name', 'minOccurs': '0', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'minOccurs': '0', 'type': 'string'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'minOccurs': '0', 'type': 'int'}})
-        self.version = version
+        self._attrSpecs.update({'id': {'name': 'id', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'name': {'name': 'name', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'version': {'name': 'version', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.id = id
         self.name = name
         self.status = status
-        self.id = id 
+        self.version = version 

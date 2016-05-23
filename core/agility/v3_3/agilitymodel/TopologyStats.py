@@ -5,40 +5,40 @@ class TopologyStats(TopologyStatsBase, TopologyStatsActions):
     '''
     classdocs
     '''
-    def __init__(self, numinstances=None, numstopping=None, numfailed=None, numstopped=None, status='', numrunning=None, numpaused=None, numserviceinstances=None, numstarting=None, numdestroyed=None, numunknown=None, topologyid=None, numdegraded=None, mincount=None, maxcount=None, numtemplates=None):
+    def __init__(self, maxcount=None, numunknown=None, topologyid=None, numtemplates=None, numstopping=None, mincount=None, numpaused=None, numdegraded=None, numdestroyed=None, numserviceinstances=None, numfailed=None, numstopped=None, numstarting=None, numinstances=None, numrunning=None, status=''):
         '''
         Constructor
-        @param numinstances: numinstances
-        @type numinstances: int
-        @param numstopping: numstopping
-        @type numstopping: int
-        @param numfailed: numfailed
-        @type numfailed: int
-        @param numstopped: numstopped
-        @type numstopped: int
-        @param status: status
-        @type status: string
-        @param numrunning: numrunning
-        @type numrunning: int
-        @param numpaused: numpaused
-        @type numpaused: int
-        @param numserviceinstances: numserviceinstances
-        @type numserviceinstances: int
-        @param numstarting: numstarting
-        @type numstarting: int
-        @param numdestroyed: numdestroyed
-        @type numdestroyed: int
+        @param maxcount: maxcount
+        @type maxcount: int
         @param numunknown: numunknown
         @type numunknown: int
         @param topologyid: topologyid
         @type topologyid: int
-        @param numdegraded: numdegraded
-        @type numdegraded: int
-        @param mincount: mincount
-        @type mincount: int
-        @param maxcount: maxcount
-        @type maxcount: int
         @param numtemplates: numtemplates
         @type numtemplates: int
+        @param numstopping: numstopping
+        @type numstopping: int
+        @param mincount: mincount
+        @type mincount: int
+        @param numpaused: numpaused
+        @type numpaused: int
+        @param numdegraded: numdegraded
+        @type numdegraded: int
+        @param numdestroyed: numdestroyed
+        @type numdestroyed: int
+        @param numserviceinstances: numserviceinstances
+        @type numserviceinstances: int
+        @param numfailed: numfailed
+        @type numfailed: int
+        @param numstopped: numstopped
+        @type numstopped: int
+        @param numstarting: numstarting
+        @type numstarting: int
+        @param numinstances: numinstances
+        @type numinstances: int
+        @param numrunning: numrunning
+        @type numrunning: int
+        @param status: status
+        @type status: string
         '''
-        TopologyStatsBase.__init__(self, numinstances=numinstances, numstopping=numstopping, numfailed=numfailed, numstopped=numstopped, status=status, numrunning=numrunning, numpaused=numpaused, numserviceinstances=numserviceinstances, numstarting=numstarting, numdestroyed=numdestroyed, numunknown=numunknown, topologyid=topologyid, numdegraded=numdegraded, mincount=mincount, maxcount=maxcount, numtemplates=numtemplates)
+        TopologyStatsBase.__init__(self, maxcount=maxcount, numunknown=numunknown, topologyid=topologyid, numtemplates=numtemplates, numstopping=numstopping, mincount=mincount, numpaused=numpaused, numdegraded=numdegraded, numdestroyed=numdestroyed, numserviceinstances=numserviceinstances, numfailed=numfailed, numstopped=numstopped, numstarting=numstarting, numinstances=numinstances, numrunning=numrunning, status=status)

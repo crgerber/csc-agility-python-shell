@@ -5,22 +5,22 @@ class SecurityGroup(SecurityGroupBase, SecurityGroupActions):
     '''
     classdocs
     '''
-    def __init__(self, groupdescription=None, groupid=None, vpcid=None, groupname=None, ownerid=None, egresspermission=[], ingresspermission=[]):
+    def __init__(self, ingresspermission=[], ownerid=None, groupname=None, egresspermission=[], groupid=None, groupdescription=None, vpcid=None):
         '''
         Constructor
-        @param groupdescription: groupdescription minOccurs=0
-        @type groupdescription: string
-        @param groupid: groupid minOccurs=0
-        @type groupid: string
-        @param vpcid: vpcid minOccurs=0
-        @type vpcid: string
-        @param groupname: groupname minOccurs=0
-        @type groupname: string
-        @param ownerid: ownerid minOccurs=0
-        @type ownerid: string
-        @param egresspermission: egresspermission minOccurs=0 maxOccurs=unbounded
-        @type egresspermission: IpPermission
         @param ingresspermission: ingresspermission minOccurs=0 maxOccurs=unbounded
         @type ingresspermission: IpPermission
+        @param ownerid: ownerid minOccurs=0
+        @type ownerid: string
+        @param groupname: groupname minOccurs=0
+        @type groupname: string
+        @param egresspermission: egresspermission minOccurs=0 maxOccurs=unbounded
+        @type egresspermission: IpPermission
+        @param groupid: groupid minOccurs=0
+        @type groupid: string
+        @param groupdescription: groupdescription minOccurs=0
+        @type groupdescription: string
+        @param vpcid: vpcid minOccurs=0
+        @type vpcid: string
         '''
-        SecurityGroupBase.__init__(self, groupdescription=groupdescription, groupid=groupid, vpcid=vpcid, groupname=groupname, ownerid=ownerid, egresspermission=egresspermission, ingresspermission=ingresspermission)
+        SecurityGroupBase.__init__(self, ingresspermission=ingresspermission, ownerid=ownerid, groupname=groupname, egresspermission=egresspermission, groupid=groupid, groupdescription=groupdescription, vpcid=vpcid)

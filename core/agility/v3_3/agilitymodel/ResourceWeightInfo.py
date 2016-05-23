@@ -5,12 +5,12 @@ class ResourceWeightInfo(ResourceWeightInfoBase, ResourceWeightInfoActions):
     '''
     classdocs
     '''
-    def __init__(self, metricname='', metricdisplayname=''):
+    def __init__(self, metricdisplayname='', metricname=''):
         '''
         Constructor
-        @param metricname: metricname
-        @type metricname: string
         @param metricdisplayname: metricdisplayname
         @type metricdisplayname: string
+        @param metricname: metricname
+        @type metricname: string
         '''
-        ResourceWeightInfoBase.__init__(self, metricname=metricname, metricdisplayname=metricdisplayname)
+        ResourceWeightInfoBase.__init__(self, metricdisplayname=metricdisplayname, metricname=metricname)

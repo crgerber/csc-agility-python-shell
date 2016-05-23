@@ -4,9 +4,9 @@ class PolicyTypeBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, symbolicname='', bundleversion=''):
+    def __init__(self, bundleversion='', symbolicname=''):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'symbolicName': {'native': True, 'name': 'symbolicname', 'type': 'string'}, 'bundleVersion': {'native': True, 'name': 'bundleversion', 'type': 'string'}})
-        self.symbolicname = symbolicname
-        self.bundleversion = bundleversion 
+        self._attrSpecs.update({'bundleVersion': {'name': 'bundleversion', 'native': True, 'type': 'string'}, 'symbolicName': {'name': 'symbolicname', 'native': True, 'type': 'string'}})
+        self.bundleversion = bundleversion
+        self.symbolicname = symbolicname 

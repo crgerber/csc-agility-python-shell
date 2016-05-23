@@ -5,16 +5,16 @@ class DesignConnection(DesignConnectionBase, DesignConnectionActions):
     '''
     classdocs
     '''
-    def __init__(self, destlogicalid=None, destid=None, srclogicalid=None, srcid=None):
+    def __init__(self, srcid=None, destid=None, srclogicalid=None, destlogicalid=None):
         '''
         Constructor
-        @param destlogicalid: destlogicalid minOccurs=0
-        @type destlogicalid: string
+        @param srcid: srcid minOccurs=0
+        @type srcid: int
         @param destid: destid minOccurs=0
         @type destid: int
         @param srclogicalid: srclogicalid minOccurs=0
         @type srclogicalid: string
-        @param srcid: srcid minOccurs=0
-        @type srcid: int
+        @param destlogicalid: destlogicalid minOccurs=0
+        @type destlogicalid: string
         '''
-        DesignConnectionBase.__init__(self, destlogicalid=destlogicalid, destid=destid, srclogicalid=srclogicalid, srcid=srcid)
+        DesignConnectionBase.__init__(self, srcid=srcid, destid=destid, srclogicalid=srclogicalid, destlogicalid=destlogicalid)

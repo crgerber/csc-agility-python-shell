@@ -5,18 +5,18 @@ class Policy(PolicyBase, PolicyActions):
     '''
     classdocs
     '''
-    def __init__(self, type=None, apiversion=None, definition=None, scope=None, filter=None):
+    def __init__(self, filter=None, scope=None, apiversion=None, type=None, definition=None):
         '''
         Constructor
-        @param type: type minOccurs=0
-        @type type: PolicyType
-        @param apiversion: apiversion minOccurs=0
-        @type apiversion: string
-        @param definition: definition minOccurs=0
-        @type definition: string
-        @param scope: scope minOccurs=0
-        @type scope: string
         @param filter: filter minOccurs=0
         @type filter: string
+        @param scope: scope minOccurs=0
+        @type scope: string
+        @param apiversion: apiversion minOccurs=0
+        @type apiversion: string
+        @param type: type minOccurs=0
+        @type type: PolicyType
+        @param definition: definition minOccurs=0
+        @type definition: string
         '''
-        PolicyBase.__init__(self, type=type, apiversion=apiversion, definition=definition, scope=scope, filter=filter)
+        PolicyBase.__init__(self, filter=filter, scope=scope, apiversion=apiversion, type=type, definition=definition)

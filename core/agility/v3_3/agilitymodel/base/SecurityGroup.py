@@ -4,14 +4,14 @@ class SecurityGroupBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, groupdescription=None, groupid=None, vpcid=None, groupname=None, ownerid=None, egresspermission=[], ingresspermission=[]):
+    def __init__(self, ingresspermission=[], ownerid=None, groupname=None, egresspermission=[], groupid=None, groupdescription=None, vpcid=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'vpcId': {'native': True, 'name': 'vpcid', 'minOccurs': '0', 'type': 'string'}, 'groupId': {'native': True, 'name': 'groupid', 'minOccurs': '0', 'type': 'string'}, 'ownerId': {'native': True, 'name': 'ownerid', 'minOccurs': '0', 'type': 'string'}, 'groupDescription': {'native': True, 'name': 'groupdescription', 'minOccurs': '0', 'type': 'string'}, 'groupName': {'native': True, 'name': 'groupname', 'minOccurs': '0', 'type': 'string'}, 'egressPermission': {'maxOccurs': 'unbounded', 'native': False, 'name': 'egresspermission', 'minOccurs': '0', 'type': 'IpPermission'}, 'ingressPermission': {'maxOccurs': 'unbounded', 'native': False, 'name': 'ingresspermission', 'minOccurs': '0', 'type': 'IpPermission'}})
-        self.groupdescription = groupdescription
-        self.groupid = groupid
-        self.vpcid = vpcid
-        self.groupname = groupname
+        self._attrSpecs.update({'ingressPermission': {'name': 'ingresspermission', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'IpPermission'}, 'groupDescription': {'name': 'groupdescription', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'groupName': {'name': 'groupname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'egressPermission': {'name': 'egresspermission', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'IpPermission'}, 'groupId': {'name': 'groupid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'ownerId': {'name': 'ownerid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'vpcId': {'name': 'vpcid', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.ingresspermission = ingresspermission
         self.ownerid = ownerid
+        self.groupname = groupname
         self.egresspermission = egresspermission
-        self.ingresspermission = ingresspermission 
+        self.groupid = groupid
+        self.groupdescription = groupdescription
+        self.vpcid = vpcid 

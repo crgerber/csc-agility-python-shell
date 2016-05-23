@@ -16,7 +16,7 @@ logger = getLogger(COMPONENT_NAME)
 class LocalArchive(AgilityModelBase):
     
     def __init__(self, localPath=None, fileName=None, attachmentName=None, data=None):
-        AgilityModelBase.__init__(self)
+        AgilityModelBase.__init__(self, logger)
         self.localPath = localPath
         self.fileName = fileName
         self.attachmentName = attachmentName or fileName

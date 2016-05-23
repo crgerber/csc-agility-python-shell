@@ -7,5 +7,5 @@ class ConfigSettingsBase(AssetBase):
     def __init__(self, property=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'property': {'maxOccurs': 'unbounded', 'native': False, 'name': 'property', 'minOccurs': '0', 'type': 'Link'}})
+        self._attrSpecs.update({'property': {'name': 'property', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.property = property 

@@ -4,9 +4,9 @@ class DescriptiveLinkBase(LinkBase):
     '''
     classdocs
     '''
-    def __init__(self, displayname=None, description=None):
+    def __init__(self, description=None, displayname=None):
         LinkBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'displayName': {'native': True, 'name': 'displayname', 'minOccurs': '0', 'type': 'string'}, 'description': {'native': True, 'name': 'description', 'minOccurs': '0', 'type': 'string'}})
-        self.displayname = displayname
-        self.description = description 
+        self._attrSpecs.update({'description': {'name': 'description', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'displayName': {'name': 'displayname', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.description = description
+        self.displayname = displayname 

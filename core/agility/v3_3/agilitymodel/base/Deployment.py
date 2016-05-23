@@ -4,18 +4,18 @@ class DeploymentBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, submitter=None, configuration=None, environment=None, deploymentbindings=[], releaseid=None, sourcedeployment=None, releaselabel=None, readyforpromotion=None, submitcomment=None, state=None, variables=[]):
+    def __init__(self, readyforpromotion=None, environment=None, state=None, sourcedeployment=None, submitter=None, deploymentbindings=[], releaselabel=None, configuration=None, submitcomment=None, variables=[], releaseid=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'submitter': {'native': False, 'name': 'submitter', 'minOccurs': '0', 'type': 'Link'}, 'configuration': {'native': False, 'name': 'configuration', 'minOccurs': '0', 'type': 'DeploymentConfiguration'}, 'environment': {'native': False, 'name': 'environment', 'minOccurs': '0', 'type': 'Link'}, 'deploymentBindings': {'maxOccurs': 'unbounded', 'native': False, 'name': 'deploymentbindings', 'minOccurs': '0', 'type': 'DeploymentBinding'}, 'releaseId': {'native': True, 'name': 'releaseid', 'minOccurs': '0', 'type': 'string'}, 'sourceDeployment': {'native': False, 'name': 'sourcedeployment', 'minOccurs': '0', 'type': 'Link'}, 'releaseLabel': {'native': True, 'name': 'releaselabel', 'minOccurs': '0', 'type': 'string'}, 'readyForPromotion': {'native': True, 'name': 'readyforpromotion', 'minOccurs': '0', 'type': 'boolean'}, 'submitComment': {'native': True, 'name': 'submitcomment', 'minOccurs': '0', 'type': 'string'}, 'state': {'native': False, 'name': 'state', 'minOccurs': '0', 'type': 'DeploymentState'}, 'variables': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variables', 'minOccurs': '0', 'type': 'AssetProperty'}})
-        self.submitter = submitter
-        self.configuration = configuration
-        self.environment = environment
-        self.deploymentbindings = deploymentbindings
-        self.releaseid = releaseid
-        self.sourcedeployment = sourcedeployment
-        self.releaselabel = releaselabel
+        self._attrSpecs.update({'readyForPromotion': {'name': 'readyforpromotion', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'environment': {'name': 'environment', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'state': {'name': 'state', 'minOccurs': '0', 'native': False, 'type': 'DeploymentState'}, 'sourceDeployment': {'name': 'sourcedeployment', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'submitter': {'name': 'submitter', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'deploymentBindings': {'name': 'deploymentbindings', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DeploymentBinding'}, 'releaseLabel': {'name': 'releaselabel', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'configuration': {'name': 'configuration', 'minOccurs': '0', 'native': False, 'type': 'DeploymentConfiguration'}, 'submitComment': {'name': 'submitcomment', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'variables': {'name': 'variables', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'releaseId': {'name': 'releaseid', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.readyforpromotion = readyforpromotion
-        self.submitcomment = submitcomment
+        self.environment = environment
         self.state = state
-        self.variables = variables 
+        self.sourcedeployment = sourcedeployment
+        self.submitter = submitter
+        self.deploymentbindings = deploymentbindings
+        self.releaselabel = releaselabel
+        self.configuration = configuration
+        self.submitcomment = submitcomment
+        self.variables = variables
+        self.releaseid = releaseid 

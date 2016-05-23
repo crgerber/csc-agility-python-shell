@@ -4,11 +4,11 @@ class StoreResourceBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, name='', value='', id=None, type=''):
+    def __init__(self, id=None, name='', value='', type=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'name': {'native': True, 'name': 'name', 'type': 'string'}, 'value': {'native': True, 'name': 'value', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}, 'type': {'native': True, 'name': 'type', 'type': 'string'}})
+        self._attrSpecs.update({'id': {'name': 'id', 'native': True, 'type': 'int'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'value': {'name': 'value', 'native': True, 'type': 'string'}, 'type': {'name': 'type', 'native': True, 'type': 'string'}})
+        self.id = id
         self.name = name
         self.value = value
-        self.id = id
         self.type = type 

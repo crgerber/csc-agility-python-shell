@@ -7,5 +7,5 @@ class InstanceVariableResponseBase(ApiResponseBase):
     def __init__(self, variables=[]):
         ApiResponseBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'variables': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variables', 'minOccurs': '0', 'type': 'Variable'}})
+        self._attrSpecs.update({'variables': {'name': 'variables', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Variable'}})
         self.variables = variables 

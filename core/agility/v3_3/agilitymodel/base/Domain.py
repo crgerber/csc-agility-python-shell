@@ -7,6 +7,6 @@ class DomainBase(AssetBase):
     def __init__(self, roles=[], users=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'roles': {'maxOccurs': 'unbounded', 'native': False, 'name': 'roles', 'minOccurs': '0', 'type': 'Link'}, 'users': {'maxOccurs': 'unbounded', 'native': False, 'name': 'users', 'minOccurs': '0', 'type': 'Link'}})
+        self._attrSpecs.update({'roles': {'name': 'roles', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'users': {'name': 'users', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.roles = roles
         self.users = users 

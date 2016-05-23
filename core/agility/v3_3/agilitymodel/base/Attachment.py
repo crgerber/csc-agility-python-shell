@@ -4,10 +4,10 @@ class AttachmentBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, content=None, attachmentlocation=[], size=None):
+    def __init__(self, size=None, content=None, attachmentlocation=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'content': {'native': True, 'name': 'content', 'minOccurs': '0', 'type': 'base64Binary'}, 'attachmentLocation': {'maxOccurs': 'unbounded', 'native': False, 'name': 'attachmentlocation', 'minOccurs': '0', 'type': 'AttachmentLocation'}, 'size': {'native': True, 'name': 'size', 'minOccurs': '0', 'type': 'long'}})
+        self._attrSpecs.update({'size': {'name': 'size', 'minOccurs': '0', 'native': True, 'type': 'long'}, 'content': {'name': 'content', 'minOccurs': '0', 'native': True, 'type': 'base64Binary'}, 'attachmentLocation': {'name': 'attachmentlocation', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AttachmentLocation'}})
+        self.size = size
         self.content = content
-        self.attachmentlocation = attachmentlocation
-        self.size = size 
+        self.attachmentlocation = attachmentlocation 

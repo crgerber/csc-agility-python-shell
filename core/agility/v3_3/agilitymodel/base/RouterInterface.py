@@ -4,10 +4,10 @@ class RouterInterfaceBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, subnet=None, id=None, port=None):
+    def __init__(self, id=None, port=None, subnet=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'subnet': {'native': False, 'name': 'subnet', 'minOccurs': '0', 'type': 'Link'}, 'id': {'native': True, 'name': 'id', 'minOccurs': '0', 'type': 'int'}, 'port': {'native': False, 'name': 'port', 'minOccurs': '0', 'type': 'Link'}})
-        self.subnet = subnet
+        self._attrSpecs.update({'id': {'name': 'id', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'port': {'name': 'port', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'subnet': {'name': 'subnet', 'minOccurs': '0', 'native': False, 'type': 'Link'}})
         self.id = id
-        self.port = port 
+        self.port = port
+        self.subnet = subnet 

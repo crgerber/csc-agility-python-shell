@@ -4,13 +4,13 @@ class VersionedItemLinkBase(LinkBase):
     '''
     classdocs
     '''
-    def __init__(self, latest=None, versionstatus=None, locktype=None, slotid=None, slot=None, version=None):
+    def __init__(self, slotid=None, slot=None, versionstatus=None, latest=None, version=None, locktype=None):
         LinkBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'latest': {'native': True, 'name': 'latest', 'minOccurs': '0', 'type': 'boolean'}, 'versionStatus': {'native': True, 'name': 'versionstatus', 'minOccurs': '0', 'type': 'string'}, 'lockType': {'native': True, 'name': 'locktype', 'minOccurs': '0', 'type': 'int'}, 'slotId': {'native': True, 'name': 'slotid', 'minOccurs': '0', 'type': 'int'}, 'slot': {'native': True, 'name': 'slot', 'minOccurs': '0', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'minOccurs': '0', 'type': 'int'}})
-        self.latest = latest
-        self.versionstatus = versionstatus
-        self.locktype = locktype
+        self._attrSpecs.update({'slotId': {'name': 'slotid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'slot': {'name': 'slot', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'versionStatus': {'name': 'versionstatus', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'latest': {'name': 'latest', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'version': {'name': 'version', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'lockType': {'name': 'locktype', 'minOccurs': '0', 'native': True, 'type': 'int'}})
         self.slotid = slotid
         self.slot = slot
-        self.version = version 
+        self.versionstatus = versionstatus
+        self.latest = latest
+        self.version = version
+        self.locktype = locktype 

@@ -7,5 +7,5 @@ class GetMultipleResponseBase(AgilityModelBase):
     def __init__(self, asset=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'asset': {'maxOccurs': 'unbounded', 'native': False, 'name': 'asset', 'minOccurs': '0', 'type': 'Asset'}})
+        self._attrSpecs.update({'asset': {'name': 'asset', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Asset'}})
         self.asset = asset 

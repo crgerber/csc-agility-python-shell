@@ -5,32 +5,32 @@ class StorePrice(StorePriceBase, StorePriceActions):
     '''
     classdocs
     '''
-    def __init__(self, currency=None, recurs=None, label=None, digits=None, id=None, period=None, threshold=None, currencylabel=None, labelafter=None, price=None, duration=None, type=None):
+    def __init__(self, duration=None, labelafter=None, digits=None, label=None, currencylabel=None, id=None, period=None, price=None, threshold=None, recurs=None, type=None, currency=None):
         '''
         Constructor
-        @param currency: currency minOccurs=0
-        @type currency: string
-        @param recurs: recurs minOccurs=0
-        @type recurs: int
-        @param label: label minOccurs=0
-        @type label: string
+        @param duration: duration minOccurs=0
+        @type duration: int
+        @param labelafter: labelafter minOccurs=0
+        @type labelafter: boolean
         @param digits: digits minOccurs=0
         @type digits: int
+        @param label: label minOccurs=0
+        @type label: string
+        @param currencylabel: currencylabel minOccurs=0
+        @type currencylabel: string
         @param id: id minOccurs=0
         @type id: int
         @param period: period minOccurs=0
         @type period: int
-        @param threshold: threshold minOccurs=0
-        @type threshold: double
-        @param currencylabel: currencylabel minOccurs=0
-        @type currencylabel: string
-        @param labelafter: labelafter minOccurs=0
-        @type labelafter: boolean
         @param price: price minOccurs=0
         @type price: double
-        @param duration: duration minOccurs=0
-        @type duration: int
+        @param threshold: threshold minOccurs=0
+        @type threshold: double
+        @param recurs: recurs minOccurs=0
+        @type recurs: int
         @param type: type minOccurs=0
         @type type: string
+        @param currency: currency minOccurs=0
+        @type currency: string
         '''
-        StorePriceBase.__init__(self, currency=currency, recurs=recurs, label=label, digits=digits, id=id, period=period, threshold=threshold, currencylabel=currencylabel, labelafter=labelafter, price=price, duration=duration, type=type)
+        StorePriceBase.__init__(self, duration=duration, labelafter=labelafter, digits=digits, label=label, currencylabel=currencylabel, id=id, period=period, price=price, threshold=threshold, recurs=recurs, type=type, currency=currency)

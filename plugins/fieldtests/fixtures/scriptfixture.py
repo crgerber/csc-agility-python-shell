@@ -3,16 +3,14 @@ Created on Oct 18, 2012
 
 @author: dawood
 '''
-from fixtures.basefixture import BaseFixture
-import fixtures
+from plugins.fieldtests.fixtures.basefixture import BaseFixture
+import plugins.fieldtests.fixtures
 from core.restclient import responseparser
-from gen import methods as client
+from core import agility as client
 from core.restclient.responseparser.ParserLxml import xml2d
 from . import xmltemplates
-import logger
 COMPONENT_NAME = 'agility-testbench'
-logger = logger.getLogger('%s.%s'%(COMPONENT_NAME, __name__))
-
+#logger = logger.getLogger('%s.%s'%(COMPONENT_NAME, __name__))
 
 parse = responseparser.parser()
 
@@ -21,11 +19,17 @@ class ScriptFixture(BaseFixture):
     includes setup and tear down for script creation, plus helper methods
     '''
 
-    def __init__(self, conn=None, assetName='Script', snapshot=BaseFixture.SNAPSHOT.NEW):
+    def __init__(self, conn=None, assetName='Script', snapshot=BaseFixture.SNAPSHOT.NEW, logger=None):
         BaseFixture.__init__(self, conn, assetName, snapshot)
         self.newScript = None
-        self.scriptService = client.script(self.conn)
+        self.scriptService = getattr(client, assetName.lower(), None)
+        
+        #client.script(self.conn)
+        if self.scriptService:
+            self.scriptService = self.scriptService(conn) 
+        
         self.templateScript = None
+        self.logger = logger
         
     def setUp(self):
         BaseFixture.setUp(self)
@@ -52,8 +56,4 @@ class ScriptFixture(BaseFixture):
         parentService = getattr(client, parentAsset)(self.conn)
         self.newScript = parse(parentService.createScript(parentAssetId, template%templateVars))
         return self.newScript
-    
-        
-        
-        
         

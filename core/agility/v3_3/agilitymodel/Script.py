@@ -5,38 +5,38 @@ class Script(ScriptBase, ScriptActions):
     '''
     classdocs
     '''
-    def __init__(self, delay=None, variable=[], language=None, erroraction=None, runasadmin=None, enableextensions=None, type=None, runonprovisiononly=None, operatingsystem=[], rebootrequired=None, attachments=[], retries=None, body=None, metavariable=[], timeout=None):
+    def __init__(self, runasadmin=None, operatingsystem=[], timeout=None, metavariable=[], variable=[], body=None, runonprovisiononly=None, attachments=[], delay=None, language=None, rebootrequired=None, enableextensions=None, erroraction=None, type=None, retries=None):
         '''
         Constructor
-        @param delay: delay minOccurs=0
-        @type delay: int
-        @param variable: variable minOccurs=0 maxOccurs=unbounded
-        @type variable: PropertyDefinition
-        @param language: language minOccurs=0
-        @type language: Link
-        @param erroraction: erroraction minOccurs=0
-        @type erroraction: ScriptErrorAction
         @param runasadmin: runasadmin minOccurs=0
         @type runasadmin: boolean
-        @param enableextensions: enableextensions minOccurs=0
-        @type enableextensions: boolean
-        @param type: type minOccurs=0
-        @type type: ScriptType
-        @param runonprovisiononly: runonprovisiononly minOccurs=0
-        @type runonprovisiononly: boolean
         @param operatingsystem: operatingsystem minOccurs=0 maxOccurs=unbounded
         @type operatingsystem: string
-        @param rebootrequired: rebootrequired minOccurs=0
-        @type rebootrequired: boolean
-        @param attachments: attachments minOccurs=0 maxOccurs=unbounded
-        @type attachments: Link
-        @param retries: retries minOccurs=0
-        @type retries: int
-        @param body: body minOccurs=0
-        @type body: string
-        @param metavariable: metavariable minOccurs=0 maxOccurs=unbounded
-        @type metavariable: ScriptPropertyReference
         @param timeout: timeout minOccurs=0
         @type timeout: int
+        @param metavariable: metavariable minOccurs=0 maxOccurs=unbounded
+        @type metavariable: ScriptPropertyReference
+        @param variable: variable minOccurs=0 maxOccurs=unbounded
+        @type variable: PropertyDefinition
+        @param body: body minOccurs=0
+        @type body: string
+        @param runonprovisiononly: runonprovisiononly minOccurs=0
+        @type runonprovisiononly: boolean
+        @param attachments: attachments minOccurs=0 maxOccurs=unbounded
+        @type attachments: Link
+        @param delay: delay minOccurs=0
+        @type delay: int
+        @param language: language minOccurs=0
+        @type language: Link
+        @param rebootrequired: rebootrequired minOccurs=0
+        @type rebootrequired: boolean
+        @param enableextensions: enableextensions minOccurs=0
+        @type enableextensions: boolean
+        @param erroraction: erroraction minOccurs=0
+        @type erroraction: ScriptErrorAction
+        @param type: type minOccurs=0
+        @type type: ScriptType
+        @param retries: retries minOccurs=0
+        @type retries: int
         '''
-        ScriptBase.__init__(self, delay=delay, variable=variable, language=language, erroraction=erroraction, runasadmin=runasadmin, enableextensions=enableextensions, type=type, runonprovisiononly=runonprovisiononly, operatingsystem=operatingsystem, rebootrequired=rebootrequired, attachments=attachments, retries=retries, body=body, metavariable=metavariable, timeout=timeout)
+        ScriptBase.__init__(self, runasadmin=runasadmin, operatingsystem=operatingsystem, timeout=timeout, metavariable=metavariable, variable=variable, body=body, runonprovisiononly=runonprovisiononly, attachments=attachments, delay=delay, language=language, rebootrequired=rebootrequired, enableextensions=enableextensions, erroraction=erroraction, type=type, retries=retries)

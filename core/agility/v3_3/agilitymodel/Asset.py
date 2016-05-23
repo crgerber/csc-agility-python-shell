@@ -5,48 +5,48 @@ class Asset(AssetBase, AssetActions):
     '''
     classdocs
     '''
-    def __init__(self, lifecycleversion=None, uuid=None, asset=[], tags=None, assetlist=[], assetproperties=[], lifecyclestate=None, assetpath=None, id=None, detailedassetpath=None, top=False, removable=None, assettype=None, description=None, usedbyassets=[], importmode=None, foreignassetproperties=[], lifecyclelastcomment=None, applicationtype=None, importdirectives=None):
+    def __init__(self, importmode=None, lifecyclelastcomment=None, asset=[], assetpath=None, foreignassetproperties=[], top=False, detailedassetpath=None, lifecycleversion=None, description=None, assettype=None, importdirectives=None, usedbyassets=[], removable=None, id=None, assetlist=[], tags=None, assetproperties=[], uuid=None, applicationtype=None, lifecyclestate=None):
         '''
         Constructor
-        @param lifecycleversion: lifecycleversion minOccurs=0
-        @type lifecycleversion: int
-        @param uuid: uuid minOccurs=0
-        @type uuid: string
-        @param asset: asset minOccurs=0 maxOccurs=unbounded
-        @type asset: Asset
-        @param tags: tags minOccurs=0
-        @type tags: string
-        @param assetlist: assetlist minOccurs=0 maxOccurs=unbounded
-        @type assetlist: Assetlist
-        @param assetproperties: assetproperties minOccurs=0 maxOccurs=unbounded
-        @type assetproperties: AssetProperty
-        @param lifecyclestate: lifecyclestate minOccurs=0
-        @type lifecyclestate: string
-        @param assetpath: assetpath minOccurs=0
-        @type assetpath: string
-        @param id: id minOccurs=0
-        @type id: int
-        @param detailedassetpath: detailedassetpath minOccurs=0
-        @type detailedassetpath: string
-        @param top: top
-        @type top: boolean
-        @param removable: removable minOccurs=0
-        @type removable: boolean
-        @param assettype: assettype minOccurs=0
-        @type assettype: Link
-        @param description: description minOccurs=0
-        @type description: string
-        @param usedbyassets: usedbyassets minOccurs=0 maxOccurs=unbounded
-        @type usedbyassets: Link
         @param importmode: importmode minOccurs=0
         @type importmode: ImportMode
-        @param foreignassetproperties: foreignassetproperties minOccurs=0 maxOccurs=unbounded
-        @type foreignassetproperties: ForeignAssetProperty
         @param lifecyclelastcomment: lifecyclelastcomment minOccurs=0
         @type lifecyclelastcomment: string
-        @param applicationtype: applicationtype minOccurs=0
-        @type applicationtype: string
+        @param asset: asset minOccurs=0 maxOccurs=unbounded
+        @type asset: Asset
+        @param assetpath: assetpath minOccurs=0
+        @type assetpath: string
+        @param foreignassetproperties: foreignassetproperties minOccurs=0 maxOccurs=unbounded
+        @type foreignassetproperties: ForeignAssetProperty
+        @param top: top
+        @type top: boolean
+        @param detailedassetpath: detailedassetpath minOccurs=0
+        @type detailedassetpath: string
+        @param lifecycleversion: lifecycleversion minOccurs=0
+        @type lifecycleversion: int
+        @param description: description minOccurs=0
+        @type description: string
+        @param assettype: assettype minOccurs=0
+        @type assettype: Link
         @param importdirectives: importdirectives minOccurs=0
         @type importdirectives: ImportDirectives
+        @param usedbyassets: usedbyassets minOccurs=0 maxOccurs=unbounded
+        @type usedbyassets: Link
+        @param removable: removable minOccurs=0
+        @type removable: boolean
+        @param id: id minOccurs=0
+        @type id: int
+        @param assetlist: assetlist minOccurs=0 maxOccurs=unbounded
+        @type assetlist: Assetlist
+        @param tags: tags minOccurs=0
+        @type tags: string
+        @param assetproperties: assetproperties minOccurs=0 maxOccurs=unbounded
+        @type assetproperties: AssetProperty
+        @param uuid: uuid minOccurs=0
+        @type uuid: string
+        @param applicationtype: applicationtype minOccurs=0
+        @type applicationtype: string
+        @param lifecyclestate: lifecyclestate minOccurs=0
+        @type lifecyclestate: string
         '''
-        AssetBase.__init__(self, lifecycleversion=lifecycleversion, uuid=uuid, asset=asset, tags=tags, assetlist=assetlist, assetproperties=assetproperties, lifecyclestate=lifecyclestate, assetpath=assetpath, id=id, detailedassetpath=detailedassetpath, top=top, removable=removable, assettype=assettype, description=description, usedbyassets=usedbyassets, importmode=importmode, foreignassetproperties=foreignassetproperties, lifecyclelastcomment=lifecyclelastcomment, applicationtype=applicationtype, importdirectives=importdirectives)
+        AssetBase.__init__(self, importmode=importmode, lifecyclelastcomment=lifecyclelastcomment, asset=asset, assetpath=assetpath, foreignassetproperties=foreignassetproperties, top=top, detailedassetpath=detailedassetpath, lifecycleversion=lifecycleversion, description=description, assettype=assettype, importdirectives=importdirectives, usedbyassets=usedbyassets, removable=removable, id=id, assetlist=assetlist, tags=tags, assetproperties=assetproperties, uuid=uuid, applicationtype=applicationtype, lifecyclestate=lifecyclestate)

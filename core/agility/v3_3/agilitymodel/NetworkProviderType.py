@@ -5,14 +5,14 @@ class NetworkProviderType(NetworkProviderTypeBase, NetworkProviderTypeActions):
     '''
     classdocs
     '''
-    def __init__(self, version=None, properties=[], type=None):
+    def __init__(self, properties=[], type=None, version=None):
         '''
         Constructor
-        @param version: version minOccurs=0
-        @type version: string
         @param properties: properties minOccurs=0 maxOccurs=unbounded
         @type properties: Property
         @param type: type minOccurs=0
         @type type: string
+        @param version: version minOccurs=0
+        @type version: string
         '''
-        NetworkProviderTypeBase.__init__(self, version=version, properties=properties, type=type)
+        NetworkProviderTypeBase.__init__(self, properties=properties, type=type, version=version)

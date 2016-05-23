@@ -7,5 +7,5 @@ class VersionListBase(ServiceMeshListBase):
     def __init__(self, versions=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'versions': {'maxOccurs': 'unbounded', 'native': False, 'name': 'versions', 'minOccurs': '0', 'type': 'AgilityVersion'}})
+        self._attrSpecs.update({'versions': {'name': 'versions', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AgilityVersion'}})
         self.versions = versions 

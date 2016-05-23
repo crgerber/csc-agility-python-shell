@@ -21,9 +21,6 @@ def writeCSVFile(rows, reportFileName, reportDir='reports', fields=None, delimit
     if not fields:
         [colNamesSet.add(key) for row in rows for key in agility.tools.scripting.listFields(row)]
     cols = fields or colNamesSet
-    
-    logger.info("cols:=%s"%cols) 
-    
     with open(reportFilePath, 'w') as reportFile:
         reportWriter = csv.DictWriter(reportFile, cols, dialect='excel', extrasaction='ignore')
         reportWriter.writeheader()

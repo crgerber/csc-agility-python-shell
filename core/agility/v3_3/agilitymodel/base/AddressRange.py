@@ -4,14 +4,14 @@ class AddressRangeBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, network=None, rangemin=None, inetmin=None, rangetype=None, inetmax=None, availableaddresses=[], rangemax=None):
+    def __init__(self, network=None, inetmax=None, rangemax=None, rangemin=None, rangetype=None, availableaddresses=[], inetmin=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'network': {'native': False, 'name': 'network', 'minOccurs': '0', 'type': 'Link'}, 'inetMin': {'native': True, 'name': 'inetmin', 'minOccurs': '0', 'type': 'string'}, 'rangeType': {'native': True, 'name': 'rangetype', 'minOccurs': '0', 'type': 'string'}, 'inetMax': {'native': True, 'name': 'inetmax', 'minOccurs': '0', 'type': 'string'}, 'availableAddresses': {'maxOccurs': 'unbounded', 'native': False, 'name': 'availableaddresses', 'minOccurs': '0', 'type': 'Address'}, 'rangeMax': {'native': True, 'name': 'rangemax', 'minOccurs': '0', 'type': 'string'}, 'rangeMin': {'native': True, 'name': 'rangemin', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'network': {'name': 'network', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'inetMax': {'name': 'inetmax', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'rangeMax': {'name': 'rangemax', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'rangeMin': {'name': 'rangemin', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'rangeType': {'name': 'rangetype', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'availableAddresses': {'name': 'availableaddresses', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Address'}, 'inetMin': {'name': 'inetmin', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.network = network
-        self.rangemin = rangemin
-        self.inetmin = inetmin
-        self.rangetype = rangetype
         self.inetmax = inetmax
+        self.rangemax = rangemax
+        self.rangemin = rangemin
+        self.rangetype = rangetype
         self.availableaddresses = availableaddresses
-        self.rangemax = rangemax 
+        self.inetmin = inetmin 

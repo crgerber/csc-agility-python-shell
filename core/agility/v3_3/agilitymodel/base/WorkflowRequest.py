@@ -7,5 +7,5 @@ class WorkflowRequestBase(AgilityModelBase):
     def __init__(self, comment=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'comment': {'native': True, 'name': 'comment', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'comment': {'name': 'comment', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.comment = comment 

@@ -5,14 +5,14 @@ class LdapGroup(LdapGroupBase, LdapGroupActions):
     '''
     classdocs
     '''
-    def __init__(self, agilitygroupname='', ldapgroupname='', mapid=None):
+    def __init__(self, mapid=None, agilitygroupname='', ldapgroupname=''):
         '''
         Constructor
+        @param mapid: mapid minOccurs=0
+        @type mapid: int
         @param agilitygroupname: agilitygroupname
         @type agilitygroupname: string
         @param ldapgroupname: ldapgroupname
         @type ldapgroupname: string
-        @param mapid: mapid minOccurs=0
-        @type mapid: int
         '''
-        LdapGroupBase.__init__(self, agilitygroupname=agilitygroupname, ldapgroupname=ldapgroupname, mapid=mapid)
+        LdapGroupBase.__init__(self, mapid=mapid, agilitygroupname=agilitygroupname, ldapgroupname=ldapgroupname)

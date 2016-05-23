@@ -4,10 +4,10 @@ class CloudTypeBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, properties=[], models=[], type=None):
+    def __init__(self, models=[], type=None, properties=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'type': {'native': True, 'name': 'type', 'minOccurs': '0', 'type': 'string'}, 'models': {'maxOccurs': 'unbounded', 'native': False, 'name': 'models', 'minOccurs': '0', 'type': 'Link'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}})
-        self.properties = properties
+        self._attrSpecs.update({'models': {'name': 'models', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'type': {'name': 'type', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}})
         self.models = models
-        self.type = type 
+        self.type = type
+        self.properties = properties 

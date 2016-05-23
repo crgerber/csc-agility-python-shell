@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-SdnState = Enum(**{'SyncCompleted': 'SyncCompleted', 'Failed': 'Failed', 'Unknown': 'Unknown', 'SyncStarted': 'SyncStarted'})
+SdnState = Enum(**{'Unknown': 'Unknown', 'Failed': 'Failed', 'SyncStarted': 'SyncStarted', 'SyncCompleted': 'SyncCompleted'})

@@ -4,13 +4,13 @@ class AssetTypeBriefBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, entitytype='', path='', name='', displayname='', jaxbtype='', id=None):
+    def __init__(self, path='', name='', displayname='', entitytype='', jaxbtype='', id=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'entityType': {'native': True, 'name': 'entitytype', 'type': 'string'}, 'path': {'native': True, 'name': 'path', 'type': 'string'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'displayName': {'native': True, 'name': 'displayname', 'type': 'string'}, 'jaxbType': {'native': True, 'name': 'jaxbtype', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}})
-        self.entitytype = entitytype
+        self._attrSpecs.update({'name': {'name': 'name', 'native': True, 'type': 'string'}, 'displayName': {'name': 'displayname', 'native': True, 'type': 'string'}, 'entityType': {'name': 'entitytype', 'native': True, 'type': 'string'}, 'jaxbType': {'name': 'jaxbtype', 'native': True, 'type': 'string'}, 'path': {'name': 'path', 'native': True, 'type': 'string'}, 'id': {'name': 'id', 'native': True, 'type': 'int'}})
         self.path = path
         self.name = name
         self.displayname = displayname
+        self.entitytype = entitytype
         self.jaxbtype = jaxbtype
         self.id = id 

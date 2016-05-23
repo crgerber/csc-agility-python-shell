@@ -4,12 +4,12 @@ class AssetlistBase(ServiceMeshListBase):
     '''
     classdocs
     '''
-    def __init__(self, limit=None, name='', asset=[], totalcount=None, offset=None):
+    def __init__(self, name='', totalcount=None, limit=None, offset=None, asset=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'limit': {'native': True, 'name': 'limit', 'type': 'int'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'Asset': {'maxOccurs': 'unbounded', 'native': False, 'name': 'asset', 'minOccurs': '0', 'type': 'Asset'}, 'totalCount': {'native': True, 'name': 'totalcount', 'type': 'int'}, 'offset': {'native': True, 'name': 'offset', 'type': 'int'}})
-        self.limit = limit
+        self._attrSpecs.update({'name': {'name': 'name', 'native': True, 'type': 'string'}, 'totalCount': {'name': 'totalcount', 'native': True, 'type': 'int'}, 'limit': {'name': 'limit', 'native': True, 'type': 'int'}, 'offset': {'name': 'offset', 'native': True, 'type': 'int'}, 'Asset': {'name': 'asset', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Asset'}})
         self.name = name
-        self.asset = asset
         self.totalcount = totalcount
-        self.offset = offset 
+        self.limit = limit
+        self.offset = offset
+        self.asset = asset 

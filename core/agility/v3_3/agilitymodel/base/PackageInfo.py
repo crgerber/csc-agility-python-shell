@@ -7,6 +7,6 @@ class PackageInfoBase(AgilityModelBase):
     def __init__(self, name='', version=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'name': {'native': True, 'name': 'name', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'type': 'string'}})
+        self._attrSpecs.update({'name': {'name': 'name', 'native': True, 'type': 'string'}, 'version': {'name': 'version', 'native': True, 'type': 'string'}})
         self.name = name
         self.version = version 

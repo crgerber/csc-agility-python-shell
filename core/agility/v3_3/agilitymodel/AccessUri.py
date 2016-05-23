@@ -5,16 +5,16 @@ class AccessUri(AccessUriBase, AccessUriActions):
     '''
     classdocs
     '''
-    def __init__(self, label=None, accessuriexpanded=None, accessuri=None, type=None):
+    def __init__(self, accessuriexpanded=None, accessuri=None, label=None, type=None):
         '''
         Constructor
-        @param label: label minOccurs=0
-        @type label: string
         @param accessuriexpanded: accessuriexpanded minOccurs=0
         @type accessuriexpanded: string
         @param accessuri: accessuri minOccurs=0
         @type accessuri: string
+        @param label: label minOccurs=0
+        @type label: string
         @param type: type minOccurs=0
         @type type: int
         '''
-        AccessUriBase.__init__(self, label=label, accessuriexpanded=accessuriexpanded, accessuri=accessuri, type=type)
+        AccessUriBase.__init__(self, accessuriexpanded=accessuriexpanded, accessuri=accessuri, label=label, type=type)

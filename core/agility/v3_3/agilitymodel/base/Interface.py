@@ -4,18 +4,18 @@ class InterfaceBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, networkinterfaceid=None, vpcid=None, subnetid=None, secondaryipaddress=[], primaryipaddress=None, description=None, location=None, macaddress=None, instanceid=None, status=None, instancestatus=None):
+    def __init__(self, description=None, subnetid=None, primaryipaddress=None, location=None, instanceid=None, instancestatus=None, macaddress=None, secondaryipaddress=[], networkinterfaceid=None, vpcid=None, status=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'networkInterfaceId': {'native': True, 'name': 'networkinterfaceid', 'minOccurs': '0', 'type': 'string'}, 'vpcId': {'native': True, 'name': 'vpcid', 'minOccurs': '0', 'type': 'string'}, 'subnetId': {'native': True, 'name': 'subnetid', 'minOccurs': '0', 'type': 'string'}, 'instanceStatus': {'native': True, 'name': 'instancestatus', 'minOccurs': '0', 'type': 'string'}, 'secondaryIpAddress': {'maxOccurs': 'unbounded', 'native': True, 'name': 'secondaryipaddress', 'minOccurs': '0', 'type': 'string'}, 'description': {'native': True, 'name': 'description', 'minOccurs': '0', 'type': 'string'}, 'location': {'native': True, 'name': 'location', 'minOccurs': '0', 'type': 'string'}, 'macAddress': {'native': True, 'name': 'macaddress', 'minOccurs': '0', 'type': 'string'}, 'instanceId': {'native': True, 'name': 'instanceid', 'minOccurs': '0', 'type': 'string'}, 'primaryIpAddress': {'native': True, 'name': 'primaryipaddress', 'minOccurs': '0', 'type': 'string'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'description': {'name': 'description', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'subnetId': {'name': 'subnetid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'location': {'name': 'location', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'secondaryIpAddress': {'name': 'secondaryipaddress', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'primaryIpAddress': {'name': 'primaryipaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'macAddress': {'name': 'macaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'networkInterfaceId': {'name': 'networkinterfaceid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'instanceStatus': {'name': 'instancestatus', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'vpcId': {'name': 'vpcid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'instanceId': {'name': 'instanceid', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.description = description
+        self.subnetid = subnetid
+        self.primaryipaddress = primaryipaddress
+        self.location = location
+        self.instanceid = instanceid
+        self.instancestatus = instancestatus
+        self.macaddress = macaddress
+        self.secondaryipaddress = secondaryipaddress
         self.networkinterfaceid = networkinterfaceid
         self.vpcid = vpcid
-        self.subnetid = subnetid
-        self.secondaryipaddress = secondaryipaddress
-        self.primaryipaddress = primaryipaddress
-        self.description = description
-        self.location = location
-        self.macaddress = macaddress
-        self.instanceid = instanceid
-        self.status = status
-        self.instancestatus = instancestatus 
+        self.status = status 

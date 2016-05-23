@@ -5,14 +5,14 @@ class Commands(CommandsBase, CommandsActions):
     '''
     classdocs
     '''
-    def __init__(self, command=[], version='', productversion=''):
+    def __init__(self, productversion='', command=[], version=''):
         '''
         Constructor
+        @param productversion: productversion
+        @type productversion: string
         @param command: command minOccurs=0 maxOccurs=unbounded
         @type command: Command
         @param version: version
         @type version: string
-        @param productversion: productversion
-        @type productversion: string
         '''
-        CommandsBase.__init__(self, command=command, version=version, productversion=productversion)
+        CommandsBase.__init__(self, productversion=productversion, command=command, version=version)

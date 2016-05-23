@@ -5,14 +5,14 @@ class FixedIP(FixedIPBase, FixedIPActions):
     '''
     classdocs
     '''
-    def __init__(self, ipaddress=None, subnet=None, id=None):
+    def __init__(self, id=None, subnet=None, ipaddress=None):
         '''
         Constructor
-        @param ipaddress: ipaddress minOccurs=0
-        @type ipaddress: string
-        @param subnet: subnet minOccurs=0
-        @type subnet: Link
         @param id: id minOccurs=0
         @type id: int
+        @param subnet: subnet minOccurs=0
+        @type subnet: Link
+        @param ipaddress: ipaddress minOccurs=0
+        @type ipaddress: string
         '''
-        FixedIPBase.__init__(self, ipaddress=ipaddress, subnet=subnet, id=id)
+        FixedIPBase.__init__(self, id=id, subnet=subnet, ipaddress=ipaddress)

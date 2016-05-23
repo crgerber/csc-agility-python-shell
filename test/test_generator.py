@@ -1,12 +1,11 @@
 '''
-Description:
+Description: Verifies that the configured api version is compatible with this version of Agility Shell.
 
 @author: cgerber
 '''
 import os
 import sys
 import unittest
-import logging
 import base64
 import xml.dom.minidom
 import pycurl
@@ -18,12 +17,15 @@ from shutil import copyfile
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-import logger
+from agilityinit import SHELL_ROOT_DIR
 
-logger.configRootLogger('test_generate_wadl', '.', 'unittest.log', logging.DEBUG, console=True) 
-
-from logger import logger
 from core.config.configuration import AgilityShellConfig
+cfg = AgilityShellConfig(path="agilityshell.cfg")
+
+import logging
+from logger import logger, configRootLogger
+logger = configRootLogger('test_generator', os.path.join(SHELL_ROOT_DIR, 'logs'), 'test_generator.log', cfg.get(section='log', option='level'), cfg.get(section='log', option='console')) 
+
 from core.restclient.generator.generate_client_methods import Application, generate_python_module, update_file_if_changed
 
 WADL_FILENAME = 'agility.wadl'
@@ -35,7 +37,7 @@ class GeneratorTest(unittest.TestCase):
     def setUp(self):
         unittest.TestCase.setUp(self)
         self.buffer = BytesIO()
-        self.conf = AgilityShellConfig(path="agilityshell.cfg") 
+        self.conf = cfg
         self.url = "https://%s:%s/agility/api/%s/application.wadl?detail=true" % (self.conf.get(section='main', option='host'), self.conf.get(section='main', option='port'), self.conf.get(section='apiversion', option='version'))
 
         self.curl = Curl()

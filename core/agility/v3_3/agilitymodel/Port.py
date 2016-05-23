@@ -5,26 +5,26 @@ class Port(PortBase, PortActions):
     '''
     classdocs
     '''
-    def __init__(self, tenantid=None, fixedips=[], adminstateup=None, macaddress=None, deviceid=None, portid=None, deviceowner=None, status=None, network=None):
+    def __init__(self, fixedips=[], network=None, status=None, deviceid=None, adminstateup=None, portid=None, deviceowner=None, macaddress=None, tenantid=None):
         '''
         Constructor
-        @param tenantid: tenantid minOccurs=0
-        @type tenantid: string
         @param fixedips: fixedips minOccurs=0 maxOccurs=unbounded
         @type fixedips: FixedIP
-        @param adminstateup: adminstateup minOccurs=0
-        @type adminstateup: boolean
-        @param macaddress: macaddress minOccurs=0
-        @type macaddress: string
+        @param network: network minOccurs=0
+        @type network: Link
+        @param status: status minOccurs=0
+        @type status: string
         @param deviceid: deviceid minOccurs=0
         @type deviceid: string
+        @param adminstateup: adminstateup minOccurs=0
+        @type adminstateup: boolean
         @param portid: portid minOccurs=0
         @type portid: string
         @param deviceowner: deviceowner minOccurs=0
         @type deviceowner: string
-        @param status: status minOccurs=0
-        @type status: string
-        @param network: network minOccurs=0
-        @type network: Link
+        @param macaddress: macaddress minOccurs=0
+        @type macaddress: string
+        @param tenantid: tenantid minOccurs=0
+        @type tenantid: string
         '''
-        PortBase.__init__(self, tenantid=tenantid, fixedips=fixedips, adminstateup=adminstateup, macaddress=macaddress, deviceid=deviceid, portid=portid, deviceowner=deviceowner, status=status, network=network)
+        PortBase.__init__(self, fixedips=fixedips, network=network, status=status, deviceid=deviceid, adminstateup=adminstateup, portid=portid, deviceowner=deviceowner, macaddress=macaddress, tenantid=tenantid)

@@ -4,21 +4,21 @@ class LaunchItemBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, edition=None, path=None, resources=[], itemid=None, state=None, type='', itemtype=None, deployments=[], accessurilist=None, purchasedon=None, itemname=None, prices=[], purchasedby=None, product=None):
+    def __init__(self, product=None, itemname=None, purchasedby=None, purchasedon=None, state=None, prices=[], edition=None, path=None, accessurilist=None, resources=[], deployments=[], itemid=None, type='', itemtype=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'edition': {'native': False, 'name': 'edition', 'minOccurs': '0', 'type': 'Link'}, 'path': {'native': True, 'name': 'path', 'minOccurs': '0', 'type': 'string'}, 'resources': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resources', 'minOccurs': '0', 'type': 'StoreResource'}, 'itemId': {'native': True, 'name': 'itemid', 'type': 'int'}, 'state': {'native': False, 'name': 'state', 'minOccurs': '0', 'type': 'LaunchItemState'}, 'type': {'native': True, 'name': 'type', 'type': 'string'}, 'itemType': {'native': True, 'name': 'itemtype', 'minOccurs': '0', 'type': 'string'}, 'deployments': {'maxOccurs': 'unbounded', 'native': False, 'name': 'deployments', 'minOccurs': '0', 'type': 'Link'}, 'accessUriList': {'native': False, 'name': 'accessurilist', 'minOccurs': '0', 'type': 'AccessUriList'}, 'purchasedOn': {'native': True, 'name': 'purchasedon', 'minOccurs': '0', 'type': 'date'}, 'itemName': {'native': True, 'name': 'itemname', 'minOccurs': '0', 'type': 'string'}, 'prices': {'maxOccurs': 'unbounded', 'native': False, 'name': 'prices', 'minOccurs': '0', 'type': 'StorePrice'}, 'purchasedBy': {'native': False, 'name': 'purchasedby', 'minOccurs': '0', 'type': 'Link'}, 'product': {'native': False, 'name': 'product', 'minOccurs': '0', 'type': 'Link'}})
+        self._attrSpecs.update({'product': {'name': 'product', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'itemName': {'name': 'itemname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'purchasedBy': {'name': 'purchasedby', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'purchasedOn': {'name': 'purchasedon', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'state': {'name': 'state', 'minOccurs': '0', 'native': False, 'type': 'LaunchItemState'}, 'prices': {'name': 'prices', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'StorePrice'}, 'edition': {'name': 'edition', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'path': {'name': 'path', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'accessUriList': {'name': 'accessurilist', 'minOccurs': '0', 'native': False, 'type': 'AccessUriList'}, 'resources': {'name': 'resources', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'StoreResource'}, 'itemType': {'name': 'itemtype', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'itemId': {'name': 'itemid', 'native': True, 'type': 'int'}, 'type': {'name': 'type', 'native': True, 'type': 'string'}, 'deployments': {'name': 'deployments', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
+        self.product = product
+        self.itemname = itemname
+        self.purchasedby = purchasedby
+        self.purchasedon = purchasedon
+        self.state = state
+        self.prices = prices
         self.edition = edition
         self.path = path
-        self.resources = resources
-        self.itemid = itemid
-        self.state = state
-        self.type = type
-        self.itemtype = itemtype
-        self.deployments = deployments
         self.accessurilist = accessurilist
-        self.purchasedon = purchasedon
-        self.itemname = itemname
-        self.prices = prices
-        self.purchasedby = purchasedby
-        self.product = product 
+        self.resources = resources
+        self.deployments = deployments
+        self.itemid = itemid
+        self.type = type
+        self.itemtype = itemtype 

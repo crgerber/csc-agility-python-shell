@@ -5,12 +5,12 @@ class ProjectTemplate(ProjectTemplateBase, ProjectTemplateActions):
     '''
     classdocs
     '''
-    def __init__(self, projecttype=None, readyforuse=None):
+    def __init__(self, readyforuse=None, projecttype=None):
         '''
         Constructor
-        @param projecttype: projecttype minOccurs=0
-        @type projecttype: Link
         @param readyforuse: readyforuse minOccurs=0
         @type readyforuse: boolean
+        @param projecttype: projecttype minOccurs=0
+        @type projecttype: Link
         '''
-        ProjectTemplateBase.__init__(self, projecttype=projecttype, readyforuse=readyforuse)
+        ProjectTemplateBase.__init__(self, readyforuse=readyforuse, projecttype=projecttype)

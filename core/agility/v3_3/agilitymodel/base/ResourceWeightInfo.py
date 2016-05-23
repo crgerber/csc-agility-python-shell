@@ -4,9 +4,9 @@ class ResourceWeightInfoBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, metricname='', metricdisplayname=''):
+    def __init__(self, metricdisplayname='', metricname=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'metricName': {'native': True, 'name': 'metricname', 'type': 'string'}, 'metricDisplayName': {'native': True, 'name': 'metricdisplayname', 'type': 'string'}})
-        self.metricname = metricname
-        self.metricdisplayname = metricdisplayname 
+        self._attrSpecs.update({'metricDisplayName': {'name': 'metricdisplayname', 'native': True, 'type': 'string'}, 'metricName': {'name': 'metricname', 'native': True, 'type': 'string'}})
+        self.metricdisplayname = metricdisplayname
+        self.metricname = metricname 

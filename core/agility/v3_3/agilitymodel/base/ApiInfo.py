@@ -4,11 +4,11 @@ class ApiInfoBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, path=None, realpath=None, version=None, apiname=None):
+    def __init__(self, realpath=None, path=None, apiname=None, version=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'realPath': {'native': True, 'name': 'realpath', 'minOccurs': '0', 'type': 'string'}, 'path': {'native': True, 'name': 'path', 'minOccurs': '0', 'type': 'string'}, 'apiName': {'native': True, 'name': 'apiname', 'minOccurs': '0', 'type': 'string'}, 'version': {'native': True, 'name': 'version', 'minOccurs': '0', 'type': 'string'}})
-        self.path = path
+        self._attrSpecs.update({'realPath': {'name': 'realpath', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'path': {'name': 'path', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'apiName': {'name': 'apiname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'version': {'name': 'version', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.realpath = realpath
-        self.version = version
-        self.apiname = apiname 
+        self.path = path
+        self.apiname = apiname
+        self.version = version 

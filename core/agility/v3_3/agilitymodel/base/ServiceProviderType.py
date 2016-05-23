@@ -4,13 +4,13 @@ class ServiceProviderTypeBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, servicetypesupertype=[], sdkservice=False, servicetype=[], option=[], adapter=None, supertype=[]):
+    def __init__(self, sdkservice=False, supertype=[], servicetypesupertype=[], option=[], adapter=None, servicetype=[]):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'serviceTypeSuperType': {'maxOccurs': 'unbounded', 'native': False, 'name': 'servicetypesupertype', 'minOccurs': '0', 'type': 'Link'}, 'sdkService': {'native': True, 'name': 'sdkservice', 'type': 'boolean'}, 'superType': {'maxOccurs': 'unbounded', 'native': False, 'name': 'supertype', 'minOccurs': '0', 'type': 'Link'}, 'option': {'maxOccurs': 'unbounded', 'native': False, 'name': 'option', 'minOccurs': '0', 'type': 'ServiceProviderOption'}, 'adapter': {'native': True, 'name': 'adapter', 'minOccurs': '0', 'type': 'string'}, 'serviceType': {'maxOccurs': 'unbounded', 'native': False, 'name': 'servicetype', 'minOccurs': '0', 'type': 'Link'}})
-        self.servicetypesupertype = servicetypesupertype
+        self._attrSpecs.update({'sdkService': {'name': 'sdkservice', 'native': True, 'type': 'boolean'}, 'serviceTypeSuperType': {'name': 'servicetypesupertype', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'superType': {'name': 'supertype', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'adapter': {'name': 'adapter', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'option': {'name': 'option', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ServiceProviderOption'}, 'serviceType': {'name': 'servicetype', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.sdkservice = sdkservice
-        self.servicetype = servicetype
+        self.supertype = supertype
+        self.servicetypesupertype = servicetypesupertype
         self.option = option
         self.adapter = adapter
-        self.supertype = supertype 
+        self.servicetype = servicetype 

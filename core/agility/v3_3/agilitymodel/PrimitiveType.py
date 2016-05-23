@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-PrimitiveType = Enum(**{'encrypted': 'encrypted', 'date': 'date', 'bool': 'bool', 'integer': 'integer', 'binary': 'binary', 'numeric': 'numeric', 'string': 'string'})
+PrimitiveType = Enum(**{'string': 'string', 'numeric': 'numeric', 'integer': 'integer', 'encrypted': 'encrypted', 'bool': 'bool', 'binary': 'binary', 'date': 'date'})

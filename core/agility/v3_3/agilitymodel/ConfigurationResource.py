@@ -5,14 +5,14 @@ class ConfigurationResource(ConfigurationResourceBase, ConfigurationResourceActi
     '''
     classdocs
     '''
-    def __init__(self, artifact=None, variable=[], property=[]):
+    def __init__(self, variable=[], artifact=None, property=[]):
         '''
         Constructor
-        @param artifact: artifact minOccurs=0
-        @type artifact: Link
         @param variable: variable minOccurs=0 maxOccurs=unbounded
         @type variable: PropertyDefinition
+        @param artifact: artifact minOccurs=0
+        @type artifact: Link
         @param property: property minOccurs=0 maxOccurs=unbounded
         @type property: AssetProperty
         '''
-        ConfigurationResourceBase.__init__(self, artifact=artifact, variable=variable, property=property)
+        ConfigurationResourceBase.__init__(self, variable=variable, artifact=artifact, property=property)

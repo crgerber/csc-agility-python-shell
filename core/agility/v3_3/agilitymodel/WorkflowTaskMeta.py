@@ -5,18 +5,18 @@ class WorkflowTaskMeta(WorkflowTaskMetaBase, WorkflowTaskMetaActions):
     '''
     classdocs
     '''
-    def __init__(self, pathicon='', name='', icon='', description='', transitions=[]):
+    def __init__(self, name='', description='', transitions=[], pathicon='', icon=''):
         '''
         Constructor
-        @param pathicon: pathicon
-        @type pathicon: string
         @param name: name
         @type name: string
-        @param icon: icon
-        @type icon: string
         @param description: description
         @type description: string
         @param transitions: transitions minOccurs=0 maxOccurs=unbounded
         @type transitions: Link
+        @param pathicon: pathicon
+        @type pathicon: string
+        @param icon: icon
+        @type icon: string
         '''
-        WorkflowTaskMetaBase.__init__(self, pathicon=pathicon, name=name, icon=icon, description=description, transitions=transitions)
+        WorkflowTaskMetaBase.__init__(self, name=name, description=description, transitions=transitions, pathicon=pathicon, icon=icon)

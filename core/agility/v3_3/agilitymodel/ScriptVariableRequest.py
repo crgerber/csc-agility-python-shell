@@ -5,16 +5,16 @@ class ScriptVariableRequest(ScriptVariableRequestBase, ScriptVariableRequestActi
     '''
     classdocs
     '''
-    def __init__(self, templateid=None, packageid=[], topologyid=None, cloudid=[]):
+    def __init__(self, templateid=None, cloudid=[], topologyid=None, packageid=[]):
         '''
         Constructor
         @param templateid: templateid minOccurs=0
         @type templateid: int
-        @param packageid: packageid minOccurs=0 maxOccurs=unbounded
-        @type packageid: int
-        @param topologyid: topologyid minOccurs=0
-        @type topologyid: int
         @param cloudid: cloudid minOccurs=0 maxOccurs=unbounded
         @type cloudid: int
+        @param topologyid: topologyid minOccurs=0
+        @type topologyid: int
+        @param packageid: packageid minOccurs=0 maxOccurs=unbounded
+        @type packageid: int
         '''
-        ScriptVariableRequestBase.__init__(self, templateid=templateid, packageid=packageid, topologyid=topologyid, cloudid=cloudid)
+        ScriptVariableRequestBase.__init__(self, templateid=templateid, cloudid=cloudid, topologyid=topologyid, packageid=packageid)

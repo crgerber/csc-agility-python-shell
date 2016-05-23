@@ -4,10 +4,10 @@ class ConnectionBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, destination=None, source=None, variable=[]):
+    def __init__(self, destination=None, variable=[], source=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'destination': {'native': False, 'name': 'destination', 'type': 'Link'}, 'source': {'native': False, 'name': 'source', 'type': 'Link'}, 'variable': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variable', 'minOccurs': '0', 'type': 'AssetProperty'}})
+        self._attrSpecs.update({'destination': {'name': 'destination', 'native': False, 'type': 'Link'}, 'variable': {'name': 'variable', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'source': {'name': 'source', 'native': False, 'type': 'Link'}})
         self.destination = destination
-        self.source = source
-        self.variable = variable 
+        self.variable = variable
+        self.source = source 

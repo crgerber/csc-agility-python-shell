@@ -4,17 +4,17 @@ class StoreEditionBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, itemtype=None, deployassettype=None, release=None, prices=[], build='', itemid=None, version='', resources=[], itemname=None, orderassettype=None):
+    def __init__(self, orderassettype=None, itemname=None, version='', release=None, prices=[], resources=[], itemtype=None, itemid=None, deployassettype=None, build=''):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'itemType': {'native': True, 'name': 'itemtype', 'minOccurs': '0', 'type': 'string'}, 'deployAssetType': {'native': False, 'name': 'deployassettype', 'minOccurs': '0', 'type': 'Link'}, 'release': {'native': False, 'name': 'release', 'minOccurs': '0', 'type': 'Link'}, 'itemId': {'native': True, 'name': 'itemid', 'minOccurs': '0', 'type': 'int'}, 'build': {'native': True, 'name': 'build', 'type': 'string'}, 'prices': {'maxOccurs': 'unbounded', 'native': False, 'name': 'prices', 'minOccurs': '0', 'type': 'StorePrice'}, 'version': {'native': True, 'name': 'version', 'type': 'string'}, 'resources': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resources', 'minOccurs': '0', 'type': 'StoreResource'}, 'itemName': {'native': True, 'name': 'itemname', 'minOccurs': '0', 'type': 'string'}, 'orderAssetType': {'native': False, 'name': 'orderassettype', 'minOccurs': '0', 'type': 'Link'}})
-        self.itemtype = itemtype
-        self.deployassettype = deployassettype
+        self._attrSpecs.update({'orderAssetType': {'name': 'orderassettype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'prices': {'name': 'prices', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'StorePrice'}, 'version': {'name': 'version', 'native': True, 'type': 'string'}, 'release': {'name': 'release', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'itemName': {'name': 'itemname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'resources': {'name': 'resources', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'StoreResource'}, 'build': {'name': 'build', 'native': True, 'type': 'string'}, 'itemId': {'name': 'itemid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'deployAssetType': {'name': 'deployassettype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'itemType': {'name': 'itemtype', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.orderassettype = orderassettype
+        self.itemname = itemname
+        self.version = version
         self.release = release
         self.prices = prices
-        self.build = build
-        self.itemid = itemid
-        self.version = version
         self.resources = resources
-        self.itemname = itemname
-        self.orderassettype = orderassettype 
+        self.itemtype = itemtype
+        self.itemid = itemid
+        self.deployassettype = deployassettype
+        self.build = build 

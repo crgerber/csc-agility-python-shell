@@ -5,12 +5,12 @@ class AttachmentType(AttachmentTypeBase, AttachmentTypeActions):
     '''
     classdocs
     '''
-    def __init__(self, vpcid=None, state=None):
+    def __init__(self, state=None, vpcid=None):
         '''
         Constructor
-        @param vpcid: vpcid minOccurs=0
-        @type vpcid: string
         @param state: state minOccurs=0
         @type state: string
+        @param vpcid: vpcid minOccurs=0
+        @type vpcid: string
         '''
-        AttachmentTypeBase.__init__(self, vpcid=vpcid, state=state)
+        AttachmentTypeBase.__init__(self, state=state, vpcid=vpcid)

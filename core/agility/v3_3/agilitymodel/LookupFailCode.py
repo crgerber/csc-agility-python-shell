@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-LookupFailCode = Enum(**{'Fail': 'Fail', 'Continue': 'Continue'})
+LookupFailCode = Enum(**{'Continue': 'Continue', 'Fail': 'Fail'})

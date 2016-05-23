@@ -5,12 +5,12 @@ class PolicyType(PolicyTypeBase, PolicyTypeActions):
     '''
     classdocs
     '''
-    def __init__(self, symbolicname='', bundleversion=''):
+    def __init__(self, bundleversion='', symbolicname=''):
         '''
         Constructor
-        @param symbolicname: symbolicname
-        @type symbolicname: string
         @param bundleversion: bundleversion
         @type bundleversion: string
+        @param symbolicname: symbolicname
+        @type symbolicname: string
         '''
-        PolicyTypeBase.__init__(self, symbolicname=symbolicname, bundleversion=bundleversion)
+        PolicyTypeBase.__init__(self, bundleversion=bundleversion, symbolicname=symbolicname)

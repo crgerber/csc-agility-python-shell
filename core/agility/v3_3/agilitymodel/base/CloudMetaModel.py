@@ -7,5 +7,5 @@ class CloudMetaModelBase(AgilityModelBase):
     def __init__(self, onboardmeta=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'onboardMeta': {'maxOccurs': 'unbounded', 'native': False, 'name': 'onboardmeta', 'minOccurs': '0', 'type': 'OnboardMeta'}})
+        self._attrSpecs.update({'onboardMeta': {'name': 'onboardmeta', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'OnboardMeta'}})
         self.onboardmeta = onboardmeta 

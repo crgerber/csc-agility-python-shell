@@ -5,40 +5,40 @@ class WorkflowTask(WorkflowTaskBase, WorkflowTaskActions):
     '''
     classdocs
     '''
-    def __init__(self, sourcelocation='', candidategroupids=[], formname='', description='', assignee='', destinationlocation='', displayname='', candidateuserids=[], id=None, asset=None, comments=[], workfloweventid=None, workflowversionid=None, name='', actions=[], variables=[]):
+    def __init__(self, comments=[], displayname='', formname='', assignee='', name='', sourcelocation='', actions=[], id=None, description='', variables=[], destinationlocation='', candidateuserids=[], asset=None, candidategroupids=[], workfloweventid=None, workflowversionid=None):
         '''
         Constructor
-        @param sourcelocation: sourcelocation
-        @type sourcelocation: string
-        @param candidategroupids: candidategroupids minOccurs=0 maxOccurs=unbounded
-        @type candidategroupids: string
-        @param formname: formname
-        @type formname: string
-        @param description: description
-        @type description: string
-        @param assignee: assignee
-        @type assignee: string
-        @param destinationlocation: destinationlocation
-        @type destinationlocation: string
-        @param displayname: displayname
-        @type displayname: string
-        @param candidateuserids: candidateuserids minOccurs=0 maxOccurs=unbounded
-        @type candidateuserids: string
-        @param id: id
-        @type id: int
-        @param asset: asset
-        @type asset: Link
         @param comments: comments minOccurs=0 maxOccurs=unbounded
         @type comments: string
+        @param displayname: displayname
+        @type displayname: string
+        @param formname: formname
+        @type formname: string
+        @param assignee: assignee
+        @type assignee: string
+        @param name: name
+        @type name: string
+        @param sourcelocation: sourcelocation
+        @type sourcelocation: string
+        @param actions: actions minOccurs=0 maxOccurs=unbounded
+        @type actions: string
+        @param id: id
+        @type id: int
+        @param description: description
+        @type description: string
+        @param variables: variables minOccurs=0 maxOccurs=unbounded
+        @type variables: Link
+        @param destinationlocation: destinationlocation
+        @type destinationlocation: string
+        @param candidateuserids: candidateuserids minOccurs=0 maxOccurs=unbounded
+        @type candidateuserids: string
+        @param asset: asset
+        @type asset: Link
+        @param candidategroupids: candidategroupids minOccurs=0 maxOccurs=unbounded
+        @type candidategroupids: string
         @param workfloweventid: workfloweventid
         @type workfloweventid: int
         @param workflowversionid: workflowversionid
         @type workflowversionid: int
-        @param name: name
-        @type name: string
-        @param actions: actions minOccurs=0 maxOccurs=unbounded
-        @type actions: string
-        @param variables: variables minOccurs=0 maxOccurs=unbounded
-        @type variables: Link
         '''
-        WorkflowTaskBase.__init__(self, sourcelocation=sourcelocation, candidategroupids=candidategroupids, formname=formname, description=description, assignee=assignee, destinationlocation=destinationlocation, displayname=displayname, candidateuserids=candidateuserids, id=id, asset=asset, comments=comments, workfloweventid=workfloweventid, workflowversionid=workflowversionid, name=name, actions=actions, variables=variables)
+        WorkflowTaskBase.__init__(self, comments=comments, displayname=displayname, formname=formname, assignee=assignee, name=name, sourcelocation=sourcelocation, actions=actions, id=id, description=description, variables=variables, destinationlocation=destinationlocation, candidateuserids=candidateuserids, asset=asset, candidategroupids=candidategroupids, workfloweventid=workfloweventid, workflowversionid=workflowversionid)

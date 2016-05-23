@@ -5,12 +5,12 @@ class StringLengthValidator(StringLengthValidatorBase, StringLengthValidatorActi
     '''
     classdocs
     '''
-    def __init__(self, maxlength=None, minlength=None):
+    def __init__(self, minlength=None, maxlength=None):
         '''
         Constructor
-        @param maxlength: maxlength minOccurs=0
-        @type maxlength: int
         @param minlength: minlength minOccurs=0
         @type minlength: int
+        @param maxlength: maxlength minOccurs=0
+        @type maxlength: int
         '''
-        StringLengthValidatorBase.__init__(self, maxlength=maxlength, minlength=minlength)
+        StringLengthValidatorBase.__init__(self, minlength=minlength, maxlength=maxlength)

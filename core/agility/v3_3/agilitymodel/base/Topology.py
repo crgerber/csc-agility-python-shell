@@ -4,23 +4,23 @@ class TopologyBase(ContainerBase):
     '''
     classdocs
     '''
-    def __init__(self, deployer=[], manualstartup=[], mandatoryaffinity=None, accessuriexpanded=None, sourceblueprint=None, launcheraccessuri=[], blueprintsubcontainer=None, antiaffinity=None, resourceaffinity=None, anyorder=[], stats=None, aliases=[], accessuri=None, fixedorder=[], parentproject=None, variables=[]):
+    def __init__(self, launcheraccessuri=[], accessuri=None, parentproject=None, fixedorder=[], anyorder=[], antiaffinity=None, mandatoryaffinity=None, stats=None, sourceblueprint=None, accessuriexpanded=None, blueprintsubcontainer=None, manualstartup=[], variables=[], resourceaffinity=None, aliases=[], deployer=[]):
         ContainerBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'deployer': {'maxOccurs': 'unbounded', 'native': False, 'name': 'deployer', 'minOccurs': '0', 'type': 'Link'}, 'manualStartup': {'maxOccurs': 'unbounded', 'native': False, 'name': 'manualstartup', 'minOccurs': '0', 'type': 'Link'}, 'anyOrder': {'maxOccurs': 'unbounded', 'native': False, 'name': 'anyorder', 'minOccurs': '0', 'type': 'Link'}, 'accessUriExpanded': {'native': True, 'name': 'accessuriexpanded', 'minOccurs': '0', 'type': 'string'}, 'sourceBlueprint': {'native': False, 'name': 'sourceblueprint', 'minOccurs': '0', 'type': 'Link'}, 'aliases': {'maxOccurs': 'unbounded', 'native': False, 'name': 'aliases', 'minOccurs': '0', 'type': 'Alias'}, 'blueprintSubcontainer': {'native': True, 'name': 'blueprintsubcontainer', 'minOccurs': '0', 'type': 'boolean'}, 'resourceAffinity': {'native': False, 'name': 'resourceaffinity', 'type': 'ResourceAffinity'}, 'antiAffinity': {'native': True, 'name': 'antiaffinity', 'minOccurs': '0', 'type': 'boolean'}, 'stats': {'native': False, 'name': 'stats', 'minOccurs': '0', 'type': 'TopologyStats'}, 'launcherAccessUri': {'maxOccurs': 'unbounded', 'native': False, 'name': 'launcheraccessuri', 'minOccurs': '0', 'type': 'AccessUri'}, 'mandatoryAffinity': {'native': True, 'name': 'mandatoryaffinity', 'minOccurs': '0', 'type': 'boolean'}, 'accessUri': {'native': True, 'name': 'accessuri', 'minOccurs': '0', 'type': 'string'}, 'parentProject': {'native': False, 'name': 'parentproject', 'minOccurs': '0', 'type': 'Link'}, 'fixedOrder': {'maxOccurs': 'unbounded', 'native': False, 'name': 'fixedorder', 'minOccurs': '0', 'type': 'Link'}, 'variables': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variables', 'minOccurs': '0', 'type': 'AssetProperty'}})
-        self.deployer = deployer
-        self.manualstartup = manualstartup
-        self.mandatoryaffinity = mandatoryaffinity
-        self.accessuriexpanded = accessuriexpanded
-        self.sourceblueprint = sourceblueprint
+        self._attrSpecs.update({'launcherAccessUri': {'name': 'launcheraccessuri', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AccessUri'}, 'accessUri': {'name': 'accessuri', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'parentProject': {'name': 'parentproject', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'fixedOrder': {'name': 'fixedorder', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'anyOrder': {'name': 'anyorder', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'blueprintSubcontainer': {'name': 'blueprintsubcontainer', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'mandatoryAffinity': {'name': 'mandatoryaffinity', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'stats': {'name': 'stats', 'minOccurs': '0', 'native': False, 'type': 'TopologyStats'}, 'sourceBlueprint': {'name': 'sourceblueprint', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'accessUriExpanded': {'name': 'accessuriexpanded', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'antiAffinity': {'name': 'antiaffinity', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'manualStartup': {'name': 'manualstartup', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'variables': {'name': 'variables', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'resourceAffinity': {'name': 'resourceaffinity', 'native': False, 'type': 'ResourceAffinity'}, 'aliases': {'name': 'aliases', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Alias'}, 'deployer': {'name': 'deployer', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.launcheraccessuri = launcheraccessuri
-        self.blueprintsubcontainer = blueprintsubcontainer
-        self.antiaffinity = antiaffinity
-        self.resourceaffinity = resourceaffinity
-        self.anyorder = anyorder
-        self.stats = stats
-        self.aliases = aliases
         self.accessuri = accessuri
-        self.fixedorder = fixedorder
         self.parentproject = parentproject
-        self.variables = variables 
+        self.fixedorder = fixedorder
+        self.anyorder = anyorder
+        self.antiaffinity = antiaffinity
+        self.mandatoryaffinity = mandatoryaffinity
+        self.stats = stats
+        self.sourceblueprint = sourceblueprint
+        self.accessuriexpanded = accessuriexpanded
+        self.blueprintsubcontainer = blueprintsubcontainer
+        self.manualstartup = manualstartup
+        self.variables = variables
+        self.resourceaffinity = resourceaffinity
+        self.aliases = aliases
+        self.deployer = deployer 

@@ -7,6 +7,6 @@ class FieldMetaBase(AgilityModelBase):
     def __init__(self, name='', displayname=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'name': {'native': True, 'name': 'name', 'type': 'string'}, 'displayName': {'native': True, 'name': 'displayname', 'type': 'string'}})
+        self._attrSpecs.update({'name': {'name': 'name', 'native': True, 'type': 'string'}, 'displayName': {'name': 'displayname', 'native': True, 'type': 'string'}})
         self.name = name
         self.displayname = displayname 

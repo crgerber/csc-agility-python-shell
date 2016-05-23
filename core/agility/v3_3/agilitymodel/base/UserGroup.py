@@ -4,13 +4,13 @@ class UserGroupBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, securityroles=[], groups=[], users=[], accessrights=[], enabled=False, domain=None):
+    def __init__(self, users=[], accessrights=[], groups=[], enabled=False, securityroles=[], domain=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'securityRoles': {'maxOccurs': 'unbounded', 'native': False, 'name': 'securityroles', 'minOccurs': '0', 'type': 'SecurityRole'}, 'groups': {'maxOccurs': 'unbounded', 'native': False, 'name': 'groups', 'minOccurs': '0', 'type': 'Link'}, 'users': {'maxOccurs': 'unbounded', 'native': False, 'name': 'users', 'minOccurs': '0', 'type': 'Link'}, 'accessRights': {'maxOccurs': 'unbounded', 'native': False, 'name': 'accessrights', 'minOccurs': '0', 'type': 'AccessRight'}, 'enabled': {'native': True, 'name': 'enabled', 'type': 'boolean'}, 'domain': {'native': True, 'name': 'domain', 'minOccurs': '0', 'type': 'string'}})
-        self.securityroles = securityroles
-        self.groups = groups
+        self._attrSpecs.update({'accessRights': {'name': 'accessrights', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AccessRight'}, 'groups': {'name': 'groups', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'enabled': {'name': 'enabled', 'native': True, 'type': 'boolean'}, 'securityRoles': {'name': 'securityroles', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'SecurityRole'}, 'domain': {'name': 'domain', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'users': {'name': 'users', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.users = users
         self.accessrights = accessrights
+        self.groups = groups
         self.enabled = enabled
+        self.securityroles = securityroles
         self.domain = domain 

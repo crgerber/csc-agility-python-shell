@@ -5,13 +5,15 @@ Created on Oct 24, 2012
 '''
 import os
 from unittest import TestCase
-import fixtures
-from core.restclient import client
+import plugins.fieldtests.fixtures
+from core import agility as client
 import logger
 COMPONENT_NAME = 'agility-testbench'
 logger = logger.getLogger('%s.%s'%(COMPONENT_NAME, __name__))
 
-from agilityshell import agility
+from agilityinit import *
+init()
+from core.universal import agility
 agility._initPlugins()
 loadSnapshot = agility.tools.snapshot.loadSnapshot
 loadSnapshots = agility.tools.snapshot.loadSnapshots

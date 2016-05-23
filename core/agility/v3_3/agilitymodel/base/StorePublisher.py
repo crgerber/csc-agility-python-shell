@@ -7,5 +7,5 @@ class StorePublisherBase(AssetBase):
     def __init__(self, url=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'url': {'native': True, 'name': 'url', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'url': {'name': 'url', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.url = url 

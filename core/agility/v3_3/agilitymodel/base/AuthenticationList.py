@@ -7,5 +7,5 @@ class AuthenticationListBase(ServiceMeshListBase):
     def __init__(self, authentications=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'authentications': {'maxOccurs': 'unbounded', 'native': False, 'name': 'authentications', 'minOccurs': '0', 'type': 'Authentication'}})
+        self._attrSpecs.update({'authentications': {'name': 'authentications', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Authentication'}})
         self.authentications = authentications 

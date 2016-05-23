@@ -4,11 +4,11 @@ class ScriptVariableRequestBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, templateid=None, packageid=[], topologyid=None, cloudid=[]):
+    def __init__(self, templateid=None, cloudid=[], topologyid=None, packageid=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'templateId': {'native': True, 'name': 'templateid', 'minOccurs': '0', 'type': 'int'}, 'packageId': {'maxOccurs': 'unbounded', 'native': True, 'name': 'packageid', 'minOccurs': '0', 'type': 'int'}, 'topologyId': {'native': True, 'name': 'topologyid', 'minOccurs': '0', 'type': 'int'}, 'cloudId': {'maxOccurs': 'unbounded', 'native': True, 'name': 'cloudid', 'minOccurs': '0', 'type': 'int'}})
+        self._attrSpecs.update({'templateId': {'name': 'templateid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'cloudId': {'name': 'cloudid', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'int'}, 'topologyId': {'name': 'topologyid', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'packageId': {'name': 'packageid', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'int'}})
         self.templateid = templateid
-        self.packageid = packageid
+        self.cloudid = cloudid
         self.topologyid = topologyid
-        self.cloudid = cloudid 
+        self.packageid = packageid 

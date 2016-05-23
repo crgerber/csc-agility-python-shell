@@ -5,22 +5,22 @@ class FloatingIP(FloatingIPBase, FloatingIPActions):
     '''
     classdocs
     '''
-    def __init__(self, floatingipaddress=None, tenantid=None, networkprovider=None, port=None, floatingipid=None, fixedipaddress=None, floatingnetwork=None):
+    def __init__(self, floatingipaddress=None, floatingnetwork=None, tenantid=None, port=None, floatingipid=None, fixedipaddress=None, networkprovider=None):
         '''
         Constructor
         @param floatingipaddress: floatingipaddress minOccurs=0
         @type floatingipaddress: string
+        @param floatingnetwork: floatingnetwork minOccurs=0
+        @type floatingnetwork: Link
         @param tenantid: tenantid minOccurs=0
         @type tenantid: string
-        @param networkprovider: networkprovider minOccurs=0
-        @type networkprovider: Link
         @param port: port minOccurs=0
         @type port: Link
         @param floatingipid: floatingipid minOccurs=0
         @type floatingipid: string
         @param fixedipaddress: fixedipaddress minOccurs=0
         @type fixedipaddress: string
-        @param floatingnetwork: floatingnetwork minOccurs=0
-        @type floatingnetwork: Link
+        @param networkprovider: networkprovider minOccurs=0
+        @type networkprovider: Link
         '''
-        FloatingIPBase.__init__(self, floatingipaddress=floatingipaddress, tenantid=tenantid, networkprovider=networkprovider, port=port, floatingipid=floatingipid, fixedipaddress=fixedipaddress, floatingnetwork=floatingnetwork)
+        FloatingIPBase.__init__(self, floatingipaddress=floatingipaddress, floatingnetwork=floatingnetwork, tenantid=tenantid, port=port, floatingipid=floatingipid, fixedipaddress=fixedipaddress, networkprovider=networkprovider)

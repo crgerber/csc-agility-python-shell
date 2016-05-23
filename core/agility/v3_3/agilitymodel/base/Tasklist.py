@@ -4,13 +4,13 @@ class TasklistBase(ServiceMeshListBase):
     '''
     classdocs
     '''
-    def __init__(self, limit=None, offset=None, name='', task=[], totalcount=None, parentid=None):
+    def __init__(self, task=[], totalcount=None, parentid=None, name='', limit=None, offset=None):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'limit': {'native': True, 'name': 'limit', 'type': 'int'}, 'offset': {'native': True, 'name': 'offset', 'type': 'int'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'Task': {'maxOccurs': 'unbounded', 'native': False, 'name': 'task', 'minOccurs': '0', 'type': 'Task'}, 'totalCount': {'native': True, 'name': 'totalcount', 'type': 'int'}, 'parentId': {'native': True, 'name': 'parentid', 'type': 'int'}})
-        self.limit = limit
-        self.offset = offset
-        self.name = name
+        self._attrSpecs.update({'Task': {'name': 'task', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Task'}, 'totalCount': {'name': 'totalcount', 'native': True, 'type': 'int'}, 'parentId': {'name': 'parentid', 'native': True, 'type': 'int'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'limit': {'name': 'limit', 'native': True, 'type': 'int'}, 'offset': {'name': 'offset', 'native': True, 'type': 'int'}})
         self.task = task
         self.totalcount = totalcount
-        self.parentid = parentid 
+        self.parentid = parentid
+        self.name = name
+        self.limit = limit
+        self.offset = offset 

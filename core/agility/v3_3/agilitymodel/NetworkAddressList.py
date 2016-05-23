@@ -5,14 +5,14 @@ class NetworkAddressList(NetworkAddressListBase, NetworkAddressListActions):
     '''
     classdocs
     '''
-    def __init__(self, requestid=None, address=[], network=None):
+    def __init__(self, address=[], requestid=None, network=None):
         '''
         Constructor
-        @param requestid: requestid minOccurs=0
-        @type requestid: string
         @param address: address minOccurs=0 maxOccurs=unbounded
         @type address: Address
+        @param requestid: requestid minOccurs=0
+        @type requestid: string
         @param network: network
         @type network: Link
         '''
-        NetworkAddressListBase.__init__(self, requestid=requestid, address=address, network=network)
+        NetworkAddressListBase.__init__(self, address=address, requestid=requestid, network=network)

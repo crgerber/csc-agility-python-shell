@@ -5,14 +5,14 @@ class ResourceMatch(ResourceMatchBase, ResourceMatchActions):
     '''
     classdocs
     '''
-    def __init__(self, metric=[], rank=None, stackdefault=False):
+    def __init__(self, rank=None, stackdefault=False, metric=[]):
         '''
         Constructor
-        @param metric: metric minOccurs=0 maxOccurs=unbounded
-        @type metric: ResourceMetric
         @param rank: rank
         @type rank: double
         @param stackdefault: stackdefault
         @type stackdefault: boolean
+        @param metric: metric minOccurs=0 maxOccurs=unbounded
+        @type metric: ResourceMetric
         '''
-        ResourceMatchBase.__init__(self, metric=metric, rank=rank, stackdefault=stackdefault)
+        ResourceMatchBase.__init__(self, rank=rank, stackdefault=stackdefault, metric=metric)

@@ -4,11 +4,11 @@ class PropertyDefinitionGroupBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, parent=None, displayname=None, derivedgroup=[], propertydefinition=[]):
+    def __init__(self, derivedgroup=[], displayname=None, propertydefinition=[], parent=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'parent': {'native': False, 'name': 'parent', 'minOccurs': '0', 'type': 'Link'}, 'displayName': {'native': True, 'name': 'displayname', 'minOccurs': '0', 'type': 'string'}, 'derivedGroup': {'maxOccurs': 'unbounded', 'native': False, 'name': 'derivedgroup', 'minOccurs': '0', 'type': 'Link'}, 'propertyDefinition': {'maxOccurs': 'unbounded', 'native': False, 'name': 'propertydefinition', 'minOccurs': '0', 'type': 'PropertyDefinition'}})
-        self.parent = parent
-        self.displayname = displayname
+        self._attrSpecs.update({'displayName': {'name': 'displayname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'derivedGroup': {'name': 'derivedgroup', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'propertyDefinition': {'name': 'propertydefinition', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'PropertyDefinition'}, 'parent': {'name': 'parent', 'minOccurs': '0', 'native': False, 'type': 'Link'}})
         self.derivedgroup = derivedgroup
-        self.propertydefinition = propertydefinition 
+        self.displayname = displayname
+        self.propertydefinition = propertydefinition
+        self.parent = parent 

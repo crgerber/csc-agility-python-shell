@@ -7,5 +7,5 @@ class DateValidatorBase(FieldValidatorBase):
     def __init__(self, direction=[]):
         FieldValidatorBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'direction': {'maxOccurs': 'unbounded', 'native': False, 'name': 'direction', 'minOccurs': '0', 'type': 'DateDirection'}})
+        self._attrSpecs.update({'direction': {'name': 'direction', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DateDirection'}})
         self.direction = direction 

@@ -4,12 +4,12 @@ class LinkBase(BaselinkBase):
     '''
     classdocs
     '''
-    def __init__(self, linkproperty=[], position=None, rel='', id=None, type=''):
+    def __init__(self, id=None, rel='', position=None, linkproperty=[], type=''):
         BaselinkBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'type': {'native': True, 'name': 'type', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}, 'position': {'native': True, 'name': 'position', 'minOccurs': '0', 'type': 'int'}, 'linkProperty': {'maxOccurs': 'unbounded', 'native': False, 'name': 'linkproperty', 'minOccurs': '0', 'type': 'NameValuePair'}, 'rel': {'native': True, 'name': 'rel', 'type': 'string'}})
-        self.linkproperty = linkproperty
-        self.position = position
-        self.rel = rel
+        self._attrSpecs.update({'id': {'name': 'id', 'native': True, 'type': 'int'}, 'rel': {'name': 'rel', 'native': True, 'type': 'string'}, 'position': {'name': 'position', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'type': {'name': 'type', 'native': True, 'type': 'string'}, 'linkProperty': {'name': 'linkproperty', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'NameValuePair'}})
         self.id = id
+        self.rel = rel
+        self.position = position
+        self.linkproperty = linkproperty
         self.type = type 

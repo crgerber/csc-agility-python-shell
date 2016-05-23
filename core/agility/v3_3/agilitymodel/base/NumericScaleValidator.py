@@ -4,9 +4,9 @@ class NumericScaleValidatorBase(FieldValidatorBase):
     '''
     classdocs
     '''
-    def __init__(self, maxfractions=None, maxdigits=None):
+    def __init__(self, maxdigits=None, maxfractions=None):
         FieldValidatorBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'maxFractions': {'native': True, 'name': 'maxfractions', 'minOccurs': '0', 'type': 'int'}, 'maxDigits': {'native': True, 'name': 'maxdigits', 'minOccurs': '0', 'type': 'int'}})
-        self.maxfractions = maxfractions
-        self.maxdigits = maxdigits 
+        self._attrSpecs.update({'maxDigits': {'name': 'maxdigits', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'maxFractions': {'name': 'maxfractions', 'minOccurs': '0', 'native': True, 'type': 'int'}})
+        self.maxdigits = maxdigits
+        self.maxfractions = maxfractions 

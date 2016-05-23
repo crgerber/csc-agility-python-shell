@@ -7,5 +7,5 @@ class CredentialDecryptRequestBase(ApiRequestBase):
     def __init__(self, credentialid=None):
         ApiRequestBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'credentialId': {'native': True, 'name': 'credentialid', 'type': 'int'}})
+        self._attrSpecs.update({'credentialId': {'name': 'credentialid', 'native': True, 'type': 'int'}})
         self.credentialid = credentialid 

@@ -5,16 +5,16 @@ class ConnectionDefinition(ConnectionDefinitionBase, ConnectionDefinitionActions
     '''
     classdocs
     '''
-    def __init__(self, sourcetype=None, displayname=None, destinationtype=None, connectiontype=None):
+    def __init__(self, destinationtype=None, connectiontype=None, displayname=None, sourcetype=None):
         '''
         Constructor
-        @param sourcetype: sourcetype
-        @type sourcetype: Link
-        @param displayname: displayname minOccurs=0
-        @type displayname: string
         @param destinationtype: destinationtype
         @type destinationtype: Link
         @param connectiontype: connectiontype
         @type connectiontype: Link
+        @param displayname: displayname minOccurs=0
+        @type displayname: string
+        @param sourcetype: sourcetype
+        @type sourcetype: Link
         '''
-        ConnectionDefinitionBase.__init__(self, sourcetype=sourcetype, displayname=displayname, destinationtype=destinationtype, connectiontype=connectiontype)
+        ConnectionDefinitionBase.__init__(self, destinationtype=destinationtype, connectiontype=connectiontype, displayname=displayname, sourcetype=sourcetype)

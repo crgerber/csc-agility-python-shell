@@ -5,16 +5,16 @@ class Command(CommandBase, CommandActions):
     '''
     classdocs
     '''
-    def __init__(self, name='', ignoreerror=False, parameter=[], classname=''):
+    def __init__(self, name='', ignoreerror=False, classname='', parameter=[]):
         '''
         Constructor
         @param name: name
         @type name: string
         @param ignoreerror: ignoreerror
         @type ignoreerror: boolean
-        @param parameter: parameter minOccurs=0 maxOccurs=unbounded
-        @type parameter: Parameter
         @param classname: classname
         @type classname: string
+        @param parameter: parameter minOccurs=0 maxOccurs=unbounded
+        @type parameter: Parameter
         '''
-        CommandBase.__init__(self, name=name, ignoreerror=ignoreerror, parameter=parameter, classname=classname)
+        CommandBase.__init__(self, name=name, ignoreerror=ignoreerror, classname=classname, parameter=parameter)

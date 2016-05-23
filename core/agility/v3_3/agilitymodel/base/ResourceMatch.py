@@ -4,10 +4,10 @@ class ResourceMatchBase(DescriptiveLinkBase):
     '''
     classdocs
     '''
-    def __init__(self, metric=[], rank=None, stackdefault=False):
+    def __init__(self, rank=None, stackdefault=False, metric=[]):
         DescriptiveLinkBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'metric': {'maxOccurs': 'unbounded', 'native': False, 'name': 'metric', 'minOccurs': '0', 'type': 'ResourceMetric'}, 'rank': {'native': True, 'name': 'rank', 'type': 'double'}, 'stackDefault': {'native': True, 'name': 'stackdefault', 'type': 'boolean'}})
-        self.metric = metric
+        self._attrSpecs.update({'rank': {'name': 'rank', 'native': True, 'type': 'double'}, 'stackDefault': {'name': 'stackdefault', 'native': True, 'type': 'boolean'}, 'metric': {'name': 'metric', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ResourceMetric'}})
         self.rank = rank
-        self.stackdefault = stackdefault 
+        self.stackdefault = stackdefault
+        self.metric = metric 

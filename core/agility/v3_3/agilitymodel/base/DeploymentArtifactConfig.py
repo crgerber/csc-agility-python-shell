@@ -4,13 +4,13 @@ class DeploymentArtifactConfigBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, artifact=None, artifacttype=None, properties=[], services=[], id=None, variables=[]):
+    def __init__(self, variables=[], artifact=None, id=None, services=[], artifacttype=None, properties=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'artifact': {'native': False, 'name': 'artifact', 'minOccurs': '0', 'type': 'Link'}, 'artifactType': {'native': False, 'name': 'artifacttype', 'minOccurs': '0', 'type': 'Link'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'services': {'maxOccurs': 'unbounded', 'native': True, 'name': 'services', 'minOccurs': '0', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}, 'variables': {'maxOccurs': 'unbounded', 'native': False, 'name': 'variables', 'minOccurs': '0', 'type': 'AssetProperty'}})
+        self._attrSpecs.update({'variables': {'name': 'variables', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}, 'artifact': {'name': 'artifact', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'id': {'name': 'id', 'native': True, 'type': 'int'}, 'services': {'name': 'services', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'artifactType': {'name': 'artifacttype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}})
+        self.variables = variables
         self.artifact = artifact
-        self.artifacttype = artifacttype
-        self.properties = properties
-        self.services = services
         self.id = id
-        self.variables = variables 
+        self.services = services
+        self.artifacttype = artifacttype
+        self.properties = properties 

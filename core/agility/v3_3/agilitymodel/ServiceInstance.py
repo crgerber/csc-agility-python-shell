@@ -5,36 +5,36 @@ class ServiceInstance(ServiceInstanceBase, ServiceInstanceActions):
     '''
     classdocs
     '''
-    def __init__(self, laststartedorstoppedbyuser=None, dependent=[], destconnections=[], dependency=[], instanceid='', state=None, provider=None, starttime=None, configuration=[], srcconnections=[], service=None, stoptime=None, firewallrule=[], variables=[]):
+    def __init__(self, starttime=None, instanceid='', srcconnections=[], provider=None, stoptime=None, configuration=[], dependent=[], dependency=[], state=None, variables=[], firewallrule=[], destconnections=[], service=None, laststartedorstoppedbyuser=None):
         '''
         Constructor
-        @param laststartedorstoppedbyuser: laststartedorstoppedbyuser minOccurs=0
-        @type laststartedorstoppedbyuser: Link
-        @param dependent: dependent minOccurs=0 maxOccurs=unbounded
-        @type dependent: Link
-        @param destconnections: destconnections minOccurs=0 maxOccurs=unbounded
-        @type destconnections: Link
-        @param dependency: dependency minOccurs=0 maxOccurs=unbounded
-        @type dependency: Link
-        @param instanceid: instanceid
-        @type instanceid: string
-        @param state: state
-        @type state: ServiceState
-        @param provider: provider minOccurs=0
-        @type provider: Link
         @param starttime: starttime minOccurs=0
         @type starttime: date
-        @param configuration: configuration minOccurs=0 maxOccurs=unbounded
-        @type configuration: AssetProperty
+        @param instanceid: instanceid
+        @type instanceid: string
         @param srcconnections: srcconnections minOccurs=0 maxOccurs=unbounded
         @type srcconnections: Link
-        @param service: service minOccurs=0
-        @type service: Link
+        @param provider: provider minOccurs=0
+        @type provider: Link
         @param stoptime: stoptime minOccurs=0
         @type stoptime: date
-        @param firewallrule: firewallrule minOccurs=0 maxOccurs=unbounded
-        @type firewallrule: AccessList
+        @param configuration: configuration minOccurs=0 maxOccurs=unbounded
+        @type configuration: AssetProperty
+        @param dependent: dependent minOccurs=0 maxOccurs=unbounded
+        @type dependent: Link
+        @param dependency: dependency minOccurs=0 maxOccurs=unbounded
+        @type dependency: Link
+        @param state: state
+        @type state: ServiceState
         @param variables: variables minOccurs=0 maxOccurs=unbounded
         @type variables: AssetProperty
+        @param firewallrule: firewallrule minOccurs=0 maxOccurs=unbounded
+        @type firewallrule: AccessList
+        @param destconnections: destconnections minOccurs=0 maxOccurs=unbounded
+        @type destconnections: Link
+        @param service: service minOccurs=0
+        @type service: Link
+        @param laststartedorstoppedbyuser: laststartedorstoppedbyuser minOccurs=0
+        @type laststartedorstoppedbyuser: Link
         '''
-        ServiceInstanceBase.__init__(self, laststartedorstoppedbyuser=laststartedorstoppedbyuser, dependent=dependent, destconnections=destconnections, dependency=dependency, instanceid=instanceid, state=state, provider=provider, starttime=starttime, configuration=configuration, srcconnections=srcconnections, service=service, stoptime=stoptime, firewallrule=firewallrule, variables=variables)
+        ServiceInstanceBase.__init__(self, starttime=starttime, instanceid=instanceid, srcconnections=srcconnections, provider=provider, stoptime=stoptime, configuration=configuration, dependent=dependent, dependency=dependency, state=state, variables=variables, firewallrule=firewallrule, destconnections=destconnections, service=service, laststartedorstoppedbyuser=laststartedorstoppedbyuser)

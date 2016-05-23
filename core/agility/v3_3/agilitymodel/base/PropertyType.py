@@ -4,15 +4,15 @@ class PropertyTypeBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, valueprovider=None, rootvalue=[], open=False, valueconstraint=None, allowedassettype=None, owned=False, displayname=None, type=None):
+    def __init__(self, valueprovider=None, displayname=None, valueconstraint=None, allowedassettype=None, rootvalue=[], owned=False, open=False, type=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'valueProvider': {'native': True, 'name': 'valueprovider', 'minOccurs': '0', 'type': 'string'}, 'rootValue': {'maxOccurs': 'unbounded', 'native': False, 'name': 'rootvalue', 'minOccurs': '0', 'type': 'PropertyTypeValue'}, 'open': {'native': True, 'name': 'open', 'type': 'boolean'}, 'valueConstraint': {'native': False, 'name': 'valueconstraint', 'minOccurs': '0', 'type': 'ValueConstraintType'}, 'allowedAssetType': {'native': False, 'name': 'allowedassettype', 'minOccurs': '0', 'type': 'Link'}, 'owned': {'native': True, 'name': 'owned', 'type': 'boolean'}, 'displayName': {'native': True, 'name': 'displayname', 'minOccurs': '0', 'type': 'string'}, 'type': {'native': False, 'name': 'type', 'minOccurs': '0', 'type': 'PrimitiveType'}})
+        self._attrSpecs.update({'valueProvider': {'name': 'valueprovider', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'displayName': {'name': 'displayname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'valueConstraint': {'name': 'valueconstraint', 'minOccurs': '0', 'native': False, 'type': 'ValueConstraintType'}, 'allowedAssetType': {'name': 'allowedassettype', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'rootValue': {'name': 'rootvalue', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'PropertyTypeValue'}, 'owned': {'name': 'owned', 'native': True, 'type': 'boolean'}, 'open': {'name': 'open', 'native': True, 'type': 'boolean'}, 'type': {'name': 'type', 'minOccurs': '0', 'native': False, 'type': 'PrimitiveType'}})
         self.valueprovider = valueprovider
-        self.rootvalue = rootvalue
-        self.open = open
+        self.displayname = displayname
         self.valueconstraint = valueconstraint
         self.allowedassettype = allowedassettype
+        self.rootvalue = rootvalue
         self.owned = owned
-        self.displayname = displayname
+        self.open = open
         self.type = type 

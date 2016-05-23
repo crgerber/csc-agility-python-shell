@@ -4,13 +4,13 @@ class PropertyBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, encrypted=False, dataencrypted=False, overridable=False, value='', data=None, availableoptions=[]):
+    def __init__(self, value='', data=None, dataencrypted=False, encrypted=False, overridable=False, availableoptions=[]):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'encrypted': {'native': True, 'name': 'encrypted', 'type': 'boolean'}, 'dataEncrypted': {'native': True, 'name': 'dataencrypted', 'type': 'boolean'}, 'overridable': {'native': True, 'name': 'overridable', 'type': 'boolean'}, 'value': {'native': True, 'name': 'value', 'type': 'string'}, 'data': {'native': True, 'name': 'data', 'minOccurs': '0', 'type': 'hexBinary'}, 'availableOptions': {'maxOccurs': 'unbounded', 'native': True, 'name': 'availableoptions', 'minOccurs': '0', 'type': 'string'}})
-        self.encrypted = encrypted
-        self.dataencrypted = dataencrypted
-        self.overridable = overridable
+        self._attrSpecs.update({'value': {'name': 'value', 'native': True, 'type': 'string'}, 'data': {'name': 'data', 'minOccurs': '0', 'native': True, 'type': 'hexBinary'}, 'encrypted': {'name': 'encrypted', 'native': True, 'type': 'boolean'}, 'dataEncrypted': {'name': 'dataencrypted', 'native': True, 'type': 'boolean'}, 'overridable': {'name': 'overridable', 'native': True, 'type': 'boolean'}, 'availableOptions': {'name': 'availableoptions', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}})
         self.value = value
         self.data = data
+        self.dataencrypted = dataencrypted
+        self.encrypted = encrypted
+        self.overridable = overridable
         self.availableoptions = availableoptions 

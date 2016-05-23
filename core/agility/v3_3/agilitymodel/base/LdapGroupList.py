@@ -7,5 +7,5 @@ class LdapGroupListBase(ServiceMeshListBase):
     def __init__(self, mappings=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'mappings': {'maxOccurs': 'unbounded', 'native': False, 'name': 'mappings', 'minOccurs': '0', 'type': 'LdapGroup'}})
+        self._attrSpecs.update({'mappings': {'name': 'mappings', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'LdapGroup'}})
         self.mappings = mappings 

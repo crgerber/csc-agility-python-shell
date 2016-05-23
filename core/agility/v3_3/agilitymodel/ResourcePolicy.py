@@ -5,18 +5,18 @@ class ResourcePolicy(ResourcePolicyBase, ResourcePolicyActions):
     '''
     classdocs
     '''
-    def __init__(self, apiversion=None, name=None, trace=None, mapping=[], description=None):
+    def __init__(self, name=None, description=None, mapping=[], apiversion=None, trace=None):
         '''
         Constructor
-        @param apiversion: apiversion minOccurs=0
-        @type apiversion: string
         @param name: name minOccurs=0
         @type name: string
-        @param trace: trace
-        @type trace: int
-        @param mapping: mapping minOccurs=0 maxOccurs=unbounded
-        @type mapping: ResourceMapping
         @param description: description minOccurs=0
         @type description: string
+        @param mapping: mapping minOccurs=0 maxOccurs=unbounded
+        @type mapping: ResourceMapping
+        @param apiversion: apiversion minOccurs=0
+        @type apiversion: string
+        @param trace: trace
+        @type trace: int
         '''
-        ResourcePolicyBase.__init__(self, apiversion=apiversion, name=name, trace=trace, mapping=mapping, description=description)
+        ResourcePolicyBase.__init__(self, name=name, description=description, mapping=mapping, apiversion=apiversion, trace=trace)

@@ -5,12 +5,12 @@ class PolicyMeta(PolicyMetaBase, PolicyMetaActions):
     '''
     classdocs
     '''
-    def __init__(self, availablescopes=[], type=''):
+    def __init__(self, type='', availablescopes=[]):
         '''
         Constructor
-        @param availablescopes: availablescopes minOccurs=0 maxOccurs=unbounded
-        @type availablescopes: string
         @param type: type
         @type type: string
+        @param availablescopes: availablescopes minOccurs=0 maxOccurs=unbounded
+        @type availablescopes: string
         '''
-        PolicyMetaBase.__init__(self, availablescopes=availablescopes, type=type)
+        PolicyMetaBase.__init__(self, type=type, availablescopes=availablescopes)

@@ -5,14 +5,14 @@ class ServiceBinding(ServiceBindingBase, ServiceBindingActions):
     '''
     classdocs
     '''
-    def __init__(self, type=None, serviceid=None, properties=[]):
+    def __init__(self, properties=[], type=None, serviceid=None):
         '''
         Constructor
+        @param properties: properties minOccurs=0 maxOccurs=unbounded
+        @type properties: Property
         @param type: type minOccurs=0
         @type type: Link
         @param serviceid: serviceid minOccurs=0
         @type serviceid: string
-        @param properties: properties minOccurs=0 maxOccurs=unbounded
-        @type properties: Property
         '''
-        ServiceBindingBase.__init__(self, type=type, serviceid=serviceid, properties=properties)
+        ServiceBindingBase.__init__(self, properties=properties, type=type, serviceid=serviceid)

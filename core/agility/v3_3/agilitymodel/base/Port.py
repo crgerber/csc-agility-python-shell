@@ -4,16 +4,16 @@ class PortBase(SdnItemBase):
     '''
     classdocs
     '''
-    def __init__(self, tenantid=None, fixedips=[], adminstateup=None, macaddress=None, deviceid=None, portid=None, deviceowner=None, status=None, network=None):
+    def __init__(self, fixedips=[], network=None, status=None, deviceid=None, adminstateup=None, portid=None, deviceowner=None, macaddress=None, tenantid=None):
         SdnItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'network': {'native': False, 'name': 'network', 'minOccurs': '0', 'type': 'Link'}, 'tenantId': {'native': True, 'name': 'tenantid', 'minOccurs': '0', 'type': 'string'}, 'fixedIps': {'maxOccurs': 'unbounded', 'native': False, 'name': 'fixedips', 'minOccurs': '0', 'type': 'FixedIP'}, 'adminStateUp': {'native': True, 'name': 'adminstateup', 'minOccurs': '0', 'type': 'boolean'}, 'macAddress': {'native': True, 'name': 'macaddress', 'minOccurs': '0', 'type': 'string'}, 'portId': {'native': True, 'name': 'portid', 'minOccurs': '0', 'type': 'string'}, 'deviceOwner': {'native': True, 'name': 'deviceowner', 'minOccurs': '0', 'type': 'string'}, 'status': {'native': True, 'name': 'status', 'minOccurs': '0', 'type': 'string'}, 'deviceId': {'native': True, 'name': 'deviceid', 'minOccurs': '0', 'type': 'string'}})
-        self.tenantid = tenantid
+        self._attrSpecs.update({'portId': {'name': 'portid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'network': {'name': 'network', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'status': {'name': 'status', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'deviceId': {'name': 'deviceid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'adminStateUp': {'name': 'adminstateup', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'fixedIps': {'name': 'fixedips', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'FixedIP'}, 'deviceOwner': {'name': 'deviceowner', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'macAddress': {'name': 'macaddress', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'tenantId': {'name': 'tenantid', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.fixedips = fixedips
-        self.adminstateup = adminstateup
-        self.macaddress = macaddress
+        self.network = network
+        self.status = status
         self.deviceid = deviceid
+        self.adminstateup = adminstateup
         self.portid = portid
         self.deviceowner = deviceowner
-        self.status = status
-        self.network = network 
+        self.macaddress = macaddress
+        self.tenantid = tenantid 

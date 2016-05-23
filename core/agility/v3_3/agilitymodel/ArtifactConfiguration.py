@@ -5,14 +5,14 @@ class ArtifactConfiguration(ArtifactConfigurationBase, ArtifactConfigurationActi
     '''
     classdocs
     '''
-    def __init__(self, variables=[], id=None, runtimebindings=[]):
+    def __init__(self, id=None, variables=[], runtimebindings=[]):
         '''
         Constructor
-        @param variables: variables minOccurs=0 maxOccurs=unbounded
-        @type variables: AssetProperty
         @param id: id
         @type id: int
+        @param variables: variables minOccurs=0 maxOccurs=unbounded
+        @type variables: AssetProperty
         @param runtimebindings: runtimebindings minOccurs=0 maxOccurs=unbounded
         @type runtimebindings: ArtifactRuntimeBinding
         '''
-        ArtifactConfigurationBase.__init__(self, variables=variables, id=id, runtimebindings=runtimebindings)
+        ArtifactConfigurationBase.__init__(self, id=id, variables=variables, runtimebindings=runtimebindings)

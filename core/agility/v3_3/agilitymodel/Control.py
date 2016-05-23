@@ -5,24 +5,24 @@ class Control(ControlBase, ControlActions):
     '''
     classdocs
     '''
-    def __init__(self, path='', properties=[], description='', allowedcontexts='', drilldowncontext=None, name='', id=None, type=''):
+    def __init__(self, path='', name='', description='', allowedcontexts='', id=None, drilldowncontext=None, type='', properties=[]):
         '''
         Constructor
         @param path: path
         @type path: string
-        @param properties: properties minOccurs=0 maxOccurs=unbounded
-        @type properties: AssetProperty
+        @param name: name
+        @type name: string
         @param description: description
         @type description: string
         @param allowedcontexts: allowedcontexts
         @type allowedcontexts: string
-        @param drilldowncontext: drilldowncontext minOccurs=0
-        @type drilldowncontext: PageContext
-        @param name: name
-        @type name: string
         @param id: id
         @type id: int
+        @param drilldowncontext: drilldowncontext minOccurs=0
+        @type drilldowncontext: PageContext
         @param type: type
         @type type: string
+        @param properties: properties minOccurs=0 maxOccurs=unbounded
+        @type properties: AssetProperty
         '''
-        ControlBase.__init__(self, path=path, properties=properties, description=description, allowedcontexts=allowedcontexts, drilldowncontext=drilldowncontext, name=name, id=id, type=type)
+        ControlBase.__init__(self, path=path, name=name, description=description, allowedcontexts=allowedcontexts, id=id, drilldowncontext=drilldowncontext, type=type, properties=properties)

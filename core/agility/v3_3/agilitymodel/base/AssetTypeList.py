@@ -7,5 +7,5 @@ class AssetTypeListBase(ServiceMeshListBase):
     def __init__(self, assettype=[]):
         ServiceMeshListBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'assetType': {'maxOccurs': 'unbounded', 'native': False, 'name': 'assettype', 'minOccurs': '0', 'type': 'AssetType'}})
+        self._attrSpecs.update({'assetType': {'name': 'assettype', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetType'}})
         self.assettype = assettype 

@@ -4,16 +4,16 @@ class LocationBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, repositories=[], sublocations=[], parentlocation=None, storageroot=None, networks=[], visible=None, properties=[], cloud=None, hosts=[]):
+    def __init__(self, repositories=[], parentlocation=None, cloud=None, properties=[], sublocations=[], hosts=[], networks=[], storageroot=None, visible=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'repositories': {'maxOccurs': 'unbounded', 'native': False, 'name': 'repositories', 'minOccurs': '0', 'type': 'Link'}, 'sublocations': {'maxOccurs': 'unbounded', 'native': False, 'name': 'sublocations', 'minOccurs': '0', 'type': 'Link'}, 'hosts': {'maxOccurs': 'unbounded', 'native': False, 'name': 'hosts', 'minOccurs': '0', 'type': 'Host'}, 'parentLocation': {'native': False, 'name': 'parentlocation', 'minOccurs': '0', 'type': 'Link'}, 'networks': {'maxOccurs': 'unbounded', 'native': False, 'name': 'networks', 'minOccurs': '0', 'type': 'Link'}, 'storageRoot': {'native': True, 'name': 'storageroot', 'minOccurs': '0', 'type': 'boolean'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'visible': {'native': True, 'name': 'visible', 'minOccurs': '0', 'type': 'boolean'}})
+        self._attrSpecs.update({'repositories': {'name': 'repositories', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'parentLocation': {'name': 'parentlocation', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'visible': {'name': 'visible', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'sublocations': {'name': 'sublocations', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'hosts': {'name': 'hosts', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Host'}, 'storageRoot': {'name': 'storageroot', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'networks': {'name': 'networks', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}})
         self.repositories = repositories
-        self.sublocations = sublocations
         self.parentlocation = parentlocation
-        self.storageroot = storageroot
-        self.networks = networks
-        self.visible = visible
-        self.properties = properties
         self.cloud = cloud
-        self.hosts = hosts 
+        self.properties = properties
+        self.sublocations = sublocations
+        self.hosts = hosts
+        self.networks = networks
+        self.storageroot = storageroot
+        self.visible = visible 

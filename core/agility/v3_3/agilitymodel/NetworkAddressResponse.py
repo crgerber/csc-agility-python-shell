@@ -5,14 +5,14 @@ class NetworkAddressResponse(NetworkAddressResponseBase, NetworkAddressResponseA
     '''
     classdocs
     '''
-    def __init__(self, nic=None, address=[], network=None):
+    def __init__(self, address=[], nic=None, network=None):
         '''
         Constructor
-        @param nic: nic minOccurs=0
-        @type nic: NetworkInterface
         @param address: address minOccurs=0 maxOccurs=unbounded
         @type address: Address
+        @param nic: nic minOccurs=0
+        @type nic: NetworkInterface
         @param network: network minOccurs=0
         @type network: Network
         '''
-        NetworkAddressResponseBase.__init__(self, nic=nic, address=address, network=network)
+        NetworkAddressResponseBase.__init__(self, address=address, nic=nic, network=network)

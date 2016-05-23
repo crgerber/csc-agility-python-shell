@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-State = Enum(**{'Failed': 'Failed', 'Destroyed': 'Destroyed', 'Paused': 'Paused', 'Unknown': 'Unknown', 'Running': 'Running', 'Degraded': 'Degraded', 'Stopping': 'Stopping', 'Stopped': 'Stopped', 'Starting': 'Starting'})
+State = Enum(**{'Unknown': 'Unknown', 'Starting': 'Starting', 'Stopping': 'Stopping', 'Failed': 'Failed', 'Paused': 'Paused', 'Degraded': 'Degraded', 'Running': 'Running', 'Stopped': 'Stopped', 'Destroyed': 'Destroyed'})

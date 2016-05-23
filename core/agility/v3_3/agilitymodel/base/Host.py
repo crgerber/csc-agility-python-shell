@@ -4,9 +4,9 @@ class HostBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, credential=None, address=None):
+    def __init__(self, address=None, credential=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'credential': {'native': False, 'name': 'credential', 'minOccurs': '0', 'type': 'Credential'}, 'address': {'native': True, 'name': 'address', 'minOccurs': '0', 'type': 'string'}})
-        self.credential = credential
-        self.address = address 
+        self._attrSpecs.update({'address': {'name': 'address', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'credential': {'name': 'credential', 'minOccurs': '0', 'native': False, 'type': 'Credential'}})
+        self.address = address
+        self.credential = credential 

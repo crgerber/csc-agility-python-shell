@@ -5,28 +5,28 @@ class DesignContainer(DesignContainerBase, DesignContainerActions):
     '''
     classdocs
     '''
-    def __init__(self, resourceaffinity=None, launcheraccessuri=[], anyorderitem=[], deep=False, antiaffinity=None, mandatoryaffinity=None, manualorderitem=[], aliases=[], deployers=[], fixedorderitem=[]):
+    def __init__(self, anyorderitem=[], antiaffinity=None, deep=False, manualorderitem=[], fixedorderitem=[], resourceaffinity=None, mandatoryaffinity=None, aliases=[], deployers=[], launcheraccessuri=[]):
         '''
         Constructor
-        @param resourceaffinity: resourceaffinity
-        @type resourceaffinity: ResourceAffinity
-        @param launcheraccessuri: launcheraccessuri minOccurs=0 maxOccurs=unbounded
-        @type launcheraccessuri: AccessUri
         @param anyorderitem: anyorderitem minOccurs=0 maxOccurs=unbounded
         @type anyorderitem: DesignItem
-        @param deep: deep
-        @type deep: boolean
         @param antiaffinity: antiaffinity minOccurs=0
         @type antiaffinity: boolean
-        @param mandatoryaffinity: mandatoryaffinity minOccurs=0
-        @type mandatoryaffinity: boolean
+        @param deep: deep
+        @type deep: boolean
         @param manualorderitem: manualorderitem minOccurs=0 maxOccurs=unbounded
         @type manualorderitem: DesignItem
+        @param fixedorderitem: fixedorderitem minOccurs=0 maxOccurs=unbounded
+        @type fixedorderitem: DesignItem
+        @param resourceaffinity: resourceaffinity
+        @type resourceaffinity: ResourceAffinity
+        @param mandatoryaffinity: mandatoryaffinity minOccurs=0
+        @type mandatoryaffinity: boolean
         @param aliases: aliases minOccurs=0 maxOccurs=unbounded
         @type aliases: DesignAlias
         @param deployers: deployers minOccurs=0 maxOccurs=unbounded
         @type deployers: DesignDeployer
-        @param fixedorderitem: fixedorderitem minOccurs=0 maxOccurs=unbounded
-        @type fixedorderitem: DesignItem
+        @param launcheraccessuri: launcheraccessuri minOccurs=0 maxOccurs=unbounded
+        @type launcheraccessuri: AccessUri
         '''
-        DesignContainerBase.__init__(self, resourceaffinity=resourceaffinity, launcheraccessuri=launcheraccessuri, anyorderitem=anyorderitem, deep=deep, antiaffinity=antiaffinity, mandatoryaffinity=mandatoryaffinity, manualorderitem=manualorderitem, aliases=aliases, deployers=deployers, fixedorderitem=fixedorderitem)
+        DesignContainerBase.__init__(self, anyorderitem=anyorderitem, antiaffinity=antiaffinity, deep=deep, manualorderitem=manualorderitem, fixedorderitem=fixedorderitem, resourceaffinity=resourceaffinity, mandatoryaffinity=mandatoryaffinity, aliases=aliases, deployers=deployers, launcheraccessuri=launcheraccessuri)

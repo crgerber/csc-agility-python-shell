@@ -8,7 +8,9 @@ from core.restclient.responseparser.LxmlTools import d2xml, assetToXMLTemplate
 import re
 import time
 from core.restclient.responseparser.common import persistXML, AbstractProxy
-from logger import logger
+
+import logging
+from logger import logger, getLogger
 
 class AgilityModelBase(object):
     def __init__(self, *args, **kwargs):
@@ -17,18 +19,29 @@ class AgilityModelBase(object):
         #importing agility at the top of the module will not have access to the agility object yet
         from agilityshell import agility
         self._apiversion_compatibility = agility.cfg.configuration.get('apiversion', 'compatibility')  #@todo pass configuration in a more consistent way through out the library
+        self.logger = getLogger(self.__class__.__name__)
     
     def _loadAttrs(self, attrs, classFactory, topLevel=True, wrapComposites=True):
         assert isinstance(attrs, dict)
         self._topLevel = topLevel
         self.typeName = self._extractTypeName(attrs) or self.typeName
+        
+        #print("typeName:=%s"%self.typeName) 
+        
         for attrName, attrVal in list(attrs.items()):
+            #print("attrName:=%s"%attrName) 
+            #print("attrVal:=%s"%attrVal) 
+            
             #handle control tags, e.g. xsi, nsmap, etc ...
             if attrName.startswith('__') and attrName.endswith('__'):
                 setattr(self, attrName, attrVal)
                 continue
             
             attrSpec = self._attrSpecs.get(attrName, {})
+            
+            #print("attrSpec:=%s"%attrSpec) 
+            #print("attrSpecType:=%s"%attrSpec['type']) 
+            
             if not attrSpec:#No specs for attr
                 if not isinstance(attrVal, dict):
                     attrSpec = {'type' : 'string',
@@ -36,7 +49,7 @@ class AgilityModelBase(object):
                                 'name' : attrName}
                 else:#dict
                     if self._apiversion_compatibility:
-                        logger.warn('Skipping unexpected composite attribute [%s] : [%s]'%(attrName, attrVal))
+                        self.logger.warn('Skipping unexpected composite attribute [%s] : [%s]'%(attrName, attrVal))
                         continue
                     else:
                         raise RuntimeError('Unexpected composite attribute [%s] : [%s]'%(attrName, attrVal))

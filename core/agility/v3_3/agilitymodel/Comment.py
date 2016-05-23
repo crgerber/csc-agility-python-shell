@@ -5,16 +5,16 @@ class Comment(CommentBase, CommentActions):
     '''
     classdocs
     '''
-    def __init__(self, comment=None, createdon=None, user=None, updatedon=None):
+    def __init__(self, user=None, comment=None, createdon=None, updatedon=None):
         '''
         Constructor
+        @param user: user minOccurs=0
+        @type user: Link
         @param comment: comment minOccurs=0
         @type comment: string
         @param createdon: createdon minOccurs=0
         @type createdon: date
-        @param user: user minOccurs=0
-        @type user: Link
         @param updatedon: updatedon minOccurs=0
         @type updatedon: date
         '''
-        CommentBase.__init__(self, comment=comment, createdon=createdon, user=user, updatedon=updatedon)
+        CommentBase.__init__(self, user=user, comment=comment, createdon=createdon, updatedon=updatedon)

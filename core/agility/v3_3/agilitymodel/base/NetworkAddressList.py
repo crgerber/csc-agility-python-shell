@@ -4,10 +4,10 @@ class NetworkAddressListBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, requestid=None, address=[], network=None):
+    def __init__(self, address=[], requestid=None, network=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'requestId': {'native': True, 'name': 'requestid', 'minOccurs': '0', 'type': 'string'}, 'address': {'maxOccurs': 'unbounded', 'native': False, 'name': 'address', 'minOccurs': '0', 'type': 'Address'}, 'network': {'native': False, 'name': 'network', 'type': 'Link'}})
-        self.requestid = requestid
+        self._attrSpecs.update({'address': {'name': 'address', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Address'}, 'requestId': {'name': 'requestid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'network': {'name': 'network', 'native': False, 'type': 'Link'}})
         self.address = address
+        self.requestid = requestid
         self.network = network 

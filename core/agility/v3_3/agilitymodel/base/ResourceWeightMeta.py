@@ -4,12 +4,12 @@ class ResourceWeightMetaBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, resourceweightinfo=[], name='', displayname='', jaxbtype='', id=None):
+    def __init__(self, id=None, name='', displayname='', resourceweightinfo=[], jaxbtype=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'name': {'native': True, 'name': 'name', 'type': 'string'}, 'resourceWeightInfo': {'maxOccurs': 'unbounded', 'native': False, 'name': 'resourceweightinfo', 'minOccurs': '0', 'type': 'ResourceWeightInfo'}, 'displayName': {'native': True, 'name': 'displayname', 'type': 'string'}, 'jaxbType': {'native': True, 'name': 'jaxbtype', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}})
-        self.resourceweightinfo = resourceweightinfo
+        self._attrSpecs.update({'id': {'name': 'id', 'native': True, 'type': 'int'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'displayName': {'name': 'displayname', 'native': True, 'type': 'string'}, 'resourceWeightInfo': {'name': 'resourceweightinfo', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ResourceWeightInfo'}, 'jaxbType': {'name': 'jaxbtype', 'native': True, 'type': 'string'}})
+        self.id = id
         self.name = name
         self.displayname = displayname
-        self.jaxbtype = jaxbtype
-        self.id = id 
+        self.resourceweightinfo = resourceweightinfo
+        self.jaxbtype = jaxbtype 

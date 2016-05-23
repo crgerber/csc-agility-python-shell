@@ -5,12 +5,12 @@ class WorkflowTaskList(WorkflowTaskListBase, WorkflowTaskListActions):
     '''
     classdocs
     '''
-    def __init__(self, tasks=[], totalcount=None):
+    def __init__(self, totalcount=None, tasks=[]):
         '''
         Constructor
-        @param tasks: tasks minOccurs=0 maxOccurs=unbounded
-        @type tasks: Link
         @param totalcount: totalcount
         @type totalcount: int
+        @param tasks: tasks minOccurs=0 maxOccurs=unbounded
+        @type tasks: Link
         '''
-        WorkflowTaskListBase.__init__(self, tasks=tasks, totalcount=totalcount)
+        WorkflowTaskListBase.__init__(self, totalcount=totalcount, tasks=tasks)

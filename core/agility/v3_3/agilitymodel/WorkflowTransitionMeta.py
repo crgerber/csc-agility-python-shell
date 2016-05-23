@@ -5,14 +5,14 @@ class WorkflowTransitionMeta(WorkflowTransitionMetaBase, WorkflowTransitionMetaA
     '''
     classdocs
     '''
-    def __init__(self, skipvalidation=False, name='', formname=''):
+    def __init__(self, name='', skipvalidation=False, formname=''):
         '''
         Constructor
-        @param skipvalidation: skipvalidation
-        @type skipvalidation: boolean
         @param name: name
         @type name: string
+        @param skipvalidation: skipvalidation
+        @type skipvalidation: boolean
         @param formname: formname
         @type formname: string
         '''
-        WorkflowTransitionMetaBase.__init__(self, skipvalidation=skipvalidation, name=name, formname=formname)
+        WorkflowTransitionMetaBase.__init__(self, name=name, skipvalidation=skipvalidation, formname=formname)

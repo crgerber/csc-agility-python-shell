@@ -4,15 +4,15 @@ class DhcpOptionsBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, netbiosservers=[], domainname=None, nodetype=None, properties=[], optionsid=None, cloud=None, dsnservers=[], ntpservers=[]):
+    def __init__(self, cloud=None, dsnservers=[], netbiosservers=[], domainname=None, properties=[], ntpservers=[], nodetype=None, optionsid=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'netbiosServers': {'maxOccurs': 'unbounded', 'native': True, 'name': 'netbiosservers', 'minOccurs': '0', 'type': 'string'}, 'domainName': {'native': True, 'name': 'domainname', 'minOccurs': '0', 'type': 'string'}, 'dsnServers': {'maxOccurs': 'unbounded', 'native': True, 'name': 'dsnservers', 'minOccurs': '0', 'type': 'string'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}, 'optionsId': {'native': True, 'name': 'optionsid', 'minOccurs': '0', 'type': 'string'}, 'cloud': {'native': False, 'name': 'cloud', 'minOccurs': '0', 'type': 'Link'}, 'nodeType': {'native': True, 'name': 'nodetype', 'minOccurs': '0', 'type': 'int'}, 'ntpServers': {'maxOccurs': 'unbounded', 'native': True, 'name': 'ntpservers', 'minOccurs': '0', 'type': 'string'}})
-        self.netbiosservers = netbiosservers
-        self.domainname = domainname
-        self.nodetype = nodetype
-        self.properties = properties
-        self.optionsid = optionsid
+        self._attrSpecs.update({'cloud': {'name': 'cloud', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'dsnServers': {'name': 'dsnservers', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'netbiosServers': {'name': 'netbiosservers', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'domainName': {'name': 'domainname', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'optionsId': {'name': 'optionsid', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'ntpServers': {'name': 'ntpservers', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'nodeType': {'name': 'nodetype', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}})
         self.cloud = cloud
         self.dsnservers = dsnservers
-        self.ntpservers = ntpservers 
+        self.netbiosservers = netbiosservers
+        self.domainname = domainname
+        self.properties = properties
+        self.ntpservers = ntpservers
+        self.nodetype = nodetype
+        self.optionsid = optionsid 

@@ -5,16 +5,16 @@ class SecurityRole(SecurityRoleBase, SecurityRoleActions):
     '''
     classdocs
     '''
-    def __init__(self, enabled=None, securityrolename=None, product=None, visible=None):
+    def __init__(self, product=None, enabled=None, visible=None, securityrolename=None):
         '''
         Constructor
-        @param enabled: enabled minOccurs=0
-        @type enabled: boolean
-        @param securityrolename: securityrolename minOccurs=0
-        @type securityrolename: string
         @param product: product minOccurs=0
         @type product: Product
+        @param enabled: enabled minOccurs=0
+        @type enabled: boolean
         @param visible: visible minOccurs=0
         @type visible: boolean
+        @param securityrolename: securityrolename minOccurs=0
+        @type securityrolename: string
         '''
-        SecurityRoleBase.__init__(self, enabled=enabled, securityrolename=securityrolename, product=product, visible=visible)
+        SecurityRoleBase.__init__(self, product=product, enabled=enabled, visible=visible, securityrolename=securityrolename)

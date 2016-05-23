@@ -5,16 +5,16 @@ class ApiRequest(ApiRequestBase, ApiRequestActions):
     '''
     classdocs
     '''
-    def __init__(self, maxrequests=None, cloudid=None, currentrequestindex=None, param=[]):
+    def __init__(self, currentrequestindex=None, cloudid=None, param=[], maxrequests=None):
         '''
         Constructor
-        @param maxrequests: maxrequests
-        @type maxrequests: int
-        @param cloudid: cloudid
-        @type cloudid: int
         @param currentrequestindex: currentrequestindex
         @type currentrequestindex: int
+        @param cloudid: cloudid
+        @type cloudid: int
         @param param: param minOccurs=0 maxOccurs=unbounded
         @type param: Property
+        @param maxrequests: maxrequests
+        @type maxrequests: int
         '''
-        ApiRequestBase.__init__(self, maxrequests=maxrequests, cloudid=cloudid, currentrequestindex=currentrequestindex, param=param)
+        ApiRequestBase.__init__(self, currentrequestindex=currentrequestindex, cloudid=cloudid, param=param, maxrequests=maxrequests)

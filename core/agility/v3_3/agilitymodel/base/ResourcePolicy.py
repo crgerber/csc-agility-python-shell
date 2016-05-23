@@ -4,12 +4,12 @@ class ResourcePolicyBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, apiversion=None, name=None, trace=None, mapping=[], description=None):
+    def __init__(self, name=None, description=None, mapping=[], apiversion=None, trace=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'apiVersion': {'native': True, 'name': 'apiversion', 'minOccurs': '0', 'type': 'string'}, 'name': {'native': True, 'name': 'name', 'minOccurs': '0', 'type': 'string'}, 'trace': {'native': True, 'name': 'trace', 'type': 'int'}, 'mapping': {'maxOccurs': 'unbounded', 'native': False, 'name': 'mapping', 'minOccurs': '0', 'type': 'ResourceMapping'}, 'description': {'native': True, 'name': 'description', 'minOccurs': '0', 'type': 'string'}})
-        self.apiversion = apiversion
+        self._attrSpecs.update({'name': {'name': 'name', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'description': {'name': 'description', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'apiVersion': {'name': 'apiversion', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'mapping': {'name': 'mapping', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'ResourceMapping'}, 'trace': {'name': 'trace', 'native': True, 'type': 'int'}})
         self.name = name
-        self.trace = trace
+        self.description = description
         self.mapping = mapping
-        self.description = description 
+        self.apiversion = apiversion
+        self.trace = trace 

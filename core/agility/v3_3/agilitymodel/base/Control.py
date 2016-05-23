@@ -4,15 +4,15 @@ class ControlBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, path='', properties=[], description='', allowedcontexts='', drilldowncontext=None, name='', id=None, type=''):
+    def __init__(self, path='', name='', description='', allowedcontexts='', id=None, drilldowncontext=None, type='', properties=[]):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'path': {'native': True, 'name': 'path', 'type': 'string'}, 'description': {'native': True, 'name': 'description', 'type': 'string'}, 'allowedContexts': {'native': True, 'name': 'allowedcontexts', 'type': 'string'}, 'drillDownContext': {'native': False, 'name': 'drilldowncontext', 'minOccurs': '0', 'type': 'PageContext'}, 'name': {'native': True, 'name': 'name', 'type': 'string'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'AssetProperty'}, 'id': {'native': True, 'name': 'id', 'type': 'int'}, 'type': {'native': True, 'name': 'type', 'type': 'string'}})
+        self._attrSpecs.update({'type': {'name': 'type', 'native': True, 'type': 'string'}, 'name': {'name': 'name', 'native': True, 'type': 'string'}, 'description': {'name': 'description', 'native': True, 'type': 'string'}, 'allowedContexts': {'name': 'allowedcontexts', 'native': True, 'type': 'string'}, 'path': {'name': 'path', 'native': True, 'type': 'string'}, 'drillDownContext': {'name': 'drilldowncontext', 'minOccurs': '0', 'native': False, 'type': 'PageContext'}, 'id': {'name': 'id', 'native': True, 'type': 'int'}, 'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AssetProperty'}})
         self.path = path
-        self.properties = properties
+        self.name = name
         self.description = description
         self.allowedcontexts = allowedcontexts
-        self.drilldowncontext = drilldowncontext
-        self.name = name
         self.id = id
-        self.type = type 
+        self.drilldowncontext = drilldowncontext
+        self.type = type
+        self.properties = properties 

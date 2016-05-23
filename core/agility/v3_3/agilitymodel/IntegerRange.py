@@ -5,12 +5,12 @@ class IntegerRange(IntegerRangeBase, IntegerRangeActions):
     '''
     classdocs
     '''
-    def __init__(self, max=None, min=None):
+    def __init__(self, min=None, max=None):
         '''
         Constructor
-        @param max: max minOccurs=0
-        @type max: string
         @param min: min minOccurs=0
         @type min: string
+        @param max: max minOccurs=0
+        @type max: string
         '''
-        IntegerRangeBase.__init__(self, max=max, min=min)
+        IntegerRangeBase.__init__(self, min=min, max=max)

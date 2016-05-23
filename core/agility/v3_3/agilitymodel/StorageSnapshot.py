@@ -5,18 +5,18 @@ class StorageSnapshot(StorageSnapshotBase, StorageSnapshotActions):
     '''
     classdocs
     '''
-    def __init__(self, progress=None, cloud=None, storage=None, status=None, snapshotid=None):
+    def __init__(self, snapshotid=None, cloud=None, status=None, storage=None, progress=None):
         '''
         Constructor
-        @param progress: progress minOccurs=0
-        @type progress: string
-        @param cloud: cloud minOccurs=0
-        @type cloud: Link
-        @param storage: storage minOccurs=0
-        @type storage: Link
-        @param status: status minOccurs=0
-        @type status: string
         @param snapshotid: snapshotid minOccurs=0
         @type snapshotid: string
+        @param cloud: cloud minOccurs=0
+        @type cloud: Link
+        @param status: status minOccurs=0
+        @type status: string
+        @param storage: storage minOccurs=0
+        @type storage: Link
+        @param progress: progress minOccurs=0
+        @type progress: string
         '''
-        StorageSnapshotBase.__init__(self, progress=progress, cloud=cloud, storage=storage, status=status, snapshotid=snapshotid)
+        StorageSnapshotBase.__init__(self, snapshotid=snapshotid, cloud=cloud, status=status, storage=storage, progress=progress)

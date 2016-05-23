@@ -4,12 +4,12 @@ class AccessRightBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, granted=None, name=None, defaultgranted=None, source=None, id=None):
+    def __init__(self, id=None, name=None, granted=None, defaultgranted=None, source=None):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'granted': {'native': True, 'name': 'granted', 'minOccurs': '0', 'type': 'boolean'}, 'name': {'native': True, 'name': 'name', 'minOccurs': '0', 'type': 'string'}, 'id': {'native': True, 'name': 'id', 'minOccurs': '0', 'type': 'int'}, 'source': {'native': True, 'name': 'source', 'minOccurs': '0', 'type': 'string'}, 'defaultGranted': {'native': True, 'name': 'defaultgranted', 'minOccurs': '0', 'type': 'boolean'}})
-        self.granted = granted
+        self._attrSpecs.update({'id': {'name': 'id', 'minOccurs': '0', 'native': True, 'type': 'int'}, 'name': {'name': 'name', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'granted': {'name': 'granted', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'defaultGranted': {'name': 'defaultgranted', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'source': {'name': 'source', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.id = id
         self.name = name
+        self.granted = granted
         self.defaultgranted = defaultgranted
-        self.source = source
-        self.id = id 
+        self.source = source 

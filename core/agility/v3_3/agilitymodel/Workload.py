@@ -5,34 +5,34 @@ class Workload(WorkloadBase, WorkloadActions):
     '''
     classdocs
     '''
-    def __init__(self, numinstances=None, destconnections=None, volumes=[], configurations=[], releasedisks=None, scaleuppolicy=None, resources=[], hostnameprefix=None, basestack=None, scaledownpolicy=None, operatingsystem=None, packages=[], srcconnections=None):
+    def __init__(self, hostnameprefix=None, operatingsystem=None, srcconnections=None, destconnections=None, releasedisks=None, basestack=None, numinstances=None, scaleuppolicy=None, scaledownpolicy=None, configurations=[], packages=[], volumes=[], resources=[]):
         '''
         Constructor
-        @param numinstances: numinstances
-        @type numinstances: int
-        @param destconnections: destconnections minOccurs=0
-        @type destconnections: Link
-        @param volumes: volumes minOccurs=0 maxOccurs=unbounded
-        @type volumes: Volume
-        @param configurations: configurations minOccurs=0 maxOccurs=unbounded
-        @type configurations: Link
-        @param releasedisks: releasedisks minOccurs=0
-        @type releasedisks: boolean
-        @param scaleuppolicy: scaleuppolicy minOccurs=0
-        @type scaleuppolicy: Policy
-        @param resources: resources minOccurs=0 maxOccurs=unbounded
-        @type resources: Resource
         @param hostnameprefix: hostnameprefix minOccurs=0
         @type hostnameprefix: string
-        @param basestack: basestack minOccurs=0
-        @type basestack: Link
-        @param scaledownpolicy: scaledownpolicy minOccurs=0
-        @type scaledownpolicy: Policy
         @param operatingsystem: operatingsystem minOccurs=0
         @type operatingsystem: string
-        @param packages: packages minOccurs=0 maxOccurs=unbounded
-        @type packages: Link
         @param srcconnections: srcconnections minOccurs=0
         @type srcconnections: Link
+        @param destconnections: destconnections minOccurs=0
+        @type destconnections: Link
+        @param releasedisks: releasedisks minOccurs=0
+        @type releasedisks: boolean
+        @param basestack: basestack minOccurs=0
+        @type basestack: Link
+        @param numinstances: numinstances
+        @type numinstances: int
+        @param scaleuppolicy: scaleuppolicy minOccurs=0
+        @type scaleuppolicy: Policy
+        @param scaledownpolicy: scaledownpolicy minOccurs=0
+        @type scaledownpolicy: Policy
+        @param configurations: configurations minOccurs=0 maxOccurs=unbounded
+        @type configurations: Link
+        @param packages: packages minOccurs=0 maxOccurs=unbounded
+        @type packages: Link
+        @param volumes: volumes minOccurs=0 maxOccurs=unbounded
+        @type volumes: Volume
+        @param resources: resources minOccurs=0 maxOccurs=unbounded
+        @type resources: Resource
         '''
-        WorkloadBase.__init__(self, numinstances=numinstances, destconnections=destconnections, volumes=volumes, configurations=configurations, releasedisks=releasedisks, scaleuppolicy=scaleuppolicy, resources=resources, hostnameprefix=hostnameprefix, basestack=basestack, scaledownpolicy=scaledownpolicy, operatingsystem=operatingsystem, packages=packages, srcconnections=srcconnections)
+        WorkloadBase.__init__(self, hostnameprefix=hostnameprefix, operatingsystem=operatingsystem, srcconnections=srcconnections, destconnections=destconnections, releasedisks=releasedisks, basestack=basestack, numinstances=numinstances, scaleuppolicy=scaleuppolicy, scaledownpolicy=scaledownpolicy, configurations=configurations, packages=packages, volumes=volumes, resources=resources)

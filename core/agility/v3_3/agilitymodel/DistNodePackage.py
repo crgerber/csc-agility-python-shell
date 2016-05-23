@@ -5,16 +5,16 @@ class DistNodePackage(DistNodePackageBase, DistNodePackageActions):
     '''
     classdocs
     '''
-    def __init__(self, version=None, name=None, status=None, id=None):
+    def __init__(self, id=None, name=None, status=None, version=None):
         '''
         Constructor
-        @param version: version minOccurs=0
-        @type version: string
+        @param id: id minOccurs=0
+        @type id: int
         @param name: name minOccurs=0
         @type name: string
         @param status: status minOccurs=0
         @type status: string
-        @param id: id minOccurs=0
-        @type id: int
+        @param version: version minOccurs=0
+        @type version: string
         '''
-        DistNodePackageBase.__init__(self, version=version, name=name, status=status, id=id)
+        DistNodePackageBase.__init__(self, id=id, name=name, status=status, version=version)

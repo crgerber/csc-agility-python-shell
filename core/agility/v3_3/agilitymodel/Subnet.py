@@ -5,26 +5,26 @@ class Subnet(SubnetBase, SubnetActions):
     '''
     classdocs
     '''
-    def __init__(self, tenantid=None, subnetid=None, network=None, availabilityzone=None, cidr=None, enabledhcp=None, ipversion=None, gatewayip=None, status=None):
+    def __init__(self, cidr=None, subnetid=None, enabledhcp=None, tenantid=None, gatewayip=None, availabilityzone=None, status=None, network=None, ipversion=None):
         '''
         Constructor
-        @param tenantid: tenantid minOccurs=0
-        @type tenantid: string
-        @param subnetid: subnetid minOccurs=0
-        @type subnetid: string
-        @param network: network minOccurs=0
-        @type network: Link
-        @param availabilityzone: availabilityzone minOccurs=0
-        @type availabilityzone: string
         @param cidr: cidr minOccurs=0
         @type cidr: string
+        @param subnetid: subnetid minOccurs=0
+        @type subnetid: string
         @param enabledhcp: enabledhcp minOccurs=0
         @type enabledhcp: boolean
-        @param ipversion: ipversion minOccurs=0
-        @type ipversion: int
+        @param tenantid: tenantid minOccurs=0
+        @type tenantid: string
         @param gatewayip: gatewayip minOccurs=0
         @type gatewayip: string
+        @param availabilityzone: availabilityzone minOccurs=0
+        @type availabilityzone: string
         @param status: status minOccurs=0
         @type status: string
+        @param network: network minOccurs=0
+        @type network: Link
+        @param ipversion: ipversion minOccurs=0
+        @type ipversion: int
         '''
-        SubnetBase.__init__(self, tenantid=tenantid, subnetid=subnetid, network=network, availabilityzone=availabilityzone, cidr=cidr, enabledhcp=enabledhcp, ipversion=ipversion, gatewayip=gatewayip, status=status)
+        SubnetBase.__init__(self, cidr=cidr, subnetid=subnetid, enabledhcp=enabledhcp, tenantid=tenantid, gatewayip=gatewayip, availabilityzone=availabilityzone, status=status, network=network, ipversion=ipversion)

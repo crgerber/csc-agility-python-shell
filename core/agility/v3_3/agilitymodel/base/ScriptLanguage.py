@@ -4,13 +4,13 @@ class ScriptLanguageBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, editormode=None, domain=None, operatingsystem=[], variableregex=None, interpreter=None, type=None):
+    def __init__(self, operatingsystem=[], interpreter=None, editormode=None, domain=None, type=None, variableregex=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'editorMode': {'native': True, 'name': 'editormode', 'minOccurs': '0', 'type': 'string'}, 'domain': {'native': False, 'name': 'domain', 'minOccurs': '0', 'type': 'Link'}, 'operatingSystem': {'maxOccurs': 'unbounded', 'native': True, 'name': 'operatingsystem', 'minOccurs': '0', 'type': 'string'}, 'type': {'native': False, 'name': 'type', 'minOccurs': '0', 'type': 'ScriptType'}, 'interpreter': {'native': True, 'name': 'interpreter', 'minOccurs': '0', 'type': 'string'}, 'variableRegex': {'native': True, 'name': 'variableregex', 'minOccurs': '0', 'type': 'string'}})
+        self._attrSpecs.update({'operatingSystem': {'name': 'operatingsystem', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'interpreter': {'name': 'interpreter', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'editorMode': {'name': 'editormode', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'domain': {'name': 'domain', 'minOccurs': '0', 'native': False, 'type': 'Link'}, 'type': {'name': 'type', 'minOccurs': '0', 'native': False, 'type': 'ScriptType'}, 'variableRegex': {'name': 'variableregex', 'minOccurs': '0', 'native': True, 'type': 'string'}})
+        self.operatingsystem = operatingsystem
+        self.interpreter = interpreter
         self.editormode = editormode
         self.domain = domain
-        self.operatingsystem = operatingsystem
-        self.variableregex = variableregex
-        self.interpreter = interpreter
-        self.type = type 
+        self.type = type
+        self.variableregex = variableregex 

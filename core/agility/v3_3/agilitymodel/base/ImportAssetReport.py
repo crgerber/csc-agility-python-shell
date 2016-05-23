@@ -4,13 +4,13 @@ class ImportAssetReportBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, assetversion='', operationstatus='', assetid=None, assettype='', operation='', assetname=''):
+    def __init__(self, assettype='', assetid=None, assetname='', assetversion='', operation='', operationstatus=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'assetVersion': {'native': True, 'name': 'assetversion', 'type': 'string'}, 'operationStatus': {'native': True, 'name': 'operationstatus', 'type': 'string'}, 'assetId': {'native': True, 'name': 'assetid', 'type': 'int'}, 'assetType': {'native': True, 'name': 'assettype', 'type': 'string'}, 'operation': {'native': True, 'name': 'operation', 'type': 'string'}, 'assetName': {'native': True, 'name': 'assetname', 'type': 'string'}})
-        self.assetversion = assetversion
-        self.operationstatus = operationstatus
-        self.assetid = assetid
+        self._attrSpecs.update({'assetType': {'name': 'assettype', 'native': True, 'type': 'string'}, 'assetId': {'name': 'assetid', 'native': True, 'type': 'int'}, 'assetName': {'name': 'assetname', 'native': True, 'type': 'string'}, 'assetVersion': {'name': 'assetversion', 'native': True, 'type': 'string'}, 'operation': {'name': 'operation', 'native': True, 'type': 'string'}, 'operationStatus': {'name': 'operationstatus', 'native': True, 'type': 'string'}})
         self.assettype = assettype
+        self.assetid = assetid
+        self.assetname = assetname
+        self.assetversion = assetversion
         self.operation = operation
-        self.assetname = assetname 
+        self.operationstatus = operationstatus 

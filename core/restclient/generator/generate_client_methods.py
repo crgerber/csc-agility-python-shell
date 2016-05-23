@@ -94,9 +94,12 @@ be modified. Otherwise their original timestamps are preserved.
 
 """
 
-import re
-import os
-import sys
+import re, os, sys
+from pathlib import Path
+
+ABSPATH =  str(Path('.').absolute())
+sys.path.insert(0, ABSPATH)
+
 import xml.dom.minidom
 from xml.dom import *
 
@@ -786,7 +789,7 @@ def generate_python_method(method):
                     }
     meta_context = dict([(k, str(v).strip() if isinstance(v, str) else v)for k, v in list(meta_context.items())])
     method_context['method_context'] = meta_context
-    PYTHON_METHOD_TEMPLATE = open(os.path.join('templates', 'python', 'method.txt')).read()
+    PYTHON_METHOD_TEMPLATE = open(os.path.join(ABSPATH, 'core/restclient/generator/templates/python', 'method.txt')).read()
     return PYTHON_METHOD_TEMPLATE % method_context
 
 
@@ -797,7 +800,7 @@ def generate_python_class(cls):
     """
     docs = javadocs_to_text(cls.docs, "    ")
     methods = "\n".join(generate_python_method(x) for x in list(cls.methods.values()))
-    PYTHON_CLASS_TEMPLATE = open(os.path.join('templates', 'python', 'class.txt')).read()
+    PYTHON_CLASS_TEMPLATE = open(os.path.join(ABSPATH, 'core/restclient/generator/templates/python', 'class.txt')).read()
     className = cls.name.lower()
     
     if cls.name.lower() == "global" :
@@ -815,8 +818,8 @@ def generate_python_module(app):
     the XxxMethods classes, using the PYTHON_MODULE_TEMPLATE.
     """
     classes = "\n".join(generate_python_class(x) for x in app.classes)
-    LICENSE = open(os.path.join('templates', 'license.txt')).read()
-    PYTHON_MODULE_TEMPLATE = open(os.path.join('templates', 'python', 'module.txt')).read()
+    LICENSE = open(os.path.join(ABSPATH, 'core/restclient/generator/templates', 'license.txt')).read()
+    PYTHON_MODULE_TEMPLATE = open(os.path.join(ABSPATH, 'core/restclient/generator/templates/python', 'module.txt')).read()
     return PYTHON_MODULE_TEMPLATE % { "licence": comment_out(LICENSE),
                                       "classes": classes }
 
@@ -868,7 +871,7 @@ if __name__ == "__main__":
     app = Application(doc.documentElement)
 
     # Create/update the output file(s) as necessary
-    
+
     if lang == "python":
         if not api_version == None:
             out_dir = os.path.join(out_dir, api_version)
@@ -881,5 +884,3 @@ if __name__ == "__main__":
         error("Unsupported language: '%s'" % lang)
     print(duplicateMethodNames)
     persistDedupLog()
-
-

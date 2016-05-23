@@ -5,14 +5,14 @@ class ArtifactAttachment(ArtifactAttachmentBase, ArtifactAttachmentActions):
     '''
     classdocs
     '''
-    def __init__(self, content=None, artifact=None, size=None):
+    def __init__(self, size=None, content=None, artifact=None):
         '''
         Constructor
+        @param size: size minOccurs=0
+        @type size: long
         @param content: content minOccurs=0
         @type content: base64Binary
         @param artifact: artifact minOccurs=0
         @type artifact: Link
-        @param size: size minOccurs=0
-        @type size: long
         '''
-        ArtifactAttachmentBase.__init__(self, content=content, artifact=artifact, size=size)
+        ArtifactAttachmentBase.__init__(self, size=size, content=content, artifact=artifact)

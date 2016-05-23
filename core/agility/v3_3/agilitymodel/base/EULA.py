@@ -4,16 +4,16 @@ class EULABase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, eula='', signature='', agreedto=False, adminuser=False, readonly=False, timestamp=None, valid=False, title='', company=''):
+    def __init__(self, timestamp=None, title='', valid=False, readonly=False, signature='', agreedto=False, eula='', adminuser=False, company=''):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'eula': {'native': True, 'name': 'eula', 'type': 'string'}, 'signature': {'native': True, 'name': 'signature', 'type': 'string'}, 'adminUser': {'native': True, 'name': 'adminuser', 'type': 'boolean'}, 'readOnly': {'native': True, 'name': 'readonly', 'type': 'boolean'}, 'timestamp': {'native': True, 'name': 'timestamp', 'minOccurs': '0', 'type': 'date'}, 'valid': {'native': True, 'name': 'valid', 'type': 'boolean'}, 'agreedTo': {'native': True, 'name': 'agreedto', 'type': 'boolean'}, 'title': {'native': True, 'name': 'title', 'type': 'string'}, 'company': {'native': True, 'name': 'company', 'type': 'string'}})
-        self.eula = eula
+        self._attrSpecs.update({'timestamp': {'name': 'timestamp', 'minOccurs': '0', 'native': True, 'type': 'date'}, 'title': {'name': 'title', 'native': True, 'type': 'string'}, 'adminUser': {'name': 'adminuser', 'native': True, 'type': 'boolean'}, 'readOnly': {'name': 'readonly', 'native': True, 'type': 'boolean'}, 'signature': {'name': 'signature', 'native': True, 'type': 'string'}, 'valid': {'name': 'valid', 'native': True, 'type': 'boolean'}, 'eula': {'name': 'eula', 'native': True, 'type': 'string'}, 'agreedTo': {'name': 'agreedto', 'native': True, 'type': 'boolean'}, 'company': {'name': 'company', 'native': True, 'type': 'string'}})
+        self.timestamp = timestamp
+        self.title = title
+        self.valid = valid
+        self.readonly = readonly
         self.signature = signature
         self.agreedto = agreedto
+        self.eula = eula
         self.adminuser = adminuser
-        self.readonly = readonly
-        self.timestamp = timestamp
-        self.valid = valid
-        self.title = title
         self.company = company 

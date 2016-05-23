@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-ScriptType = Enum(**{'Platform': 'Platform', 'Provider': 'Provider', 'Configuration': 'Configuration', 'Guest': 'Guest'})
+ScriptType = Enum(**{'Configuration': 'Configuration', 'Platform': 'Platform', 'Guest': 'Guest', 'Provider': 'Provider'})

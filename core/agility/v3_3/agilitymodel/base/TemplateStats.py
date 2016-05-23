@@ -4,21 +4,21 @@ class TemplateStatsBase(AgilityModelBase):
     '''
     classdocs
     '''
-    def __init__(self, numinstances=None, numstopping=None, numfailed=None, numstopped=None, status='', numrunning=None, numpaused=None, templateid=None, numstarting=None, numdestroyed=None, numunknown=None, numdegraded=None, maxcount=None, mincount=None):
+    def __init__(self, numunknown=None, numfailed=None, numstopping=None, mincount=None, numpaused=None, numdegraded=None, numstopped=None, maxcount=None, templateid=None, numdestroyed=None, numstarting=None, numinstances=None, numrunning=None, status=''):
         AgilityModelBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'numInstances': {'native': True, 'name': 'numinstances', 'type': 'int'}, 'numStopping': {'native': True, 'name': 'numstopping', 'type': 'int'}, 'numFailed': {'native': True, 'name': 'numfailed', 'type': 'int'}, 'numStopped': {'native': True, 'name': 'numstopped', 'type': 'int'}, 'status': {'native': True, 'name': 'status', 'type': 'string'}, 'numRunning': {'native': True, 'name': 'numrunning', 'type': 'int'}, 'numPaused': {'native': True, 'name': 'numpaused', 'type': 'int'}, 'templateId': {'native': True, 'name': 'templateid', 'type': 'int'}, 'numStarting': {'native': True, 'name': 'numstarting', 'type': 'int'}, 'numDestroyed': {'native': True, 'name': 'numdestroyed', 'type': 'int'}, 'numUnknown': {'native': True, 'name': 'numunknown', 'type': 'int'}, 'numDegraded': {'native': True, 'name': 'numdegraded', 'type': 'int'}, 'maxCount': {'native': True, 'name': 'maxcount', 'type': 'int'}, 'minCount': {'native': True, 'name': 'mincount', 'type': 'int'}})
-        self.numinstances = numinstances
-        self.numstopping = numstopping
-        self.numfailed = numfailed
-        self.numstopped = numstopped
-        self.status = status
-        self.numrunning = numrunning
-        self.numpaused = numpaused
-        self.templateid = templateid
-        self.numstarting = numstarting
-        self.numdestroyed = numdestroyed
+        self._attrSpecs.update({'numUnknown': {'name': 'numunknown', 'native': True, 'type': 'int'}, 'numFailed': {'name': 'numfailed', 'native': True, 'type': 'int'}, 'numStopping': {'name': 'numstopping', 'native': True, 'type': 'int'}, 'minCount': {'name': 'mincount', 'native': True, 'type': 'int'}, 'numPaused': {'name': 'numpaused', 'native': True, 'type': 'int'}, 'numDegraded': {'name': 'numdegraded', 'native': True, 'type': 'int'}, 'numDestroyed': {'name': 'numdestroyed', 'native': True, 'type': 'int'}, 'numRunning': {'name': 'numrunning', 'native': True, 'type': 'int'}, 'templateId': {'name': 'templateid', 'native': True, 'type': 'int'}, 'numStopped': {'name': 'numstopped', 'native': True, 'type': 'int'}, 'numStarting': {'name': 'numstarting', 'native': True, 'type': 'int'}, 'numInstances': {'name': 'numinstances', 'native': True, 'type': 'int'}, 'maxCount': {'name': 'maxcount', 'native': True, 'type': 'int'}, 'status': {'name': 'status', 'native': True, 'type': 'string'}})
         self.numunknown = numunknown
+        self.numfailed = numfailed
+        self.numstopping = numstopping
+        self.mincount = mincount
+        self.numpaused = numpaused
         self.numdegraded = numdegraded
+        self.numstopped = numstopped
         self.maxcount = maxcount
-        self.mincount = mincount 
+        self.templateid = templateid
+        self.numdestroyed = numdestroyed
+        self.numstarting = numstarting
+        self.numinstances = numinstances
+        self.numrunning = numrunning
+        self.status = status 

@@ -4,15 +4,15 @@ class ConfigurationRepositoryBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, artifacttype=None, repositoryproperty=[], artifactpath=[], repositorytype=None, readonly=False, artifact=[], syncintervalseconds=None, repositorypath=None):
+    def __init__(self, repositorypath=None, artifact=[], repositorytype=None, readonly=False, repositoryproperty=[], artifacttype=None, artifactpath=[], syncintervalseconds=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'artifactType': {'native': True, 'name': 'artifacttype', 'minOccurs': '0', 'type': 'string'}, 'repositoryProperty': {'maxOccurs': 'unbounded', 'native': False, 'name': 'repositoryproperty', 'minOccurs': '0', 'type': 'Property'}, 'artifactPath': {'maxOccurs': 'unbounded', 'native': True, 'name': 'artifactpath', 'minOccurs': '0', 'type': 'string'}, 'repositoryType': {'native': True, 'name': 'repositorytype', 'minOccurs': '0', 'type': 'string'}, 'readOnly': {'native': True, 'name': 'readonly', 'type': 'boolean'}, 'artifact': {'maxOccurs': 'unbounded', 'native': False, 'name': 'artifact', 'minOccurs': '0', 'type': 'Link'}, 'syncIntervalSeconds': {'native': True, 'name': 'syncintervalseconds', 'minOccurs': '0', 'type': 'int'}, 'repositoryPath': {'native': True, 'name': 'repositorypath', 'minOccurs': '0', 'type': 'string'}})
-        self.artifacttype = artifacttype
-        self.repositoryproperty = repositoryproperty
-        self.artifactpath = artifactpath
+        self._attrSpecs.update({'readOnly': {'name': 'readonly', 'native': True, 'type': 'boolean'}, 'artifact': {'name': 'artifact', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Link'}, 'repositoryType': {'name': 'repositorytype', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'repositoryPath': {'name': 'repositorypath', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'repositoryProperty': {'name': 'repositoryproperty', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'artifactType': {'name': 'artifacttype', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'artifactPath': {'name': 'artifactpath', 'native': True, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'string'}, 'syncIntervalSeconds': {'name': 'syncintervalseconds', 'minOccurs': '0', 'native': True, 'type': 'int'}})
+        self.repositorypath = repositorypath
+        self.artifact = artifact
         self.repositorytype = repositorytype
         self.readonly = readonly
-        self.artifact = artifact
-        self.syncintervalseconds = syncintervalseconds
-        self.repositorypath = repositorypath 
+        self.repositoryproperty = repositoryproperty
+        self.artifacttype = artifacttype
+        self.artifactpath = artifactpath
+        self.syncintervalseconds = syncintervalseconds 

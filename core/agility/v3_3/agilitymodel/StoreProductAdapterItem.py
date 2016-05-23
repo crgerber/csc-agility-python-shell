@@ -5,20 +5,20 @@ class StoreProductAdapterItem(StoreProductAdapterItemBase, StoreProductAdapterIt
     '''
     classdocs
     '''
-    def __init__(self, resource=[], description='', link=[], name='', id=None, type=''):
+    def __init__(self, name='', description='', id=None, link=[], type='', resource=[]):
         '''
         Constructor
-        @param resource: resource minOccurs=0 maxOccurs=unbounded
-        @type resource: StoreResource
-        @param description: description
-        @type description: string
-        @param link: link minOccurs=0 maxOccurs=unbounded
-        @type link: Link
         @param name: name
         @type name: string
+        @param description: description
+        @type description: string
         @param id: id
         @type id: int
+        @param link: link minOccurs=0 maxOccurs=unbounded
+        @type link: Link
         @param type: type
         @type type: string
+        @param resource: resource minOccurs=0 maxOccurs=unbounded
+        @type resource: StoreResource
         '''
-        StoreProductAdapterItemBase.__init__(self, resource=resource, description=description, link=link, name=name, id=id, type=type)
+        StoreProductAdapterItemBase.__init__(self, name=name, description=description, id=id, link=link, type=type, resource=resource)

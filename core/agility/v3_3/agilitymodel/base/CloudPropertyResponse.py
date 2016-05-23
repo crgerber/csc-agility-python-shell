@@ -7,5 +7,5 @@ class CloudPropertyResponseBase(ApiResponseBase):
     def __init__(self, value=False):
         ApiResponseBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'value': {'native': True, 'name': 'value', 'type': 'boolean'}})
+        self._attrSpecs.update({'value': {'name': 'value', 'native': True, 'type': 'boolean'}})
         self.value = value 

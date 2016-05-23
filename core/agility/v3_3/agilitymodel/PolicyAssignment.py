@@ -5,30 +5,30 @@ class PolicyAssignment(PolicyAssignmentBase, PolicyAssignmentActions):
     '''
     classdocs
     '''
-    def __init__(self, inherited=None, itemname=None, applytoself=False, filtermatch=None, allowchildrenoverride=False, applychildrendepth=None, policytypename=None, itemid=None, itemclass=None, permissioned=None, policy=None):
+    def __init__(self, permissioned=None, allowchildrenoverride=False, inherited=None, itemname=None, itemclass=None, applychildrendepth=None, policy=None, itemid=None, applytoself=False, policytypename=None, filtermatch=None):
         '''
         Constructor
+        @param permissioned: permissioned minOccurs=0
+        @type permissioned: boolean
+        @param allowchildrenoverride: allowchildrenoverride
+        @type allowchildrenoverride: boolean
         @param inherited: inherited minOccurs=0
         @type inherited: boolean
         @param itemname: itemname minOccurs=0
         @type itemname: string
-        @param applytoself: applytoself
-        @type applytoself: boolean
-        @param filtermatch: filtermatch minOccurs=0
-        @type filtermatch: boolean
-        @param allowchildrenoverride: allowchildrenoverride
-        @type allowchildrenoverride: boolean
-        @param applychildrendepth: applychildrendepth minOccurs=0
-        @type applychildrendepth: int
-        @param policytypename: policytypename minOccurs=0
-        @type policytypename: string
-        @param itemid: itemid minOccurs=0
-        @type itemid: int
         @param itemclass: itemclass minOccurs=0
         @type itemclass: string
-        @param permissioned: permissioned minOccurs=0
-        @type permissioned: boolean
+        @param applychildrendepth: applychildrendepth minOccurs=0
+        @type applychildrendepth: int
         @param policy: policy minOccurs=0
         @type policy: Link
+        @param itemid: itemid minOccurs=0
+        @type itemid: int
+        @param applytoself: applytoself
+        @type applytoself: boolean
+        @param policytypename: policytypename minOccurs=0
+        @type policytypename: string
+        @param filtermatch: filtermatch minOccurs=0
+        @type filtermatch: boolean
         '''
-        PolicyAssignmentBase.__init__(self, inherited=inherited, itemname=itemname, applytoself=applytoself, filtermatch=filtermatch, allowchildrenoverride=allowchildrenoverride, applychildrendepth=applychildrendepth, policytypename=policytypename, itemid=itemid, itemclass=itemclass, permissioned=permissioned, policy=policy)
+        PolicyAssignmentBase.__init__(self, permissioned=permissioned, allowchildrenoverride=allowchildrenoverride, inherited=inherited, itemname=itemname, itemclass=itemclass, applychildrendepth=applychildrendepth, policy=policy, itemid=itemid, applytoself=applytoself, policytypename=policytypename, filtermatch=filtermatch)

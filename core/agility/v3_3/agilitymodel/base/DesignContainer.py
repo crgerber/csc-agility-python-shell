@@ -4,17 +4,17 @@ class DesignContainerBase(DesignItemBase):
     '''
     classdocs
     '''
-    def __init__(self, resourceaffinity=None, launcheraccessuri=[], anyorderitem=[], deep=False, antiaffinity=None, mandatoryaffinity=None, manualorderitem=[], aliases=[], deployers=[], fixedorderitem=[]):
+    def __init__(self, anyorderitem=[], antiaffinity=None, deep=False, manualorderitem=[], fixedorderitem=[], resourceaffinity=None, mandatoryaffinity=None, aliases=[], deployers=[], launcheraccessuri=[]):
         DesignItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'resourceAffinity': {'native': False, 'name': 'resourceaffinity', 'type': 'ResourceAffinity'}, 'deployers': {'maxOccurs': 'unbounded', 'native': False, 'name': 'deployers', 'minOccurs': '0', 'type': 'DesignDeployer'}, 'antiAffinity': {'native': True, 'name': 'antiaffinity', 'minOccurs': '0', 'type': 'boolean'}, 'fixedOrderItem': {'maxOccurs': 'unbounded', 'native': False, 'name': 'fixedorderitem', 'minOccurs': '0', 'type': 'DesignItem'}, 'launcherAccessUri': {'maxOccurs': 'unbounded', 'native': False, 'name': 'launcheraccessuri', 'minOccurs': '0', 'type': 'AccessUri'}, 'anyOrderItem': {'maxOccurs': 'unbounded', 'native': False, 'name': 'anyorderitem', 'minOccurs': '0', 'type': 'DesignItem'}, 'manualOrderItem': {'maxOccurs': 'unbounded', 'native': False, 'name': 'manualorderitem', 'minOccurs': '0', 'type': 'DesignItem'}, 'mandatoryAffinity': {'native': True, 'name': 'mandatoryaffinity', 'minOccurs': '0', 'type': 'boolean'}, 'aliases': {'maxOccurs': 'unbounded', 'native': False, 'name': 'aliases', 'minOccurs': '0', 'type': 'DesignAlias'}, 'deep': {'native': True, 'name': 'deep', 'type': 'boolean'}})
-        self.resourceaffinity = resourceaffinity
-        self.launcheraccessuri = launcheraccessuri
+        self._attrSpecs.update({'anyOrderItem': {'name': 'anyorderitem', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DesignItem'}, 'antiAffinity': {'name': 'antiaffinity', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'deep': {'name': 'deep', 'native': True, 'type': 'boolean'}, 'manualOrderItem': {'name': 'manualorderitem', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DesignItem'}, 'aliases': {'name': 'aliases', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DesignAlias'}, 'resourceAffinity': {'name': 'resourceaffinity', 'native': False, 'type': 'ResourceAffinity'}, 'mandatoryAffinity': {'name': 'mandatoryaffinity', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'fixedOrderItem': {'name': 'fixedorderitem', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DesignItem'}, 'deployers': {'name': 'deployers', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'DesignDeployer'}, 'launcherAccessUri': {'name': 'launcheraccessuri', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'AccessUri'}})
         self.anyorderitem = anyorderitem
-        self.deep = deep
         self.antiaffinity = antiaffinity
-        self.mandatoryaffinity = mandatoryaffinity
+        self.deep = deep
         self.manualorderitem = manualorderitem
+        self.fixedorderitem = fixedorderitem
+        self.resourceaffinity = resourceaffinity
+        self.mandatoryaffinity = mandatoryaffinity
         self.aliases = aliases
         self.deployers = deployers
-        self.fixedorderitem = fixedorderitem 
+        self.launcheraccessuri = launcheraccessuri 

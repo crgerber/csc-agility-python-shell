@@ -4,10 +4,10 @@ class NetworkProviderTypeBase(AssetBase):
     '''
     classdocs
     '''
-    def __init__(self, version=None, properties=[], type=None):
+    def __init__(self, properties=[], type=None, version=None):
         AssetBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'version': {'native': True, 'name': 'version', 'minOccurs': '0', 'type': 'string'}, 'type': {'native': True, 'name': 'type', 'minOccurs': '0', 'type': 'string'}, 'properties': {'maxOccurs': 'unbounded', 'native': False, 'name': 'properties', 'minOccurs': '0', 'type': 'Property'}})
-        self.version = version
+        self._attrSpecs.update({'properties': {'name': 'properties', 'native': False, 'maxOccurs': 'unbounded', 'minOccurs': '0', 'type': 'Property'}, 'type': {'name': 'type', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'version': {'name': 'version', 'minOccurs': '0', 'native': True, 'type': 'string'}})
         self.properties = properties
-        self.type = type 
+        self.type = type
+        self.version = version 

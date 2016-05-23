@@ -7,5 +7,5 @@ class ListRequestBase(ApiRequestBase):
     def __init__(self, type=''):
         ApiRequestBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'type': {'native': True, 'name': 'type', 'type': 'string'}})
+        self._attrSpecs.update({'type': {'name': 'type', 'native': True, 'type': 'string'}})
         self.type = type 

@@ -5,18 +5,18 @@ class ResourceWeightMeta(ResourceWeightMetaBase, ResourceWeightMetaActions):
     '''
     classdocs
     '''
-    def __init__(self, resourceweightinfo=[], name='', displayname='', jaxbtype='', id=None):
+    def __init__(self, id=None, name='', displayname='', resourceweightinfo=[], jaxbtype=''):
         '''
         Constructor
-        @param resourceweightinfo: resourceweightinfo minOccurs=0 maxOccurs=unbounded
-        @type resourceweightinfo: ResourceWeightInfo
+        @param id: id
+        @type id: int
         @param name: name
         @type name: string
         @param displayname: displayname
         @type displayname: string
+        @param resourceweightinfo: resourceweightinfo minOccurs=0 maxOccurs=unbounded
+        @type resourceweightinfo: ResourceWeightInfo
         @param jaxbtype: jaxbtype
         @type jaxbtype: string
-        @param id: id
-        @type id: int
         '''
-        ResourceWeightMetaBase.__init__(self, resourceweightinfo=resourceweightinfo, name=name, displayname=displayname, jaxbtype=jaxbtype, id=id)
+        ResourceWeightMetaBase.__init__(self, id=id, name=name, displayname=displayname, resourceweightinfo=resourceweightinfo, jaxbtype=jaxbtype)

@@ -4,9 +4,9 @@ class CloudPropertyRequestBase(ApiRequestBase):
     '''
     classdocs
     '''
-    def __init__(self, propertyname='', defaultvalue=False):
+    def __init__(self, defaultvalue=False, propertyname=''):
         ApiRequestBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'propertyName': {'native': True, 'name': 'propertyname', 'type': 'string'}, 'defaultValue': {'native': True, 'name': 'defaultvalue', 'type': 'boolean'}})
-        self.propertyname = propertyname
-        self.defaultvalue = defaultvalue 
+        self._attrSpecs.update({'defaultValue': {'name': 'defaultvalue', 'native': True, 'type': 'boolean'}, 'propertyName': {'name': 'propertyname', 'native': True, 'type': 'string'}})
+        self.defaultvalue = defaultvalue
+        self.propertyname = propertyname 

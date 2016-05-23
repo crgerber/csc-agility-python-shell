@@ -5,12 +5,12 @@ class ResourceWeight(ResourceWeightBase, ResourceWeightActions):
     '''
     classdocs
     '''
-    def __init__(self, metric='', value=None):
+    def __init__(self, value=None, metric=''):
         '''
         Constructor
-        @param metric: metric
-        @type metric: string
         @param value: value
         @type value: double
+        @param metric: metric
+        @type metric: string
         '''
-        ResourceWeightBase.__init__(self, metric=metric, value=value)
+        ResourceWeightBase.__init__(self, value=value, metric=metric)

@@ -5,18 +5,18 @@ class PropertyTypeValue(PropertyTypeValueBase, PropertyTypeValueActions):
     '''
     classdocs
     '''
-    def __init__(self, costvalue=None, parent=None, value=None, displayname=None, child=[]):
+    def __init__(self, value=None, displayname=None, child=[], parent=None, costvalue=None):
         '''
         Constructor
-        @param costvalue: costvalue minOccurs=0
-        @type costvalue: CostValue
-        @param parent: parent minOccurs=0
-        @type parent: Link
         @param value: value minOccurs=0
         @type value: string
         @param displayname: displayname minOccurs=0
         @type displayname: string
         @param child: child minOccurs=0 maxOccurs=unbounded
         @type child: PropertyTypeValue
+        @param parent: parent minOccurs=0
+        @type parent: Link
+        @param costvalue: costvalue minOccurs=0
+        @type costvalue: CostValue
         '''
-        PropertyTypeValueBase.__init__(self, costvalue=costvalue, parent=parent, value=value, displayname=displayname, child=child)
+        PropertyTypeValueBase.__init__(self, value=value, displayname=displayname, child=child, parent=parent, costvalue=costvalue)

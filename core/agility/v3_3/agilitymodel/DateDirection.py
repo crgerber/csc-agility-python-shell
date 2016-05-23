@@ -1,4 +1,4 @@
 
 from core.base.enum import Enum
 
-DateDirection = Enum(**{'Current': 'Current', 'Future': 'Future', 'Past': 'Past'})
+DateDirection = Enum(**{'Future': 'Future', 'Past': 'Past', 'Current': 'Current'})

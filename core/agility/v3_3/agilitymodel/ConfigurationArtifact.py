@@ -5,20 +5,20 @@ class ConfigurationArtifact(ConfigurationArtifactBase, ConfigurationArtifactActi
     '''
     classdocs
     '''
-    def __init__(self, resource=[], repository=[], documentation=None, version=None, property=[], type=None):
+    def __init__(self, property=[], documentation=None, version=None, repository=[], type=None, resource=[]):
         '''
         Constructor
-        @param resource: resource minOccurs=0 maxOccurs=unbounded
-        @type resource: Link
-        @param repository: repository minOccurs=0 maxOccurs=unbounded
-        @type repository: Link
+        @param property: property minOccurs=0 maxOccurs=unbounded
+        @type property: AssetProperty
         @param documentation: documentation minOccurs=0
         @type documentation: string
         @param version: version minOccurs=0
         @type version: string
-        @param property: property minOccurs=0 maxOccurs=unbounded
-        @type property: AssetProperty
+        @param repository: repository minOccurs=0 maxOccurs=unbounded
+        @type repository: Link
         @param type: type minOccurs=0
         @type type: string
+        @param resource: resource minOccurs=0 maxOccurs=unbounded
+        @type resource: Link
         '''
-        ConfigurationArtifactBase.__init__(self, resource=resource, repository=repository, documentation=documentation, version=version, property=property, type=type)
+        ConfigurationArtifactBase.__init__(self, property=property, documentation=documentation, version=version, repository=repository, type=type, resource=resource)

@@ -4,11 +4,11 @@ class AddressBase(ItemBase):
     '''
     classdocs
     '''
-    def __init__(self, instance=None, inetaddr=None, elastic=None, address=None):
+    def __init__(self, address=None, elastic=None, inetaddr=None, instance=None):
         ItemBase.__init__(self)
         self._attrSpecs = getattr(self, '_attrSpecs', {})
-        self._attrSpecs.update({'inetAddr': {'native': True, 'name': 'inetaddr', 'minOccurs': '0', 'type': 'string'}, 'elastic': {'native': True, 'name': 'elastic', 'minOccurs': '0', 'type': 'boolean'}, 'instance': {'native': False, 'name': 'instance', 'minOccurs': '0', 'type': 'Link'}, 'address': {'native': True, 'name': 'address', 'minOccurs': '0', 'type': 'string'}})
-        self.instance = instance
-        self.inetaddr = inetaddr
+        self._attrSpecs.update({'address': {'name': 'address', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'elastic': {'name': 'elastic', 'minOccurs': '0', 'native': True, 'type': 'boolean'}, 'inetAddr': {'name': 'inetaddr', 'minOccurs': '0', 'native': True, 'type': 'string'}, 'instance': {'name': 'instance', 'minOccurs': '0', 'native': False, 'type': 'Link'}})
+        self.address = address
         self.elastic = elastic
-        self.address = address 
+        self.inetaddr = inetaddr
+        self.instance = instance 
