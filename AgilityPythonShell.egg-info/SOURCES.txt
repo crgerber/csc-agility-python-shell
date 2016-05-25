@@ -1,7 +1,0 @@
-setup.py
-AgilityPythonShell.egg-info/PKG-INFO
-AgilityPythonShell.egg-info/SOURCES.txt
-AgilityPythonShell.egg-info/dependency_links.txt
-AgilityPythonShell.egg-info/requires.txt
-AgilityPythonShell.egg-info/top_level.txt
-test/test_load_plugins.py

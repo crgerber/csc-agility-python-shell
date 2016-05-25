@@ -99,6 +99,8 @@ def loadPlugin(fullpath, config):
         if not isinstance(libpaths, (list, tuple)):
             libpaths = [libpaths]
         pythonpath.addPaths(libpaths, basedir=fullpath)
+        logger.debug("basedir:=%s" % str(fullpath))
+        logger.debug("libpaths:=%s" % str(libpaths))
         
     #add plugin lib fullpath to syspath if any
     if PluginConfigFile.CONF_EXTLIB_PATHS in config:
@@ -123,10 +125,10 @@ def loadPlugin(fullpath, config):
                 
         filehandle, pathname, description = imp.find_module(config[PluginConfigFile.CONF_MAIN_MODULE])
         
-        #print("name:=%s" % str(config[PluginConfigFile.CONF_MAIN_MODULE])) 
-        #print("file:=%s" % str(filehandle))
-        #print("filename:=%s" % pathname)
-        #print(("description:=%s" % str(description))) 
+        logger.debug("name:=%s" % str(config[PluginConfigFile.CONF_MAIN_MODULE]))
+        logger.debug("file:=%s" % str(filehandle))
+        logger.debug("filename:=%s" % pathname)
+        logger.debug("description:=%s" % str(description))
         
         if not filehandle:
             raise ImportError()

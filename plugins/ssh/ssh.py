@@ -8,6 +8,9 @@ import stat
 from core.plugin import AgilityShellHook
 from ssh2 import Connection as sshConnection
 
+import logger
+logger = logger.getLogger(__name__)
+
 class SSH(AgilityShellHook):
     def __init__(self, agility):
         AgilityShellHook.__init__(self, agility)
@@ -18,6 +21,8 @@ class SSH(AgilityShellHook):
         TYPE_USERPASS = 'Username/Password'
         compute = self._agility.compute.getInstance(computeId)
         credentials = [compute.credential] if not isinstance(compute.credential, list) else compute.credential
+        
+        logger.debug("Credential:=%s"%compute.credential.__str__())
             
         #getCredential returns the ssh-keys, while getCredentials2 returns the password
         credentialList = [self._agility.credential.getCredential(credential.id) for credential in credentials]

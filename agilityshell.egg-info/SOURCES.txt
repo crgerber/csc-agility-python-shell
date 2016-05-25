@@ -1,0 +1,9 @@
+setup.py
+agilityshell.egg-info/PKG-INFO
+agilityshell.egg-info/SOURCES.txt
+agilityshell.egg-info/dependency_links.txt
+agilityshell.egg-info/requires.txt
+agilityshell.egg-info/top_level.txt
+test/test_generator.py
+test/test_load_plugins.py
+test/test_versioned_item.py

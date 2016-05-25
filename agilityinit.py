@@ -109,7 +109,7 @@ class Agility(object):
         print(("LogLevel:=%s" % configuration.get('log', 'level'))) 
         self.cfg.logger.setLevel(getattr(level, configuration.get('log', 'level')))
         
-    def _initPlugins(self, rootpath=''):  
+    def _initPlugins(self, rootpath=''):
         if hasattr(self.cfg, 'plugins'):
             return self.cfg.plugins.loaded, self.cfg.plugins.failed
         self.cfg.plugins = Hook()
@@ -119,8 +119,19 @@ class Agility(object):
         
         loaded, failed = loadPlugins(self, rootpath or self.cfg.path.rootdir, 'plugins')
         
-        #print("\nLoaded:=%s" % str(loaded))
-        #print("\nFailed:=%s" % str(failed))
+        if failed :
+            logger.error("\nFailed:=%s" % str(failed))
+            
+            rootPath = None
+            
+            if rootpath :
+                rootPath = rootpath
+            else :
+                rootPath = self.cfg.path.rootdir
+                
+            logger.debug("\nRootPath:=%s" % str(rootPath))
+        
+        logger.debug("\nLoaded:=%s" % str(loaded))
         
         self.cfg.plugins.reload = partially(reloadPluginFeature, self)
         
