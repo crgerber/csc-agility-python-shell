@@ -36,9 +36,6 @@ BOOLEAN = {'True' : True, 'False' : False}
 
 def getConfiguration(path=None):
     path = path or os.path.join(SHELL_ROOT_DIR, 'agilityshell.cfg')
-   
-    print("Path:=%s"%path) 
-    
     configuration = AgilityShellConfig(path=path)
     return configuration
 
@@ -105,8 +102,6 @@ class Agility(object):
                     DEBUG = logging.DEBUG,
                     NOTSET = logging.NOTSET))
         self.cfg.LOG_LEVEL = level
-       
-        print(("LogLevel:=%s" % configuration.get('log', 'level'))) 
         self.cfg.logger.setLevel(getattr(level, configuration.get('log', 'level')))
         
     def _initPlugins(self, rootpath=''):

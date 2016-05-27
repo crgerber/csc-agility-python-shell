@@ -5,7 +5,13 @@ Created on Dec 3, 2012
 '''
 import time
 __all__ = ['loadDemo', 'playDemo']
-from IPython.lib.demo import Demo, ClearDemo
+from IPython.lib.demo import Demo, ClearDemo, ClearMixin
+
+def mp_pre_cmd(self):
+    from IPython.utils.terminal import _term_clear as term_clear
+    term_clear()
+
+ClearMixin.pre_cmd = mp_pre_cmd
 
 def loadDemo(path, title='', autoExec=False):
     demo = ClearDemo(path, title, auto_all=autoExec)
@@ -21,10 +27,13 @@ def playDemo(demo, autoPlay=False, slidePause=10):
             time.sleep(slidePause)
     
     idx = 0
-    user_input = unattended if autoPlay else raw_input
     while(True):
         demo(idx)
-        option = user_input('\n[n] for next. [p] for previous. [q] to quit')
+        option = None
+        if autoPlay :
+            option = unattended('\n[n] for next. [p] for previous. [q] to quit')
+        else :
+            option = input('\n[n] for next. [p] for previous. [q] to quit')
         if 'n' == option:
             if demo < nslides:
                 idx += 1

@@ -257,7 +257,6 @@ def prioritizePlugins(allconfig):
     '''
     # prioritizedPlugins = sorted(list(allconfig.items()), key=lambda pair: pair[1], cmp=resolveDependency)
     prioritizedPlugins = sorted(list(allconfig.items()), key=cmp_to_key(resolveDependency))
-    print("PrioritizedPlugins:=%s" % str(prioritizedPlugins)) 
     return prioritizedPlugins
 
 def loadPlugins(agility, rootpath, plugindir='plugins'):
@@ -269,9 +268,6 @@ def loadPlugins(agility, rootpath, plugindir='plugins'):
     isDir = lambda relpath: isNotHidden(relpath) and os.path.isdir(os.path.join(pluginspath, relpath))
     for plugin in filter(isDir, os.listdir(pluginspath)):
         pluginpath = os.path.join(pluginspath, plugin)
-        
-        print('PluginPath: %s'%pluginpath)
-        
         try:
             configpath = os.path.join(pluginpath, 'plugin.cfg')
             configfile = PluginConfigFile(configpath)
