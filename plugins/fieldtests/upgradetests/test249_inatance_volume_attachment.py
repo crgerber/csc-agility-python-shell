@@ -20,7 +20,8 @@ class TestInstanceVolumeAttachment(unittest.TestCase):
 
     def setUp(self):
         self.computeFixture = ComputeFixture(agility.cfg.conn, snapshot=ComputeFixture.SNAPSHOT.LOAD)
-        snapshotpath = os.path.join(agility.cfg.path.rootdir, '../cba_snapshots/')
+#        snapshotpath = os.path.join(agility.cfg.path.rootdir, '../cba_snapshots/')
+        snapshotpath = agility.cfg.path.rootdir
         config = dict(client = 'cba',
         baseDir = snapshotpath,
         createCSVReport = True,

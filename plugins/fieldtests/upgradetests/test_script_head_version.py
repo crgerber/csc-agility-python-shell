@@ -20,8 +20,9 @@ class TestScriptElginUpgrade(TestCase):
         before = False
         self.snapshot = ScriptFixture.SNAPSHOT.NEW if before else ScriptFixture.SNAPSHOT.LOAD
         self.scriptFixture = ScriptFixture(agility.cfg.conn, snapshot=self.snapshot)
-        snapshotpath = os.path.join(agility.cfg.path.rootdir, 'shellsnapshot')
 #        snapshotpath = '/Users/dawood/Documents/workspace/dist_0.2/shellsnapshot'
+#        snapshotpath = os.path.join(agility.cfg.path.rootdir, 'shellsnapshot')
+        snapshotpath = agility.cfg.path.rootdir
         self.scriptFixture.configure(client='cba', baseDir=snapshotpath)
         self.scriptFixture.setUp()
         
@@ -32,7 +33,7 @@ class TestScriptElginUpgrade(TestCase):
         scriptMap = agility.tools.scripting.idmap(self.scriptFixture.detailedAssetList)
         fields = ['id', 'name', 'version', 'latest']
         actualScriptMap = agility.tools.scripting.idmap(agility.script.listDetails())
-        self.assertTrue(agility.tools.report.diff.assertEqual(scriptMap, actualScriptMap, fields=fields, mode=agility.tools.report.diff.COMPARE_MODE.EXACT), 'Script attributes changed')
+        self.assertTrue(agility.tools.report.diff.assertEqual(scriptMap, actualScriptMap, fields=fields, mode=agility.tools.report.diff.COMPARE_MODE.EXACT, _logger=logger), 'Script attributes changed')
         
         
         

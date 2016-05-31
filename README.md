@@ -150,7 +150,7 @@ Displays source code.
     scripts102[40].runAsAdmin = 'false'
     agility.tools.report.diffReport(scripts101, scripts102, fields=['id', 'name', 'version', 'runAsAdmin'], reportFileName='scripts_report', reportDir='reports', format='csv')
 
->> #### Running Tests
+>> #### Running Tests | Command Line
 
 * Generator Test:
 
@@ -163,6 +163,22 @@ This tests Agility Shell against the currently configured Agility Platform versi
 This tests Agility Shell against the currently configured Agility Platform version for versioned asset attribute changes.
 
     python test/test_versioned_item.py
+
+>> #### Running Tests | Shell
+
+* Upgrade Test Suite
+
+    path = os.path.join(agility.cfg.path.rootdir, 'plugins/fieldtests/upgradetests')
+    suite = agility.tools.test.designer.discover(path)
+    from unittest import TextTestRunner
+    TextTestRunner(verbosity=2).run(suite)
+
+* Test Case Suite 
+
+    path = os.path.join(agility.cfg.path.rootdir, 'plugins/fieldtests/testcases')
+    suite = agility.tools.test.designer.discover(path)
+    from unittest import TextTestRunner
+    TextTestRunner(verbosity=2).run(suite)
 
 > ### Configuration
 
